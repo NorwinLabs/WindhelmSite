@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Windhelm® - Dynamic quests, legendary heroes, and immersive gameplay awaits."
+      content="Windhelm® - Procedurally generated story-driven RPG with dynamic quests, legendary heroes, and infinite replayability."
     />
     <meta
       name="keywords"
-      content="Windhelm, RPG, adventure game, dynamic quests, indie game, Steam"
+      content="Windhelm, RPG, adventure game, procedurally generated, story-driven, dynamic quests, narrative RPG, indie game, Steam"
     />
     <title>Windhelm®</title>
 
@@ -31,6 +31,10 @@
       as="image"
       type="image/png"
     />
+    <link rel="preload" href="images/BGVideo.mp4" as="video" type="video/mp4" />
+    <link rel="preload" href="images/2.png" as="image" type="image/png" />
+    <link rel="preload" href="images/3.png" as="image" type="image/png" />
+    <link rel="preload" href="images/4.png" as="image" type="image/png" />
 
     <!-- Critical CSS - Inline for faster first paint -->
     <style>
@@ -406,11 +410,11 @@
         font-weight: 500;
       }
 
-      /* Features Grid */
-      .features-grid {
+      /* Compact Features Grid */
+      .features-grid-compact {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
         margin-top: 3rem;
       }
       .feature-card {
@@ -651,52 +655,183 @@
         margin-bottom: 1rem;
       }
 
-      /* Contact Form */
-      .contact-form {
-        max-width: 600px;
-        margin: 0 auto;
-        background: url("images/islandbg.png") repeat,
-          linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75));
-        background-blend-mode: overlay;
-        backdrop-filter: blur(10px);
+      /* Contact Grid Layout */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 4rem;
+        align-items: start;
+        margin-top: 3rem;
+      }
+
+      /* Contact Info Cards */
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .contact-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 1rem;
         padding: 2rem;
-        border-radius: var(--border-radius-lg);
-        box-shadow: var(--shadow);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
       }
-      .form-group {
-        margin-bottom: 1.5rem;
+
+      .contact-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        border-color: var(--primary-color);
       }
-      .form-group label {
-        display: block;
-        font-weight: 500;
-        color: var(--gray-700);
+
+      .contact-card-icon {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--primary-dark)
+        );
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+      }
+
+      .contact-card-icon svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .contact-card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--gray-900);
         margin-bottom: 0.5rem;
       }
+
+      .contact-card-text {
+        color: var(--gray-600);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition-base);
+      }
+
+      .contact-card-link:hover {
+        color: var(--primary-dark);
+        transform: translateX(4px);
+      }
+
+      /* Contact Form Container */
+      .contact-form-container {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 1.5rem;
+        padding: 2.5rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .contact-form-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .contact-form-header h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gray-900);
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-form-header p {
+        color: var(--gray-600);
+        font-size: 1rem;
+      }
+
+      /* Form Styles */
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-group label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        color: var(--gray-700);
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      .form-group label svg {
+        color: var(--primary-color);
+      }
+
       .form-group input,
       .form-group textarea {
         width: 100%;
-        padding: 0.75rem;
-        border: 2px solid var(--gray-300);
-        border-radius: var(--border-radius);
+        padding: 1rem;
+        border: 2px solid var(--gray-200);
+        border-radius: 0.75rem;
         font-family: inherit;
         font-size: 1rem;
-        transition: var(--transition-base);
-        background-color: rgba(255, 255, 255, 0.95);
+        transition: all 0.2s ease;
+        background-color: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(8px);
         color: var(--gray-900);
-        font-weight: 500;
       }
+
       .form-group input:focus,
       .form-group textarea:focus {
         outline: none;
         border-color: var(--primary-color);
         box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        background-color: rgba(255, 255, 255, 0.95);
       }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
       .checkbox-group {
         display: flex;
-        align-items: center;
-        gap: 0.5rem;
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin: 0.5rem 0;
       }
+
       .checkbox-group input[type="checkbox"] {
         width: auto;
       }
@@ -770,6 +905,37 @@
         border-radius: var(--border-radius);
         font-weight: 600;
         font-size: 0.9rem;
+        cursor: help;
+        transition: var(--transition-base);
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .footer-version:hover {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      }
+
+      #version-number {
+        font-weight: 700;
+      }
+
+      #build-info {
+        font-family: "Courier New", monospace;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 768px) {
+        .footer-version {
+          flex-direction: column;
+          text-align: center;
+        }
+        #build-info {
+          margin-left: 0 !important;
+          margin-top: 0.25rem;
+        }
       }
 
       /* Form Messages */
@@ -943,6 +1109,12 @@
       img {
         max-width: 100%;
         height: auto;
+        /* Optimize image rendering */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: optimize-contrast;
+        /* Prevent layout shift during loading */
+        content-visibility: auto;
+        contain-intrinsic-size: 300px 200px;
       }
 
       /* Enhance all images to prevent fading */
@@ -991,9 +1163,30 @@
         .section-title {
           font-size: 2rem;
         }
-        .features-grid,
+        .features-grid-compact,
         .team-grid {
           grid-template-columns: 1fr;
+        }
+
+        .feature-overlay h3 {
+          font-size: 1.1rem;
+        }
+
+        .feature-card-compact.expanded .feature-content-expandable {
+          max-height: 400px;
+        }
+
+        .expand-icon {
+          width: 32px;
+          height: 32px;
+        }
+
+        .feature-overlay h3 {
+          font-size: 1.1rem;
+        }
+
+        .feature-card-compact.expanded .feature-content-expandable {
+          max-height: 400px;
         }
         .footer-content {
           flex-direction: column;
@@ -1001,6 +1194,22 @@
         }
         .contact-form {
           padding: 1.5rem;
+        }
+
+        .contact-info {
+          order: 2;
+        }
+
+        .contact-form-container {
+          order: 1;
+        }
+
+        .contact-info {
+          order: 2;
+        }
+
+        .contact-form-container {
+          order: 1;
         }
       }
     </style>
@@ -1017,7 +1226,7 @@
     <meta property="og:title" content="Windhelm®" />
     <meta
       property="og:description"
-      content="Embark on an epic RPG adventure with dynamic quests and legendary heroes."
+      content="Embark on a procedurally generated story-driven RPG adventure with dynamic quests and legendary heroes."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="images/Logo.png" />
@@ -1151,11 +1360,17 @@
         </div>
         <div class="hero-content">
           <h1 class="hero-title-main">
-            <img src="images/Logo.png" alt="Windhelm" class="hero-logo" />
+            <img
+              src="images/Logo.png"
+              alt="Windhelm"
+              class="hero-logo"
+              fetchpriority="high"
+            />
           </h1>
           <span class="hero-title-sub">Epic RPG Adventure</span>
           <p class="hero-description">
-            Dynamic quests, legendary heroes, and immersive gameplay awaits.
+            A procedurally generated story-driven RPG where every playthrough
+            tells a unique tale with dynamic quests and legendary heroes.
           </p>
           <div class="hero-cta">
             <a
@@ -1175,28 +1390,51 @@
           <header class="section-header">
             <h2 class="section-title">Discover Windhelm</h2>
             <p class="section-subtitle">
-              An immersive RPG adventure crafted by a passionate husband-wife
-              indie team
+              A procedurally generated story-driven RPG where every playthrough
+              creates a unique narrative adventure - crafted by a passionate
+              husband-wife indie team
             </p>
           </header>
 
-          <div class="features-grid">
-            <article class="feature-card">
-              <div class="feature-image">
+          <div class="features-grid-compact">
+            <article class="feature-card-compact" data-feature="quests">
+              <div class="feature-image-compact">
                 <img
                   src="images/2.png"
-                  alt="Dynamic Quest System"
-                  loading="lazy"
+                  alt="Procedurally Generated Quests"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
                 />
+                <div class="feature-overlay">
+                  <h3>Procedurally Generated Quests</h3>
+                  <div class="expand-icon">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 5V19M5 12L19 12"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <div class="feature-content">
-                <h3>Revolutionary Quest System</h3>
+              <div class="feature-content-expandable">
                 <p>
-                  Windhelm features an innovative quest system that dynamically
-                  adapts to your choices and playstyle. Unlike traditional
-                  linear RPGs, every decision shapes your journey, creating
-                  truly personalized adventures. The world responds to your
-                  actions, offering multiple solutions to challenges and
+                  Windhelm features a revolutionary procedurally generated quest
+                  system that creates unique stories for every playthrough.
+                  Unlike traditional linear RPGs, our advanced narrative engine
+                  weaves together dynamic storylines, ensuring no two adventures
+                  are the same. The world responds to your actions, offering
+                  infinite solutions to procedurally crafted challenges and
                   ensuring no two playthroughs are the same. Experience emergent
                   storytelling where your choices matter and consequences unfold
                   naturally.
@@ -1204,62 +1442,135 @@
               </div>
             </article>
 
-            <article class="feature-card">
-              <div class="feature-image">
+            <article class="feature-card-compact" data-feature="world">
+              <div class="feature-image-compact">
                 <img
                   src="images/3.png"
-                  alt="Rich World Building"
-                  loading="lazy"
+                  alt="Procedurally Generated World & Lore"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
                 />
+                <div class="feature-overlay">
+                  <h3>Procedurally Generated World & Lore</h3>
+                  <div class="expand-icon">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 5V19M5 12L19 12"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <div class="feature-content">
-                <h3>Immersive World & Lore</h3>
+              <div class="feature-content-expandable">
                 <p>
-                  Explore the vast realm of Windhelm, a meticulously crafted
-                  fantasy world filled with ancient mysteries, diverse
-                  landscapes, and rich cultural histories. From mystical forests
-                  to towering mountain fortresses, every location tells a story
-                  through environmental storytelling and hidden lore. Discover
-                  forgotten ruins, uncover lost civilizations, and interact with
-                  memorable NPCs who have their own goals and motivations that
-                  extend beyond serving the player's needs.
+                  Explore the vast realm of Windhelm, where advanced procedural
+                  generation creates a living fantasy world filled with unique
+                  mysteries, diverse landscapes, and rich cultural histories
+                  that evolve with each playthrough. From mystical forests to
+                  towering mountain fortresses, every location tells a different
+                  story through dynamic environmental storytelling and
+                  procedurally woven lore. Discover forgotten ruins, uncover
+                  lost civilizations, and interact with AI-driven NPCs who have
+                  their own procedurally generated goals, memories, and
+                  motivations that create authentic story moments beyond serving
+                  the player's needs.
                 </p>
               </div>
             </article>
 
-            <article class="feature-card">
-              <div class="feature-image">
+            <article class="feature-card-compact" data-feature="character">
+              <div class="feature-image-compact">
                 <img
                   src="images/4.png"
-                  alt="Character Progression"
-                  loading="lazy"
+                  alt="Story-Driven Character Evolution"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
                 />
+                <div class="feature-overlay">
+                  <h3>Story-Driven Character Evolution</h3>
+                  <div class="expand-icon">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 5V19M5 12L19 12"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <div class="feature-content">
-                <h3>Deep Character Customization</h3>
+              <div class="feature-content-expandable">
                 <p>
-                  Create and develop legendary heroes with our extensive
-                  character progression system. Choose from multiple classes,
-                  each with unique abilities, skill trees, and playstyles. Craft
-                  and customize equipment, master diverse combat techniques, and
-                  develop relationships with companions. The game features
-                  meaningful character development where your build choices
-                  significantly impact gameplay mechanics, dialogue options, and
-                  story outcomes, ensuring every character feels truly unique.
+                  Create and develop legendary heroes whose stories unfold
+                  through our extensive narrative-integrated progression system.
+                  Choose from multiple classes, each with unique abilities,
+                  skill trees, and story arcs that interweave with the world's
+                  lore. Craft and customize equipment that carries procedural
+                  backstories, master diverse combat techniques, and develop
+                  meaningful relationships with companions whose personal
+                  narratives evolve. The game features deep character
+                  development where your build choices and story decisions
+                  significantly impact gameplay mechanics, procedural dialogue
+                  generation, and branching story outcomes, ensuring every
+                  hero's tale feels truly unique and memorable.
                 </p>
               </div>
             </article>
 
-            <article class="feature-card">
-              <div class="feature-image">
-                <img src="images/5.png" alt="Strategic Combat" loading="lazy" />
+            <article class="feature-card-compact" data-feature="combat">
+              <div class="feature-image-compact">
+                <img
+                  src="images/5.png"
+                  alt="Tactical Combat System"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="feature-overlay">
+                  <h3>Tactical Combat System</h3>
+                  <div class="expand-icon">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 5V19M5 12L19 12"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <div class="feature-content">
-                <h3>Tactical Combat System</h3>
+              <div class="feature-content-expandable">
                 <p>
                   Engage in strategic, free flow combat that rewards planning
                   and positioning over button-mashing. Utilize environmental
-                  hazards, elemental synergies, and tactical abilites to
+                  hazards, elemental synergies, and tactical abilities to
                   overcome challenging encounters. The combat system emphasizes
                   resource management, timing, and smart use of abilities rather
                   than reflexes. Face diverse enemy types that require different
@@ -1269,40 +1580,83 @@
               </div>
             </article>
 
-            <article class="feature-card">
-              <div class="feature-image">
+            <article class="feature-card-compact" data-feature="indie">
+              <div class="feature-image-compact">
                 <img
                   src="images/Grasslandoverlook1.png"
-                  alt="Indie Crafted"
+                  alt="Story-First Indie Vision"
                   loading="lazy"
+                  decoding="async"
                 />
+                <div class="feature-overlay">
+                  <h3>Story-First Indie Vision</h3>
+                  <div class="expand-icon">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 5V19M5 12L19 12"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <div class="feature-content">
-                <h3>Indie Passion Project</h3>
+              <div class="feature-content-expandable">
                 <p>
                   Windhelm is lovingly crafted by NorwinLabs, a dedicated
-                  husband-wife indie development team. Every aspect of the game
-                  reflects our passion for classic RPGs and attention to detail.
-                  We prioritize meaningful content over flashy graphics,
-                  focusing on deep gameplay mechanics, engaging narratives, and
-                  player agency. As an indie project, we maintain direct
-                  communication with our community, incorporating player
-                  feedback and ensuring the game stays true to its vision of
-                  delivering an authentic RPG experience.
+                  husband-wife indie development team passionate about
+                  procedural storytelling and narrative innovation. Every aspect
+                  of the game reflects our commitment to creating meaningful,
+                  emergent stories through advanced procedural generation. We
+                  prioritize deep narrative systems over flashy graphics,
+                  focusing on revolutionary story mechanics, procedurally woven
+                  narratives, and meaningful player agency that shapes unique
+                  tales. As an indie project, we maintain direct communication
+                  with our community, incorporating player feedback and ensuring
+                  the game stays true to its vision of delivering an authentic
+                  story-driven RPG experience with infinite replayability.
                 </p>
               </div>
             </article>
 
-            <article class="feature-card">
-              <div class="feature-image">
+            <article class="feature-card-compact" data-feature="community">
+              <div class="feature-image-compact">
                 <img
                   src="images/pngegg.png"
-                  alt="Community Driven"
+                  alt="Community-Driven Development"
                   loading="lazy"
+                  decoding="async"
                 />
+                <div class="feature-overlay">
+                  <h3>Community-Driven Development</h3>
+                  <div class="expand-icon">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 5V19M5 12L19 12"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <div class="feature-content">
-                <h3>Community-Driven Development</h3>
+              <div class="feature-content-expandable">
                 <p>
                   Join our growing community of RPG enthusiasts and become part
                   of Windhelm's development journey. We actively engage with
@@ -1335,6 +1689,7 @@
                   src="images/Gavin1.jpg"
                   alt="Gavin Norwood"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="member-info">
@@ -1349,6 +1704,7 @@
                   src="images/Kirstenjpg1.jpg"
                   alt="Kirsten Norwood"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="member-info">
@@ -1369,86 +1725,279 @@
       <section id="contact" class="contact">
         <div class="container">
           <header class="section-header">
-            <h2 class="section-title">Have Questions?</h2>
-            <p class="section-subtitle">Get in touch with us</p>
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle">
+              Have questions about Windhelm? Want to join our community? We'd
+              love to hear from you!
+            </p>
           </header>
 
-          <div class="contact-content">
-            <button
-              type="button"
-              id="toggle-contact"
-              style="
-                width: 100%;
-                background: rgba(36, 36, 40, 0.98);
-                color: #f3f4f6;
-                border: none;
-                padding: 0.75rem 1rem;
-                margin-bottom: 0.5rem;
-                border-radius: 0.5rem;
-                font-weight: 600;
-                cursor: pointer;
-                text-align: left;
-              "
-            >
-              Contact Us (click to show/hide)
-            </button>
-            <div id="contact-collapse" style="display: none">
+          <div class="contact-grid">
+            <!-- Contact Info Cards -->
+            <div class="contact-info">
+              <div class="contact-card">
+                <div class="contact-card-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.019 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"
+                      fill="#5865F2"
+                    />
+                  </svg>
+                </div>
+                <h3 class="contact-card-title">Join Our Discord</h3>
+                <p class="contact-card-text">
+                  Connect with our community, get live updates, and chat with
+                  the developers!
+                </p>
+                <a
+                  href="https://discord.gg/PgGA8Zsj4g"
+                  class="contact-card-link"
+                  target="_blank"
+                >
+                  Join Discord
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-card-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                      fill="#FF0000"
+                    />
+                  </svg>
+                </div>
+                <h3 class="contact-card-title">YouTube Channel</h3>
+                <p class="contact-card-text">
+                  Watch development vlogs, gameplay previews, and
+                  behind-the-scenes content!
+                </p>
+                <a
+                  href="https://www.youtube.com/@NorwinLabs"
+                  class="contact-card-link"
+                  target="_blank"
+                >
+                  Watch Videos
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-card-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                      fill="#00D924"
+                    />
+                  </svg>
+                </div>
+                <h3 class="contact-card-title">Wishlist on Steam</h3>
+                <p class="contact-card-text">
+                  Add Windhelm to your Steam wishlist to get notified when we
+                  launch!
+                </p>
+                <a
+                  href="https://store.steampowered.com/app/2171040/Windhelm/"
+                  class="contact-card-link"
+                  target="_blank"
+                >
+                  Wishlist Now
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+              <div class="contact-form-header">
+                <h3>Send us a Message</h3>
+                <p>Got a specific question or feedback? Drop us a line!</p>
+              </div>
+
               <form
                 class="contact-form"
                 id="contact-form"
                 action="https://forms.nicepagesrv.com/v2/form/process"
                 method="POST"
               >
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" id="name" name="name" required />
-                </div>
-
-                <!-- Collapsible Email Tab -->
-                <div class="form-group">
-                  <button
-                    type="button"
-                    id="toggle-email"
-                    style="
-                      width: 100%;
-                      background: rgba(36, 36, 40, 0.98);
-                      color: #f3f4f6;
-                      border: none;
-                      padding: 0.75rem 1rem;
-                      margin-bottom: 0.5rem;
-                      border-radius: 0.5rem;
-                      font-weight: 600;
-                      cursor: pointer;
-                      text-align: left;
-                    "
-                  >
-                    Email (click to show/hide)
-                  </button>
-                  <div id="email-collapse" style="display: none">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required />
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="name">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Enter your name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <polyline
+                          points="22,6 12,13 2,6"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="your.email@example.com"
+                      required
+                    />
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label for="message">Message</label>
+                  <label for="message">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    Your Message
+                  </label>
                   <textarea
                     id="message"
                     name="message"
-                    rows="4"
+                    rows="5"
+                    placeholder="Tell us about your thoughts, questions, or feedback..."
                     required
                   ></textarea>
                 </div>
 
                 <div class="form-group checkbox-group">
                   <input type="checkbox" id="agree" name="agree" required />
-                  <label for="agree"
-                    >I accept the
-                    <a href="#" class="terms-link">Terms of Service</a></label
-                  >
+                  <label for="agree" class="checkbox-label">
+                    I accept the
+                    <a href="#" class="terms-link">Terms of Service</a> and
+                    <a href="#" class="terms-link">Privacy Policy</a>
+                  </label>
                 </div>
 
                 <button type="submit" class="submit-button">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
                   Send Message
                 </button>
 
@@ -1519,8 +2068,12 @@
             />
             <p>©2025 NorwinLabs LLC. All rights reserved.</p>
           </div>
-          <div class="footer-version">
-            <span>v1.1</span>
+          <div class="footer-version" id="version-display">
+            <span id="version-number">v1.0.0</span>
+            <span
+              id="build-info"
+              style="font-size: 0.8em; opacity: 0.7; margin-left: 0.5rem"
+            ></span>
           </div>
         </div>
       </div>
@@ -1528,6 +2081,135 @@
 
     <!-- Scripts -->
     <script>
+      // Automatic Versioning System
+      class VersionManager {
+        constructor() {
+          this.baseVersion = { major: 1, minor: 2, patch: 0 };
+          this.buildDate = new Date();
+          this.deploymentId = this.generateDeploymentId();
+          this.initializeVersioning();
+        }
+
+        generateDeploymentId() {
+          // Generate unique deployment ID based on timestamp
+          const timestamp = Date.now();
+          const randomSuffix = Math.random().toString(36).substr(2, 4);
+          return `${timestamp.toString(36)}-${randomSuffix}`;
+        }
+
+        calculateDynamicVersion() {
+          // Calculate days since base date (Jan 1, 2025)
+          const baseDate = new Date("2025-01-01");
+          const daysSinceBase = Math.floor(
+            (this.buildDate - baseDate) / (1000 * 60 * 60 * 24)
+          );
+
+          // Auto-increment patch version based on days
+          const autoPatches = Math.floor(daysSinceBase / 7); // New patch every week
+          const autoMinor = Math.floor(daysSinceBase / 30); // New minor every month
+
+          return {
+            major: this.baseVersion.major,
+            minor: this.baseVersion.minor + autoMinor,
+            patch: this.baseVersion.patch + autoPatches,
+          };
+        }
+
+        getVersionString() {
+          const version = this.calculateDynamicVersion();
+          return `v${version.major}.${version.minor}.${version.patch}`;
+        }
+
+        getBuildInfo() {
+          const buildMonth = this.buildDate.toLocaleDateString("en-US", {
+            month: "short",
+          });
+          const buildDay = this.buildDate.getDate();
+          const buildYear = this.buildDate.getFullYear();
+          const deploymentShort = this.deploymentId.substr(0, 8);
+
+          return `Build ${buildMonth} ${buildDay}, ${buildYear} • ${deploymentShort}`;
+        }
+
+        initializeVersioning() {
+          // Update version display immediately
+          this.updateVersionDisplay();
+
+          // Store version info in localStorage for persistence
+          const versionInfo = {
+            version: this.getVersionString(),
+            buildDate: this.buildDate.toISOString(),
+            deploymentId: this.deploymentId,
+            lastUpdate: Date.now(),
+          };
+
+          localStorage.setItem(
+            "windhelm_version_info",
+            JSON.stringify(versionInfo)
+          );
+
+          // Add version to console for debugging
+          console.log(
+            `%cWindhelm ${this.getVersionString()}`,
+            "color: #d97706; font-weight: bold; font-size: 14px;"
+          );
+          console.log(`Build Info: ${this.getBuildInfo()}`);
+        }
+
+        updateVersionDisplay() {
+          const versionElement = document.getElementById("version-number");
+          const buildElement = document.getElementById("build-info");
+
+          if (versionElement) {
+            versionElement.textContent = this.getVersionString();
+
+            // Add hover effect to show full build info
+            versionElement.title = `${this.getVersionString()}\n${this.getBuildInfo()}\nDeployment: ${
+              this.deploymentId
+            }`;
+          }
+
+          if (buildElement) {
+            buildElement.textContent = this.getBuildInfo();
+          }
+        }
+
+        // Method to manually increment version for major releases
+        incrementVersion(type = "patch") {
+          switch (type) {
+            case "major":
+              this.baseVersion.major++;
+              this.baseVersion.minor = 0;
+              this.baseVersion.patch = 0;
+              break;
+            case "minor":
+              this.baseVersion.minor++;
+              this.baseVersion.patch = 0;
+              break;
+            case "patch":
+              this.baseVersion.patch++;
+              break;
+          }
+
+          this.updateVersionDisplay();
+          console.log(
+            `Version manually incremented to ${this.getVersionString()}`
+          );
+        }
+
+        // Get version history from localStorage
+        getVersionHistory() {
+          const stored = localStorage.getItem("windhelm_version_info");
+          return stored ? JSON.parse(stored) : null;
+        }
+      }
+
+      // Initialize versioning system
+      const versionManager = new VersionManager();
+
+      // Make version manager globally available for debugging
+      window.WindhelmVersion = versionManager;
+
       // Load non-critical CSS asynchronously
       function loadCSS(href, onload) {
         var link = document.createElement("link");
@@ -1543,6 +2225,60 @@
           "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         );
       });
+
+      // Image loading optimization
+      function optimizeImages() {
+        // Preload visible images
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        const imageObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                // Add loading fade effect
+                img.style.transition = "opacity 0.3s ease";
+                img.style.opacity = "0";
+
+                img.onload = function () {
+                  this.style.opacity = "1";
+                };
+
+                observer.unobserve(img);
+              }
+            });
+          },
+          {
+            rootMargin: "50px",
+          }
+        );
+
+        images.forEach((img) => imageObserver.observe(img));
+
+        // Prefetch next section images on scroll
+        let prefetched = new Set();
+        window.addEventListener("scroll", () => {
+          const scrolled = window.scrollY;
+          const windowHeight = window.innerHeight;
+          const documentHeight = document.documentElement.scrollHeight;
+
+          // Prefetch team images when halfway down
+          if (scrolled > documentHeight * 0.5 && !prefetched.has("team")) {
+            const teamImages = ["images/Gavin1.jpg", "images/Kirstenjpg1.jpg"];
+            teamImages.forEach((src) => {
+              const link = document.createElement("link");
+              link.rel = "prefetch";
+              link.href = src;
+              document.head.appendChild(link);
+            });
+            prefetched.add("team");
+          }
+        });
+      }
+
+      // Initialize image optimization
+      if ("IntersectionObserver" in window) {
+        document.addEventListener("DOMContentLoaded", optimizeImages);
+      }
     </script>
     <script src="script.js" defer></script>
 
@@ -1609,13 +2345,7 @@
             collapse.style.display === "none" ? "block" : "none";
         });
 
-      document
-        .getElementById("toggle-contact")
-        .addEventListener("click", function () {
-          var collapse = document.getElementById("contact-collapse");
-          collapse.style.display =
-            collapse.style.display === "none" ? "block" : "none";
-        });
+      // Contact form interactions enhanced in new design
 
       // Form handling with better UX
       const contactForm = document.getElementById("contact-form");
@@ -2029,14 +2759,121 @@
         addGlobalLeafEffect();
       }
 
+      // Expandable Feature Cards
+      function initializeExpandableFeatures() {
+        const featureCards = document.querySelectorAll(".feature-card-compact");
+
+        featureCards.forEach((card) => {
+          card.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Close other expanded cards first
+            featureCards.forEach((otherCard) => {
+              if (
+                otherCard !== card &&
+                otherCard.classList.contains("expanded")
+              ) {
+                otherCard.classList.remove("expanded");
+              }
+            });
+
+            // Toggle current card
+            this.classList.toggle("expanded");
+
+            // Trigger leaf effect on expansion
+            if (this.classList.contains("expanded")) {
+              const rect = this.getBoundingClientRect();
+              const centerX = rect.left + rect.width / 2;
+              const centerY = rect.top + rect.height / 2;
+              triggerLeafEffect(centerX, centerY, true);
+            }
+          });
+
+          // Add keyboard support
+          card.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              this.click();
+            }
+          });
+
+          // Make cards focusable
+          card.setAttribute("tabindex", "0");
+          card.setAttribute("role", "button");
+          card.setAttribute("aria-expanded", "false");
+        });
+      }
+
+      // Expandable Feature Cards
+      function initializeExpandableFeatures() {
+        const featureCards = document.querySelectorAll(".feature-card-compact");
+
+        featureCards.forEach((card) => {
+          card.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Close other expanded cards first
+            featureCards.forEach((otherCard) => {
+              if (
+                otherCard !== card &&
+                otherCard.classList.contains("expanded")
+              ) {
+                otherCard.classList.remove("expanded");
+              }
+            });
+
+            // Toggle current card
+            this.classList.toggle("expanded");
+
+            // Update aria-expanded for accessibility
+            this.setAttribute(
+              "aria-expanded",
+              this.classList.contains("expanded")
+            );
+
+            // Trigger leaf effect on expansion
+            if (this.classList.contains("expanded")) {
+              const rect = this.getBoundingClientRect();
+              const centerX = rect.left + rect.width / 2;
+              const centerY = rect.top + rect.height / 2;
+              triggerLeafEffect(centerX, centerY, true);
+            }
+          });
+
+          // Add keyboard support
+          card.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              this.click();
+            }
+          });
+
+          // Make cards focusable and accessible
+          card.setAttribute("tabindex", "0");
+          card.setAttribute("role", "button");
+          card.setAttribute("aria-expanded", "false");
+
+          // Add descriptive label
+          const title = card.querySelector("h3").textContent;
+          card.setAttribute("aria-label", `Expand details for ${title}`);
+        });
+      }
+
       // Initialize leaf effects when page loads
-      document.addEventListener("DOMContentLoaded", initializeLeafSystem);
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeLeafSystem();
+        initializeExpandableFeatures();
+      });
 
       // Initialize immediately if DOM already loaded
       if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initializeLeafSystem);
+        document.addEventListener("DOMContentLoaded", function () {
+          initializeLeafSystem();
+          initializeExpandableFeatures();
+        });
       } else {
         initializeLeafSystem();
+        initializeExpandableFeatures();
       }
 
       // Handle window resize to ensure leaf bounds stay correct
