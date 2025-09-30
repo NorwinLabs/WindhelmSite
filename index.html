@@ -210,9 +210,15 @@
                             <input type="text" id="name" name="name" required>
                         </div>
                         
+                        <!-- Collapsible Email Tab -->
                         <div class="form-group">
+                          <button type="button" id="toggle-email" style="width:100%;background:rgba(36,36,40,0.98);color:#f3f4f6;border:none;padding:0.75rem 1rem;margin-bottom:0.5rem;border-radius:0.5rem;font-weight:600;cursor:pointer;text-align:left;">
+                            Email (click to show/hide)
+                          </button>
+                          <div id="email-collapse" style="display:none;">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" required>
+                          </div>
                         </div>
                         
                         <div class="form-group">
@@ -310,5 +316,11 @@
         <div class="form-success" id="form-success">Thank you! Your message has been sent.</div>
         <div class="form-error" id="form-error">Unable to send your message. Please try again.</div>
     </div>
+    <script>
+document.getElementById('toggle-email').addEventListener('click', function() {
+  var collapse = document.getElementById('email-collapse');
+  collapse.style.display = collapse.style.display === 'none' ? 'block' : 'none';
+});
+</script>
 </body>
 </html>
