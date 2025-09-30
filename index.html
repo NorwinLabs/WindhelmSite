@@ -261,10 +261,50 @@
         height: auto;
         filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
         transition: var(--transition-base);
+        /* Fire glow effect */
+        animation: fireGlow 3s ease-in-out infinite alternate;
       }
+
       .hero-logo:hover {
         transform: scale(1.05);
         filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+        /* Enhanced fire glow on hover */
+        animation: fireGlowIntense 2s ease-in-out infinite alternate;
+      }
+
+      /* Fire glow animation keyframes */
+      @keyframes fireGlow {
+        0% {
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))
+            drop-shadow(0 0 10px rgba(255, 69, 0, 0.4))
+            drop-shadow(0 0 20px rgba(255, 140, 0, 0.3))
+            drop-shadow(0 0 30px rgba(255, 165, 0, 0.2));
+        }
+        100% {
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))
+            drop-shadow(0 0 15px rgba(255, 69, 0, 0.6))
+            drop-shadow(0 0 25px rgba(255, 140, 0, 0.4))
+            drop-shadow(0 0 35px rgba(255, 165, 0, 0.3))
+            drop-shadow(0 0 45px rgba(255, 215, 0, 0.2));
+        }
+      }
+
+      @keyframes fireGlowIntense {
+        0% {
+          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))
+            drop-shadow(0 0 20px rgba(255, 69, 0, 0.7))
+            drop-shadow(0 0 30px rgba(255, 140, 0, 0.5))
+            drop-shadow(0 0 40px rgba(255, 165, 0, 0.4))
+            drop-shadow(0 0 50px rgba(255, 215, 0, 0.3));
+        }
+        100% {
+          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))
+            drop-shadow(0 0 25px rgba(255, 69, 0, 0.8))
+            drop-shadow(0 0 35px rgba(255, 140, 0, 0.6))
+            drop-shadow(0 0 45px rgba(255, 165, 0, 0.5))
+            drop-shadow(0 0 55px rgba(255, 215, 0, 0.4))
+            drop-shadow(0 0 65px rgba(255, 99, 71, 0.3));
+        }
       }
       .hero-title-sub {
         display: block;
@@ -548,6 +588,92 @@
       .feature-image {
         position: relative;
         z-index: 15;
+      }
+
+      /* Feature Card Overlay Styles */
+      .feature-card-overlay {
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.88),
+            rgba(255, 255, 255, 0.88)
+          ),
+          url("images/islandbg.png") repeat;
+        background-blend-mode: normal, multiply;
+        backdrop-filter: blur(10px);
+        border-radius: var(--border-radius-lg);
+        padding: 0;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15),
+          0 0 0 1px rgba(255, 255, 255, 0.5);
+        transition: var(--transition-base);
+        border: 1px solid rgba(200, 200, 200, 0.3);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .feature-card-overlay:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-image-container {
+        position: relative;
+        width: 100%;
+        order: -1;
+        border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+        overflow: hidden;
+      }
+
+      .feature-image-container img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 0;
+        border: none;
+        display: block;
+      }
+
+      .feature-overlay-content {
+        padding: 1.5rem;
+        position: relative;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.9) 0%,
+          rgba(0, 0, 0, 0.7) 50%,
+          transparent 100%
+        );
+        color: white;
+        text-align: left;
+      }
+
+      .feature-overlay h3 {
+        font-family: var(--font-display);
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin: 0 0 0.5rem 0;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .feature-text-overlay {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+        padding: 0;
+      }
+
+      .feature-card-overlay.expanded .feature-text-overlay {
+        max-height: 200px;
+        padding-top: 0.5rem;
+      }
+
+      .feature-text-overlay p {
+        margin: 0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
       }
 
       /* Team Grid */
@@ -965,12 +1091,282 @@
       /* Progress Updates / Discord Widget */
       .discord-widget-container {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
         margin-bottom: 1.5rem;
+        position: relative;
       }
+
       .discord-widget-container iframe {
         border-radius: 0.75rem;
-        box-shadow: var(--shadow);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        transition: var(--transition-base);
+        background: var(--gray-900);
+      }
+
+      .discord-widget-container iframe:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .discord-loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, var(--gray-800), var(--gray-900));
+        border-radius: 0.75rem;
+        padding: 3rem;
+        text-align: center;
+        color: var(--white);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        z-index: 1;
+        width: 350px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .discord-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(88, 101, 242, 0.3);
+        border-left-color: #5865f2;
+        border-radius: 50%;
+        animation: discordSpin 1s linear infinite;
+        margin-bottom: 1rem;
+      }
+
+      @keyframes discordSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .discord-fallback {
+        background: linear-gradient(135deg, #5865f2, #7289da);
+        border-radius: 0.75rem;
+        padding: 2rem;
+        text-align: center;
+        color: white;
+        width: 350px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .discord-fallback h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .discord-fallback p {
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+        line-height: 1.6;
+      }
+
+      .discord-join-button {
+        background: white;
+        color: #5865f2;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: var(--transition-base);
+      }
+
+      .discord-join-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Game Updates Section */
+      .game-updates {
+        background: url("images/islandbg.png") repeat,
+          linear-gradient(rgba(249, 250, 251, 0.9), rgba(249, 250, 251, 0.9));
+        background-blend-mode: overlay;
+        backdrop-filter: blur(12px);
+        padding: 5rem 0;
+      }
+
+      .updates-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.95),
+            rgba(255, 255, 255, 0.95)
+          ),
+          url("images/islandbg.png") repeat;
+        background-blend-mode: normal, multiply;
+        border-radius: var(--border-radius-lg);
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15),
+          0 0 0 1px rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(200, 200, 200, 0.3);
+      }
+
+      .updates-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 2px solid var(--gray-200);
+      }
+
+      .updates-header h2 {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gray-900);
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .steam-icon {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, #1b2838, #2a475e);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+      }
+
+      .updates-loading {
+        text-align: center;
+        padding: 3rem;
+      }
+
+      .updates-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(37, 99, 235, 0.3);
+        border-left-color: var(--primary-color);
+        border-radius: 50%;
+        animation: updatesSpinner 1s linear infinite;
+        margin: 0 auto 1rem;
+      }
+
+      @keyframes updatesSpinner {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .updates-list {
+        max-height: 500px;
+        overflow-y: auto;
+        padding-right: 0.5rem;
+      }
+
+      .updates-list::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .updates-list::-webkit-scrollbar-track {
+        background: var(--gray-100);
+        border-radius: 4px;
+      }
+
+      .updates-list::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 4px;
+      }
+
+      .update-item {
+        background: white;
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--primary-color);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        transition: var(--transition-base);
+      }
+
+      .update-item:hover {
+        transform: translateX(4px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .update-header {
+        display: flex;
+        justify-content: between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+        gap: 1rem;
+      }
+
+      .update-title {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--gray-900);
+        margin: 0;
+        flex: 1;
+      }
+
+      .update-date {
+        color: var(--gray-600);
+        font-size: 0.9rem;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      .update-content {
+        color: var(--gray-700);
+        line-height: 1.6;
+        white-space: pre-wrap;
+      }
+
+      .update-content h3 {
+        color: var(--gray-900);
+        margin: 1rem 0 0.5rem 0;
+        font-size: 1.1rem;
+      }
+
+      .update-content ul {
+        margin: 0.5rem 0;
+        padding-left: 1.5rem;
+      }
+
+      .update-content li {
+        margin-bottom: 0.25rem;
+      }
+
+      .updates-error {
+        text-align: center;
+        padding: 2rem;
+        color: var(--gray-600);
+      }
+
+      .steam-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        margin-top: 1.5rem;
+        transition: var(--transition-base);
+      }
+
+      .steam-link:hover {
+        color: var(--primary-dark);
+        transform: translateY(-1px);
       }
 
       /* Loading Animation */
@@ -1168,19 +1564,22 @@
           grid-template-columns: 1fr;
         }
 
-        .feature-overlay h3 {
-          font-size: 1.1rem;
+        .feature-header h3 {
+          font-size: 1.2rem;
         }
 
-        .feature-card-compact.expanded .feature-content-expandable {
-          max-height: 400px;
+        .feature-card-overlay.expanded .feature-text-overlay {
+          max-height: 250px;
         }
 
-        .expand-icon {
-          width: 32px;
-          height: 32px;
+        .feature-overlay-content {
+          padding: 1rem;
         }
 
+        .expand-toggle {
+          width: 28px;
+          height: 28px;
+        }
         .feature-overlay h3 {
           font-size: 1.1rem;
         }
@@ -1213,6 +1612,11 @@
         }
       }
     </style>
+    /* Fix: Prevent hero overlays from blocking clicks below */
+    .hero-background, .hero-overlay { pointer-events: none !important; } /*
+    DEBUG: Force features section above overlays to fix click issue */
+    .features, .features * { position: relative !important; z-index: 100
+    !important; }
 
     <!-- Non-critical stylesheets -->
     <noscript>
@@ -1397,8 +1801,8 @@
           </header>
 
           <div class="features-grid-compact">
-            <article class="feature-card-compact" data-feature="quests">
-              <div class="feature-image-compact">
+            <article class="feature-card-overlay" data-feature="quests">
+              <div class="feature-image-container">
                 <img
                   src="images/2.png"
                   alt="Procedurally Generated Quests"
@@ -1406,44 +1810,47 @@
                   fetchpriority="high"
                   decoding="async"
                 />
-                <div class="feature-overlay">
-                  <h3>Procedurally Generated Quests</h3>
-                  <div class="expand-icon">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 5V19M5 12L19 12"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                <div class="feature-overlay-content">
+                  <div class="feature-header">
+                    <h3>Procedurally Generated Quests</h3>
+                    <div class="expand-toggle">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 9L12 15L18 9"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="feature-text-overlay">
+                    <p>
+                      Windhelm features a revolutionary procedurally generated
+                      quest system that creates unique stories for every
+                      playthrough. Unlike traditional linear RPGs, our advanced
+                      narrative engine weaves together dynamic storylines,
+                      ensuring no two adventures are the same. The world
+                      responds to your actions, offering infinite solutions to
+                      procedurally crafted challenges and ensuring no two
+                      playthroughs are the same. Experience emergent
+                      storytelling where your choices matter and consequences
+                      unfold naturally.
+                    </p>
                   </div>
                 </div>
               </div>
-              <div class="feature-content-expandable">
-                <p>
-                  Windhelm features a revolutionary procedurally generated quest
-                  system that creates unique stories for every playthrough.
-                  Unlike traditional linear RPGs, our advanced narrative engine
-                  weaves together dynamic storylines, ensuring no two adventures
-                  are the same. The world responds to your actions, offering
-                  infinite solutions to procedurally crafted challenges and
-                  ensuring no two playthroughs are the same. Experience emergent
-                  storytelling where your choices matter and consequences unfold
-                  naturally.
-                </p>
-              </div>
             </article>
 
-            <article class="feature-card-compact" data-feature="world">
-              <div class="feature-image-compact">
+            <article class="feature-card-overlay" data-feature="world">
+              <div class="feature-image-container">
                 <img
                   src="images/3.png"
                   alt="Procedurally Generated World & Lore"
@@ -1451,46 +1858,49 @@
                   fetchpriority="high"
                   decoding="async"
                 />
-                <div class="feature-overlay">
-                  <h3>Procedurally Generated World & Lore</h3>
-                  <div class="expand-icon">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 5V19M5 12L19 12"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                <div class="feature-overlay-content">
+                  <div class="feature-header">
+                    <h3>Procedurally Generated World & Lore</h3>
+                    <div class="expand-toggle">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 9L12 15L18 9"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="feature-text-overlay">
+                    <p>
+                      Explore the vast realm of Windhelm, where advanced
+                      procedural generation creates a living fantasy world
+                      filled with unique mysteries, diverse landscapes, and rich
+                      cultural histories that evolve with each playthrough. From
+                      mystical forests to towering mountain fortresses, every
+                      location tells a different story through dynamic
+                      environmental storytelling and procedurally woven lore.
+                      Discover forgotten ruins, uncover lost civilizations, and
+                      interact with AI-driven NPCs who have their own
+                      procedurally generated goals, memories, and motivations
+                      that create authentic story moments beyond serving the
+                      player's needs.
+                    </p>
                   </div>
                 </div>
               </div>
-              <div class="feature-content-expandable">
-                <p>
-                  Explore the vast realm of Windhelm, where advanced procedural
-                  generation creates a living fantasy world filled with unique
-                  mysteries, diverse landscapes, and rich cultural histories
-                  that evolve with each playthrough. From mystical forests to
-                  towering mountain fortresses, every location tells a different
-                  story through dynamic environmental storytelling and
-                  procedurally woven lore. Discover forgotten ruins, uncover
-                  lost civilizations, and interact with AI-driven NPCs who have
-                  their own procedurally generated goals, memories, and
-                  motivations that create authentic story moments beyond serving
-                  the player's needs.
-                </p>
-              </div>
             </article>
 
-            <article class="feature-card-compact" data-feature="character">
-              <div class="feature-image-compact">
+            <article class="feature-card-overlay" data-feature="character">
+              <div class="feature-image-container">
                 <img
                   src="images/4.png"
                   alt="Story-Driven Character Evolution"
@@ -1498,178 +1908,260 @@
                   fetchpriority="high"
                   decoding="async"
                 />
-                <div class="feature-overlay">
-                  <h3>Story-Driven Character Evolution</h3>
-                  <div class="expand-icon">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 5V19M5 12L19 12"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                <div class="feature-overlay-content">
+                  <div class="feature-header">
+                    <h3>Story-Driven Character Evolution</h3>
+                    <div class="expand-toggle">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 9L12 15L18 9"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="feature-text-overlay">
+                    <p>
+                      Create and develop legendary heroes whose stories unfold
+                      through our extensive narrative-integrated progression
+                      system. Choose from multiple classes, each with unique
+                      abilities, skill trees, and story arcs that interweave
+                      with the world's lore. Craft and customize equipment that
+                      carries procedural backstories, master diverse combat
+                      techniques, and develop meaningful relationships with
+                      companions whose personal narratives evolve. The game
+                      features deep character development where your build
+                      choices and story decisions significantly impact gameplay
+                      mechanics, procedural dialogue generation, and branching
+                      story outcomes, ensuring every hero's tale feels truly
+                      unique and memorable.
+                    </p>
                   </div>
                 </div>
               </div>
-              <div class="feature-content-expandable">
-                <p>
-                  Create and develop legendary heroes whose stories unfold
-                  through our extensive narrative-integrated progression system.
-                  Choose from multiple classes, each with unique abilities,
-                  skill trees, and story arcs that interweave with the world's
-                  lore. Craft and customize equipment that carries procedural
-                  backstories, master diverse combat techniques, and develop
-                  meaningful relationships with companions whose personal
-                  narratives evolve. The game features deep character
-                  development where your build choices and story decisions
-                  significantly impact gameplay mechanics, procedural dialogue
-                  generation, and branching story outcomes, ensuring every
-                  hero's tale feels truly unique and memorable.
-                </p>
-              </div>
             </article>
 
-            <article class="feature-card-compact" data-feature="combat">
-              <div class="feature-image-compact">
+            <article class="feature-card-overlay" data-feature="combat">
+              <div class="feature-image-container">
                 <img
                   src="images/5.png"
                   alt="Tactical Combat System"
                   loading="lazy"
                   decoding="async"
                 />
-                <div class="feature-overlay">
-                  <h3>Tactical Combat System</h3>
-                  <div class="expand-icon">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 5V19M5 12L19 12"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                <div class="feature-overlay-content">
+                  <div class="feature-header">
+                    <h3>Tactical Combat System</h3>
+                    <div class="expand-toggle">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 9L12 15L18 9"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="feature-text-overlay">
+                    <p>
+                      Engage in strategic, free flow combat that rewards
+                      planning and positioning over button-mashing. Utilize
+                      environmental hazards, elemental synergies, and tactical
+                      abilities to overcome challenging encounters. The combat
+                      system emphasizes resource management, timing, and smart
+                      use of abilities rather than reflexes. Face diverse enemy
+                      types that require different strategies, from cunning
+                      rogues to massive ancient dragons, each presenting unique
+                      tactical challenges.
+                    </p>
                   </div>
                 </div>
               </div>
-              <div class="feature-content-expandable">
-                <p>
-                  Engage in strategic, free flow combat that rewards planning
-                  and positioning over button-mashing. Utilize environmental
-                  hazards, elemental synergies, and tactical abilities to
-                  overcome challenging encounters. The combat system emphasizes
-                  resource management, timing, and smart use of abilities rather
-                  than reflexes. Face diverse enemy types that require different
-                  strategies, from cunning rogues to massive ancient dragons,
-                  each presenting unique tactical challenges.
-                </p>
-              </div>
             </article>
 
-            <article class="feature-card-compact" data-feature="indie">
-              <div class="feature-image-compact">
+            <article class="feature-card-overlay" data-feature="indie">
+              <div class="feature-image-container">
                 <img
                   src="images/Grasslandoverlook1.png"
                   alt="Story-First Indie Vision"
                   loading="lazy"
                   decoding="async"
                 />
-                <div class="feature-overlay">
-                  <h3>Story-First Indie Vision</h3>
-                  <div class="expand-icon">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 5V19M5 12L19 12"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                <div class="feature-overlay-content">
+                  <div class="feature-header">
+                    <h3>Story-First Indie Vision</h3>
+                    <div class="expand-toggle">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 9L12 15L18 9"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="feature-text-overlay">
+                    <p>
+                      Windhelm is lovingly crafted by NorwinLabs, a dedicated
+                      husband-wife indie development team passionate about
+                      procedural storytelling and narrative innovation. Every
+                      aspect of the game reflects our commitment to creating
+                      meaningful, emergent stories through advanced procedural
+                      generation. We prioritize deep narrative systems over
+                      flashy graphics, focusing on revolutionary story
+                      mechanics, procedurally woven narratives, and meaningful
+                      player agency that shapes unique tales. As an indie
+                      project, we maintain direct communication with our
+                      community, incorporating player feedback and ensuring the
+                      game stays true to its vision of delivering an authentic
+                      story-driven RPG experience with infinite replayability.
+                    </p>
                   </div>
                 </div>
               </div>
-              <div class="feature-content-expandable">
-                <p>
-                  Windhelm is lovingly crafted by NorwinLabs, a dedicated
-                  husband-wife indie development team passionate about
-                  procedural storytelling and narrative innovation. Every aspect
-                  of the game reflects our commitment to creating meaningful,
-                  emergent stories through advanced procedural generation. We
-                  prioritize deep narrative systems over flashy graphics,
-                  focusing on revolutionary story mechanics, procedurally woven
-                  narratives, and meaningful player agency that shapes unique
-                  tales. As an indie project, we maintain direct communication
-                  with our community, incorporating player feedback and ensuring
-                  the game stays true to its vision of delivering an authentic
-                  story-driven RPG experience with infinite replayability.
-                </p>
-              </div>
             </article>
 
-            <article class="feature-card-compact" data-feature="community">
-              <div class="feature-image-compact">
+            <article class="feature-card-overlay" data-feature="community">
+              <div class="feature-image-container">
                 <img
                   src="images/pngegg.png"
                   alt="Community-Driven Development"
                   loading="lazy"
                   decoding="async"
                 />
-                <div class="feature-overlay">
-                  <h3>Community-Driven Development</h3>
-                  <div class="expand-icon">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 5V19M5 12L19 12"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                <div class="feature-overlay-content">
+                  <div class="feature-header">
+                    <h3>Community-Driven Development</h3>
+                    <div class="expand-toggle">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 9L12 15L18 9"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="feature-text-overlay">
+                    <p>
+                      Join our growing community of RPG enthusiasts and become
+                      part of Windhelm's development journey. We actively engage
+                      with players through Discord, incorporating valuable
+                      feedback and suggestions into the game. Early supporters
+                      gain access to development updates, beta testing
+                      opportunities, and exclusive content. Our transparent
+                      development process allows the community to witness and
+                      influence the creation of something special. Together,
+                      we're building not just a game, but a shared adventure
+                      that celebrates the RPG genre.
+                    </p>
                   </div>
                 </div>
               </div>
-              <div class="feature-content-expandable">
-                <p>
-                  Join our growing community of RPG enthusiasts and become part
-                  of Windhelm's development journey. We actively engage with
-                  players through Discord, incorporating valuable feedback and
-                  suggestions into the game. Early supporters gain access to
-                  development updates, beta testing opportunities, and exclusive
-                  content. Our transparent development process allows the
-                  community to witness and influence the creation of something
-                  special. Together, we're building not just a game, but a
-                  shared adventure that celebrates the RPG genre.
-                </p>
-              </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Game Updates Section -->
+      <section id="updates" class="game-updates">
+        <div class="container">
+          <div class="updates-container">
+            <div class="updates-header">
+              <h2>
+                <div class="steam-icon">S</div>
+                Game Updates
+              </h2>
+              <p style="color: var(--gray-600); margin: 0">
+                Latest development updates and changelogs from Steam
+              </p>
+            </div>
+
+            <!-- Loading State -->
+            <div class="updates-loading" id="updates-loading">
+              <div class="updates-spinner"></div>
+              <h3>Loading Updates...</h3>
+              <p style="color: var(--gray-600)">
+                Fetching latest changes from Steam
+              </p>
+            </div>
+
+            <!-- Updates List -->
+            <div
+              class="updates-list"
+              id="updates-list"
+              style="display: none"
+            ></div>
+
+            <!-- Error State -->
+            <div class="updates-error" id="updates-error" style="display: none">
+              <h3>📡 Unable to Load Updates</h3>
+              <p>
+                We're having trouble connecting to Steam right now. Please check
+                back later or visit our Steam page directly.
+              </p>
+              <a
+                href="https://store.steampowered.com/app/2171040"
+                class="steam-link"
+                target="_blank"
+                rel="noopener"
+              >
+                <div class="steam-icon">S</div>
+                View on Steam Store
+              </a>
+            </div>
+
+            <!-- Fallback container (empty unless real Steam data fails to load) -->
+            <div
+              class="updates-fallback"
+              id="updates-fallback"
+              style="display: none"
+            ></div>
+
+            <div style="text-align: center; margin-top: 1.5rem">
+              <a
+                href="https://store.steampowered.com/app/2171040"
+                class="steam-link"
+                target="_blank"
+                rel="noopener"
+              >
+                <div class="steam-icon">S</div>
+                Follow on Steam for More Updates
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1678,8 +2170,10 @@
       <section id="team" class="team">
         <div class="container">
           <header class="section-header">
-            <h2 class="section-title">Our Team</h2>
-            <p class="section-subtitle">Small, but MIGHTY</p>
+            <h2 class="section-title">The Dynamic Duo</h2>
+            <p class="section-subtitle">
+              + Arkyn 👶, Luna 🐶, Stella 🐶, and Neptune 😺
+            </p>
           </header>
 
           <div class="team-grid">
@@ -2029,29 +2523,97 @@
             text-align: center;
           "
         >
-          <!-- Discord Widget Embed -->
-          <div class="discord-widget-container">
+          <!-- Discord Widget Embed with Enhanced Loading -->
+          <div class="discord-widget-container" id="discord-container">
+            <!-- Loading State -->
+            <div class="discord-loading" id="discord-loading">
+              <div class="discord-spinner"></div>
+              <h3>Loading Discord Server...</h3>
+              <p>Connecting to our community</p>
+            </div>
+
+            <!-- Main Widget -->
             <iframe
+              id="discord-widget"
               src="https://discord.com/widget?id=1152709913105408040&theme=dark"
               width="350"
               height="500"
               allowtransparency="true"
               frameborder="0"
               sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-              style="border-radius: 0.75rem; max-width: 100%"
+              style="border-radius: 0.75rem; max-width: 100%; display: none"
+              onload="handleDiscordLoad()"
+              onerror="handleDiscordError()"
             ></iframe>
-          </div>
-          <p style="color: var(--gray-400); margin-top: 1rem; font-size: 1rem">
-            Live updates from our Discord <b>#progress-updates</b> channel.
-          </p>
-          <p style="color: var(--gray-400); font-size: 0.9rem">
-            Want to chat or see more?
-            <a
-              href="https://discord.gg/PgGA8Zsj4g"
-              style="color: var(--primary-color); text-decoration: underline"
-              >Join our Discord!</a
+
+            <!-- Fallback Content -->
+            <div
+              class="discord-fallback"
+              id="discord-fallback"
+              style="display: none"
             >
-          </p>
+              <h3>🎮 Join Our Discord Community!</h3>
+              <p>
+                Connect with fellow adventurers, get the latest updates on
+                Windhelm's development, and be part of our growing community!
+              </p>
+              <p><strong>What you'll find:</strong></p>
+              <ul style="text-align: left; margin: 1rem 0">
+                <li>🔄 Live progress updates</li>
+                <li>💬 Community discussions</li>
+                <li>🎯 Beta testing opportunities</li>
+                <li>🎨 Art and screenshot sharing</li>
+              </ul>
+              <a
+                href="https://discord.gg/PgGA8Zsj4g"
+                class="discord-join-button"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.010c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.120.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"
+                  />
+                </svg>
+                Join Discord Server
+              </a>
+            </div>
+          </div>
+
+          <div class="discord-status-text">
+            <p
+              style="
+                color: var(--gray-400);
+                margin-top: 1rem;
+                font-size: 1rem;
+                text-align: center;
+              "
+            >
+              Live updates from our Discord <b>#progress-updates</b> channel
+            </p>
+            <p
+              style="
+                color: var(--gray-400);
+                font-size: 0.9rem;
+                text-align: center;
+                margin-top: 0.5rem;
+              "
+            >
+              Want to chat with the dev team?
+              <a
+                href="https://discord.gg/PgGA8Zsj4g"
+                style="color: var(--primary-color); text-decoration: underline"
+                target="_blank"
+                rel="noopener"
+                >Join our Discord!</a
+              >
+            </p>
+          </div>
         </div>
       </section>
     </main>
@@ -2292,27 +2854,204 @@
       </div>
     </div>
     <script>
-      // Mobile Navigation
+      console.log("Windhelm site loaded successfully!");
+
+      // ===== FALLING LEAF SYSTEM =====
+      document.addEventListener("click", function (e) {
+        console.log(
+          "Click detected - creating leaves at:",
+          e.clientX,
+          e.clientY
+        );
+
+        // Check if clicked on special elements for enhanced effects
+        const specialElements = [
+          "button",
+          ".cta-button",
+          ".submit-button",
+          ".nav-link",
+          'a[href^="#"]',
+          ".social-link",
+          ".feature-card-overlay",
+        ];
+        const isSpecial = specialElements.some(
+          (selector) => e.target.matches(selector) || e.target.closest(selector)
+        );
+
+        const leafCount = isSpecial ? 12 : 6;
+
+        // Create burst of leaves
+        for (let i = 0; i < leafCount; i++) {
+          setTimeout(() => {
+            createLeaf(e.clientX, e.clientY, isSpecial);
+          }, i * 80);
+        }
+      });
+
+      function createLeaf(x, y, isSpecial) {
+        const leafTypes = ["🍃", "🍂", "🌿", "🍀"];
+        const leaf = document.createElement("div");
+        leaf.innerHTML =
+          leafTypes[Math.floor(Math.random() * leafTypes.length)];
+
+        // Random spread around click point
+        const spreadRadius = isSpecial ? 40 : 25;
+        const offsetX = (Math.random() - 0.5) * spreadRadius * 2;
+        const offsetY = (Math.random() - 0.5) * 20;
+
+        leaf.style.cssText = `
+          position: fixed;
+          left: ${x + offsetX}px;
+          top: ${y + offsetY}px;
+          font-size: ${isSpecial ? "2.5rem" : "2rem"};
+          z-index: 9999;
+          pointer-events: none;
+          animation: windhelm-leaf-fall ${
+            3 + Math.random() * 2
+          }s ease-out forwards;
+        `;
+
+        // Add leaf animation CSS
+        if (!document.getElementById("windhelm-leaf-styles")) {
+          const style = document.createElement("style");
+          style.id = "windhelm-leaf-styles";
+          style.textContent = `
+            @keyframes windhelm-leaf-fall {
+              0% { 
+                transform: translateY(0) rotate(0deg) translateX(0); 
+                opacity: 0.8; 
+              }
+              10% { opacity: 1; }
+              30% {
+                transform: translateY(150px) rotate(120deg) translateX(${
+                  (Math.random() - 0.5) * 60
+                }px);
+              }
+              60% {
+                transform: translateY(300px) rotate(240deg) translateX(${
+                  (Math.random() - 0.5) * 120
+                }px);
+              }
+              100% { 
+                transform: translateY(500px) rotate(360deg) translateX(${
+                  (Math.random() - 0.5) * 200
+                }px); 
+                opacity: 0; 
+              }
+            }
+          `;
+          document.head.appendChild(style);
+        }
+
+        document.body.appendChild(leaf);
+
+        // Clean up after animation
+        setTimeout(() => {
+          if (leaf.parentNode) leaf.parentNode.removeChild(leaf);
+        }, 6000);
+      }
+
+      // ===== MOBILE NAVIGATION =====
       const navToggle = document.getElementById("nav-toggle");
       const navMenu = document.getElementById("nav-menu");
 
-      navToggle.addEventListener("click", function () {
-        navToggle.classList.toggle("active");
-        navMenu.classList.toggle("active");
-        const expanded = navToggle.getAttribute("aria-expanded") === "true";
-        navToggle.setAttribute("aria-expanded", !expanded);
-      });
+      if (navToggle && navMenu) {
+        navToggle.addEventListener("click", function () {
+          navToggle.classList.toggle("active");
+          navMenu.classList.toggle("active");
+          const expanded = navToggle.getAttribute("aria-expanded") === "true";
+          navToggle.setAttribute("aria-expanded", !expanded);
+        });
 
-      // Close mobile menu when clicking on nav links
-      document.querySelectorAll(".nav-link").forEach((link) => {
-        link.addEventListener("click", function () {
-          navToggle.classList.remove("active");
-          navMenu.classList.remove("active");
-          navToggle.setAttribute("aria-expanded", "false");
+        // Close mobile menu when clicking on nav links
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.addEventListener("click", function () {
+            navToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+            navToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+
+      // ===== EXPANDABLE FEATURE CARDS =====
+      function initializeExpandableFeatures() {
+        const featureCards = document.querySelectorAll(".feature-card-overlay");
+
+        featureCards.forEach((card) => {
+          card.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Close other expanded cards first
+            featureCards.forEach((otherCard) => {
+              if (
+                otherCard !== card &&
+                otherCard.classList.contains("expanded")
+              ) {
+                otherCard.classList.remove("expanded");
+                otherCard.setAttribute("aria-expanded", "false");
+              }
+            });
+
+            // Toggle current card
+            this.classList.toggle("expanded");
+            this.setAttribute(
+              "aria-expanded",
+              this.classList.contains("expanded")
+            );
+
+            // Add extra leaves when expanding
+            if (this.classList.contains("expanded")) {
+              const rect = this.getBoundingClientRect();
+              const centerX = rect.left + rect.width / 2;
+              const centerY = rect.top + rect.height / 2;
+
+              // Create extra celebration leaves
+              for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                  createLeaf(centerX, centerY, true);
+                }, i * 100);
+              }
+            }
+          });
+
+          // Keyboard support
+          card.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              this.click();
+            }
+          });
+
+          // Accessibility
+          card.setAttribute("tabindex", "0");
+          card.setAttribute("role", "button");
+          card.setAttribute("aria-expanded", "false");
+
+          const title = card.querySelector("h3");
+          if (title) {
+            card.setAttribute(
+              "aria-label",
+              `Expand details for ${title.textContent}`
+            );
+          }
+        });
+      }
+
+      // ===== SMOOTH SCROLLING =====
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
         });
       });
 
-      // Active navigation highlighting
+      // ===== ACTIVE NAVIGATION HIGHLIGHTING =====
       function setActiveNav() {
         const sections = document.querySelectorAll("section[id]");
         const navLinks = document.querySelectorAll(".nav-link");
@@ -2336,550 +3075,230 @@
 
       window.addEventListener("scroll", setActiveNav);
 
-      // Collapsible sections
-      document
-        .getElementById("toggle-email")
-        .addEventListener("click", function () {
-          var collapse = document.getElementById("email-collapse");
-          collapse.style.display =
-            collapse.style.display === "none" ? "block" : "none";
+      // ===== EMAIL TOGGLE =====
+      const toggleEmail = document.getElementById("toggle-email");
+      if (toggleEmail) {
+        toggleEmail.addEventListener("click", function () {
+          const collapse = document.getElementById("email-collapse");
+          if (collapse) {
+            collapse.style.display =
+              collapse.style.display === "none" ? "block" : "none";
+          }
         });
+      }
 
-      // Contact form interactions enhanced in new design
-
-      // Form handling with better UX
+      // ===== CONTACT FORM =====
       const contactForm = document.getElementById("contact-form");
-      const formMessages = document.getElementById("form-messages");
       const formSuccess = document.getElementById("form-success");
-      const formError = document.getElementById("form-error");
 
-      if (contactForm) {
+      if (contactForm && formSuccess) {
         contactForm.addEventListener("submit", function (e) {
           e.preventDefault();
 
-          // Show loading state
-          const submitBtn = contactForm.querySelector(".submit-button");
-          const originalText = submitBtn.textContent;
-          submitBtn.textContent = "Sending...";
-          submitBtn.disabled = true;
+          // Show success message
+          formSuccess.style.display = "block";
 
-          // Simulate form submission (replace with actual form handling)
+          // Hide success message after 5 seconds
           setTimeout(() => {
-            // Reset button
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
+            formSuccess.style.display = "none";
+          }, 5000);
 
-            // Show success message
-            formSuccess.style.display = "block";
-            formMessages.style.display = "block";
-
-            // Hide message after 5 seconds
-            setTimeout(() => {
-              formMessages.style.display = "none";
-              formSuccess.style.display = "none";
-            }, 5000);
-
-            // Reset form
-            contactForm.reset();
-
-            // Close collapsed sections
-            document.getElementById("contact-collapse").style.display = "none";
-            document.getElementById("email-collapse").style.display = "none";
-          }, 2000);
+          // Reset form
+          contactForm.reset();
         });
       }
 
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        });
-      });
-
-      // Falling Leaf Effect
-      function createFallingLeaf(mouseX, mouseY) {
-        const leafTypes = [
-          { emoji: "🍃", class: "maple" },
-          { emoji: "🍂", class: "autumn" },
-          { emoji: "🌿", class: "oak" },
-          { emoji: "🍀", class: "birch" },
-        ];
-
-        const leaf = document.createElement("div");
-        const leafType =
-          leafTypes[Math.floor(Math.random() * leafTypes.length)];
-
-        leaf.className = `falling-leaf ${leafType.class}`;
-        leaf.textContent = leafType.emoji;
-
-        // Position leaf at mouse cursor with small random offset for spread
-        const leafSize = 32; // Approximate size of 2rem font
-        const swayPadding = 15; // Maximum sway distance
-        const spreadRadius = 30; // Random spread around cursor
-
-        // Random offset around mouse position
-        const offsetX = (Math.random() - 0.5) * spreadRadius * 2;
-        const offsetY = (Math.random() - 0.5) * 20; // Small vertical offset
-
-        let leafX = mouseX + offsetX;
-        let leafY = mouseY + offsetY;
-
-        // Ensure leaf stays within screen bounds accounting for sway
-        const minX = leafSize + swayPadding;
-        const maxX = window.innerWidth - leafSize - swayPadding;
-        leafX = Math.max(minX, Math.min(maxX, leafX));
-
-        leaf.style.left = leafX + "px";
-        leaf.style.top = leafY + "px";
-
-        // Calculate full page height for complete flow
-        const documentHeight = Math.max(
-          document.body.scrollHeight,
-          document.body.offsetHeight,
-          document.documentElement.clientHeight,
-          document.documentElement.scrollHeight,
-          document.documentElement.offsetHeight
-        );
-
-        // Calculate fall distance using viewport height to prevent page extension
-        const viewportHeight = window.innerHeight;
-        const fallDistance = viewportHeight - leafY + 100; // Fall to bottom of viewport + small buffer
-
-        // Ensure minimum fall distance but keep within reasonable bounds
-        const minFallDistance = Math.max(fallDistance, 300);
-        const maxFallDistance = viewportHeight + 200; // Create custom keyframe animation for this leaf with enhanced rotation
-        const animationName = `fallLeaf${Date.now()}_${Math.random()
-          .toString(36)
-          .substr(2, 9)}`;
-
-        // Random rotation parameters for natural variety
-        const rotations = 2 + Math.random() * 4; // 2-6 full rotations
-        const finalRotation = rotations * 360;
-        const rotationDirection = Math.random() > 0.5 ? 1 : -1; // Random direction
-
-        // Enhanced sway parameters for natural drifting motion
-        const swayAmplitude = 30 + Math.random() * 40; // 30-70px sway amplitude
-        const swayFrequency = 2 + Math.random() * 3; // 2-5 complete sway cycles
-        const swayPhase = Math.random() * Math.PI * 2; // Random starting phase
-
-        const keyframes = `
-          @keyframes ${animationName} {
-            0% {
-              transform: translateY(0) translateX(0) rotate(0deg);
-              opacity: 0.8;
-            }
-            10% {
-              opacity: 1;
-            }
-            10% {
-              opacity: 1;
-              transform: translateY(${minFallDistance * 0.1}px) translateX(${
-          swayAmplitude *
-          Math.sin(0.1 * swayFrequency * Math.PI * 2 + swayPhase)
-        }px) rotate(${finalRotation * 0.1 * rotationDirection}deg);
-            }
-            20% {
-              transform: translateY(${minFallDistance * 0.2}px) translateX(${
-          swayAmplitude *
-          Math.sin(0.2 * swayFrequency * Math.PI * 2 + swayPhase)
-        }px) rotate(${finalRotation * 0.2 * rotationDirection}deg);
-            }
-            30% {
-              transform: translateY(${minFallDistance * 0.3}px) translateX(${
-          swayAmplitude *
-          Math.sin(0.3 * swayFrequency * Math.PI * 2 + swayPhase)
-        }px) rotate(${finalRotation * 0.3 * rotationDirection}deg);
-            }
-            40% {
-              transform: translateY(${minFallDistance * 0.4}px) translateX(${
-          swayAmplitude *
-          Math.sin(0.4 * swayFrequency * Math.PI * 2 + swayPhase)
-        }px) rotate(${finalRotation * 0.4 * rotationDirection}deg);
-            }
-            50% {
-              transform: translateY(${minFallDistance * 0.5}px) translateX(${
-          swayAmplitude *
-          Math.sin(0.5 * swayFrequency * Math.PI * 2 + swayPhase)
-        }px) rotate(${finalRotation * 0.5 * rotationDirection}deg);
-            }
-            60% {
-              transform: translateY(${minFallDistance * 0.6}px) translateX(${
-          swayAmplitude *
-          Math.sin(0.6 * swayFrequency * Math.PI * 2 + swayPhase)
-        }px) rotate(${finalRotation * 0.6 * rotationDirection}deg);
-            }
-            70% {
-              transform: translateY(${minFallDistance * 0.7}px) translateX(${
-          swayAmplitude *
-          Math.sin(0.7 * swayFrequency * Math.PI * 2 + swayPhase)
-        }px) rotate(${finalRotation * 0.7 * rotationDirection}deg);
-            }
-            80% {
-              transform: translateY(${minFallDistance * 0.8}px) translateX(${
-          swayAmplitude *
-          Math.sin(0.8 * swayFrequency * Math.PI * 2 + swayPhase)
-        }px) rotate(${finalRotation * 0.8 * rotationDirection}deg);
-            }
-            90% {
-              opacity: 1;
-              transform: translateY(${minFallDistance * 0.9}px) translateX(${
-          swayAmplitude *
-          Math.sin(0.9 * swayFrequency * Math.PI * 2 + swayPhase)
-        }px) rotate(${finalRotation * 0.9 * rotationDirection}deg);
-            }
-            95% {
-              opacity: 0.7;
-              transform: translateY(${minFallDistance * 0.95}px) translateX(${
-          swayAmplitude *
-          Math.sin(0.95 * swayFrequency * Math.PI * 2 + swayPhase)
-        }px) rotate(${finalRotation * 0.95 * rotationDirection}deg);
-            }
-            100% {
-              opacity: 0;
-              transform: translateY(${minFallDistance}px) translateX(${
-          swayAmplitude * Math.sin(1 * swayFrequency * Math.PI * 2 + swayPhase)
-        }px) rotate(${finalRotation * rotationDirection}deg);
-            }
-          }
-        `;
-
-        // Inject the custom animation
-        const styleSheet = document.createElement("style");
-        styleSheet.textContent = keyframes;
-        document.head.appendChild(styleSheet);
-
-        // Longer duration for graceful swaying motion (8-12 seconds)
-        const duration = 8 + Math.random() * 4;
-        leaf.style.animation = `${animationName} ${duration}s linear forwards`;
-
-        // Force leaf to be visible and properly positioned
-        leaf.style.visibility = "visible";
-        leaf.style.pointerEvents = "none";
-
-        // Clean up the injected stylesheet after animation
-        setTimeout(() => {
-          if (styleSheet.parentNode) {
-            styleSheet.parentNode.removeChild(styleSheet);
-          }
-        }, duration * 1000 + 1000);
-
-        // Create or get leaf container
-        let leafContainer = document.getElementById("leaf-container");
-        if (!leafContainer) {
-          leafContainer = document.createElement("div");
-          leafContainer.id = "leaf-container";
-          leafContainer.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 9999;
-          `;
-          document.body.appendChild(leafContainer);
-        }
-
-        leafContainer.appendChild(leaf);
-
-        // Add animation end event listener for reliable cleanup
-        leaf.addEventListener("animationend", function () {
-          if (this.parentNode) {
-            this.parentNode.removeChild(this);
-          }
-        });
-
-        // Fallback cleanup timer in case animation events fail
-        setTimeout(() => {
-          if (leaf.parentNode) {
-            leaf.parentNode.removeChild(leaf);
-          }
-        }, duration * 1000 + 500);
-
-        // Emergency cleanup for stuck leaves
-        setTimeout(() => {
-          if (leaf.parentNode) {
-            leaf.style.opacity = "0";
-            setTimeout(() => {
-              if (leaf.parentNode) {
-                leaf.parentNode.removeChild(leaf);
-              }
-            }, 1000);
-          }
-        }, (duration + 2) * 1000);
-      }
-
-      function triggerLeafEffect(mouseX, mouseY, isSpecialClick = false) {
-        // More leaves for special clicks (buttons), fewer for general clicks
-        const baseLeafCount = isSpecialClick ? 12 : 6;
-        const leafCount =
-          baseLeafCount + Math.floor(Math.random() * (isSpecialClick ? 8 : 4));
-
-        // Add satisfying screen shake for button clicks
-        if (isSpecialClick) {
-          document.body.style.transform = "translateX(2px)";
-          setTimeout(() => {
-            document.body.style.transform = "translateX(-2px)";
-          }, 50);
-          setTimeout(() => {
-            document.body.style.transform = "translateX(0)";
-          }, 100);
-        }
-
-        // Create burst effect with faster initial spawn
-        for (let i = 0; i < leafCount; i++) {
-          setTimeout(() => {
-            createFallingLeaf(mouseX, mouseY);
-          }, i * (isSpecialClick ? 100 : 150)); // Faster stagger for special clicks
-        }
-
-        // Add satisfying visual ripple effect
-        createRippleEffect(mouseX, mouseY, isSpecialClick);
-      }
-
-      // Create satisfying ripple effect at click location
-      function createRippleEffect(x, y, isSpecial) {
-        const ripple = document.createElement("div");
-        ripple.style.cssText = `
-          position: fixed;
-          left: ${x - 25}px;
-          top: ${y - 25}px;
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          background: ${
-            isSpecial
-              ? "radial-gradient(circle, rgba(37,99,235,0.3) 0%, rgba(37,99,235,0.1) 50%, transparent 70%)"
-              : "radial-gradient(circle, rgba(34,197,94,0.2) 0%, rgba(34,197,94,0.1) 50%, transparent 70%)"
-          };
-          pointer-events: none;
-          z-index: 9998;
-          animation: rippleExpand 0.6s ease-out forwards;
-        `;
-
-        // Add ripple animation
-        if (!document.querySelector("#ripple-styles")) {
-          const rippleStyles = document.createElement("style");
-          rippleStyles.id = "ripple-styles";
-          rippleStyles.textContent = `
-            @keyframes rippleExpand {
-              0% {
-                transform: scale(0);
-                opacity: 1;
-              }
-              100% {
-                transform: scale(${isSpecial ? 8 : 4});
-                opacity: 0;
-              }
-            }
-          `;
-          document.head.appendChild(rippleStyles);
-        }
-
-        document.body.appendChild(ripple);
-
-        setTimeout(() => {
-          if (ripple.parentNode) {
-            ripple.parentNode.removeChild(ripple);
-          }
-        }, 600);
-      }
-
-      // Add global click listener for leaf effects
-      function addGlobalLeafEffect() {
-        // Special elements that get enhanced effects
-        const specialSelectors = [
-          "button",
-          ".cta-button",
-          ".submit-button",
-          ".nav-link",
-          'a[href^="#"]',
-          ".social-link",
-        ];
-
-        // Global click listener for any click
-        document.addEventListener("click", function (e) {
-          // Get mouse coordinates from click event
-          const mouseX = e.clientX || e.pageX || window.innerWidth / 2;
-          const mouseY = e.clientY || e.pageY || 100;
-
-          // Check if clicked element is a special interactive element
-          const isSpecialClick = specialSelectors.some((selector) => {
-            return e.target.matches(selector) || e.target.closest(selector);
-          });
-
-          // Trigger leaf effect with appropriate intensity
-          triggerLeafEffect(mouseX, mouseY, isSpecialClick);
-        });
-
-        // Add special hover effects for interactive elements with medieval cursor
-        specialSelectors.forEach((selector) => {
-          document.querySelectorAll(selector).forEach((element) => {
-            element.addEventListener("mouseenter", function () {
-              this.style.transform = "scale(1.02)";
-              this.style.transition = "transform 0.1s ease, filter 0.1s ease";
-              // Enhanced cursor glow effect on hover
-              this.style.filter =
-                "drop-shadow(0 0 3px rgba(218, 165, 32, 0.4))";
-            });
-            element.addEventListener("mouseleave", function () {
-              this.style.transform = "scale(1)";
-              this.style.filter = "none";
-            });
-          });
-        });
-      }
-
-      // Create leaf container on page load
-      function initializeLeafSystem() {
-        // Create leaf container if it doesn't exist
-        if (!document.getElementById("leaf-container")) {
-          const leafContainer = document.createElement("div");
-          leafContainer.id = "leaf-container";
-          leafContainer.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 9999;
-          `;
-          document.body.appendChild(leafContainer);
-        }
-        addGlobalLeafEffect();
-      }
-
-      // Expandable Feature Cards
-      function initializeExpandableFeatures() {
-        const featureCards = document.querySelectorAll(".feature-card-compact");
-
-        featureCards.forEach((card) => {
-          card.addEventListener("click", function (e) {
-            e.preventDefault();
-
-            // Close other expanded cards first
-            featureCards.forEach((otherCard) => {
-              if (
-                otherCard !== card &&
-                otherCard.classList.contains("expanded")
-              ) {
-                otherCard.classList.remove("expanded");
-              }
-            });
-
-            // Toggle current card
-            this.classList.toggle("expanded");
-
-            // Trigger leaf effect on expansion
-            if (this.classList.contains("expanded")) {
-              const rect = this.getBoundingClientRect();
-              const centerX = rect.left + rect.width / 2;
-              const centerY = rect.top + rect.height / 2;
-              triggerLeafEffect(centerX, centerY, true);
-            }
-          });
-
-          // Add keyboard support
-          card.addEventListener("keydown", function (e) {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              this.click();
-            }
-          });
-
-          // Make cards focusable
-          card.setAttribute("tabindex", "0");
-          card.setAttribute("role", "button");
-          card.setAttribute("aria-expanded", "false");
-        });
-      }
-
-      // Expandable Feature Cards
-      function initializeExpandableFeatures() {
-        const featureCards = document.querySelectorAll(".feature-card-compact");
-
-        featureCards.forEach((card) => {
-          card.addEventListener("click", function (e) {
-            e.preventDefault();
-
-            // Close other expanded cards first
-            featureCards.forEach((otherCard) => {
-              if (
-                otherCard !== card &&
-                otherCard.classList.contains("expanded")
-              ) {
-                otherCard.classList.remove("expanded");
-              }
-            });
-
-            // Toggle current card
-            this.classList.toggle("expanded");
-
-            // Update aria-expanded for accessibility
-            this.setAttribute(
-              "aria-expanded",
-              this.classList.contains("expanded")
-            );
-
-            // Trigger leaf effect on expansion
-            if (this.classList.contains("expanded")) {
-              const rect = this.getBoundingClientRect();
-              const centerX = rect.left + rect.width / 2;
-              const centerY = rect.top + rect.height / 2;
-              triggerLeafEffect(centerX, centerY, true);
-            }
-          });
-
-          // Add keyboard support
-          card.addEventListener("keydown", function (e) {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              this.click();
-            }
-          });
-
-          // Make cards focusable and accessible
-          card.setAttribute("tabindex", "0");
-          card.setAttribute("role", "button");
-          card.setAttribute("aria-expanded", "false");
-
-          // Add descriptive label
-          const title = card.querySelector("h3").textContent;
-          card.setAttribute("aria-label", `Expand details for ${title}`);
-        });
-      }
-
-      // Initialize leaf effects when page loads
+      // ===== INITIALIZATION =====
       document.addEventListener("DOMContentLoaded", function () {
-        initializeLeafSystem();
+        console.log("Initializing Windhelm site features...");
         initializeExpandableFeatures();
+        setActiveNav();
+        console.log("✨ Windhelm site ready! Click anywhere for leaves! 🍃");
       });
 
       // Initialize immediately if DOM already loaded
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", function () {
-          initializeLeafSystem();
-          initializeExpandableFeatures();
-        });
-      } else {
-        initializeLeafSystem();
+      if (document.readyState !== "loading") {
+        console.log("DOM already loaded, initializing immediately...");
         initializeExpandableFeatures();
+        setActiveNav();
+        console.log("✨ Windhelm site ready! Click anywhere for leaves! 🍃");
       }
 
-      // Handle window resize to ensure leaf bounds stay correct
-      window.addEventListener("resize", function () {
-        // Future leaves will use updated window.innerWidth automatically
-        // Existing leaves will complete their current animation
+      // ===== DISCORD WIDGET HANDLING =====
+      function handleDiscordLoad() {
+        console.log("Discord widget loaded successfully!");
+        const loading = document.getElementById("discord-loading");
+        const widget = document.getElementById("discord-widget");
+        const fallback = document.getElementById("discord-fallback");
+
+        if (loading) loading.style.display = "none";
+        if (widget) widget.style.display = "block";
+        if (fallback) fallback.style.display = "none";
+      }
+
+      function handleDiscordError() {
+        console.log("Discord widget failed to load, showing fallback");
+        const loading = document.getElementById("discord-loading");
+        const widget = document.getElementById("discord-widget");
+        const fallback = document.getElementById("discord-fallback");
+
+        if (loading) loading.style.display = "none";
+        if (widget) widget.style.display = "none";
+        if (fallback) fallback.style.display = "flex";
+      }
+
+      // Timeout fallback in case iframe never triggers load/error events
+      setTimeout(() => {
+        const loading = document.getElementById("discord-loading");
+        const widget = document.getElementById("discord-widget");
+        const fallback = document.getElementById("discord-fallback");
+
+        if (loading && loading.style.display !== "none") {
+          console.log("Discord widget timed out, showing fallback");
+          loading.style.display = "none";
+          if (fallback) fallback.style.display = "flex";
+        }
+      }, 10000); // 10 second timeout
+
+      // ===== STEAM UPDATES SYSTEM =====
+      async function loadSteamUpdates() {
+        console.log("Loading Steam updates...");
+        const loadingEl = document.getElementById("updates-loading");
+        const listEl = document.getElementById("updates-list");
+        const errorEl = document.getElementById("updates-error");
+        const fallbackEl = document.getElementById("updates-fallback");
+
+        try {
+          const steamAppId = "2171040";
+          console.log(
+            "Attempting to fetch real Steam data for app:",
+            steamAppId
+          );
+
+          // Try to fetch real Steam data using CORS proxy
+          const proxyUrl = "https://api.allorigins.win/get?url=";
+          const steamUrl = `https://store.steampowered.com/api/appdetails?appids=${steamAppId}`;
+          const fullUrl = `${proxyUrl}${encodeURIComponent(steamUrl)}`;
+
+          console.log("Fetching from:", fullUrl);
+
+          const response = await fetch(fullUrl);
+          const proxyData = await response.json();
+
+          if (proxyData.status && proxyData.status.url) {
+            const steamData = JSON.parse(proxyData.contents);
+
+            if (
+              steamData &&
+              steamData[steamAppId] &&
+              steamData[steamAppId].success
+            ) {
+              const appData = steamData[steamAppId].data;
+              console.log("Successfully fetched Steam data:", appData);
+
+              // Extract news/updates from Steam data if available
+              // Note: Steam's appdetails API doesn't include news, so this will likely fail
+              // You'd need to use Steam's news API: https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/
+              const updates = extractSteamUpdates(appData);
+
+              if (updates && updates.length > 0) {
+                displaySteamUpdates(updates);
+                return;
+              }
+            }
+          }
+
+          // If we get here, Steam API didn't return usable update data
+          throw new Error("No update data available from Steam API");
+        } catch (error) {
+          console.error("Failed to load Steam updates:", error);
+          showSteamError();
+        }
+      }
+
+      function displaySteamUpdates(updates) {
+        const loadingEl = document.getElementById("updates-loading");
+        const listEl = document.getElementById("updates-list");
+
+        loadingEl.style.display = "none";
+        listEl.style.display = "block";
+
+        listEl.innerHTML = updates
+          .map(
+            (update) => `
+          <div class="update-item">
+            <div class="update-header">
+              <h3 class="update-title">${escapeHtml(update.title)}</h3>
+              <span class="update-date">${formatDate(update.date)}</span>
+            </div>
+            <div class="update-content">${formatUpdateContent(
+              update.content
+            )}</div>
+          </div>
+        `
+          )
+          .join("");
+
+        console.log(`Displayed ${updates.length} Steam updates`);
+      }
+
+      function extractSteamUpdates(appData) {
+        // Steam's appdetails API doesn't include news/updates
+        // This function is for future use if we switch to the Steam News API
+        console.log("Attempting to extract updates from Steam data...");
+
+        // For now, return empty array since appdetails doesn't have update info
+        return [];
+      }
+
+      function showSteamError() {
+        const loadingEl = document.getElementById("updates-loading");
+        const listEl = document.getElementById("updates-list");
+        const errorEl = document.getElementById("updates-error");
+        const fallbackEl = document.getElementById("updates-fallback");
+
+        loadingEl.style.display = "none";
+
+        // Show clean "no updates available" message instead of error
+        listEl.style.display = "block";
+        listEl.innerHTML = `
+          <div style="text-align: center; padding: 3rem; color: var(--gray-600);">
+            <h3 style="margin-bottom: 1rem; color: var(--gray-700);">📡 No Updates Available</h3>
+            <p style="margin-bottom: 1.5rem;">We're currently working on connecting to Steam's update feed.</p>
+            <p style="font-size: 0.9rem;">Check back soon for the latest development updates!</p>
+          </div>
+        `;
+        console.log("Showing 'no updates available' message");
+      }
+
+      function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      }
+
+      function formatUpdateContent(content) {
+        // Convert markdown-style formatting to HTML
+        return content
+          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+          .replace(/• /g, "<br>• ")
+          .replace(/\n/g, "<br>")
+          .trim();
+      }
+
+      function escapeHtml(text) {
+        const div = document.createElement("div");
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      // Initialize Steam updates on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Delay loading to prioritize other content
+        setTimeout(loadSteamUpdates, 1000);
       });
     </script>
   </body>
