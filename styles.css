@@ -302,8 +302,8 @@ select {
   right: 0;
   bottom: 0;
   background: linear-gradient(135deg, 
-    rgba(30, 27, 75, 0.8), 
-    rgba(49, 46, 129, 0.6)
+    rgba(16, 16, 20, 0.92), 
+    rgba(36, 36, 40, 0.85)
   );
 }
 
@@ -311,7 +311,8 @@ select {
   position: relative;
   z-index: 10;
   text-align: center;
-  color: var(--gray-100);
+  color: #f3f4f6;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.9);
   padding: var(--space-20) 0;
 }
 
@@ -399,6 +400,8 @@ section {
 .section-header {
   text-align: center;
   margin-bottom: var(--space-16);
+  color: #f3f4f6;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }
 
 .section-title {
@@ -428,7 +431,8 @@ section {
 }
 
 .feature-card {
-  background: rgba(36,36,40,0.95);
+  background: rgba(16,16,20,0.98);
+  border: 1px solid #23232a;
   border-radius: var(--border-radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow);
