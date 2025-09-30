@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Windhelm - Epic RPG Adventure Game. Dynamic quests, legendary heroes, and immersive gameplay awaits."
+      content="Windhelm® - Dynamic quests, legendary heroes, and immersive gameplay awaits."
     />
     <meta
       name="keywords"
       content="Windhelm, RPG, adventure game, dynamic quests, indie game, Steam"
     />
-    <title>Windhelm - Epic RPG Adventure</title>
+    <title>Windhelm®</title>
 
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.png" />
@@ -83,6 +83,10 @@
         background-attachment: fixed;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        /* Custom Medieval Bronze Cursor */
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><defs><linearGradient id="bronze" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23CD7F32;stop-opacity:1" /><stop offset="30%" style="stop-color:%23B8860B;stop-opacity:1" /><stop offset="70%" style="stop-color:%23A0522D;stop-opacity:1" /><stop offset="100%" style="stop-color:%23654321;stop-opacity:1" /></linearGradient></defs><path d="M2 2 L2 18 L7 13 L10 13 L15 22 L17 21 L12 12 L15 12 L2 2 Z" fill="url(%23bronze)" stroke="%232F1B14" stroke-width="0.5"/></svg>')
+            2 2,
+          auto;
       }
       .container {
         max-width: var(--container-max-width);
@@ -378,21 +382,8 @@
         backdrop-filter: blur(10px);
       }
 
-      /* Add subtle texture overlay that doesn't compromise readability */
-      .features::after,
-      .team::after,
-      .contact::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url("images/islandbg.png") repeat;
-        opacity: 0.1;
-        mix-blend-mode: multiply;
-        pointer-events: none;
-      }
+      /* Removed problematic overlay that was washing out images */
+      /* Section backgrounds now rely only on the main background gradients */
       .section-header {
         text-align: center;
         margin-bottom: 3rem;
@@ -424,14 +415,14 @@
       }
       .feature-card {
         background: linear-gradient(
-            rgba(255, 255, 255, 0.92),
-            rgba(255, 255, 255, 0.92)
+            rgba(255, 255, 255, 0.88),
+            rgba(255, 255, 255, 0.88)
           ),
           url("images/islandbg.png") repeat;
         background-blend-mode: normal, multiply;
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(10px);
         border-radius: var(--border-radius-lg);
-        padding: 2rem;
+        padding: 0;
         text-align: center;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15),
           0 0 0 1px rgba(255, 255, 255, 0.5);
@@ -439,20 +430,70 @@
         border: 1px solid rgba(200, 200, 200, 0.3);
         position: relative;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
       }
       .feature-card:hover {
         transform: translateY(-4px);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       }
+      /* Feature Images - Completely Isolated Styling with No Alpha/Fading */
       .feature-image {
-        margin-bottom: 1.5rem;
+        margin: 0 !important;
+        padding: 0 !important;
+        position: relative !important;
+        z-index: 9999 !important;
+        width: 100% !important;
+        background: none !important;
+        backdrop-filter: none !important;
+        filter: none !important;
+        opacity: 1 !important;
+        isolation: isolate !important;
+        order: -1;
+        border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+        overflow: hidden;
       }
+
       .feature-image img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: var(--border-radius);
+        width: 100% !important;
+        height: 200px !important;
+        object-fit: cover !important;
+        border-radius: 0 !important;
+        border: none !important;
+        filter: none !important;
+        -webkit-filter: none !important;
+        -moz-filter: none !important;
+        -ms-filter: none !important;
+        box-shadow: none !important;
+        background: none !important;
+        backdrop-filter: none !important;
+        opacity: 1 !important;
+        mix-blend-mode: normal !important;
+        isolation: isolate !important;
+        transition: transform 0.2s ease !important;
+        position: relative !important;
+        z-index: 9999 !important;
+        /* Ensure crisp rendering */
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+        /* Prevent any inherited transparency */
+        background-color: transparent !important;
+        display: block !important;
       }
+
+      .feature-image img:hover {
+        filter: none !important;
+        -webkit-filter: none !important;
+        transform: scale(1.02) !important;
+        box-shadow: none !important;
+        opacity: 1 !important;
+        backdrop-filter: none !important;
+      }
+      .feature-content {
+        padding: 2rem;
+        flex-grow: 1;
+      }
+
       .feature-content h3 {
         font-family: var(--font-display);
         font-size: 1.5rem;
@@ -490,13 +531,19 @@
         background: linear-gradient(
           90deg,
           transparent,
-          rgba(255, 255, 255, 0.3),
+          rgba(37, 99, 235, 0.1),
           transparent
         );
         transition: left 0.5s ease;
+        z-index: 1;
       }
       .feature-card:hover::before {
         left: 100%;
+      }
+      /* Ensure images stay above the sweep effect */
+      .feature-image {
+        position: relative;
+        z-index: 15;
       }
 
       /* Team Grid */
@@ -508,19 +555,18 @@
       }
       .team-member {
         text-align: center;
-        background: linear-gradient(
-            rgba(255, 255, 255, 0.92),
-            rgba(255, 255, 255, 0.92)
-          ),
-          url("images/islandbg.png") repeat;
-        background-blend-mode: normal, multiply;
-        backdrop-filter: blur(12px);
+        background: transparent !important;
         border-radius: var(--border-radius-lg);
         padding: 2rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15),
-          0 0 0 1px rgba(255, 255, 255, 0.5);
+        box-shadow: none !important;
         transition: var(--transition-base);
         position: relative;
+        /* Ensure no effects transfer to child images */
+        backdrop-filter: none !important;
+        filter: none !important;
+        opacity: 1 !important;
+        mix-blend-mode: normal !important;
+        isolation: isolate !important;
       }
       .team-member:hover {
         transform: translateY(-4px);
@@ -528,13 +574,56 @@
       }
       .member-image {
         margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 15;
       }
+      /* Team Photos - Completely Isolated Styling with No Alpha/Fading */
       .member-image img {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid var(--primary-color);
+        width: 120px !important;
+        height: 120px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        border: none !important;
+        filter: none !important;
+        box-shadow: none !important;
+        background: none !important;
+        backdrop-filter: none !important;
+        opacity: 1 !important;
+        mix-blend-mode: normal !important;
+        isolation: isolate !important;
+        transition: transform 0.2s ease !important;
+        position: relative !important;
+        z-index: 9999 !important;
+        /* Force full color saturation and contrast */
+        -webkit-filter: none !important;
+        -moz-filter: none !important;
+        -ms-filter: none !important;
+        /* Prevent any inherited transparency */
+        background-color: transparent !important;
+        /* Ensure crisp rendering */
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+      }
+
+      .member-image img:hover {
+        filter: none !important;
+        -webkit-filter: none !important;
+        transform: scale(1.02) !important;
+        box-shadow: none !important;
+        opacity: 1 !important;
+        backdrop-filter: none !important;
+      }
+
+      /* Ensure the container doesn't affect photos */
+      .member-image {
+        margin-bottom: 1.5rem !important;
+        position: relative !important;
+        z-index: 9998 !important;
+        background: none !important;
+        backdrop-filter: none !important;
+        filter: none !important;
+        opacity: 1 !important;
+        isolation: isolate !important;
       }
       .member-info h3 {
         font-family: var(--font-display);
@@ -542,12 +631,12 @@
         font-weight: 700;
         color: var(--gray-900);
         margin-bottom: 0.5rem;
-        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+        text-shadow: none;
       }
       .member-role {
         color: var(--blue-700);
         font-weight: 700;
-        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+        text-shadow: none;
       }
       .supporters {
         text-align: center;
@@ -756,10 +845,116 @@
         cursor: not-allowed;
       }
 
-      /* Performance Optimizations */
+      /* Falling Leaf Effect */
+      @keyframes fallDownFull {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0.8;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /* Sway animation now integrated into main fall animation */
+
+      .falling-leaf {
+        position: fixed;
+        pointer-events: none;
+        z-index: 10000;
+        font-size: 2rem;
+        user-select: none;
+        /* Ensure leaves don't cause horizontal scroll */
+        max-width: 2rem;
+        will-change: transform;
+        /* Prevent leaf from getting stuck */
+        animation-fill-mode: forwards;
+        /* Prevent leaves from extending page height */
+        overflow: hidden;
+        /* Clip leaves that go outside viewport */
+        clip-path: inset(0 0 0 0);
+        /* Custom animation will be applied via JavaScript */
+      }
+
+      /* Leaf container to prevent page extension */
+      #leaf-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 9999;
+      }
+
+      /* Medieval Bronze Cursor Variations */
+      a,
+      button,
+      .cta-button,
+      .submit-button,
+      .nav-link,
+      .social-link {
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><defs><linearGradient id="bronzeHover" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23DAA520;stop-opacity:1" /><stop offset="30%" style="stop-color:%23CD7F32;stop-opacity:1" /><stop offset="70%" style="stop-color:%23B8860B;stop-opacity:1" /><stop offset="100%" style="stop-color:%23A0522D;stop-opacity:1" /></linearGradient></defs><path d="M3 3 L3 20 L8 15 L12 15 L18 25 L21 23 L15 13 L18 13 L3 3 Z" fill="url(%23bronzeHover)" stroke="%232F1B14" stroke-width="0.8"/><circle cx="22" cy="6" r="3" fill="%23FFD700" stroke="%23B8860B" stroke-width="0.5" opacity="0.8"/></svg>')
+            3 3,
+          pointer !important;
+      }
+
+      input,
+      textarea,
+      select {
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24"><defs><linearGradient id="bronzeText" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23CD7F32;stop-opacity:1" /><stop offset="50%" style="stop-color:%23B8860B;stop-opacity:1" /><stop offset="100%" style="stop-color:%23A0522D;stop-opacity:1" /></linearGradient></defs><rect x="8" y="2" width="3" height="20" fill="url(%23bronzeText)" stroke="%23654321" stroke-width="0.5"/><rect x="6" y="2" width="7" height="2" fill="url(%23bronzeText)" stroke="%23654321" stroke-width="0.3"/><rect x="6" y="20" width="7" height="2" fill="url(%23bronzeText)" stroke="%23654321" stroke-width="0.3"/></svg>')
+            10 12,
+          text;
+      }
+
+      /* Container to prevent body overflow from leaves */
+      body {
+        overflow-x: hidden;
+      }
+
+      .falling-leaf.maple {
+        color: #d97706;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      }
+
+      .falling-leaf.oak {
+        color: #059669;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      }
+
+      .falling-leaf.birch {
+        color: #eab308;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      }
+
+      .falling-leaf.autumn {
+        color: #dc2626;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      }
+
+      /* Performance Optimizations & Image Enhancement */
       img {
         max-width: 100%;
         height: auto;
+      }
+
+      /* Enhance all images to prevent fading */
+      img:not(.hero-logo):not(.footer-logo) {
+        position: relative;
+        z-index: 5;
+      }
+
+      /* Logo specific enhancements */
+      .logo img,
+      .footer-logo {
+        filter: contrast(1.1) saturate(1.1) brightness(1.05);
       }
 
       /* Reduce animations on slow devices */
@@ -819,7 +1014,7 @@
     </noscript>
 
     <!-- SEO and Social Media -->
-    <meta property="og:title" content="Windhelm - Epic RPG Adventure" />
+    <meta property="og:title" content="Windhelm®" />
     <meta
       property="og:description"
       content="Embark on an epic RPG adventure with dynamic quests and legendary heroes."
@@ -978,48 +1173,146 @@
       <section id="features" class="features">
         <div class="container">
           <header class="section-header">
-            <h2 class="section-title">Game Features</h2>
+            <h2 class="section-title">Discover Windhelm</h2>
             <p class="section-subtitle">
-              Experience the ultimate RPG adventure
+              An immersive RPG adventure crafted by a passionate husband-wife
+              indie team
             </p>
           </header>
 
           <div class="features-grid">
             <article class="feature-card">
               <div class="feature-image">
-                <img src="images/2.png" alt="Dynamic Quests" loading="lazy" />
+                <img
+                  src="images/2.png"
+                  alt="Dynamic Quest System"
+                  loading="lazy"
+                />
               </div>
               <div class="feature-content">
-                <h3>Dynamic Quests</h3>
+                <h3>Revolutionary Quest System</h3>
                 <p>
-                  Experience ever-changing adventures with our revolutionary
-                  quest system that adapts to your choices.
+                  Windhelm features an innovative quest system that dynamically
+                  adapts to your choices and playstyle. Unlike traditional
+                  linear RPGs, every decision shapes your journey, creating
+                  truly personalized adventures. The world responds to your
+                  actions, offering multiple solutions to challenges and
+                  ensuring no two playthroughs are the same. Experience emergent
+                  storytelling where your choices matter and consequences unfold
+                  naturally.
                 </p>
               </div>
             </article>
 
             <article class="feature-card">
               <div class="feature-image">
-                <img src="images/3.png" alt="Epic Saga" loading="lazy" />
+                <img
+                  src="images/3.png"
+                  alt="Rich World Building"
+                  loading="lazy"
+                />
               </div>
               <div class="feature-content">
-                <h3>Epic Saga</h3>
+                <h3>Immersive World & Lore</h3>
                 <p>
-                  Immerse yourself in a rich storyline filled with legendary
-                  heroes and unforgettable moments.
+                  Explore the vast realm of Windhelm, a meticulously crafted
+                  fantasy world filled with ancient mysteries, diverse
+                  landscapes, and rich cultural histories. From mystical forests
+                  to towering mountain fortresses, every location tells a story
+                  through environmental storytelling and hidden lore. Discover
+                  forgotten ruins, uncover lost civilizations, and interact with
+                  memorable NPCs who have their own goals and motivations that
+                  extend beyond serving the player's needs.
                 </p>
               </div>
             </article>
 
             <article class="feature-card">
               <div class="feature-image">
-                <img src="images/4.png" alt="Legendary Heroes" loading="lazy" />
+                <img
+                  src="images/4.png"
+                  alt="Character Progression"
+                  loading="lazy"
+                />
               </div>
               <div class="feature-content">
-                <h3>Legendary Heroes</h3>
+                <h3>Deep Character Customization</h3>
                 <p>
-                  Create and customize your heroes with unique abilities and
-                  equipment in this husband-wife RPG adventure.
+                  Create and develop legendary heroes with our extensive
+                  character progression system. Choose from multiple classes,
+                  each with unique abilities, skill trees, and playstyles. Craft
+                  and customize equipment, master diverse combat techniques, and
+                  develop relationships with companions. The game features
+                  meaningful character development where your build choices
+                  significantly impact gameplay mechanics, dialogue options, and
+                  story outcomes, ensuring every character feels truly unique.
+                </p>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-image">
+                <img src="images/5.png" alt="Strategic Combat" loading="lazy" />
+              </div>
+              <div class="feature-content">
+                <h3>Tactical Combat System</h3>
+                <p>
+                  Engage in strategic, free flow combat that rewards planning
+                  and positioning over button-mashing. Utilize environmental
+                  hazards, elemental synergies, and tactical abilites to
+                  overcome challenging encounters. The combat system emphasizes
+                  resource management, timing, and smart use of abilities rather
+                  than reflexes. Face diverse enemy types that require different
+                  strategies, from cunning rogues to massive ancient dragons,
+                  each presenting unique tactical challenges.
+                </p>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-image">
+                <img
+                  src="images/Grasslandoverlook1.png"
+                  alt="Indie Crafted"
+                  loading="lazy"
+                />
+              </div>
+              <div class="feature-content">
+                <h3>Indie Passion Project</h3>
+                <p>
+                  Windhelm is lovingly crafted by NorwinLabs, a dedicated
+                  husband-wife indie development team. Every aspect of the game
+                  reflects our passion for classic RPGs and attention to detail.
+                  We prioritize meaningful content over flashy graphics,
+                  focusing on deep gameplay mechanics, engaging narratives, and
+                  player agency. As an indie project, we maintain direct
+                  communication with our community, incorporating player
+                  feedback and ensuring the game stays true to its vision of
+                  delivering an authentic RPG experience.
+                </p>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-image">
+                <img
+                  src="images/pngegg.png"
+                  alt="Community Driven"
+                  loading="lazy"
+                />
+              </div>
+              <div class="feature-content">
+                <h3>Community-Driven Development</h3>
+                <p>
+                  Join our growing community of RPG enthusiasts and become part
+                  of Windhelm's development journey. We actively engage with
+                  players through Discord, incorporating valuable feedback and
+                  suggestions into the game. Early supporters gain access to
+                  development updates, beta testing opportunities, and exclusive
+                  content. Our transparent development process allows the
+                  community to witness and influence the creation of something
+                  special. Together, we're building not just a game, but a
+                  shared adventure that celebrates the RPG genre.
                 </p>
               </div>
             </article>
@@ -1378,6 +1671,378 @@
             });
           }
         });
+      });
+
+      // Falling Leaf Effect
+      function createFallingLeaf(mouseX, mouseY) {
+        const leafTypes = [
+          { emoji: "🍃", class: "maple" },
+          { emoji: "🍂", class: "autumn" },
+          { emoji: "🌿", class: "oak" },
+          { emoji: "🍀", class: "birch" },
+        ];
+
+        const leaf = document.createElement("div");
+        const leafType =
+          leafTypes[Math.floor(Math.random() * leafTypes.length)];
+
+        leaf.className = `falling-leaf ${leafType.class}`;
+        leaf.textContent = leafType.emoji;
+
+        // Position leaf at mouse cursor with small random offset for spread
+        const leafSize = 32; // Approximate size of 2rem font
+        const swayPadding = 15; // Maximum sway distance
+        const spreadRadius = 30; // Random spread around cursor
+
+        // Random offset around mouse position
+        const offsetX = (Math.random() - 0.5) * spreadRadius * 2;
+        const offsetY = (Math.random() - 0.5) * 20; // Small vertical offset
+
+        let leafX = mouseX + offsetX;
+        let leafY = mouseY + offsetY;
+
+        // Ensure leaf stays within screen bounds accounting for sway
+        const minX = leafSize + swayPadding;
+        const maxX = window.innerWidth - leafSize - swayPadding;
+        leafX = Math.max(minX, Math.min(maxX, leafX));
+
+        leaf.style.left = leafX + "px";
+        leaf.style.top = leafY + "px";
+
+        // Calculate full page height for complete flow
+        const documentHeight = Math.max(
+          document.body.scrollHeight,
+          document.body.offsetHeight,
+          document.documentElement.clientHeight,
+          document.documentElement.scrollHeight,
+          document.documentElement.offsetHeight
+        );
+
+        // Calculate fall distance using viewport height to prevent page extension
+        const viewportHeight = window.innerHeight;
+        const fallDistance = viewportHeight - leafY + 100; // Fall to bottom of viewport + small buffer
+
+        // Ensure minimum fall distance but keep within reasonable bounds
+        const minFallDistance = Math.max(fallDistance, 300);
+        const maxFallDistance = viewportHeight + 200; // Create custom keyframe animation for this leaf with enhanced rotation
+        const animationName = `fallLeaf${Date.now()}_${Math.random()
+          .toString(36)
+          .substr(2, 9)}`;
+
+        // Random rotation parameters for natural variety
+        const rotations = 2 + Math.random() * 4; // 2-6 full rotations
+        const finalRotation = rotations * 360;
+        const rotationDirection = Math.random() > 0.5 ? 1 : -1; // Random direction
+
+        // Enhanced sway parameters for natural drifting motion
+        const swayAmplitude = 30 + Math.random() * 40; // 30-70px sway amplitude
+        const swayFrequency = 2 + Math.random() * 3; // 2-5 complete sway cycles
+        const swayPhase = Math.random() * Math.PI * 2; // Random starting phase
+
+        const keyframes = `
+          @keyframes ${animationName} {
+            0% {
+              transform: translateY(0) translateX(0) rotate(0deg);
+              opacity: 0.8;
+            }
+            10% {
+              opacity: 1;
+            }
+            10% {
+              opacity: 1;
+              transform: translateY(${minFallDistance * 0.1}px) translateX(${
+          swayAmplitude *
+          Math.sin(0.1 * swayFrequency * Math.PI * 2 + swayPhase)
+        }px) rotate(${finalRotation * 0.1 * rotationDirection}deg);
+            }
+            20% {
+              transform: translateY(${minFallDistance * 0.2}px) translateX(${
+          swayAmplitude *
+          Math.sin(0.2 * swayFrequency * Math.PI * 2 + swayPhase)
+        }px) rotate(${finalRotation * 0.2 * rotationDirection}deg);
+            }
+            30% {
+              transform: translateY(${minFallDistance * 0.3}px) translateX(${
+          swayAmplitude *
+          Math.sin(0.3 * swayFrequency * Math.PI * 2 + swayPhase)
+        }px) rotate(${finalRotation * 0.3 * rotationDirection}deg);
+            }
+            40% {
+              transform: translateY(${minFallDistance * 0.4}px) translateX(${
+          swayAmplitude *
+          Math.sin(0.4 * swayFrequency * Math.PI * 2 + swayPhase)
+        }px) rotate(${finalRotation * 0.4 * rotationDirection}deg);
+            }
+            50% {
+              transform: translateY(${minFallDistance * 0.5}px) translateX(${
+          swayAmplitude *
+          Math.sin(0.5 * swayFrequency * Math.PI * 2 + swayPhase)
+        }px) rotate(${finalRotation * 0.5 * rotationDirection}deg);
+            }
+            60% {
+              transform: translateY(${minFallDistance * 0.6}px) translateX(${
+          swayAmplitude *
+          Math.sin(0.6 * swayFrequency * Math.PI * 2 + swayPhase)
+        }px) rotate(${finalRotation * 0.6 * rotationDirection}deg);
+            }
+            70% {
+              transform: translateY(${minFallDistance * 0.7}px) translateX(${
+          swayAmplitude *
+          Math.sin(0.7 * swayFrequency * Math.PI * 2 + swayPhase)
+        }px) rotate(${finalRotation * 0.7 * rotationDirection}deg);
+            }
+            80% {
+              transform: translateY(${minFallDistance * 0.8}px) translateX(${
+          swayAmplitude *
+          Math.sin(0.8 * swayFrequency * Math.PI * 2 + swayPhase)
+        }px) rotate(${finalRotation * 0.8 * rotationDirection}deg);
+            }
+            90% {
+              opacity: 1;
+              transform: translateY(${minFallDistance * 0.9}px) translateX(${
+          swayAmplitude *
+          Math.sin(0.9 * swayFrequency * Math.PI * 2 + swayPhase)
+        }px) rotate(${finalRotation * 0.9 * rotationDirection}deg);
+            }
+            95% {
+              opacity: 0.7;
+              transform: translateY(${minFallDistance * 0.95}px) translateX(${
+          swayAmplitude *
+          Math.sin(0.95 * swayFrequency * Math.PI * 2 + swayPhase)
+        }px) rotate(${finalRotation * 0.95 * rotationDirection}deg);
+            }
+            100% {
+              opacity: 0;
+              transform: translateY(${minFallDistance}px) translateX(${
+          swayAmplitude * Math.sin(1 * swayFrequency * Math.PI * 2 + swayPhase)
+        }px) rotate(${finalRotation * rotationDirection}deg);
+            }
+          }
+        `;
+
+        // Inject the custom animation
+        const styleSheet = document.createElement("style");
+        styleSheet.textContent = keyframes;
+        document.head.appendChild(styleSheet);
+
+        // Longer duration for graceful swaying motion (8-12 seconds)
+        const duration = 8 + Math.random() * 4;
+        leaf.style.animation = `${animationName} ${duration}s linear forwards`;
+
+        // Force leaf to be visible and properly positioned
+        leaf.style.visibility = "visible";
+        leaf.style.pointerEvents = "none";
+
+        // Clean up the injected stylesheet after animation
+        setTimeout(() => {
+          if (styleSheet.parentNode) {
+            styleSheet.parentNode.removeChild(styleSheet);
+          }
+        }, duration * 1000 + 1000);
+
+        // Create or get leaf container
+        let leafContainer = document.getElementById("leaf-container");
+        if (!leafContainer) {
+          leafContainer = document.createElement("div");
+          leafContainer.id = "leaf-container";
+          leafContainer.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 9999;
+          `;
+          document.body.appendChild(leafContainer);
+        }
+
+        leafContainer.appendChild(leaf);
+
+        // Add animation end event listener for reliable cleanup
+        leaf.addEventListener("animationend", function () {
+          if (this.parentNode) {
+            this.parentNode.removeChild(this);
+          }
+        });
+
+        // Fallback cleanup timer in case animation events fail
+        setTimeout(() => {
+          if (leaf.parentNode) {
+            leaf.parentNode.removeChild(leaf);
+          }
+        }, duration * 1000 + 500);
+
+        // Emergency cleanup for stuck leaves
+        setTimeout(() => {
+          if (leaf.parentNode) {
+            leaf.style.opacity = "0";
+            setTimeout(() => {
+              if (leaf.parentNode) {
+                leaf.parentNode.removeChild(leaf);
+              }
+            }, 1000);
+          }
+        }, (duration + 2) * 1000);
+      }
+
+      function triggerLeafEffect(mouseX, mouseY, isSpecialClick = false) {
+        // More leaves for special clicks (buttons), fewer for general clicks
+        const baseLeafCount = isSpecialClick ? 12 : 6;
+        const leafCount =
+          baseLeafCount + Math.floor(Math.random() * (isSpecialClick ? 8 : 4));
+
+        // Add satisfying screen shake for button clicks
+        if (isSpecialClick) {
+          document.body.style.transform = "translateX(2px)";
+          setTimeout(() => {
+            document.body.style.transform = "translateX(-2px)";
+          }, 50);
+          setTimeout(() => {
+            document.body.style.transform = "translateX(0)";
+          }, 100);
+        }
+
+        // Create burst effect with faster initial spawn
+        for (let i = 0; i < leafCount; i++) {
+          setTimeout(() => {
+            createFallingLeaf(mouseX, mouseY);
+          }, i * (isSpecialClick ? 100 : 150)); // Faster stagger for special clicks
+        }
+
+        // Add satisfying visual ripple effect
+        createRippleEffect(mouseX, mouseY, isSpecialClick);
+      }
+
+      // Create satisfying ripple effect at click location
+      function createRippleEffect(x, y, isSpecial) {
+        const ripple = document.createElement("div");
+        ripple.style.cssText = `
+          position: fixed;
+          left: ${x - 25}px;
+          top: ${y - 25}px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background: ${
+            isSpecial
+              ? "radial-gradient(circle, rgba(37,99,235,0.3) 0%, rgba(37,99,235,0.1) 50%, transparent 70%)"
+              : "radial-gradient(circle, rgba(34,197,94,0.2) 0%, rgba(34,197,94,0.1) 50%, transparent 70%)"
+          };
+          pointer-events: none;
+          z-index: 9998;
+          animation: rippleExpand 0.6s ease-out forwards;
+        `;
+
+        // Add ripple animation
+        if (!document.querySelector("#ripple-styles")) {
+          const rippleStyles = document.createElement("style");
+          rippleStyles.id = "ripple-styles";
+          rippleStyles.textContent = `
+            @keyframes rippleExpand {
+              0% {
+                transform: scale(0);
+                opacity: 1;
+              }
+              100% {
+                transform: scale(${isSpecial ? 8 : 4});
+                opacity: 0;
+              }
+            }
+          `;
+          document.head.appendChild(rippleStyles);
+        }
+
+        document.body.appendChild(ripple);
+
+        setTimeout(() => {
+          if (ripple.parentNode) {
+            ripple.parentNode.removeChild(ripple);
+          }
+        }, 600);
+      }
+
+      // Add global click listener for leaf effects
+      function addGlobalLeafEffect() {
+        // Special elements that get enhanced effects
+        const specialSelectors = [
+          "button",
+          ".cta-button",
+          ".submit-button",
+          ".nav-link",
+          'a[href^="#"]',
+          ".social-link",
+        ];
+
+        // Global click listener for any click
+        document.addEventListener("click", function (e) {
+          // Get mouse coordinates from click event
+          const mouseX = e.clientX || e.pageX || window.innerWidth / 2;
+          const mouseY = e.clientY || e.pageY || 100;
+
+          // Check if clicked element is a special interactive element
+          const isSpecialClick = specialSelectors.some((selector) => {
+            return e.target.matches(selector) || e.target.closest(selector);
+          });
+
+          // Trigger leaf effect with appropriate intensity
+          triggerLeafEffect(mouseX, mouseY, isSpecialClick);
+        });
+
+        // Add special hover effects for interactive elements with medieval cursor
+        specialSelectors.forEach((selector) => {
+          document.querySelectorAll(selector).forEach((element) => {
+            element.addEventListener("mouseenter", function () {
+              this.style.transform = "scale(1.02)";
+              this.style.transition = "transform 0.1s ease, filter 0.1s ease";
+              // Enhanced cursor glow effect on hover
+              this.style.filter =
+                "drop-shadow(0 0 3px rgba(218, 165, 32, 0.4))";
+            });
+            element.addEventListener("mouseleave", function () {
+              this.style.transform = "scale(1)";
+              this.style.filter = "none";
+            });
+          });
+        });
+      }
+
+      // Create leaf container on page load
+      function initializeLeafSystem() {
+        // Create leaf container if it doesn't exist
+        if (!document.getElementById("leaf-container")) {
+          const leafContainer = document.createElement("div");
+          leafContainer.id = "leaf-container";
+          leafContainer.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 9999;
+          `;
+          document.body.appendChild(leafContainer);
+        }
+        addGlobalLeafEffect();
+      }
+
+      // Initialize leaf effects when page loads
+      document.addEventListener("DOMContentLoaded", initializeLeafSystem);
+
+      // Initialize immediately if DOM already loaded
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeLeafSystem);
+      } else {
+        initializeLeafSystem();
+      }
+
+      // Handle window resize to ensure leaf bounds stay correct
+      window.addEventListener("resize", function () {
+        // Future leaves will use updated window.innerWidth automatically
+        // Existing leaves will complete their current animation
       });
     </script>
   </body>
