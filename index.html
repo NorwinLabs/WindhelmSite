@@ -1,325 +1,1384 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Windhelm - Epic RPG Adventure Game. Dynamic quests, legendary heroes, and immersive gameplay awaits.">
-    <meta name="keywords" content="Windhelm, RPG, adventure game, dynamic quests, indie game, Steam">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Windhelm - Epic RPG Adventure Game. Dynamic quests, legendary heroes, and immersive gameplay awaits."
+    />
+    <meta
+      name="keywords"
+      content="Windhelm, RPG, adventure game, dynamic quests, indie game, Steam"
+    />
     <title>Windhelm - Epic RPG Adventure</title>
-    
+
     <!-- Favicon -->
-    <link rel="icon" href="images/favicon.png">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    
+    <link rel="icon" href="images/favicon.png" />
+
+    <!-- Preload critical resources for optimal performance -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <!-- Preload critical images -->
+    <link rel="preload" href="images/Logo.png" as="image" type="image/png" />
+    <link
+      rel="preload"
+      href="images/islandbg.png"
+      as="image"
+      type="image/png"
+    />
+
     <!-- Critical CSS - Inline for faster first paint -->
     <style>
-:root{--primary-color:#2563eb;--primary-dark:#1d4ed8;--white:#ffffff;--gray-50:#f9fafb;--gray-200:#e5e7eb;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827;--hero-gradient-start:#1e1b4b;--hero-gradient-end:#312e81;--font-primary:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--font-display:'Space Grotesk','Inter',sans-serif;--space-4:1rem;--space-6:1.5rem;--space-8:2rem;--space-20:5rem;--container-max-width:1200px;--container-padding:1.5rem;--border-radius:0.5rem;--border-radius-lg:0.75rem;--shadow:0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06);--transition-base:all 0.2s ease}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;font-size:16px}body{font-family:var(--font-primary);font-size:1rem;line-height:1.6;color:var(--gray-800);background-color:var(--white);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.container{max-width:var(--container-max-width);margin:0 auto;padding:0 var(--container-padding)}.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--gray-200);transition:var(--transition-base)}.nav-container{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) var(--container-padding);max-width:var(--container-max-width);margin:0 auto}.logo img{height:40px;width:auto}.nav-menu{display:flex;align-items:center;gap:var(--space-8)}.nav-link{font-weight:500;color:var(--gray-700);padding:0.5rem 0.75rem;border-radius:var(--border-radius);transition:var(--transition-base);text-decoration:none}.social-links{display:flex;justify-content:center;align-items:center;gap:0.75rem}.social-link{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:var(--border-radius);color:var(--gray-600);transition:var(--transition-base)}.social-link svg{width:20px;height:20px}.nav-toggle{display:none;flex-direction:column;gap:4px;width:24px;height:24px;border:none;background:none;cursor:pointer}.nav-toggle span{width:100%;height:2px;background:var(--gray-700);border-radius:1px;transition:var(--transition-base)}.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--hero-gradient-start),var(--hero-gradient-end));overflow:hidden}.hero-background{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1}.hero-bg-image{width:100%;height:100%;object-fit:cover;opacity:0.3}.hero-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6))}.hero-content{position:relative;z-index:10;text-align:center;color:var(--white);padding:var(--space-20) 0}.hero-title{margin-bottom:var(--space-6)}.hero-title-main{display:block;font-family:var(--font-display);font-size:3.75rem;font-weight:700;margin-bottom:0.5rem;background:linear-gradient(45deg,#fff,#e0e7ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.hero-title-sub{display:block;font-size:1.5rem;font-weight:400;color:var(--gray-200)}.hero-description{font-size:1.25rem;max-width:600px;margin:0 auto var(--space-8);color:var(--gray-200)}.hero-cta{display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap}.cta-button{display:inline-flex;align-items:center;padding:var(--space-4) var(--space-8);border-radius:var(--border-radius-lg);font-weight:600;font-size:1.125rem;transition:var(--transition-base);text-decoration:none;cursor:pointer}.cta-button.primary{background:var(--primary-color);color:var(--white);box-shadow:var(--shadow)}.cta-button.secondary{background:transparent;color:var(--white);border:2px solid var(--white)}@media (max-width:768px){.nav-menu{display:none}.nav-toggle{display:flex}.hero-title-main{font-size:3rem}.hero-cta{flex-direction:column;align-items:center}.cta-button{width:100%;max-width:300px;justify-content:center}}@media (max-width:640px){:root{--container-padding:0.75rem}.hero-title-main{font-size:2.25rem}.hero-description{font-size:1.125rem}}
+      :root {
+        --primary-color: #2563eb;
+        --primary-dark: #1d4ed8;
+        --white: #ffffff;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-400: #9ca3af;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+        --hero-gradient-start: #1e1b4b;
+        --hero-gradient-end: #312e81;
+        --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        --font-display: "Space Grotesk", "Inter", sans-serif;
+        --space-4: 1rem;
+        --space-6: 1.5rem;
+        --space-8: 2rem;
+        --space-20: 5rem;
+        --container-max-width: 1200px;
+        --container-padding: 1.5rem;
+        --border-radius: 0.5rem;
+        --border-radius-lg: 0.75rem;
+        --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+          0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        --transition-base: all 0.2s ease;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+      body {
+        font-family: var(--font-primary);
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--gray-800);
+        background: url("images/islandbg.png") repeat;
+        background-attachment: fixed;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .container {
+        max-width: var(--container-max-width);
+        margin: 0 auto;
+        padding: 0 var(--container-padding);
+      }
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: url("images/islandbg.png") repeat,
+          linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
+        background-blend-mode: overlay;
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(229, 231, 235, 0.6);
+        transition: var(--transition-base);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--space-4) var(--container-padding);
+        max-width: var(--container-max-width);
+        margin: 0 auto;
+      }
+      .logo img {
+        height: 40px;
+        width: auto;
+      }
+      .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: var(--space-8);
+      }
+      .nav-link {
+        font-weight: 500;
+        color: #000000;
+        padding: 0.5rem 0.75rem;
+        border-radius: var(--border-radius);
+        transition: var(--transition-base);
+        text-decoration: none;
+      }
+      .nav-link:hover {
+        background-color: var(--gray-100);
+        color: var(--primary-color);
+        transform: translateY(-1px);
+      }
+      .nav-link:active,
+      .nav-link.active {
+        background-color: var(--primary-color);
+        color: var(--white);
+      }
+      .social-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .social-link {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--border-radius);
+        color: var(--gray-600);
+        transition: var(--transition-base);
+        position: relative;
+      }
+      .social-link:hover {
+        color: var(--primary-color);
+        background-color: rgba(37, 99, 235, 0.1);
+        transform: translateY(-2px) scale(1.05);
+      }
+      .social-link:hover svg {
+        transform: scale(1.1);
+      }
+      .social-link svg {
+        width: 20px;
+        height: 20px;
+      }
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        width: 24px;
+        height: 24px;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+      .nav-toggle span {
+        width: 100%;
+        height: 2px;
+        background: var(--gray-700);
+        border-radius: 1px;
+        transition: var(--transition-base);
+      }
+      .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          135deg,
+          var(--hero-gradient-start),
+          var(--hero-gradient-end)
+        );
+        overflow: hidden;
+      }
+      .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+      }
+      .hero-bg-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.3;
+      }
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(30, 27, 75, 0.8),
+          rgba(49, 46, 129, 0.6)
+        );
+      }
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        color: var(--white);
+        padding: var(--space-20) 0;
+      }
+      .hero-title {
+        margin-bottom: var(--space-6);
+      }
+      .hero-title-main {
+        display: block;
+        margin-bottom: 0.5rem;
+        text-align: center;
+      }
+      .hero-logo {
+        max-width: 400px;
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        transition: var(--transition-base);
+      }
+      .hero-logo:hover {
+        transform: scale(1.05);
+        filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+      }
+      .hero-title-sub {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--gray-200);
+      }
+      .hero-description {
+        font-size: 1.25rem;
+        max-width: 600px;
+        margin: 0 auto var(--space-8);
+        color: var(--gray-200);
+      }
+      .hero-cta {
+        display: flex;
+        gap: var(--space-4);
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        padding: var(--space-4) var(--space-8);
+        border-radius: var(--border-radius-lg);
+        font-weight: 600;
+        font-size: 1.125rem;
+        transition: var(--transition-base);
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .cta-button.primary {
+        background: var(--primary-color);
+        color: var(--white);
+        box-shadow: var(--shadow);
+      }
+      .cta-button.secondary {
+        background: transparent;
+        color: var(--white);
+        border: 2px solid var(--white);
+      }
+      .cta-button:hover {
+        transform: translateY(-2px);
+      }
+      .cta-button.primary:hover {
+        background: var(--primary-dark);
+        box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+      }
+      .cta-button.secondary:hover {
+        background: var(--white);
+        color: var(--primary-color);
+      }
+      @media (max-width: 768px) {
+        .nav-menu {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: rgba(255, 255, 255, 0.8);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 2rem;
+          padding-top: 2rem;
+          transition: left 0.3s ease;
+          z-index: 999;
+        }
+        .nav-menu.active {
+          left: 0;
+        }
+        .nav-menu .nav-link {
+          font-size: 1.25rem;
+          padding: 1rem 2rem;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .hero-logo {
+          max-width: 300px;
+        }
+        .hero-cta {
+          flex-direction: column;
+          align-items: center;
+        }
+        .cta-button {
+          width: 100%;
+          max-width: 300px;
+          justify-content: center;
+        }
+      }
+      @media (max-width: 640px) {
+        :root {
+          --container-padding: 0.75rem;
+        }
+        .hero-logo {
+          max-width: 250px;
+        }
+        .hero-description {
+          font-size: 1.125rem;
+        }
+      }
+
+      /* Section Styles - Optimized for readability */
+      .features,
+      .team,
+      .contact {
+        padding: 5rem 0;
+        background: url("images/islandbg.png") repeat,
+          linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75));
+        background-blend-mode: overlay;
+        backdrop-filter: blur(8px);
+        position: relative;
+      }
+      .features {
+        background: url("images/islandbg.png") repeat,
+          linear-gradient(rgba(249, 250, 251, 0.85), rgba(249, 250, 251, 0.85));
+        background-blend-mode: overlay;
+        backdrop-filter: blur(10px);
+      }
+
+      /* Add subtle texture overlay that doesn't compromise readability */
+      .features::after,
+      .team::after,
+      .contact::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("images/islandbg.png") repeat;
+        opacity: 0.1;
+        mix-blend-mode: multiply;
+        pointer-events: none;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .section-title {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--gray-900);
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+        position: relative;
+      }
+      .section-subtitle {
+        font-size: 1.25rem;
+        color: var(--gray-700);
+        max-width: 600px;
+        margin: 0 auto;
+        text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+        font-weight: 500;
+      }
+
+      /* Features Grid */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+      .feature-card {
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.92),
+            rgba(255, 255, 255, 0.92)
+          ),
+          url("images/islandbg.png") repeat;
+        background-blend-mode: normal, multiply;
+        backdrop-filter: blur(12px);
+        border-radius: var(--border-radius-lg);
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15),
+          0 0 0 1px rgba(255, 255, 255, 0.5);
+        transition: var(--transition-base);
+        border: 1px solid rgba(200, 200, 200, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+      .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+      .feature-image {
+        margin-bottom: 1.5rem;
+      }
+      .feature-image img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: var(--border-radius);
+      }
+      .feature-content h3 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gray-900);
+        margin-bottom: 1rem;
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+      }
+      .feature-content p {
+        color: var(--gray-800);
+        line-height: 1.8;
+        font-weight: 500;
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+      }
+
+      /* Additional Features Section Styling */
+      .features .container {
+        position: relative;
+        z-index: 2;
+      }
+      .features .section-header {
+        animation: fadeInUp 0.8s ease-out;
+      }
+      .feature-card {
+        position: relative;
+        overflow: hidden;
+      }
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+      .feature-card:hover::before {
+        left: 100%;
+      }
+
+      /* Team Grid */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+      .team-member {
+        text-align: center;
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.92),
+            rgba(255, 255, 255, 0.92)
+          ),
+          url("images/islandbg.png") repeat;
+        background-blend-mode: normal, multiply;
+        backdrop-filter: blur(12px);
+        border-radius: var(--border-radius-lg);
+        padding: 2rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15),
+          0 0 0 1px rgba(255, 255, 255, 0.5);
+        transition: var(--transition-base);
+        position: relative;
+      }
+      .team-member:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+      .member-image {
+        margin-bottom: 1.5rem;
+      }
+      .member-image img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--primary-color);
+      }
+      .member-info h3 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gray-900);
+        margin-bottom: 0.5rem;
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+      }
+      .member-role {
+        color: var(--blue-700);
+        font-weight: 700;
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+      }
+      .supporters {
+        text-align: center;
+        padding: 2rem;
+        background: var(--gray-50);
+        border-radius: var(--border-radius-lg);
+        border: 2px dashed var(--gray-200);
+      }
+      .supporters h3 {
+        font-family: var(--font-display);
+        color: var(--gray-700);
+        margin-bottom: 1rem;
+      }
+
+      /* Contact Form */
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+        background: url("images/islandbg.png") repeat,
+          linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75));
+        background-blend-mode: overlay;
+        backdrop-filter: blur(10px);
+        padding: 2rem;
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow);
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      .form-group label {
+        display: block;
+        font-weight: 500;
+        color: var(--gray-700);
+        margin-bottom: 0.5rem;
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid var(--gray-300);
+        border-radius: var(--border-radius);
+        font-family: inherit;
+        font-size: 1rem;
+        transition: var(--transition-base);
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        color: var(--gray-900);
+        font-weight: 500;
+      }
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .checkbox-group input[type="checkbox"] {
+        width: auto;
+      }
+      .submit-button {
+        width: 100%;
+        background: var(--primary-color);
+        color: var(--white);
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: var(--border-radius-lg);
+        font-size: 1.125rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition-base);
+      }
+      .submit-button:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+      .submit-button:focus {
+        outline: 3px solid var(--blue-300);
+        outline-offset: 2px;
+        background: var(--primary-dark);
+      }
+
+      /* Improve focus states for accessibility */
+      a:focus,
+      button:focus,
+      input:focus,
+      textarea:focus {
+        outline: 2px solid var(--blue-500);
+        outline-offset: 2px;
+      }
+      .terms-link {
+        color: var(--primary-color);
+        text-decoration: underline;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--gray-900);
+        color: var(--white);
+        padding: 3rem 0 2rem;
+        margin-top: 5rem;
+      }
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .footer-logo {
+        height: 40px;
+        width: auto;
+      }
+      .footer-brand p {
+        color: var(--gray-400);
+        font-size: 0.9rem;
+      }
+      .footer-version {
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 0.5rem 1rem;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      /* Form Messages */
+      .form-messages {
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        z-index: 1001;
+        max-width: 400px;
+      }
+      .form-success,
+      .form-error {
+        padding: 1rem 1.5rem;
+        border-radius: var(--border-radius-lg);
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+      .form-success {
+        background: #10b981;
+        color: white;
+      }
+      .form-error {
+        background: #ef4444;
+        color: white;
+      }
+
+      /* Progress Updates / Discord Widget */
+      .discord-widget-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+      .discord-widget-container iframe {
+        border-radius: 0.75rem;
+        box-shadow: var(--shadow);
+      }
+
+      /* Loading Animation */
+      .loading {
+        opacity: 0.7;
+        pointer-events: none;
+      }
+
+      /* Fade in animation for sections */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .section-header {
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      /* Pulse animation for loading states */
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      .submit-button:disabled {
+        animation: pulse 1.5s infinite;
+        cursor: not-allowed;
+      }
+
+      /* Performance Optimizations */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Reduce animations on slow devices */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        .section-title,
+        .section-subtitle,
+        .feature-content h3,
+        .feature-content p {
+          text-shadow: none;
+          font-weight: 700;
+        }
+        .feature-card,
+        .team-member {
+          border: 2px solid var(--gray-800);
+        }
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        .discord-widget-container iframe {
+          width: 100%;
+          max-width: 350px;
+          height: 400px;
+        }
+        .section-title {
+          font-size: 2rem;
+        }
+        .features-grid,
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-content {
+          flex-direction: column;
+          text-align: center;
+        }
+        .contact-form {
+          padding: 1.5rem;
+        }
+      }
     </style>
-    
+
     <!-- Non-critical stylesheets -->
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css">
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
     </noscript>
-    
+
     <!-- SEO and Social Media -->
-    <meta property="og:title" content="Windhelm - Epic RPG Adventure">
-    <meta property="og:description" content="Embark on an epic RPG adventure with dynamic quests and legendary heroes.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="images/Logo.png">
-    <meta name="twitter:card" content="summary_large_image">
-    
-    
+    <meta property="og:title" content="Windhelm - Epic RPG Adventure" />
+    <meta
+      property="og:description"
+      content="Embark on an epic RPG adventure with dynamic quests and legendary heroes."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/Logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
-    {
+      {
         "@context": "http://schema.org",
         "@type": "VideoGame",
         "name": "Windhelm",
         "developer": {
-            "@type": "Organization",
-            "name": "NorwinLabs",
-            "logo": "images/Logo.png"
+          "@type": "Organization",
+          "name": "NorwinLabs",
+          "logo": "images/Logo.png"
         },
         "sameAs": [
-            "https://www.youtube.com/@NorwinLabs",
-            "https://discord.gg/PgGA8Zsj4g",
-            "https://store.steampowered.com/app/2171040/Windhelm/"
+          "https://www.youtube.com/@NorwinLabs",
+          "https://discord.gg/PgGA8Zsj4g",
+          "https://store.steampowered.com/app/2171040/Windhelm/"
         ]
-    }
+      }
     </script>
     <style>
-.contact-social .social-links-large {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-.header .social-links {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-}
-</style>
-</head>
-<body>
+      .contact-social .social-links-large {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+      .header .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
     <!-- Navigation Header -->
     <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <a href="#" class="logo">
-                    <img src="images/Logo.png" alt="Windhelm Logo" width="120" height="55">
-                </a>
-                
-                <div class="nav-menu" id="nav-menu">
-                    <a href="#home" class="nav-link">Home</a>
-                    <a href="#features" class="nav-link">Features</a>
-                    <a href="#team" class="nav-link">Team</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </div>
-                
-                <div class="social-links">
-                    <a href="https://www.youtube.com/@NorwinLabs" target="_blank" rel="noopener" aria-label="YouTube" class="social-link">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </a>
-                    <a href="https://discord.gg/PgGA8Zsj4g" target="_blank" rel="noopener" aria-label="Discord" class="social-link">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-                        </svg>
-                    </a>
-                    <a href="https://store.steampowered.com/app/2171040/Windhelm/" target="_blank" rel="noopener" aria-label="Steam" class="social-link">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.62 20.51 6.363 24 11.979 24c6.624 0 11.979-5.354 11.979-11.979C23.958 5.354 18.603.001 11.979.001zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.66-1.353-3.015-3.015-3.015-1.665 0-3.015 1.355-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/>
-                        </svg>
-                    </a>
-                </div>
-                
-                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </nav>
+      <nav class="nav">
+        <div class="nav-container">
+          <a href="#" class="logo">
+            <img
+              src="images/Logo.png"
+              alt="Windhelm Logo"
+              width="120"
+              height="55"
+            />
+          </a>
+
+          <div class="nav-menu" id="nav-menu">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#team" class="nav-link">Team</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </div>
+
+          <div class="social-links">
+            <a
+              href="https://www.youtube.com/@NorwinLabs"
+              target="_blank"
+              rel="noopener"
+              aria-label="YouTube"
+              class="social-link"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://discord.gg/PgGA8Zsj4g"
+              target="_blank"
+              rel="noopener"
+              aria-label="Discord"
+              class="social-link"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://store.steampowered.com/app/2171040/Windhelm/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Steam"
+              class="social-link"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.62 20.51 6.363 24 11.979 24c6.624 0 11.979-5.354 11.979-11.979C23.958 5.354 18.603.001 11.979.001zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.66-1.353-3.015-3.015-3.015-1.665 0-3.015 1.355-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <button
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
     </header>
 
     <main id="main">
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-background">
-                <video autoplay loop muted playsinline poster="images/WindhelmYoutubeBanner.jpg" style="width:100%;height:100%;object-fit:cover;z-index:1;">
-                    <source src="images/BGVideo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="hero-content">
-                <h1 class="hero-title-main">Windhelm</h1>
-                <span class="hero-title-sub">Epic RPG Adventure</span>
-                <p class="hero-description">Dynamic quests, legendary heroes, and immersive gameplay awaits.</p>
-                <div class="hero-cta">
-                    <a href="https://store.steampowered.com/app/2171040/Windhelm/" class="cta-button primary" target="_blank">Wishlist on Steam</a>
-                    <a href="#features" class="cta-button secondary">Learn More</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Game Features Section -->
-        <section id="features" class="features">
-            <div class="container">
-                <header class="section-header">
-                    <h2 class="section-title">Game Features</h2>
-                    <p class="section-subtitle">Experience the ultimate RPG adventure</p>
-                </header>
-                
-                <div class="features-grid">
-                    <article class="feature-card">
-                        <div class="feature-image">
-                            <img src="images/2.png" alt="Dynamic Quests" loading="lazy">
-                        </div>
-                        <div class="feature-content">
-                            <h3>Dynamic Quests</h3>
-                            <p>Experience ever-changing adventures with our revolutionary quest system that adapts to your choices.</p>
-                        </div>
-                    </article>
-                    
-                    <article class="feature-card">
-                        <div class="feature-image">
-                            <img src="images/3.png" alt="Epic Saga" loading="lazy">
-                        </div>
-                        <div class="feature-content">
-                            <h3>Epic Saga</h3>
-                            <p>Immerse yourself in a rich storyline filled with legendary heroes and unforgettable moments.</p>
-                        </div>
-                    </article>
-                    
-                    <article class="feature-card">
-                        <div class="feature-image">
-                            <img src="images/4.png" alt="Legendary Heroes" loading="lazy">
-                        </div>
-                        <div class="feature-content">
-                            <h3>Legendary Heroes</h3>
-                            <p>Create and customize your heroes with unique abilities and equipment in this husband-wife RPG adventure.</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Team Section -->
-        <section id="team" class="team">
-            <div class="container">
-                <header class="section-header">
-                    <h2 class="section-title">Our Team</h2>
-                    <p class="section-subtitle">Small, but MIGHTY</p>
-                </header>
-                
-                <div class="team-grid">
-                    <article class="team-member">
-                        <div class="member-image">
-                            <img src="images/Gavin1.jpg" alt="Gavin Norwood" loading="lazy">
-                        </div>
-                        <div class="member-info">
-                            <h3>Gavin Norwood</h3>
-                            <p class="member-role">Creator / Developer</p>
-                        </div>
-                    </article>
-                    
-                    <article class="team-member">
-                        <div class="member-image">
-                            <img src="images/Kirstenjpg1.jpg" alt="Kirsten Litz" loading="lazy">
-                        </div>
-                        <div class="member-info">
-                            <h3>Kirsten Litz</h3>
-                            <p class="member-role">Level Designer / Writer</p>
-                        </div>
-                    </article>
-                </div>
-                
-                <div class="supporters">
-                    <h3>Early Backers / Patrons</h3>
-                    <p>Cody Palmer</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <header class="section-header">
-                    <h2 class="section-title">Have Questions?</h2>
-                    <p class="section-subtitle">Get in touch with us</p>
-                </header>
-                
-                <div class="contact-content">
-                    <button type="button" id="toggle-contact" style="width:100%;background:rgba(36,36,40,0.98);color:#f3f4f6;border:none;padding:0.75rem 1rem;margin-bottom:0.5rem;border-radius:0.5rem;font-weight:600;cursor:pointer;text-align:left;">
-                      Contact Us (click to show/hide)
-                    </button>
-                    <div id="contact-collapse" style="display:none;">
-                      <form class="contact-form" id="contact-form" action="https://forms.nicepagesrv.com/v2/form/process" method="POST">
-                          <div class="form-group">
-                              <label for="name">Name</label>
-                              <input type="text" id="name" name="name" required>
-                          </div>
-                          
-                          <!-- Collapsible Email Tab -->
-                          <div class="form-group">
-                            <button type="button" id="toggle-email" style="width:100%;background:rgba(36,36,40,0.98);color:#f3f4f6;border:none;padding:0.75rem 1rem;margin-bottom:0.5rem;border-radius:0.5rem;font-weight:600;cursor:pointer;text-align:left;">
-                              Email (click to show/hide)
-                            </button>
-                            <div id="email-collapse" style="display:none;">
-                              <label for="email">Email</label>
-                              <input type="email" id="email" name="email" required>
-                            </div>
-                          </div>
-                          
-                          <div class="form-group">
-                              <label for="message">Message</label>
-                              <textarea id="message" name="message" rows="4" required></textarea>
-                          </div>
-                          
-                          <div class="form-group checkbox-group">
-                              <input type="checkbox" id="agree" name="agree" required>
-                              <label for="agree">I accept the <a href="#" class="terms-link">Terms of Service</a></label>
-                          </div>
-                          
-                          <button type="submit" class="submit-button">Send Message</button>
-                          
-                          <input type="hidden" name="formServices" value="fd87cc1f-cce2-e1b0-f874-071208ba58c1">
-                          <input type="hidden" name="siteKey" value="6LcIF7AqAAAAANPHfgAYi7su81ChnUac3zICzAc0">
-                          <input type="hidden" name="recaptchaResponse" value="">
-                      </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Progress Updates Section -->
-        <section id="progress-updates" class="container" style="margin-top: 4rem;">
-          <h2 class="section-header">Progress Updates</h2>
-          <div style="background:rgba(36,36,40,0.95);border-radius:0.75rem;padding:2rem;text-align:center;">
-            <!-- Discord Widget Embed -->
-            <iframe src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-            <p style="color:var(--gray-400);margin-top:1rem;font-size:1rem;">Live updates from our Discord <b>#progress-updates</b> channel.</p>
-            <p style="color:var(--gray-400);font-size:0.9rem;">Want to chat or see more? <a href="https://discord.gg/PgGA8Zsj4g" style="color:var(--primary-color);text-decoration:underline;">Join our Discord!</a></p>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="hero-background">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            poster="images/WindhelmYoutubeBanner.jpg"
+            style="width: 100%; height: 100%; object-fit: cover; z-index: 1"
+          >
+            <source src="images/BGVideo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+          <h1 class="hero-title-main">
+            <img src="images/Logo.png" alt="Windhelm" class="hero-logo" />
+          </h1>
+          <span class="hero-title-sub">Epic RPG Adventure</span>
+          <p class="hero-description">
+            Dynamic quests, legendary heroes, and immersive gameplay awaits.
+          </p>
+          <div class="hero-cta">
+            <a
+              href="https://store.steampowered.com/app/2171040/Windhelm/"
+              class="cta-button primary"
+              target="_blank"
+              >Wishlist on Steam</a
+            >
+            <a href="#features" class="cta-button secondary">Learn More</a>
           </div>
-        </section>
+        </div>
+      </section>
+
+      <!-- Game Features Section -->
+      <section id="features" class="features">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title">Game Features</h2>
+            <p class="section-subtitle">
+              Experience the ultimate RPG adventure
+            </p>
+          </header>
+
+          <div class="features-grid">
+            <article class="feature-card">
+              <div class="feature-image">
+                <img src="images/2.png" alt="Dynamic Quests" loading="lazy" />
+              </div>
+              <div class="feature-content">
+                <h3>Dynamic Quests</h3>
+                <p>
+                  Experience ever-changing adventures with our revolutionary
+                  quest system that adapts to your choices.
+                </p>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-image">
+                <img src="images/3.png" alt="Epic Saga" loading="lazy" />
+              </div>
+              <div class="feature-content">
+                <h3>Epic Saga</h3>
+                <p>
+                  Immerse yourself in a rich storyline filled with legendary
+                  heroes and unforgettable moments.
+                </p>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-image">
+                <img src="images/4.png" alt="Legendary Heroes" loading="lazy" />
+              </div>
+              <div class="feature-content">
+                <h3>Legendary Heroes</h3>
+                <p>
+                  Create and customize your heroes with unique abilities and
+                  equipment in this husband-wife RPG adventure.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section id="team" class="team">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title">Our Team</h2>
+            <p class="section-subtitle">Small, but MIGHTY</p>
+          </header>
+
+          <div class="team-grid">
+            <article class="team-member">
+              <div class="member-image">
+                <img
+                  src="images/Gavin1.jpg"
+                  alt="Gavin Norwood"
+                  loading="lazy"
+                />
+              </div>
+              <div class="member-info">
+                <h3>Gavin Norwood</h3>
+                <p class="member-role">Creator / Developer</p>
+              </div>
+            </article>
+
+            <article class="team-member">
+              <div class="member-image">
+                <img
+                  src="images/Kirstenjpg1.jpg"
+                  alt="Kirsten Litz"
+                  loading="lazy"
+                />
+              </div>
+              <div class="member-info">
+                <h3>Kirsten Litz</h3>
+                <p class="member-role">Level Designer / Writer</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="supporters">
+            <h3>Early Backers / Patrons</h3>
+            <p>Cody Palmer</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title">Have Questions?</h2>
+            <p class="section-subtitle">Get in touch with us</p>
+          </header>
+
+          <div class="contact-content">
+            <button
+              type="button"
+              id="toggle-contact"
+              style="
+                width: 100%;
+                background: rgba(36, 36, 40, 0.98);
+                color: #f3f4f6;
+                border: none;
+                padding: 0.75rem 1rem;
+                margin-bottom: 0.5rem;
+                border-radius: 0.5rem;
+                font-weight: 600;
+                cursor: pointer;
+                text-align: left;
+              "
+            >
+              Contact Us (click to show/hide)
+            </button>
+            <div id="contact-collapse" style="display: none">
+              <form
+                class="contact-form"
+                id="contact-form"
+                action="https://forms.nicepagesrv.com/v2/form/process"
+                method="POST"
+              >
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+
+                <!-- Collapsible Email Tab -->
+                <div class="form-group">
+                  <button
+                    type="button"
+                    id="toggle-email"
+                    style="
+                      width: 100%;
+                      background: rgba(36, 36, 40, 0.98);
+                      color: #f3f4f6;
+                      border: none;
+                      padding: 0.75rem 1rem;
+                      margin-bottom: 0.5rem;
+                      border-radius: 0.5rem;
+                      font-weight: 600;
+                      cursor: pointer;
+                      text-align: left;
+                    "
+                  >
+                    Email (click to show/hide)
+                  </button>
+                  <div id="email-collapse" style="display: none">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                  <input type="checkbox" id="agree" name="agree" required />
+                  <label for="agree"
+                    >I accept the
+                    <a href="#" class="terms-link">Terms of Service</a></label
+                  >
+                </div>
+
+                <button type="submit" class="submit-button">
+                  Send Message
+                </button>
+
+                <input
+                  type="hidden"
+                  name="formServices"
+                  value="fd87cc1f-cce2-e1b0-f874-071208ba58c1"
+                />
+                <input
+                  type="hidden"
+                  name="siteKey"
+                  value="6LcIF7AqAAAAANPHfgAYi7su81ChnUac3zICzAc0"
+                />
+                <input type="hidden" name="recaptchaResponse" value="" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Progress Updates Section -->
+      <section id="progress-updates" class="container" style="margin-top: 4rem">
+        <h2 class="section-header">Progress Updates</h2>
+        <div
+          style="
+            background: rgba(36, 36, 40, 0.95);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+          "
+        >
+          <!-- Discord Widget Embed -->
+          <div class="discord-widget-container">
+            <iframe
+              src="https://discord.com/widget?id=1152709913105408040&theme=dark"
+              width="350"
+              height="500"
+              allowtransparency="true"
+              frameborder="0"
+              sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+              style="border-radius: 0.75rem; max-width: 100%"
+            ></iframe>
+          </div>
+          <p style="color: var(--gray-400); margin-top: 1rem; font-size: 1rem">
+            Live updates from our Discord <b>#progress-updates</b> channel.
+          </p>
+          <p style="color: var(--gray-400); font-size: 0.9rem">
+            Want to chat or see more?
+            <a
+              href="https://discord.gg/PgGA8Zsj4g"
+              style="color: var(--primary-color); text-decoration: underline"
+              >Join our Discord!</a
+            >
+          </p>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="images/Logo.png" alt="Windhelm Logo" class="footer-logo">
-                    <p>©2025 NorwinLabs LLC. All rights reserved.</p>
-                </div>
-                <div class="footer-version">
-                    <span>v1.1</span>
-                </div>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <img
+              src="images/Logo.png"
+              alt="Windhelm Logo"
+              class="footer-logo"
+            />
+            <p>©2025 NorwinLabs LLC. All rights reserved.</p>
+          </div>
+          <div class="footer-version">
+            <span>v1.1</span>
+          </div>
         </div>
+      </div>
     </footer>
 
     <!-- Scripts -->
     <script>
-    // Load non-critical CSS asynchronously
-    function loadCSS(href, onload) {
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
+      // Load non-critical CSS asynchronously
+      function loadCSS(href, onload) {
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
         link.href = href;
         link.onload = onload || null;
         document.head.appendChild(link);
-    }
-    
-    // Load fonts and full stylesheet after page load
-    window.addEventListener('load', function() {
-        loadCSS('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-        loadCSS('styles.css');
-    });
+      }
+
+      // Load fonts after page load
+      window.addEventListener("load", function () {
+        loadCSS(
+          "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        );
+      });
     </script>
     <script src="script.js" defer></script>
-    
+
     <!-- Form success/error messages -->
-    <div id="form-messages" class="form-messages" style="display: none;">
-        <div class="form-success" id="form-success">Thank you! Your message has been sent.</div>
-        <div class="form-error" id="form-error">Unable to send your message. Please try again.</div>
+    <div id="form-messages" class="form-messages" style="display: none">
+      <div class="form-success" id="form-success">
+        Thank you! Your message has been sent.
+      </div>
+      <div class="form-error" id="form-error">
+        Unable to send your message. Please try again.
+      </div>
     </div>
     <script>
-document.getElementById('toggle-email').addEventListener('click', function() {
-  var collapse = document.getElementById('email-collapse');
-  collapse.style.display = collapse.style.display === 'none' ? 'block' : 'none';
-});
+      // Mobile Navigation
+      const navToggle = document.getElementById("nav-toggle");
+      const navMenu = document.getElementById("nav-menu");
 
-document.getElementById('toggle-contact').addEventListener('click', function() {
-  var collapse = document.getElementById('contact-collapse');
-  collapse.style.display = collapse.style.display === 'none' ? 'block' : 'none';
-});
-</script>
-</body>
+      navToggle.addEventListener("click", function () {
+        navToggle.classList.toggle("active");
+        navMenu.classList.toggle("active");
+        const expanded = navToggle.getAttribute("aria-expanded") === "true";
+        navToggle.setAttribute("aria-expanded", !expanded);
+      });
+
+      // Close mobile menu when clicking on nav links
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", function () {
+          navToggle.classList.remove("active");
+          navMenu.classList.remove("active");
+          navToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      // Active navigation highlighting
+      function setActiveNav() {
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", setActiveNav);
+
+      // Collapsible sections
+      document
+        .getElementById("toggle-email")
+        .addEventListener("click", function () {
+          var collapse = document.getElementById("email-collapse");
+          collapse.style.display =
+            collapse.style.display === "none" ? "block" : "none";
+        });
+
+      document
+        .getElementById("toggle-contact")
+        .addEventListener("click", function () {
+          var collapse = document.getElementById("contact-collapse");
+          collapse.style.display =
+            collapse.style.display === "none" ? "block" : "none";
+        });
+
+      // Form handling with better UX
+      const contactForm = document.getElementById("contact-form");
+      const formMessages = document.getElementById("form-messages");
+      const formSuccess = document.getElementById("form-success");
+      const formError = document.getElementById("form-error");
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Show loading state
+          const submitBtn = contactForm.querySelector(".submit-button");
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = "Sending...";
+          submitBtn.disabled = true;
+
+          // Simulate form submission (replace with actual form handling)
+          setTimeout(() => {
+            // Reset button
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+
+            // Show success message
+            formSuccess.style.display = "block";
+            formMessages.style.display = "block";
+
+            // Hide message after 5 seconds
+            setTimeout(() => {
+              formMessages.style.display = "none";
+              formSuccess.style.display = "none";
+            }, 5000);
+
+            // Reset form
+            contactForm.reset();
+
+            // Close collapsed sections
+            document.getElementById("contact-collapse").style.display = "none";
+            document.getElementById("email-collapse").style.display = "none";
+          }, 2000);
+        });
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
