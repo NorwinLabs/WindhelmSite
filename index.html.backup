@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Epic Saga, Windhelm Saga: Husband Wife RPG Adventure, Dynamic Quests, We Drive Success To Your Everyday Business, faq, Legendary Heroes, Our Team, How we can help?">
+    <meta name="description" content="">
+    <title>Windhelm</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="index.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 6.19.6, nicepage.com">
+    <meta name="referrer" content="origin">
+    <link rel="icon" href="images/favicon.png">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=ADLaM+Display:400">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Windhelm",
+		"logo": "images/Logo.png",
+		"sameAs": [
+				"https://www.youtube.com/@NorwinLabs",
+				"https://discord.gg/PgGA8Zsj4g",
+				"https://store.steampowered.com/app/2171040/Windhelm/"
+		]
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Windhelm">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+  <script>
+    function gdprConfirmed() {
+        return true;
+    }
+    function dynamicLoadScript(src) {
+        var script = document.createElement('script');
+        script.src = src && typeof src === 'string' ? src : 'https://www.google.com/recaptcha/api.js?render=6LcIF7AqAAAAANPHfgAYi7su81ChnUac3zICzAc0';
+        script.async = true;
+        document.body.appendChild(script);
+        script.onload = function() {
+            let event = new CustomEvent("recaptchaLoaded");
+            document.dispatchEvent(event);
+        };
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        var confirmButton = document.querySelector('.u-cookies-consent .u-button-confirm');
+        if (confirmButton) {
+            confirmButton.onclick = dynamicLoadScript;
+        }
+    });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            if (!gdprConfirmed()) {
+                return;
+            }
+            dynamicLoadScript();
+        });
+    </script>
+    <script>
+        document.addEventListener("recaptchaLoaded", function() {
+            if (!gdprConfirmed()) {
+                return;
+            }
+            (function (grecaptcha, sitekey, actions) {
+                var recaptcha = {
+                    execute: function (action, submitFormCb) {
+                        try {
+                            grecaptcha.execute(
+                                sitekey,
+                                {action: action}
+                            ).then(function (token) {
+                                var forms = document.getElementsByTagName('form');
+
+                                for (var i = 0; i < forms.length; i++) {
+                                    var fields = forms[i].getElementsByTagName('input');
+
+                                    for (var j = 0; j < fields.length; j++) {
+                                        var field = fields[j];
+
+                                        if ('recaptchaResponse' === field.getAttribute('name')) {
+                                            field.setAttribute('value', token);
+                                            break;
+                                        }
+                                    }
+                                }
+                                submitFormCb();
+                            });
+                        } catch (e) {
+                            var formError = document.querySelector('.u-form-send-error');
+
+                            if (formError) {
+                                formError.innerText = 'Site Owner Error: ' + e.message.replace(/:[\s\S]*/, '');
+                                formError.style.display = 'block';
+                            }
+                        }
+                    },
+
+                    executeContact: function (submitFormCb) {
+                        recaptcha.execute(actions['contact'], submitFormCb);
+                    }
+                };
+
+                window.recaptchaObject = recaptcha;
+            })(
+                grecaptcha,
+                
+                '6LcIF7AqAAAAANPHfgAYi7su81ChnUac3zICzAc0',
+                {'contact': 'contact'}
+            );
+        });
+    </script>
+<meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-home-page="Windhelm.html" data-home-page-title="Windhelm" data-path-to-root="/" data-include-products="true" class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-image u-header" id="sec-f77b" data-image-width="1945" data-image-height="622"><div class="u-clearfix u-sheet u-sheet-1">
+        <a href="#" class="u-align-center u-image u-logo u-image-1" data-image-width="1920" data-image-height="875">
+          <img src="images/Logo.png" class="u-logo-image u-logo-image-1">
+        </a>
+        <div class="u-hover-feature u-social-icons u-spacing-26 u-social-icons-1">
+          <a class="u-social-url" target="_blank" data-type="YouTube" title="YouTube" href="https://www.youtube.com/@NorwinLabs"><span class="u-icon u-social-icon u-social-youtube u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-5cef"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-5cef"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M74.9,33.3H37.3c-7.4,0-13.4,6-13.4,13.4v18.8c0,7.4,6,13.4,13.4,13.4h37.6c7.4,0,13.4-6,13.4-13.4V46.7 C88.3,39.3,82.3,33.3,74.9,33.3L74.9,33.3z M65.9,57l-17.6,8.4c-0.5,0.2-1-0.1-1-0.6V47.5c0-0.5,0.6-0.9,1-0.6l17.6,8.9 C66.4,56,66.4,56.8,65.9,57L65.9,57z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Custom" title="Custom" href="https://discord.gg/PgGA8Zsj4g"><span class="u-file-icon u-icon u-social-custom u-social-icon u-icon-2"><img src="images/discord-round-color-icon.png" alt=""></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Custom" title="Custom" href="https://store.steampowered.com/app/2171040/Windhelm/"><span class="u-file-icon u-icon u-social-custom u-social-icon u-icon-3"><img src="images/pngegg.png" alt=""></span>
+          </a>
+        </div>
+      </div></header> 
+    <section class="u-align-center u-clearfix u-container-align-center u-grey-70 u-section-1" id="sec-cd1c">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h1 class="u-align-center u-custom-font u-text u-text-default u-text-1">Game Versions </h1>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-70 u-section-2" id="carousel_568d">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div id="carousel-db3c" data-interval="5000" data-u-ride="carousel" class="u-carousel u-expanded-width u-slider u-slider-1">
+          <ol class="u-absolute-hcenter u-carousel-indicators u-carousel-indicators-1">
+            <li data-u-target="#carousel-db3c" class="u-active u-active-palette-1-base u-hover-palette-1-base u-palette-1-light-2 u-shape-circle" data-u-slide-to="0" style="width: 22px; height: 22px;"></li>
+            <li data-u-target="#carousel-db3c" class="u-active-palette-1-base u-hover-palette-1-base u-palette-1-light-2 u-shape-circle" data-u-slide-to="1" style="width: 22px; height: 22px;"></li>
+          </ol>
+          <div class="u-carousel-inner" role="listbox">
+            <div class="u-active u-carousel-item u-container-style u-slide">
+              <div class="u-container-layout u-container-layout-1">
+                <div class="u-align-center-md u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-xl u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-grey-75 u-group u-radius-20 u-shape-round u-group-1">
+                  <div class="u-container-layout u-container-layout-2">
+                    <h3 class="u-align-center-md u-align-center-sm u-align-center-xs u-custom-font u-text u-text-palette-1-base u-text-1">Base GAME</h3>
+                    <p class="u-align-center-md u-align-center-sm u-align-center-xs u-custom-font u-text u-text-2">
+                      <span style="font-size: 2.25rem;">$24.99</span>
+                      <br>
+                      <br>
+                      <span class="u-text-white">1x Windhelm Steam Key + All Future Updates</span>
+                    </p>
+                  </div>
+                </div>
+                <img src="images/2.png" alt="" class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-round u-radius-20 u-image-1" data-image-width="1920" data-image-height="1080">
+              </div>
+            </div>
+            <div class="u-carousel-item u-container-style u-slide">
+              <div class="u-container-layout u-container-layout-3">
+                <div class="u-align-center-md u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-xl u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-grey-75 u-group u-radius-20 u-shape-round u-group-2">
+                  <div class="u-container-layout u-container-layout-4">
+                    <h3 class="u-align-center-md u-align-center-sm u-align-center-xs u-custom-font u-text u-text-palette-1-base u-text-3">SUPPORTER<br>PACK&nbsp;<br>
+                      <span class="u-text-palette-3-base">ltd qty (25)</span>
+                    </h3>
+                    <p class="u-align-center-md u-align-center-sm u-align-center-xs u-custom-font u-text u-text-4">
+                      <span style="font-size: 2.25rem;">$49.99</span>
+                      <br>
+                      <br>
+                      <span class="u-text-white" style="font-size: 1.125rem;">1x Windhelm Steam Key + All Future Updates + Handmade Aluminum Heron Coin&nbsp;<br>(USA ONLY)
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <img src="images/4.png" alt="" class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-round u-radius-20 u-image-2" data-image-width="1920" data-image-height="1080">
+              </div>
+            </div>
+          </div>
+          <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-spacing-5 u-text-palette-1-base u-carousel-control-1" href="#carousel-db3c" role="button" data-u-slide="prev">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 8 8"><path d="M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z"></path></svg>
+            </span>
+            <span class="sr-only">
+              <svg viewBox="0 0 8 8"><path d="M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z"></path></svg>
+            </span>
+          </a>
+          <a class="u-absolute-vcenter u-carousel-control u-carousel-control-next u-spacing-5 u-text-palette-1-base u-carousel-control-2" href="#carousel-db3c" role="button" data-u-slide="next">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 8 8"><path d="M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z"></path></svg>
+            </span>
+            <span class="sr-only">
+              <svg viewBox="0 0 8 8"><path d="M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z"></path></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-container-align-center u-grey-60 u-section-3" id="sec-7b95">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-30 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-align-center u-container-style u-image u-layout-cell u-shape-rectangle u-size-30-lg u-size-30-xl u-size-60-md u-size-60-sm u-size-60-xs u-image-1" data-image-width="1920" data-image-height="1080">
+                <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30-lg u-size-30-xl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <h2 class="u-align-center u-custom-font u-text u-text-default u-text-1">BETA RELEASE DATE - 10/25/25 </h2>
+                  <p class="u-align-center u-custom-font u-text u-text-default u-text-2"> Check out our social media for an inside look at the process!<br>
+                  </p>
+                  <div class="u-align-center u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
+                  <div class="u-expanded-width u-list u-list-1">
+                    <div class="u-repeater u-repeater-1">
+                      <div class="u-align-center u-container-align-center u-container-align-center-sm u-container-align-center-xs u-container-style u-list-item u-repeater-item">
+                        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+                          <h6 class="u-custom-font u-text u-text-3">Days till Bet<span style="font-size: 2.25rem;"></span>a release
+                          </h6>
+                          <div class="u-countdown u-countdown-1" data-timer-id="6b33" data-type="to-date" data-target-date="Sun, 26 Oct 2025 03:32:47 GMT" data-for="everyone" data-direction="down" data-target-number="100" data-frequency="1s" data-start-time="Mon, 13 Jan 2025 16:02:44 GMT" data-time-left="750m" data-after-count="none" data-redirect-url="https://">
+                            <div class="u-countdown-wrapper u-spacing-20">
+                              <div class="u-countdown-item u-countdown-years u-hidden u-spacing-10">
+                                <div class="u-countdown-counter u-countdown-counter-1"><div class="u-countdown-number">0</div><div class="u-countdown-number u-hidden">0</div></div>
+                                <div class="u-countdown-label u-countdown-label-1">Years</div>
+                              </div>
+                              <div class="u-countdown-separator u-hidden u-countdown-separator-1">:</div>
+                              <div class="u-countdown-days u-countdown-item u-spacing-10">
+                                <div class="u-countdown-counter u-countdown-counter-2"><div class="u-countdown-number">2</div><div class="u-countdown-number">8</div><div class="u-countdown-number">5</div></div>
+                                <div class="u-countdown-label u-countdown-label-2">Days</div>
+                              </div>
+                              <div class="u-countdown-separator u-countdown-separator-2">:</div>
+                              <div class="u-countdown-hours u-countdown-item u-spacing-10">
+                                <div class="u-countdown-counter u-countdown-counter-3"><div class="u-countdown-number">1</div><div class="u-countdown-number">1</div></div>
+                                <div class="u-countdown-label u-countdown-label-3">Hours</div>
+                              </div>
+                              <div class="u-countdown-separator u-countdown-separator-3">:</div>
+                              <div class="u-countdown-item u-countdown-minutes u-spacing-10">
+                                <div class="u-countdown-counter u-countdown-counter-4"><div class="u-countdown-number">2</div><div class="u-countdown-number">9</div></div>
+                                <div class="u-countdown-label u-countdown-label-4">Minutes</div>
+                              </div>
+                              <div class="u-countdown-separator u-countdown-separator-4">:</div>
+                              <div class="u-countdown-item u-countdown-seconds u-spacing-10">
+                                <div class="u-countdown-counter u-countdown-counter-5"><div class="u-countdown-number">4</div><div class="u-countdown-number">8</div></div>
+                                <div class="u-countdown-label u-countdown-label-5">Seconds</div>
+                              </div>
+                              <div class="u-countdown-separator u-hidden u-countdown-separator-5">:</div>
+                              <div class="u-countdown-item u-countdown-numbers u-hidden u-spacing-10">
+                                <div class="u-countdown-counter u-countdown-counter-6"><div class="u-countdown-number">0</div><div class="u-countdown-number">1</div><div class="u-countdown-number">0</div><div class="u-countdown-number">0</div></div>
+                                <div class="u-countdown-label u-countdown-label-6">Items</div>
+                              </div>
+                            </div>
+                            <div class="u-countdown-message u-hidden">
+                              <p>Sorry, the time is up.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-container-align-center u-grey-70 u-section-4" id="carousel_6da0">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-align-center u-custom-font u-text u-text-1">Latest ​Trailer</h2>
+        <div class="u-video u-video-contain u-video-1">
+          <div class="embed-responsive embed-responsive-1">
+            <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" data-src="https://www.youtube.com/embed/gZdP3WCZJc8?playlist=gZdP3WCZJc8&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=1&amp;start=0&amp;autoplay=1" data-autoplay="1" data-poster="images/1920x622CenteredLogo.jpg" frameborder="0" allowfullscreen=""></iframe>
+            <button class="u-video-poster u-video-poster-1" data-src="images/1920x622CenteredLogo.jpg"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-container-align-center u-grey-60 u-section-5" id="sec-bfb7">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-expanded-width u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1">
+          <div class="u-gallery-inner u-gallery-inner-1">
+            <div class="u-effect-fade u-gallery-item">
+              <div class="u-back-slide">
+                <img class="u-back-image u-expanded" src="images/4.png">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-1"></div>
+            </div>
+            <div class="u-effect-fade u-gallery-item">
+              <div class="u-back-slide">
+                <img class="u-back-image u-expanded" src="images/5.png">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-2"></div>
+            </div>
+            <div class="u-effect-fade u-gallery-item">
+              <div class="u-back-slide">
+                <img class="u-back-image u-expanded" src="images/2.png">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-3"></div>
+            </div>
+            <div class="u-effect-fade u-gallery-item">
+              <div class="u-back-slide">
+                <img class="u-back-image u-expanded" src="images/3.png">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-4"></div>
+            </div>
+          </div>
+        </div>
+        <h2 class="u-align-center u-custom-font u-text u-text-default u-text-1">Dynamic Quests</h2>
+        <p class="u-align-center u-custom-font u-text u-text-2">Together, this talented pair is set to redefine the RPG genre with their groundbreaking creation.</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-container-align-center u-grey-70 u-section-6" id="sec-2e61">
+      <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
+        <h2 class="u-align-center u-custom-font u-text u-text-default u-text-1">Our Team</h2>
+        <p class="u-align-center u-custom-font u-text u-text-2">Small, but MIGHTY</p>
+        <div class="u-expanded-width u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-align-center u-container-align-center u-list-item u-repeater-item u-white u-list-item-1">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" src="images/Gavin1.jpg" data-image-width="800" data-image-height="800">
+                <h5 class="u-align-center u-custom-font u-text u-text-3">Gavin Norwood</h5>
+                <p class="u-align-center u-custom-font u-text u-text-4">Creator / Developer</p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-align-center u-list-item u-repeater-item u-white u-list-item-2">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-2" src="images/Kirstenjpg1.jpg" data-image-width="800" data-image-height="800">
+                <h5 class="u-align-center u-custom-font u-text u-text-5">Kirsten Litz</h5>
+                <p class="u-align-center u-custom-font u-text u-text-6">Level Designer / Writer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-container-align-center u-grey-60 u-section-7" id="sec-6b9b">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-align-center-md u-container-align-center-sm u-container-align-center-xs u-container-style u-layout-cell u-size-60 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <h3 class="u-align-center u-custom-font u-text u-text-default u-text-1">Early Backers / Patrons </h3>
+                  <p class="u-align-center u-custom-font u-text u-text-2">Cody Palmer </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-70 u-section-8" id="sec-cc0c">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-align-center u-custom-font u-text u-text-default u-text-1"> Have Questions? </h2>
+        <div class="u-form u-form-1">
+          <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" source="email" name="form-1" style="padding: 0px;">
+            <div class="u-form-group u-form-name u-form-partition-factor-2 u-form-group-1">
+              <label for="name-52b3" class="u-label">Name</label>
+              <input type="text" placeholder="Enter your Name" id="name-52b3" name="name" class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-none" required="">
+            </div>
+            <div class="u-form-email u-form-group u-form-partition-factor-2">
+              <label for="email-75aa" class="u-label">Email</label>
+              <input type="email" placeholder="Enter a valid email address" id="email-75aa" name="email" class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-none" required="">
+            </div>
+            <div class="u-form-group u-form-message">
+              <label for="message-75aa" class="u-label">Message</label>
+              <textarea placeholder="Enter your message" rows="4" cols="50" id="message-75aa" name="message" class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-none" required=""></textarea>
+            </div>
+            <div class="u-form-agree u-form-group u-form-group-4">
+              <label class="u-block-b9e2-23 u-field-label" style=""></label>
+              <input type="checkbox" id="agree-c3d3" name="agree" class="u-agree-checkbox u-field-input" required="">
+              <label for="agree-c3d3" class="u-agree-label u-field-label">I accept the <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-palette-2-base u-text-hover-palette-2-base u-text-palette-2-light-1 u-btn-1" href="#">Terms of Service</a>
+              </label>
+            </div>
+            <div class="u-align-center u-form-group u-form-submit">
+              <a href="#" class="u-active-white u-border-2 u-border-active-grey-90 u-border-grey-90 u-border-hover-grey-90 u-btn u-btn-round u-btn-submit u-button-style u-grey-90 u-hover-white u-radius u-btn-2"> Submit Message</a>
+              <input type="submit" value="submit" class="u-form-control-hidden">
+            </div>
+            <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+            <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+            <input type="hidden" value="" name="recaptchaResponse">
+            <input type="hidden" name="formServices" value="fd87cc1f-cce2-e1b0-f874-071208ba58c1">
+            <input type="hidden" name="siteKey" value="6LcIF7AqAAAAANPHfgAYi7su81ChnUac3zICzAc0">
+          </form>
+        </div>
+        <div class="u-hover-feature u-social-icons u-spacing-26 u-social-icons-1">
+          <a class="u-social-url" target="_blank" data-type="YouTube" title="YouTube" href="https://www.youtube.com/@NorwinLabs"><span class="u-icon u-social-icon u-social-youtube u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-ebf9"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-ebf9"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M74.9,33.3H37.3c-7.4,0-13.4,6-13.4,13.4v18.8c0,7.4,6,13.4,13.4,13.4h37.6c7.4,0,13.4-6,13.4-13.4V46.7 C88.3,39.3,82.3,33.3,74.9,33.3L74.9,33.3z M65.9,57l-17.6,8.4c-0.5,0.2-1-0.1-1-0.6V47.5c0-0.5,0.6-0.9,1-0.6l17.6,8.9 C66.4,56,66.4,56.8,65.9,57L65.9,57z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Custom" title="Custom" href="https://discord.gg/PgGA8Zsj4g"><span class="u-file-icon u-icon u-social-custom u-social-icon u-icon-2"><img src="images/discord-round-color-icon.png" alt=""></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Custom" title="Custom" href="https://store.steampowered.com/app/2171040/Windhelm/"><span class="u-file-icon u-icon u-social-custom u-social-icon u-icon-3"><img src="images/pngegg.png" alt=""></span>
+          </a>
+        </div>
+      </div>
+      
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-container-align-center u-footer u-grey-80 u-footer" id="sec-e467"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">©️2025 NorwinLabs LLC.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v1.1</p>
+      </div></footer>
+  
+</body></html>
