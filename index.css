@@ -416,7 +416,7 @@
 
 .u-section-3 .u-image-1 {
   min-height: 575px;
-  background-image: url("/images/3.png");
+  background-image: url("images/3.png");
   background-position: 50% 50%;
 }
 
@@ -715,7 +715,7 @@
 }
 
 .u-section-4 .u-video-poster-1 {
-  background-image: url("/images/1920x622CenteredLogo.jpg");
+  background-image: url("images/1920x622CenteredLogo.jpg");
 }
 
 @media (max-width: 991px) {
