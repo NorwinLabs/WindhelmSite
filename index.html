@@ -382,27 +382,47 @@
           position: fixed;
           top: 80px;
           left: -100%;
-          width: 100%;
+          width: 80vw;
+          max-width: 340px;
           height: calc(100vh - 80px);
-          background: rgba(255, 255, 255, 0.8);
+          background: rgba(255, 255, 255, 0.97);
+          box-shadow: 2px 0 24px rgba(0, 0, 0, 0.1);
           backdrop-filter: blur(10px);
           flex-direction: column;
           justify-content: flex-start;
-          align-items: center;
+          align-items: flex-start;
           gap: 2rem;
-          padding-top: 2rem;
-          transition: left 0.3s ease;
-          z-index: 999;
+          padding: 2.5rem 2rem 2rem 2rem;
+          transition: left 0.32s cubic-bezier(0.77, 0, 0.18, 1);
+          z-index: 1001;
         }
         .nav-menu.active {
           left: 0;
         }
         .nav-menu .nav-link {
           font-size: 1.25rem;
-          padding: 1rem 2rem;
+          padding: 1rem 0;
+          width: 100%;
+          text-align: left;
         }
         .nav-toggle {
           display: flex;
+        }
+        .nav-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.32);
+          z-index: 1000;
+          transition: opacity 0.25s;
+          opacity: 0;
+        }
+        .nav-overlay.active {
+          display: block;
+          opacity: 1;
         }
         .hero-logo {
           max-width: 300px;
@@ -848,6 +868,13 @@
         gap: 4rem;
         align-items: start;
         margin-top: 3rem;
+      }
+
+      @media (max-width: 768px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
       }
 
       /* Contact Info Cards */
@@ -1646,28 +1673,9 @@
           padding: 1.5rem;
         }
 
-        .contact-info {
-          order: 2;
-        }
-
-        .contact-form-container {
-          order: 1;
-        }
-
-        .contact-info {
-          order: 2;
-        }
-
-        .contact-form-container {
-          order: 1;
-        }
+        /* Removed order properties for natural stacking */
       }
     </style>
-    /* Fix: Prevent hero overlays from blocking clicks below */
-    .hero-background, .hero-overlay { pointer-events: none !important; } /*
-    DEBUG: Force features section above overlays to fix click issue */
-    .features, .features * { position: relative !important; z-index: 100
-    !important; }
 
     <!-- Non-critical stylesheets -->
     <noscript>
@@ -1739,6 +1747,12 @@
             <a href="#team" class="nav-link">Team</a>
             <a href="#contact" class="nav-link">Contact</a>
           </div>
+          <div
+            class="nav-overlay"
+            id="nav-overlay"
+            tabindex="-1"
+            aria-hidden="true"
+          ></div>
 
           <div class="social-links">
             <a
@@ -2483,68 +2497,66 @@
                 action="https://forms.nicepagesrv.com/v2/form/process"
                 method="POST"
               >
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="name">
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      placeholder="Enter your name"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="email">
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <polyline
-                          points="22,6 12,13 2,6"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="your.email@example.com"
-                      required
-                    />
-                  </div>
+                <div class="form-group">
+                  <label for="name">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <polyline
+                        points="22,6 12,13 2,6"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="your.email@example.com"
+                    required
+                  />
                 </div>
 
                 <div class="form-group">
