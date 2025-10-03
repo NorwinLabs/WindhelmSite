@@ -750,8 +750,8 @@
       }
       /* Team Photos - Completely Isolated Styling with No Alpha/Fading */
       .member-image img {
-        width: 120px !important;
-        height: 120px !important;
+  width: 170px !important;
+  height: 170px !important;
         border-radius: 50% !important;
         object-fit: cover !important;
         border: none !important;
@@ -798,11 +798,12 @@
       }
       .member-info h3 {
         font-family: var(--font-display);
-        font-size: 1.5rem;
-        font-weight: 700;
+        font-size: 2.3rem;
+        font-weight: 800;
         color: var(--gray-900);
         margin-bottom: 0.5rem;
-        text-shadow: none;
+        text-shadow: 0 2px 12px #fff8, 0 1px 2px #0002;
+        letter-spacing: 0.01em;
       }
       .member-role {
         color: var(--blue-700);
@@ -1270,8 +1271,7 @@
 
       /* Game Updates Section */
       .game-updates {
-        background: url("images/islandbg.png") repeat,
-          linear-gradient(rgba(249, 250, 251, 0.9), rgba(249, 250, 251, 0.9));
+        background: linear-gradient(135deg, #1b2838 60%, #171a21 100%);
         background-blend-mode: overlay;
         backdrop-filter: blur(12px);
         padding: 5rem 0;
@@ -1280,48 +1280,46 @@
       .updates-container {
         max-width: 800px;
         margin: 0 auto;
-        background: linear-gradient(
-            rgba(255, 255, 255, 0.95),
-            rgba(255, 255, 255, 0.95)
-          ),
-          url("images/islandbg.png") repeat;
-        background-blend-mode: normal, multiply;
-        border-radius: var(--border-radius-lg);
-        padding: 2rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15),
-          0 0 0 1px rgba(255, 255, 255, 0.5);
-        border: 1px solid rgba(200, 200, 200, 0.3);
+        background: linear-gradient(135deg, #23262e 80%, #1b2838 100%);
+        border-radius: 12px;
+        padding: 2.5rem 1.2rem 2rem 1.2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 0 0 1px #23262e;
+        border: 1px solid #23262e;
       }
 
       .updates-header {
         text-align: center;
         margin-bottom: 2rem;
         padding-bottom: 1.5rem;
-        border-bottom: 2px solid var(--gray-200);
+        border-bottom: 2px solid #304055;
       }
 
       .updates-header h2 {
         font-family: var(--font-display);
-        font-size: 2rem;
+        font-size: 2.1rem;
         font-weight: 700;
-        color: var(--gray-900);
+        color: #c7d5e0;
         margin-bottom: 0.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 8px #000a;
       }
 
       .steam-icon {
         width: 32px;
         height: 32px;
-        background: linear-gradient(135deg, #1b2838, #2a475e);
+        background: linear-gradient(135deg, #2a475e, #1b2838 80%);
         border-radius: 6px;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
+        color: #c7d5e0;
         font-weight: bold;
+        font-size: 1.3rem;
+        box-shadow: 0 2px 8px #000a;
       }
 
       .updates-loading {
@@ -1366,23 +1364,23 @@
       }
 
       .update-item {
-        background: white;
-        border-radius: var(--border-radius);
-        padding: 1.5rem;
-        margin-bottom: 1rem;
-        border-left: 4px solid var(--primary-color);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        transition: var(--transition-base);
+        background: linear-gradient(135deg, #23262e 80%, #1b2838 100%);
+        border-radius: 8px;
+        padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+        margin-bottom: 1.2rem;
+        border-left: 5px solid #66c0f4;
+        box-shadow: 0 2px 10px #0006;
+        transition: box-shadow 0.18s, transform 0.18s;
       }
 
       .update-item:hover {
-        transform: translateX(4px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px) scale(1.012);
+        box-shadow: 0 6px 24px #000a;
       }
 
       .update-header {
         display: flex;
-        justify-content: between;
+        justify-content: space-between;
         align-items: flex-start;
         margin-bottom: 1rem;
         gap: 1rem;
@@ -1390,30 +1388,39 @@
 
       .update-title {
         font-family: var(--font-display);
-        font-size: 1.2rem;
+        font-size: 1.18rem;
         font-weight: 600;
-        color: var(--gray-900);
+        color: #66c0f4;
         margin: 0;
         flex: 1;
+        text-shadow: 0 1px 4px #000a;
       }
 
       .update-date {
-        color: var(--gray-600);
-        font-size: 0.9rem;
+        color: #b8b6b4;
+        font-size: 0.93rem;
         font-weight: 500;
         white-space: nowrap;
+        background: #23262e;
+        border-radius: 4px;
+        padding: 0.18em 0.7em;
+        margin-left: 0.5em;
+        box-shadow: 0 1px 4px #0004;
       }
 
       .update-content {
-        color: var(--gray-700);
-        line-height: 1.6;
+        color: #c7d5e0;
+        line-height: 1.7;
         white-space: pre-wrap;
+        font-size: 1.01rem;
+        margin-top: 0.5rem;
       }
 
       .update-content h3 {
-        color: var(--gray-900);
+        color: #66c0f4;
         margin: 1rem 0 0.5rem 0;
-        font-size: 1.1rem;
+        font-size: 1.08rem;
+        text-shadow: 0 1px 4px #000a;
       }
 
       .update-content ul {
@@ -1853,6 +1860,36 @@
         </div>
       </section>
 
+      <!-- Steam Widget Section -->
+      <section id="steam-widget" class="steam-widget-section section-animate">
+        <div
+          class="container"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+          "
+        >
+          <iframe
+            src="https://store.steampowered.com/widget/2171040/"
+            frameborder="0"
+            width="646"
+            height="190"
+            style="
+              max-width: 100%;
+              border-radius: 12px;
+              box-shadow: 0 6px 32px #000a;
+              margin: 0 auto;
+              background: #171a21;
+            "
+            title="Windhelm on Steam"
+            allowtransparency="true"
+          ></iframe>
+        </div>
+      </section>
+
       <!-- Game Features Section -->
       <section id="features" class="features section-animate">
         <div class="container">
@@ -2202,10 +2239,7 @@
         <div class="container">
           <div class="updates-container">
             <div class="updates-header">
-              <h2>
-                <div class="steam-icon">S</div>
-                Game Updates
-              </h2>
+              <h2>Latest Game Updates</h2>
               <p style="color: var(--gray-600); margin: 0">
                 Latest development updates and changelogs from Steam
               </p>
@@ -2259,8 +2293,6 @@
                 target="_blank"
                 rel="noopener"
               >
-                <div class="steam-icon">S</div>
-                Follow on Steam for More Updates
               </a>
             </div>
           </div>
@@ -3175,9 +3207,9 @@
         }
       }, 10000); // 10 second timeout
 
-      // ===== STEAM UPDATES SYSTEM =====
+      // ===== STEAM UPDATES SYSTEM (Steam News API) =====
       async function loadSteamUpdates() {
-        console.log("Loading Steam updates...");
+        console.log("Loading Steam news updates...");
         const loadingEl = document.getElementById("updates-loading");
         const listEl = document.getElementById("updates-list");
         const errorEl = document.getElementById("updates-error");
@@ -3185,48 +3217,36 @@
 
         try {
           const steamAppId = "2171040";
-          console.log(
-            "Attempting to fetch real Steam data for app:",
-            steamAppId
-          );
-
-          // Try to fetch real Steam data using CORS proxy
+          const newsUrl = `https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=${steamAppId}&count=5&maxlength=1200&format=json`;
           const proxyUrl = "https://api.allorigins.win/get?url=";
-          const steamUrl = `https://store.steampowered.com/api/appdetails?appids=${steamAppId}`;
-          const fullUrl = `${proxyUrl}${encodeURIComponent(steamUrl)}`;
-
-          console.log("Fetching from:", fullUrl);
+          const fullUrl = `${proxyUrl}${encodeURIComponent(newsUrl)}`;
+          console.log("Fetching Steam news from:", fullUrl);
 
           const response = await fetch(fullUrl);
           const proxyData = await response.json();
+          const newsData = JSON.parse(proxyData.contents);
 
-          if (proxyData.status && proxyData.status.url) {
-            const steamData = JSON.parse(proxyData.contents);
-
-            if (
-              steamData &&
-              steamData[steamAppId] &&
-              steamData[steamAppId].success
-            ) {
-              const appData = steamData[steamAppId].data;
-              console.log("Successfully fetched Steam data:", appData);
-
-              // Extract news/updates from Steam data if available
-              // Note: Steam's appdetails API doesn't include news, so this will likely fail
-              // You'd need to use Steam's news API: https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/
-              const updates = extractSteamUpdates(appData);
-
-              if (updates && updates.length > 0) {
-                displaySteamUpdates(updates);
-                return;
-              }
-            }
+          if (
+            newsData &&
+            newsData.appnews &&
+            newsData.appnews.newsitems &&
+            newsData.appnews.newsitems.length > 0
+          ) {
+            const updates = newsData.appnews.newsitems.map((item) => ({
+              title: item.title,
+              date: new Date(item.date * 1000).toISOString(),
+              content: item.contents,
+              url: item.url,
+              author: item.author || "Steam News",
+              eventHeader: item.feedlabel || null,
+            }));
+            displaySteamUpdates(updates);
+            return;
           }
 
-          // If we get here, Steam API didn't return usable update data
-          throw new Error("No update data available from Steam API");
+          throw new Error("No news data available from Steam News API");
         } catch (error) {
-          console.error("Failed to load Steam updates:", error);
+          console.error("Failed to load Steam news updates:", error);
           showSteamError();
         }
       }
@@ -3238,33 +3258,54 @@
         loadingEl.style.display = "none";
         listEl.style.display = "block";
 
+        const fallbackImgUrl = "images/Logo.png";
         listEl.innerHTML = updates
-          .map(
-            (update) => `
+          .map((update) => {
+            // Try to extract the first image from the content (if any)
+            let imgHtml = "";
+            const imgMatch = update.content.match(
+              /<img[^>]+src=["']([^"']+)["'][^>]*>/i
+            );
+            if (imgMatch && imgMatch[1]) {
+              imgHtml = `<div style="text-align:center;margin-bottom:1em;"><img src="${imgMatch[1]}" alt="Update image" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px #0003;"></div>`;
+            } else {
+              imgHtml = `<div style="text-align:center;margin-bottom:1em;opacity:0.7;"><img src="${fallbackImgUrl}" alt="No update image available" style="max-width:120px;border-radius:8px;box-shadow:0 2px 12px #0001;filter: grayscale(0.2);background:#23262e;padding:0.5em;"></div>`;
+            }
+            // Add event header if present
+            let eventHeaderHtml = "";
+            if (update.eventHeader) {
+              eventHeaderHtml = `<div class="update-event-header" style="font-size:0.98em;font-weight:600;color:#66c0f4;margin-bottom:0.3em;letter-spacing:0.01em;">${escapeHtml(
+                update.eventHeader
+              )}</div>`;
+            }
+            return `
           <div class="update-item">
             <div class="update-header">
-              <h3 class="update-title">${escapeHtml(update.title)}</h3>
+              ${eventHeaderHtml}<h3 class="update-title">${escapeHtml(
+              update.title
+            )}</h3>
               <span class="update-date">${formatDate(update.date)}</span>
             </div>
+            ${imgHtml}
             <div class="update-content">${formatUpdateContent(
               update.content
             )}</div>
+            <div style="margin-top: 0.7em;">
+              <a href="${
+                update.url
+              }" class="steam-link" target="_blank" rel="noopener" style="font-size:0.98em;">
+                Read on Steam
+              </a>
+            </div>
           </div>
-        `
-          )
+        `;
+          })
           .join("");
 
-        console.log(`Displayed ${updates.length} Steam updates`);
+        console.log(`Displayed ${updates.length} Steam news updates`);
       }
 
-      function extractSteamUpdates(appData) {
-        // Steam's appdetails API doesn't include news/updates
-        // This function is for future use if we switch to the Steam News API
-        console.log("Attempting to extract updates from Steam data...");
-
-        // For now, return empty array since appdetails doesn't have update info
-        return [];
-      }
+      // No longer needed: extractSteamUpdates
 
       function showSteamError() {
         const loadingEl = document.getElementById("updates-loading");
