@@ -2,7 +2,7 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 
 // Get commit count and short hash
-def getVersion() {
+function getVersion() {
   const count = execSync('git rev-list --count HEAD').toString().trim();
   const hash = execSync('git rev-parse --short HEAD').toString().trim();
   return `v1.0.${count}+${hash}`;
