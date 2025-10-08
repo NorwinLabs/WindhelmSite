@@ -1733,6 +1733,50 @@
         gap: 0.75rem;
       }
     </style>
+    <style>
+      /* Login Modal Enhancements */
+      #login-modal input:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+      #login-modal button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      }
+      #login-modal button:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+      }
+      #password-toggle:hover {
+        color: #2563eb;
+      }
+      @keyframes modalFadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .login-loading {
+        position: relative;
+        color: transparent;
+      }
+      .login-loading::after {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 50%;
+        left: 50%;
+        margin-left: -8px;
+        margin-top: -8px;
+        border: 2px solid #ffffff;
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
   </head>
   <body>
     <!-- Navigation Header -->
@@ -1753,6 +1797,7 @@
             <a href="#features" class="nav-link">Features</a>
             <a href="#team" class="nav-link">Team</a>
             <a href="#contact" class="nav-link">Contact</a>
+            <button id="login-btn" class="nav-link" style="background:#2563eb;color:#fff;border:none;border-radius:6px;padding:0.5rem 1rem;cursor:pointer;">Login</button>
           </div>
           <div
             class="nav-overlay"
@@ -1816,6 +1861,37 @@
         </div>
       </nav>
     </header>
+
+    <!-- Login Modal -->
+    <div id="login-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.6);z-index:2000;justify-content:center;align-items:center;backdrop-filter:blur(4px);">
+      <div style="background:#fff;padding:2.5rem 3rem;border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,0.3);max-width:400px;width:90%;position:relative;animation:modalFadeIn 0.3s ease-out;">
+        <button id="close-login" style="position:absolute;top:15px;right:15px;background:none;border:none;font-size:1.8rem;cursor:pointer;color:#666;transition:color 0.2s;">&times;</button>
+        <div style="text-align:center;margin-bottom:2rem;">
+          <h2 style="margin:0 0 0.5rem 0;color:#333;font-size:1.8rem;font-weight:600;">Welcome Back</h2>
+          <p style="margin:0;color:#666;font-size:0.95rem;">Sign in to view your orders</p>
+        </div>
+        <form id="login-form">
+          <div style="margin-bottom:1.5rem;">
+            <label for="username" style="display:block;margin-bottom:0.5rem;color:#333;font-weight:500;font-size:0.95rem;">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required style="width:100%;padding:0.8rem 1rem;border:2px solid #e1e5e9;border-radius:8px;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;outline:none;">
+          </div>
+          <div style="margin-bottom:2rem;">
+            <label for="password" style="display:block;margin-bottom:0.5rem;color:#333;font-weight:500;font-size:0.95rem;">Password</label>
+            <div style="position:relative;">
+              <input type="password" id="password" name="password" placeholder="Enter your password" required style="width:100%;padding:0.8rem 3rem 0.8rem 1rem;border:2px solid #e1e5e9;border-radius:8px;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;outline:none;">
+              <button type="button" id="password-toggle" style="position:absolute;right:0.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:0.25rem;color:#666;font-size:1.2rem;transition:color 0.2s;" title="Toggle password visibility">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button type="submit" id="login-submit-btn" style="width:100%;padding:0.9rem 1rem;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border:none;border-radius:8px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;">Sign In</button>
+        </form>
+        <div id="login-message" style="margin-top:1.5rem;text-align:center;color:#ef4444;font-size:0.9rem;min-height:1.2rem;"></div>
+      </div>
+    </div>
 
     <main id="main">
       <!-- Hero Section -->
@@ -2904,36 +2980,17 @@
       console.log("Windhelm site loaded successfully!");
 
       // ===== FALLING LEAF SYSTEM =====
-      document.addEventListener("click", function (e) {
-        console.log(
-          "Click detected - creating leaves at:",
-          e.clientX,
-          e.clientY
-        );
-
-        // Check if clicked on special elements for enhanced effects
-        const specialElements = [
-          "button",
-          ".cta-button",
-          ".submit-button",
-          ".nav-link",
-          'a[href^="#"]',
-          ".social-link",
-          ".feature-card-overlay",
-        ];
-        const isSpecial = specialElements.some(
-          (selector) => e.target.matches(selector) || e.target.closest(selector)
-        );
-
-        const leafCount = isSpecial ? 12 : 6;
-
-        // Create burst of leaves
+      // Spawn leaves randomly at the top every few seconds
+      setInterval(() => {
+        const leafCount = Math.floor(Math.random() * 3) + 1; // 1-3 leaves
         for (let i = 0; i < leafCount; i++) {
           setTimeout(() => {
-            createLeaf(e.clientX, e.clientY, isSpecial);
-          }, i * 80);
+            const x = Math.random() * window.innerWidth;
+            const y = -20; // Start just above the top
+            createLeaf(x, y, false);
+          }, i * 200);
         }
-      });
+      }, 3000); // Every 3 seconds
 
       function createLeaf(x, y, isSpecial) {
         const leafTypes = ["🍃", "🍂", "🌿", "🍀"];
@@ -2941,15 +2998,10 @@
         leaf.innerHTML =
           leafTypes[Math.floor(Math.random() * leafTypes.length)];
 
-        // Random spread around click point
-        const spreadRadius = isSpecial ? 40 : 25;
-        const offsetX = (Math.random() - 0.5) * spreadRadius * 2;
-        const offsetY = (Math.random() - 0.5) * 20;
-
         leaf.style.cssText = `
           position: fixed;
-          left: ${x + offsetX}px;
-          top: ${y + offsetY}px;
+          left: ${x}px;
+          top: ${y}px;
           font-size: ${isSpecial ? "2.5rem" : "2rem"};
           z-index: 9999;
           pointer-events: none;
@@ -3356,6 +3408,97 @@
         // Delay loading to prioritize other content
         setTimeout(loadSteamUpdates, 1000);
       });
+    </script>
+    <script>
+    // Login modal logic
+    const loginBtn = document.getElementById('login-btn');
+    const loginModal = document.getElementById('login-modal');
+    const closeLogin = document.getElementById('close-login');
+    const loginForm = document.getElementById('login-form');
+    const loginMessage = document.getElementById('login-message');
+    const passwordToggle = document.getElementById('password-toggle');
+    const passwordInput = document.getElementById('password');
+    let currentUser = null;
+    let passwordVisible = false;
+
+    // Check if user is already logged in
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedUser = localStorage.getItem('windhelm_user');
+      if (savedUser) {
+        // User is logged in, redirect to orders page
+        window.location.href = 'orders.html';
+      }
+    });
+
+    passwordToggle.addEventListener('click', function() {
+      passwordVisible = !passwordVisible;
+      passwordInput.type = passwordVisible ? 'text' : 'password';
+      passwordToggle.innerHTML = passwordVisible ?
+        `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20C5 20 1 12 1 12C1 12 2.64 8.74 5.64 6.74M9.41 9.41C9.78 9.78 10.18 10.05 10.59 10.23M14.83 14.83C15.55 14.05 16 13.06 16 12C16 9.79 14.21 8 12 8C11.21 8 10.47 8.23 9.82 8.62" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M1 1L23 23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>` :
+        `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+        </svg>`;
+    });
+
+    loginBtn.addEventListener('click', function() {
+      loginModal.style.display = 'flex';
+      loginMessage.textContent = '';
+      loginForm.reset();
+    });
+    closeLogin.addEventListener('click', function() {
+      loginModal.style.display = 'none';
+    });
+    window.addEventListener('click', function(e) {
+      if (e.target === loginModal) loginModal.style.display = 'none';
+    });
+
+    loginForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const submitBtn = document.getElementById('login-submit-btn');
+      loginMessage.textContent = '';
+
+      if (!username || !password) {
+        loginMessage.textContent = 'Please fill in all fields.';
+        loginMessage.style.color = '#ef4444';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.classList.add('login-loading');
+      submitBtn.textContent = 'Signing In...';
+
+      try {
+        const res = await fetch('http://localhost:3000/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+        const data = await res.json();
+        if (data.success) {
+          currentUser = username;
+          localStorage.setItem('windhelm_user', username);
+          loginModal.style.display = 'none';
+          // Redirect to orders page
+          window.location.href = 'orders.html';
+        } else {
+          loginMessage.textContent = data.message || 'Invalid username or password.';
+          loginMessage.style.color = '#ef4444';
+        }
+      } catch (err) {
+        loginMessage.textContent = 'Unable to connect to server. Please try again.';
+        loginMessage.style.color = '#ef4444';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('login-loading');
+        submitBtn.textContent = 'Sign In';
+      }
+    });
     </script>
   </body>
 </html>
