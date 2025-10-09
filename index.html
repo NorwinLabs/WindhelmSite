@@ -1112,45 +1112,6 @@
         color: var(--gray-400);
         font-size: 0.9rem;
       }
-      .footer-version {
-        background: var(--primary-color);
-        color: var(--white);
-        padding: 0.5rem 1rem;
-        border-radius: var(--border-radius);
-        font-weight: 600;
-        font-size: 0.9rem;
-        cursor: help;
-        transition: var(--transition-base);
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-
-      .footer-version:hover {
-        background: var(--primary-dark);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-      }
-
-      #version-number {
-        font-weight: 700;
-      }
-
-      #build-info {
-        font-family: "Courier New", monospace;
-        white-space: nowrap;
-      }
-
-      @media (max-width: 768px) {
-        .footer-version {
-          flex-direction: column;
-          text-align: center;
-        }
-        #build-info {
-          margin-left: 0 !important;
-          margin-top: 0.25rem;
-        }
-      }
 
       /* Form Messages */
       .form-messages {
@@ -1797,7 +1758,7 @@
             <a href="#features" class="nav-link">Features</a>
             <a href="#team" class="nav-link">Team</a>
             <a href="#contact" class="nav-link">Contact</a>
-            <button id="login-btn" class="nav-link" style="background:#2563eb;color:#fff;border:none;border-radius:6px;padding:0.5rem 1rem;cursor:pointer;">Login</button>
+            <button id="login-btn" class="nav-link" style="margin-left: auto;">Login</button>
           </div>
           <div
             class="nav-overlay"
@@ -2753,148 +2714,12 @@
             />
             <p>©2025 NorwinLabs LLC. All rights reserved.</p>
           </div>
-          <div class="footer-version" id="version-display">
-            <span id="version-number">v1.0.0</span>
-            <span
-              id="build-info"
-              style="font-size: 0.8em; opacity: 0.7; margin-left: 0.5rem"
-            ></span>
-          </div>
         </div>
       </div>
     </footer>
 
     <!-- Scripts -->
     <script>
-      // Automatic Versioning System
-      class VersionManager {
-        constructor() {
-          this.baseVersion = { major: 1, minor: 2, patch: 0 };
-          this.buildDate = new Date();
-          this.deploymentId = this.generateDeploymentId();
-          this.initializeVersioning();
-        }
-
-        generateDeploymentId() {
-          // Generate unique deployment ID based on timestamp
-          const timestamp = Date.now();
-          const randomSuffix = Math.random().toString(36).substr(2, 4);
-          return `${timestamp.toString(36)}-${randomSuffix}`;
-        }
-
-        calculateDynamicVersion() {
-          // Calculate days since base date (Jan 1, 2025)
-          const baseDate = new Date("2025-01-01");
-          const daysSinceBase = Math.floor(
-            (this.buildDate - baseDate) / (1000 * 60 * 60 * 24)
-          );
-
-          // Auto-increment patch version based on days
-          const autoPatches = Math.floor(daysSinceBase / 7); // New patch every week
-          const autoMinor = Math.floor(daysSinceBase / 30); // New minor every month
-
-          return {
-            major: this.baseVersion.major,
-            minor: this.baseVersion.minor + autoMinor,
-            patch: this.baseVersion.patch + autoPatches,
-          };
-        }
-
-        getVersionString() {
-          const version = this.calculateDynamicVersion();
-          return `v${version.major}.${version.minor}.${version.patch}`;
-        }
-
-        getBuildInfo() {
-          const buildMonth = this.buildDate.toLocaleDateString("en-US", {
-            month: "short",
-          });
-          const buildDay = this.buildDate.getDate();
-          const buildYear = this.buildDate.getFullYear();
-          const deploymentShort = this.deploymentId.substr(0, 8);
-
-          return `Build ${buildMonth} ${buildDay}, ${buildYear} • ${deploymentShort}`;
-        }
-
-        initializeVersioning() {
-          // Update version display immediately
-          this.updateVersionDisplay();
-
-          // Store version info in localStorage for persistence
-          const versionInfo = {
-            version: this.getVersionString(),
-            buildDate: this.buildDate.toISOString(),
-            deploymentId: this.deploymentId,
-            lastUpdate: Date.now(),
-          };
-
-          localStorage.setItem(
-            "windhelm_version_info",
-            JSON.stringify(versionInfo)
-          );
-
-          // Add version to console for debugging
-          console.log(
-            `%cWindhelm ${this.getVersionString()}`,
-            "color: #d97706; font-weight: bold; font-size: 14px;"
-          );
-          console.log(`Build Info: ${this.getBuildInfo()}`);
-        }
-
-        updateVersionDisplay() {
-          const versionElement = document.getElementById("version-number");
-          const buildElement = document.getElementById("build-info");
-
-          if (versionElement) {
-            versionElement.textContent = this.getVersionString();
-
-            // Add hover effect to show full build info
-            versionElement.title = `${this.getVersionString()}\n${this.getBuildInfo()}\nDeployment: ${
-              this.deploymentId
-            }`;
-          }
-
-          if (buildElement) {
-            buildElement.textContent = this.getBuildInfo();
-          }
-        }
-
-        // Method to manually increment version for major releases
-        incrementVersion(type = "patch") {
-          switch (type) {
-            case "major":
-              this.baseVersion.major++;
-              this.baseVersion.minor = 0;
-              this.baseVersion.patch = 0;
-              break;
-            case "minor":
-              this.baseVersion.minor++;
-              this.baseVersion.patch = 0;
-              break;
-            case "patch":
-              this.baseVersion.patch++;
-              break;
-          }
-
-          this.updateVersionDisplay();
-          console.log(
-            `Version manually incremented to ${this.getVersionString()}`
-          );
-        }
-
-        // Get version history from localStorage
-        getVersionHistory() {
-          const stored = localStorage.getItem("windhelm_version_info");
-          return stored ? JSON.parse(stored) : null;
-        }
-      }
-
-      // Initialize versioning system
-      const versionManager = new VersionManager();
-
-      // Make version manager globally available for debugging
-      window.WindhelmVersion = versionManager;
-
       // Load non-critical CSS asynchronously
       function loadCSS(href, onload) {
         var link = document.createElement("link");
@@ -3421,12 +3246,58 @@
     let currentUser = null;
     let passwordVisible = false;
 
-    // Check if user is already logged in
+// Function to update navigation for logged-in users
+function updateNavigationForLoggedInUser(username) {
+  const navMenu = document.getElementById('nav-menu');
+  if (!navMenu) return;
+
+  // Add Orders tab
+  const ordersLink = document.createElement('a');
+  ordersLink.href = 'orders.html';
+  ordersLink.className = 'nav-link';
+  ordersLink.textContent = 'Orders';
+
+  // Add Logout button
+  const logoutBtn = document.createElement('button');
+  logoutBtn.id = 'logout-btn';
+  logoutBtn.className = 'nav-link';
+  logoutBtn.style.cssText = 'background:#dc2626;color:#fff;border:none;border-radius:6px;padding:0.5rem 1rem;cursor:pointer;margin-left:0.5rem;';
+  logoutBtn.textContent = 'Logout';
+
+  logoutBtn.addEventListener('click', function() {
+    localStorage.removeItem('windhelm_user');
+    restoreNavigationForNotLoggedInUser();
+  });
+
+  // Insert Orders link before the social links
+  const socialLinks = document.querySelector('.social-links');
+  if (socialLinks) {
+    navMenu.insertBefore(ordersLink, socialLinks);
+    navMenu.insertBefore(logoutBtn, socialLinks);
+  }
+}
+
+// Function to restore navigation for not logged-in users
+function restoreNavigationForNotLoggedInUser() {
+  const navMenu = document.getElementById('nav-menu');
+  if (!navMenu) return;
+
+  // Remove Orders link
+  const ordersLink = navMenu.querySelector('a[href="orders.html"]');
+  if (ordersLink) {
+    ordersLink.remove();
+  }
+
+  // Remove Logout button
+  const logoutBtn = document.getElementById('logout-btn');
+  if (logoutBtn) {
+    logoutBtn.remove();
+  }
+}    // Check if user is already logged in and update navigation
     document.addEventListener('DOMContentLoaded', function() {
       const savedUser = localStorage.getItem('windhelm_user');
       if (savedUser) {
-        // User is logged in, redirect to orders page
-        window.location.href = 'orders.html';
+        updateNavigationForLoggedInUser(savedUser);
       }
     });
 
@@ -3452,8 +3323,30 @@
     closeLogin.addEventListener('click', function() {
       loginModal.style.display = 'none';
     });
+    
+    // Prevent modal from closing when clicking inside the content
+    const modalContent = loginModal.querySelector('div');
+    modalContent.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+    
+    // Close modal when clicking outside
     window.addEventListener('click', function(e) {
       if (e.target === loginModal) loginModal.style.display = 'none';
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && loginModal.style.display === 'flex') {
+        loginModal.style.display = 'none';
+      }
+    });
+    
+    // Allow Enter key in password field to submit
+    passwordInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        loginForm.dispatchEvent(new Event('submit'));
+      }
     });
 
     loginForm.addEventListener('submit', async function(e) {
@@ -3484,8 +3377,8 @@
           currentUser = username;
           localStorage.setItem('windhelm_user', username);
           loginModal.style.display = 'none';
-          // Redirect to orders page
-          window.location.href = 'orders.html';
+          // Update navigation to show Orders tab and Logout button
+          updateNavigationForLoggedInUser(username);
         } else {
           loginMessage.textContent = data.message || 'Invalid username or password.';
           loginMessage.style.color = '#ef4444';
