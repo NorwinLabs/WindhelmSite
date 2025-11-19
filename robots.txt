@@ -1,0 +1,51 @@
+# Robots.txt for Windhelm Game Website
+
+User-agent: *
+Allow: /
+
+# Important pages for crawling
+Allow: /index.html
+Allow: /images/
+Allow: /products/
+
+# Disallow any admin or private areas (if they exist)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /.env
+
+# Allow social media crawlers
+User-agent: facebookexternalhit/*
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://windhelm.game/sitemap.xml
+
+# Crawl delay (optional - be nice to servers)
+Crawl-delay: 1
+
+# Cache instructions for important files
+# Allow caching of static assets
+User-agent: *
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.mp4$
+Allow: /*.webm$

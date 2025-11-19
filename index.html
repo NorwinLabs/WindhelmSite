@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Windhelm® - Procedurally generated story-driven RPG with dynamic quests, legendary heroes, and infinite replayability."
+      content="Windhelm® - Epic procedurally generated story-driven RPG with dynamic quests, legendary heroes, and infinite replayability. Every playthrough tells a unique story. Coming to Steam."
     />
     <meta
       name="keywords"
-      content="Windhelm, RPG, adventure game, procedurally generated, story-driven, dynamic quests, narrative RPG, indie game, Steam"
+      content="Windhelm, RPG, role playing game, adventure game, procedurally generated, story-driven, dynamic quests, narrative RPG, indie game, Steam, fantasy RPG, epic adventure, legendary heroes, infinite replayability, NorwinLabs"
     />
-    <title>Windhelm®</title>
+    <title>
+      Windhelm® - Epic Procedurally Generated RPG Adventure | Coming to Steam
+    </title>
 
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.png" />
@@ -32,9 +34,18 @@
       type="image/png"
     />
     <link rel="preload" href="images/BGVideo.mp4" as="video" type="video/mp4" />
-    <link rel="preload" href="images/2.png" as="image" type="image/png" />
-    <link rel="preload" href="images/3.png" as="image" type="image/png" />
-    <link rel="preload" href="images/4.png" as="image" type="image/png" />
+    <link
+      rel="preload"
+      href="images/WindhelmYoutubeBanner.jpg"
+      as="image"
+      type="image/jpeg"
+    />
+
+    <!-- Performance hints -->
+    <link rel="dns-prefetch" href="//api.steampowered.com" />
+    <link rel="dns-prefetch" href="//api.allorigins.win" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//www.youtube.com" />
 
     <!-- Critical CSS - Inline for faster first paint -->
     <style>
@@ -79,6 +90,27 @@
           0 1px 2px 0 rgba(0, 0, 0, 0.06);
         --transition-base: all 0.2s ease;
       }
+
+      /* Skip to content link for accessibility */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        z-index: 10000;
+        transition: top 0.3s;
+      }
+      .skip-link:focus {
+        top: 6px;
+        outline: 3px solid #ffcc00;
+        outline-offset: 2px;
+      }
+
       *,
       *::before,
       *::after {
@@ -141,21 +173,24 @@
         gap: var(--space-8);
       }
       .nav-link {
-        /* Accessibility: Focus outline for nav and buttons */
-        .nav-link:focus,
-        .cta-button:focus,
-        .feature-card-overlay:focus {
-          outline: 3px solid #2563eb;
-          outline-offset: 2px;
-          box-shadow: 0 0 0 4px #c7d7fa;
-          z-index: 2;
-        }
         font-weight: 500;
         color: #000000;
         padding: 0.5rem 0.75rem;
         border-radius: var(--border-radius);
         transition: var(--transition-base);
         text-decoration: none;
+      }
+
+      /* Enhanced accessibility focus styles */
+      .nav-link:focus,
+      .cta-button:focus,
+      .feature-card-overlay:focus,
+      button:focus,
+      a:focus {
+        outline: 3px solid #2563eb;
+        outline-offset: 2px;
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+        z-index: 2;
       }
       .nav-link:hover {
         background-color: var(--gray-100);
@@ -1653,31 +1688,201 @@
       />
     </noscript>
 
-    <!-- SEO and Social Media -->
-    <meta property="og:title" content="Windhelm®" />
+    <!-- Enhanced SEO and Social Media Meta Tags -->
+    <link rel="canonical" href="https://windhelm.game/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta
+      property="og:title"
+      content="Windhelm® - Epic Procedurally Generated RPG Adventure"
+    />
     <meta
       property="og:description"
-      content="Embark on a procedurally generated story-driven RPG adventure with dynamic quests and legendary heroes."
+      content="Embark on a procedurally generated story-driven RPG adventure with dynamic quests, legendary heroes, and infinite replayability. Every playthrough tells a unique story."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="images/Logo.png" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content="https://windhelm.game/" />
+    <meta
+      property="og:image"
+      content="https://windhelm.game/images/WindhelmYoutubeBanner.jpg"
+    />
+    <meta
+      property="og:image:alt"
+      content="Windhelm RPG - Epic fantasy adventure game screenshot"
+    />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+    <meta property="og:site_name" content="Windhelm" />
+    <meta property="og:locale" content="en_US" />
 
-    <!-- Schema.org structured data -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@NorwinLabs" />
+    <meta name="twitter:creator" content="@NorwinLabs" />
+    <meta
+      name="twitter:title"
+      content="Windhelm® - Epic Procedurally Generated RPG Adventure"
+    />
+    <meta
+      name="twitter:description"
+      content="Embark on a procedurally generated story-driven RPG adventure with dynamic quests, legendary heroes, and infinite replayability."
+    />
+    <meta
+      name="twitter:image"
+      content="https://windhelm.game/images/WindhelmYoutubeBanner.jpg"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Windhelm RPG - Epic fantasy adventure game screenshot"
+    />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="author" content="NorwinLabs" />
+    <meta name="publisher" content="NorwinLabs" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="msapplication-TileColor" content="#2563eb" />
+    <meta name="application-name" content="Windhelm" />
+
+    <!-- Language and localization -->
+    <link rel="alternate" hreflang="en" href="https://windhelm.game/" />
+    <link rel="alternate" hreflang="x-default" href="https://windhelm.game/" />
+
+    <!-- Geo targeting -->
+    <meta name="geo.region" content="US" />
+    <meta name="geo.placename" content="United States" />
+    <meta name="ICBM" content="39.8283, -98.5795" />
+
+    <!-- Additional technical SEO -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Windhelm" />
+
+    <!-- Enhanced Schema.org structured data -->
     <script type="application/ld+json">
       {
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "@type": "VideoGame",
         "name": "Windhelm",
+        "alternateName": "Windhelm RPG",
+        "description": "A procedurally generated story-driven RPG where every playthrough weaves a unique tale of adventure, featuring dynamic quests, legendary heroes, and infinite replayability.",
+        "url": "https://windhelm.game/",
+        "image": "https://windhelm.game/images/WindhelmYoutubeBanner.jpg",
+        "genre": [
+          "Role-Playing Game",
+          "Adventure",
+          "Fantasy",
+          "Procedural Generation"
+        ],
+        "gamePlatform": ["PC", "Steam"],
+        "operatingSystem": "Windows",
+        "applicationCategory": "Game",
+        "inLanguage": "en-US",
+        "datePublished": "2024",
+        "contentRating": "Teen",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/PreOrder",
+          "seller": {
+            "@type": "Organization",
+            "name": "Steam"
+          },
+          "url": "https://store.steampowered.com/app/2171040/Windhelm/"
+        },
         "developer": {
           "@type": "Organization",
           "name": "NorwinLabs",
-          "logo": "images/Logo.png"
+          "url": "https://windhelm.game/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://windhelm.game/images/Logo.png"
+          },
+          "foundingDate": "2023",
+          "founder": [
+            {
+              "@type": "Person",
+              "name": "Gavin Norwood"
+            },
+            {
+              "@type": "Person",
+              "name": "Kirsten Norwood"
+            }
+          ],
+          "sameAs": [
+            "https://www.youtube.com/@NorwinLabs",
+            "https://discord.gg/PgGA8Zsj4g",
+            "https://store.steampowered.com/app/2171040/Windhelm/"
+          ]
         },
-        "sameAs": [
-          "https://www.youtube.com/@NorwinLabs",
-          "https://discord.gg/PgGA8Zsj4g",
-          "https://store.steampowered.com/app/2171040/Windhelm/"
+        "publisher": {
+          "@type": "Organization",
+          "name": "NorwinLabs"
+        }
+      }
+    </script>
+
+    <!-- Website/Organization structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Windhelm",
+        "url": "https://windhelm.game/",
+        "description": "Official website for Windhelm RPG - A procedurally generated story-driven adventure game",
+        "publisher": {
+          "@type": "Organization",
+          "name": "NorwinLabs"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://windhelm.game/#search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <!-- BreadcrumbList for navigation -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://windhelm.game/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://windhelm.game/#features"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Team",
+            "item": "https://windhelm.game/#team"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Contact",
+            "item": "https://windhelm.game/#contact"
+          }
         ]
       }
     </script>
@@ -1713,15 +1918,21 @@
         color: #2563eb;
       }
       @keyframes modalFadeIn {
-        from { opacity: 0; transform: scale(0.9); }
-        to { opacity: 1; transform: scale(1); }
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
       }
       .login-loading {
         position: relative;
         color: transparent;
       }
       .login-loading::after {
-        content: '';
+        content: "";
         position: absolute;
         width: 16px;
         height: 16px;
@@ -1735,11 +1946,16 @@
         animation: spin 1s linear infinite;
       }
       @keyframes spin {
-        to { transform: rotate(360deg); }
+        to {
+          transform: rotate(360deg);
+        }
       }
     </style>
   </head>
   <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation Header -->
     <header class="header">
       <nav class="nav" role="navigation" aria-label="Main Navigation">
@@ -1758,7 +1974,9 @@
             <a href="#features" class="nav-link">Features</a>
             <a href="#team" class="nav-link">Team</a>
             <a href="#contact" class="nav-link">Contact</a>
-            <button id="login-btn" class="nav-link" style="margin-left: auto;">Login</button>
+            <button id="login-btn" class="nav-link" style="margin-left: auto">
+              Login
+            </button>
           </div>
           <div
             class="nav-overlay"
@@ -1824,37 +2042,200 @@
     </header>
 
     <!-- Login Modal -->
-    <div id="login-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.6);z-index:2000;justify-content:center;align-items:center;backdrop-filter:blur(4px);">
-      <div style="background:#fff;padding:2.5rem 3rem;border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,0.3);max-width:400px;width:90%;position:relative;animation:modalFadeIn 0.3s ease-out;">
-        <button id="close-login" style="position:absolute;top:15px;right:15px;background:none;border:none;font-size:1.8rem;cursor:pointer;color:#666;transition:color 0.2s;">&times;</button>
-        <div style="text-align:center;margin-bottom:2rem;">
-          <h2 style="margin:0 0 0.5rem 0;color:#333;font-size:1.8rem;font-weight:600;">Welcome Back</h2>
-          <p style="margin:0;color:#666;font-size:0.95rem;">Sign in to view your orders</p>
+    <div
+      id="login-modal"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(4px);
+      "
+    >
+      <div
+        style="
+          background: #fff;
+          padding: 2.5rem 3rem;
+          border-radius: 16px;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+          max-width: 400px;
+          width: 90%;
+          position: relative;
+          animation: modalFadeIn 0.3s ease-out;
+        "
+      >
+        <button
+          id="close-login"
+          style="
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.2s;
+          "
+        >
+          &times;
+        </button>
+        <div style="text-align: center; margin-bottom: 2rem">
+          <h2
+            style="
+              margin: 0 0 0.5rem 0;
+              color: #333;
+              font-size: 1.8rem;
+              font-weight: 600;
+            "
+          >
+            Welcome Back
+          </h2>
+          <p style="margin: 0; color: #666; font-size: 0.95rem">
+            Sign in to view your orders
+          </p>
         </div>
         <form id="login-form">
-          <div style="margin-bottom:1.5rem;">
-            <label for="username" style="display:block;margin-bottom:0.5rem;color:#333;font-weight:500;font-size:0.95rem;">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required style="width:100%;padding:0.8rem 1rem;border:2px solid #e1e5e9;border-radius:8px;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;outline:none;">
+          <div style="margin-bottom: 1.5rem">
+            <label
+              for="username"
+              style="
+                display: block;
+                margin-bottom: 0.5rem;
+                color: #333;
+                font-weight: 500;
+                font-size: 0.95rem;
+              "
+              >Username</label
+            >
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter your username"
+              required
+              style="
+                width: 100%;
+                padding: 0.8rem 1rem;
+                border: 2px solid #e1e5e9;
+                border-radius: 8px;
+                font-size: 1rem;
+                transition: border-color 0.2s, box-shadow 0.2s;
+                outline: none;
+              "
+            />
           </div>
-          <div style="margin-bottom:2rem;">
-            <label for="password" style="display:block;margin-bottom:0.5rem;color:#333;font-weight:500;font-size:0.95rem;">Password</label>
-            <div style="position:relative;">
-              <input type="password" id="password" name="password" placeholder="Enter your password" required style="width:100%;padding:0.8rem 3rem 0.8rem 1rem;border:2px solid #e1e5e9;border-radius:8px;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;outline:none;">
-              <button type="button" id="password-toggle" style="position:absolute;right:0.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:0.25rem;color:#666;font-size:1.2rem;transition:color 0.2s;" title="Toggle password visibility">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+          <div style="margin-bottom: 2rem">
+            <label
+              for="password"
+              style="
+                display: block;
+                margin-bottom: 0.5rem;
+                color: #333;
+                font-weight: 500;
+                font-size: 0.95rem;
+              "
+              >Password</label
+            >
+            <div style="position: relative">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+                style="
+                  width: 100%;
+                  padding: 0.8rem 3rem 0.8rem 1rem;
+                  border: 2px solid #e1e5e9;
+                  border-radius: 8px;
+                  font-size: 1rem;
+                  transition: border-color 0.2s, box-shadow 0.2s;
+                  outline: none;
+                "
+              />
+              <button
+                type="button"
+                id="password-toggle"
+                style="
+                  position: absolute;
+                  right: 0.75rem;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  background: none;
+                  border: none;
+                  cursor: pointer;
+                  padding: 0.25rem;
+                  color: #666;
+                  font-size: 1.2rem;
+                  transition: color 0.2s;
+                "
+                title="Toggle password visibility"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="3"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
                 </svg>
               </button>
             </div>
           </div>
-          <button type="submit" id="login-submit-btn" style="width:100%;padding:0.9rem 1rem;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border:none;border-radius:8px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;">Sign In</button>
+          <button
+            type="submit"
+            id="login-submit-btn"
+            style="
+              width: 100%;
+              padding: 0.9rem 1rem;
+              background: linear-gradient(135deg, #2563eb, #1d4ed8);
+              color: #fff;
+              border: none;
+              border-radius: 8px;
+              font-size: 1.1rem;
+              font-weight: 600;
+              cursor: pointer;
+              transition: transform 0.2s, box-shadow 0.2s;
+            "
+          >
+            Sign In
+          </button>
         </form>
-        <div id="login-message" style="margin-top:1.5rem;text-align:center;color:#ef4444;font-size:0.9rem;min-height:1.2rem;"></div>
+        <div
+          id="login-message"
+          style="
+            margin-top: 1.5rem;
+            text-align: center;
+            color: #ef4444;
+            font-size: 0.9rem;
+            min-height: 1.2rem;
+          "
+        ></div>
       </div>
     </div>
 
-    <main id="main">
+    <main id="main-content">
       <!-- Hero Section -->
       <section id="home" class="hero section-animate">
         <div class="hero-background">
@@ -1865,7 +2246,12 @@
             playsinline
             poster="images/WindhelmYoutubeBanner.jpg"
             style="width: 100%; height: 100%; object-fit: cover; z-index: 1"
+            preload="metadata"
           >
+            <!-- Optimized versions (will be available after running optimization script) -->
+            <source src="images/BGVideo.webm" type="video/webm" />
+            <source src="images/BGVideo-optimized.mp4" type="video/mp4" />
+            <!-- Fallback to original (remove after optimization) -->
             <source src="images/BGVideo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -1948,13 +2334,25 @@
               aria-label="Expand details for Procedurally Generated Quests"
             >
               <div class="feature-image-container">
-                <img
-                  src="images/2.png"
-                  alt="Procedurally Generated Quests"
-                  loading="eager"
-                  fetchpriority="high"
-                  decoding="async"
-                />
+                <picture>
+                  <!-- Modern formats (after optimization) -->
+                  <source srcset="images/2.avif" type="image/avif" />
+                  <source srcset="images/2.webp" type="image/webp" />
+                  <!-- Responsive fallback -->
+                  <img
+                    src="images/2.png"
+                    srcset="
+                      images/2-small.png   400w,
+                      images/2-medium.png  800w,
+                      images/2.png        1200w
+                    "
+                    sizes="(max-width: 768px) 400px, (max-width: 1024px) 800px, 1200px"
+                    alt="Procedurally Generated Quests"
+                    loading="eager"
+                    fetchpriority="high"
+                    decoding="async"
+                  />
+                </picture>
                 <div class="feature-overlay-content">
                   <div class="feature-header">
                     <h3>Procedurally Generated Quests</h3>
@@ -2002,13 +2400,25 @@
               aria-label="Expand details for Procedurally Generated World & Lore"
             >
               <div class="feature-image-container">
-                <img
-                  src="images/3.png"
-                  alt="Procedurally Generated World & Lore"
-                  loading="eager"
-                  fetchpriority="high"
-                  decoding="async"
-                />
+                <picture>
+                  <!-- Modern formats (after optimization) -->
+                  <source srcset="images/3.avif" type="image/avif" />
+                  <source srcset="images/3.webp" type="image/webp" />
+                  <!-- Responsive fallback -->
+                  <img
+                    src="images/3.png"
+                    srcset="
+                      images/3-small.png   400w,
+                      images/3-medium.png  800w,
+                      images/3.png        1200w
+                    "
+                    sizes="(max-width: 768px) 400px, (max-width: 1024px) 800px, 1200px"
+                    alt="Procedurally Generated World & Lore"
+                    loading="eager"
+                    fetchpriority="high"
+                    decoding="async"
+                  />
+                </picture>
                 <div class="feature-overlay-content">
                   <div class="feature-header">
                     <h3>Procedurally Generated World & Lore</h3>
@@ -2058,13 +2468,25 @@
               aria-label="Expand details for Story-Driven Character Evolution"
             >
               <div class="feature-image-container">
-                <img
-                  src="images/4.png"
-                  alt="Story-Driven Character Evolution"
-                  loading="eager"
-                  fetchpriority="high"
-                  decoding="async"
-                />
+                <picture>
+                  <!-- Modern formats (after optimization) -->
+                  <source srcset="images/4.avif" type="image/avif" />
+                  <source srcset="images/4.webp" type="image/webp" />
+                  <!-- Responsive fallback -->
+                  <img
+                    src="images/4.png"
+                    srcset="
+                      images/4-small.png   400w,
+                      images/4-medium.png  800w,
+                      images/4.png        1200w
+                    "
+                    sizes="(max-width: 768px) 400px, (max-width: 1024px) 800px, 1200px"
+                    alt="Story-Driven Character Evolution"
+                    loading="eager"
+                    fetchpriority="high"
+                    decoding="async"
+                  />
+                </picture>
                 <div class="feature-overlay-content">
                   <div class="feature-header">
                     <h3>Story-Driven Character Evolution</h3>
@@ -2115,12 +2537,24 @@
               aria-label="Expand details for Tactical Combat System"
             >
               <div class="feature-image-container">
-                <img
-                  src="images/5.png"
-                  alt="Tactical Combat System"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <picture>
+                  <!-- Modern formats (after optimization) -->
+                  <source srcset="images/5.avif" type="image/avif" />
+                  <source srcset="images/5.webp" type="image/webp" />
+                  <!-- Responsive fallback -->
+                  <img
+                    src="images/5.png"
+                    srcset="
+                      images/5-small.png   400w,
+                      images/5-medium.png  800w,
+                      images/5.png        1200w
+                    "
+                    sizes="(max-width: 768px) 400px, (max-width: 1024px) 800px, 1200px"
+                    alt="Tactical Combat System"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
                 <div class="feature-overlay-content">
                   <div class="feature-header">
                     <h3>Tactical Combat System</h3>
@@ -2349,12 +2783,23 @@
           <div class="team-grid">
             <article class="team-member">
               <div class="member-image">
-                <img
-                  src="images/Gavin1.jpg"
-                  alt="Gavin Norwood"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <picture>
+                  <!-- Modern formats (after optimization) -->
+                  <source srcset="images/Gavin1.webp" type="image/webp" />
+                  <!-- Responsive sizes -->
+                  <img
+                    src="images/Gavin1.jpg"
+                    srcset="
+                      images/Gavin1-120.jpg 120w,
+                      images/Gavin1-240.jpg 240w,
+                      images/Gavin1.jpg     480w
+                    "
+                    sizes="(max-width: 768px) 120px, 240px"
+                    alt="Gavin Norwood"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
               <div class="member-info">
                 <h3>Gavin Norwood</h3>
@@ -2364,12 +2809,23 @@
 
             <article class="team-member">
               <div class="member-image">
-                <img
-                  src="images/Kirstenjpg1.jpg"
-                  alt="Kirsten Norwood"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <picture>
+                  <!-- Modern formats (after optimization) -->
+                  <source srcset="images/Kirstenjpg1.webp" type="image/webp" />
+                  <!-- Responsive sizes -->
+                  <img
+                    src="images/Kirstenjpg1.jpg"
+                    srcset="
+                      images/Kirstenjpg1-120.jpg 120w,
+                      images/Kirstenjpg1-240.jpg 240w,
+                      images/Kirstenjpg1.jpg     480w
+                    "
+                    sizes="(max-width: 768px) 120px, 240px"
+                    alt="Kirsten Norwood"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
               <div class="member-info">
                 <h3>Kirsten Norwood</h3>
@@ -3092,7 +3548,21 @@
         const errorEl = document.getElementById("updates-error");
         const fallbackEl = document.getElementById("updates-fallback");
 
+        // Check cache first (30 minute TTL)
+        const CACHE_KEY = "steam-news-cache";
+        const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
+
         try {
+          const cached = localStorage.getItem(CACHE_KEY);
+          if (cached) {
+            const { data, timestamp } = JSON.parse(cached);
+            if (Date.now() - timestamp < CACHE_TTL) {
+              console.log("Using cached Steam news data");
+              displaySteamUpdates(data);
+              return;
+            }
+          }
+
           const steamAppId = "2171040";
           const newsUrl = `https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=${steamAppId}&count=5&maxlength=1200&format=json`;
           const proxyUrl = "https://api.allorigins.win/get?url=";
@@ -3117,6 +3587,16 @@
               author: item.author || "Steam News",
               eventHeader: item.feedlabel || null,
             }));
+
+            // Cache the results
+            localStorage.setItem(
+              CACHE_KEY,
+              JSON.stringify({
+                data: updates,
+                timestamp: Date.now(),
+              })
+            );
+
             displaySteamUpdates(updates);
             return;
           }
@@ -3228,170 +3708,202 @@
         return div.innerHTML;
       }
 
+      // ===== PERFORMANCE MONITORING =====
+      function logPerformance() {
+        if ("performance" in window) {
+          window.addEventListener("load", () => {
+            setTimeout(() => {
+              const perf = performance.getEntriesByType("navigation")[0];
+              if (perf) {
+                console.log("Page Load Performance:", {
+                  "DOM Content Loaded": Math.round(
+                    perf.domContentLoadedEventEnd -
+                      perf.domContentLoadedEventStart
+                  ),
+                  "Full Load Time": Math.round(
+                    perf.loadEventEnd - perf.loadEventStart
+                  ),
+                  "DNS Lookup": Math.round(
+                    perf.domainLookupEnd - perf.domainLookupStart
+                  ),
+                  "Connect Time": Math.round(
+                    perf.connectEnd - perf.connectStart
+                  ),
+                });
+              }
+            }, 0);
+          });
+        }
+      }
+
       // Initialize Steam updates on page load
       document.addEventListener("DOMContentLoaded", function () {
+        logPerformance();
         // Delay loading to prioritize other content
         setTimeout(loadSteamUpdates, 1000);
       });
     </script>
     <script>
-    // Login modal logic
-    const loginBtn = document.getElementById('login-btn');
-    const loginModal = document.getElementById('login-modal');
-    const closeLogin = document.getElementById('close-login');
-    const loginForm = document.getElementById('login-form');
-    const loginMessage = document.getElementById('login-message');
-    const passwordToggle = document.getElementById('password-toggle');
-    const passwordInput = document.getElementById('password');
-    let currentUser = null;
-    let passwordVisible = false;
+      // Login modal logic
+      const loginBtn = document.getElementById("login-btn");
+      const loginModal = document.getElementById("login-modal");
+      const closeLogin = document.getElementById("close-login");
+      const loginForm = document.getElementById("login-form");
+      const loginMessage = document.getElementById("login-message");
+      const passwordToggle = document.getElementById("password-toggle");
+      const passwordInput = document.getElementById("password");
+      let currentUser = null;
+      let passwordVisible = false;
 
-// Function to update navigation for logged-in users
-function updateNavigationForLoggedInUser(username) {
-  const navMenu = document.getElementById('nav-menu');
-  if (!navMenu) return;
+      // Function to update navigation for logged-in users
+      function updateNavigationForLoggedInUser(username) {
+        const navMenu = document.getElementById("nav-menu");
+        if (!navMenu) return;
 
-  // Add Orders tab
-  const ordersLink = document.createElement('a');
-  ordersLink.href = 'orders.html';
-  ordersLink.className = 'nav-link';
-  ordersLink.textContent = 'Orders';
+        // Add Orders tab
+        const ordersLink = document.createElement("a");
+        ordersLink.href = "orders.html";
+        ordersLink.className = "nav-link";
+        ordersLink.textContent = "Orders";
 
-  // Add Logout button
-  const logoutBtn = document.createElement('button');
-  logoutBtn.id = 'logout-btn';
-  logoutBtn.className = 'nav-link';
-  logoutBtn.style.cssText = 'background:#dc2626;color:#fff;border:none;border-radius:6px;padding:0.5rem 1rem;cursor:pointer;margin-left:0.5rem;';
-  logoutBtn.textContent = 'Logout';
+        // Add Logout button
+        const logoutBtn = document.createElement("button");
+        logoutBtn.id = "logout-btn";
+        logoutBtn.className = "nav-link";
+        logoutBtn.style.cssText =
+          "background:#dc2626;color:#fff;border:none;border-radius:6px;padding:0.5rem 1rem;cursor:pointer;margin-left:0.5rem;";
+        logoutBtn.textContent = "Logout";
 
-  logoutBtn.addEventListener('click', function() {
-    localStorage.removeItem('windhelm_user');
-    restoreNavigationForNotLoggedInUser();
-  });
+        logoutBtn.addEventListener("click", function () {
+          localStorage.removeItem("windhelm_user");
+          restoreNavigationForNotLoggedInUser();
+        });
 
-  // Insert Orders link before the social links
-  const socialLinks = document.querySelector('.social-links');
-  if (socialLinks) {
-    navMenu.insertBefore(ordersLink, socialLinks);
-    navMenu.insertBefore(logoutBtn, socialLinks);
-  }
-}
-
-// Function to restore navigation for not logged-in users
-function restoreNavigationForNotLoggedInUser() {
-  const navMenu = document.getElementById('nav-menu');
-  if (!navMenu) return;
-
-  // Remove Orders link
-  const ordersLink = navMenu.querySelector('a[href="orders.html"]');
-  if (ordersLink) {
-    ordersLink.remove();
-  }
-
-  // Remove Logout button
-  const logoutBtn = document.getElementById('logout-btn');
-  if (logoutBtn) {
-    logoutBtn.remove();
-  }
-}    // Check if user is already logged in and update navigation
-    document.addEventListener('DOMContentLoaded', function() {
-      const savedUser = localStorage.getItem('windhelm_user');
-      if (savedUser) {
-        updateNavigationForLoggedInUser(savedUser);
+        // Insert Orders link before the social links
+        const socialLinks = document.querySelector(".social-links");
+        if (socialLinks) {
+          navMenu.insertBefore(ordersLink, socialLinks);
+          navMenu.insertBefore(logoutBtn, socialLinks);
+        }
       }
-    });
 
-    passwordToggle.addEventListener('click', function() {
-      passwordVisible = !passwordVisible;
-      passwordInput.type = passwordVisible ? 'text' : 'password';
-      passwordToggle.innerHTML = passwordVisible ?
-        `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      // Function to restore navigation for not logged-in users
+      function restoreNavigationForNotLoggedInUser() {
+        const navMenu = document.getElementById("nav-menu");
+        if (!navMenu) return;
+
+        // Remove Orders link
+        const ordersLink = navMenu.querySelector('a[href="orders.html"]');
+        if (ordersLink) {
+          ordersLink.remove();
+        }
+
+        // Remove Logout button
+        const logoutBtn = document.getElementById("logout-btn");
+        if (logoutBtn) {
+          logoutBtn.remove();
+        }
+      } // Check if user is already logged in and update navigation
+      document.addEventListener("DOMContentLoaded", function () {
+        const savedUser = localStorage.getItem("windhelm_user");
+        if (savedUser) {
+          updateNavigationForLoggedInUser(savedUser);
+        }
+      });
+
+      passwordToggle.addEventListener("click", function () {
+        passwordVisible = !passwordVisible;
+        passwordInput.type = passwordVisible ? "text" : "password";
+        passwordToggle.innerHTML = passwordVisible
+          ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20C5 20 1 12 1 12C1 12 2.64 8.74 5.64 6.74M9.41 9.41C9.78 9.78 10.18 10.05 10.59 10.23M14.83 14.83C15.55 14.05 16 13.06 16 12C16 9.79 14.21 8 12 8C11.21 8 10.47 8.23 9.82 8.62" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M1 1L23 23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>` :
-        `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        </svg>`
+          : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
         </svg>`;
-    });
+      });
 
-    loginBtn.addEventListener('click', function() {
-      loginModal.style.display = 'flex';
-      loginMessage.textContent = '';
-      loginForm.reset();
-    });
-    closeLogin.addEventListener('click', function() {
-      loginModal.style.display = 'none';
-    });
-    
-    // Prevent modal from closing when clicking inside the content
-    const modalContent = loginModal.querySelector('div');
-    modalContent.addEventListener('click', function(e) {
-      e.stopPropagation();
-    });
-    
-    // Close modal when clicking outside
-    window.addEventListener('click', function(e) {
-      if (e.target === loginModal) loginModal.style.display = 'none';
-    });
-    
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && loginModal.style.display === 'flex') {
-        loginModal.style.display = 'none';
-      }
-    });
-    
-    // Allow Enter key in password field to submit
-    passwordInput.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-        loginForm.dispatchEvent(new Event('submit'));
-      }
-    });
+      loginBtn.addEventListener("click", function () {
+        loginModal.style.display = "flex";
+        loginMessage.textContent = "";
+        loginForm.reset();
+      });
+      closeLogin.addEventListener("click", function () {
+        loginModal.style.display = "none";
+      });
 
-    loginForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value;
-      const submitBtn = document.getElementById('login-submit-btn');
-      loginMessage.textContent = '';
+      // Prevent modal from closing when clicking inside the content
+      const modalContent = loginModal.querySelector("div");
+      modalContent.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
 
-      if (!username || !password) {
-        loginMessage.textContent = 'Please fill in all fields.';
-        loginMessage.style.color = '#ef4444';
-        return;
-      }
+      // Close modal when clicking outside
+      window.addEventListener("click", function (e) {
+        if (e.target === loginModal) loginModal.style.display = "none";
+      });
 
-      submitBtn.disabled = true;
-      submitBtn.classList.add('login-loading');
-      submitBtn.textContent = 'Signing In...';
-
-      try {
-        const res = await fetch('http://localhost:3000/api/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username, password })
-        });
-        const data = await res.json();
-        if (data.success) {
-          currentUser = username;
-          localStorage.setItem('windhelm_user', username);
-          loginModal.style.display = 'none';
-          // Update navigation to show Orders tab and Logout button
-          updateNavigationForLoggedInUser(username);
-        } else {
-          loginMessage.textContent = data.message || 'Invalid username or password.';
-          loginMessage.style.color = '#ef4444';
+      // Close modal with Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && loginModal.style.display === "flex") {
+          loginModal.style.display = "none";
         }
-      } catch (err) {
-        loginMessage.textContent = 'Unable to connect to server. Please try again.';
-        loginMessage.style.color = '#ef4444';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.classList.remove('login-loading');
-        submitBtn.textContent = 'Sign In';
-      }
-    });
+      });
+
+      // Allow Enter key in password field to submit
+      passwordInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          loginForm.dispatchEvent(new Event("submit"));
+        }
+      });
+
+      loginForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value;
+        const submitBtn = document.getElementById("login-submit-btn");
+        loginMessage.textContent = "";
+
+        if (!username || !password) {
+          loginMessage.textContent = "Please fill in all fields.";
+          loginMessage.style.color = "#ef4444";
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.classList.add("login-loading");
+        submitBtn.textContent = "Signing In...";
+
+        try {
+          const res = await fetch("http://localhost:3000/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password }),
+          });
+          const data = await res.json();
+          if (data.success) {
+            currentUser = username;
+            localStorage.setItem("windhelm_user", username);
+            loginModal.style.display = "none";
+            // Update navigation to show Orders tab and Logout button
+            updateNavigationForLoggedInUser(username);
+          } else {
+            loginMessage.textContent =
+              data.message || "Invalid username or password.";
+            loginMessage.style.color = "#ef4444";
+          }
+        } catch (err) {
+          loginMessage.textContent =
+            "Unable to connect to server. Please try again.";
+          loginMessage.style.color = "#ef4444";
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove("login-loading");
+          submitBtn.textContent = "Sign In";
+        }
+      });
     </script>
   </body>
 </html>
