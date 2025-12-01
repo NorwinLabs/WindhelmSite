@@ -17,22 +17,13 @@
     <link rel="icon" href="media/favicon.png" />
 
     <!-- Preload critical resources for optimal performance -->
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <!-- Preload critical images -->
-    <link rel="preload" href="media/Logo.png" as="image" type="image/png" />
-    <link rel="preload" href="media/islandbg.png" as="image" type="image/png" />
+    <link rel="preload" margin-top: 0.35rem; margin-bottom: 0.75rem; text-align:
+    center; color: #ffd700; font-weight: 700; letter-spacing: 0.6px; opacity:
+    0.98; text-shadow: 0 0 6px rgba(255, 215, 0, 0.7), 0 0 14px rgba(255, 215,
+    0, 0.5), 0 0 22px rgba(255, 215, 0, 0.35);
     <link rel="preload" href="media/BGVideo.mp4" as="video" type="video/mp4" />
-    <link
-      rel="preload"
-      href="media/WindhelmYoutubeBanner.jpg"
-      as="image"
-      type="image/jpeg"
-    />
+    <link display: inline-block; position: relative; animation: subheaderPulse
+    2.6s ease-in-out infinite; as="image" type="image/jpeg" />
 
     <!-- Performance hints -->
     <link rel="dns-prefetch" href="//api.steampowered.com" />
@@ -60,6 +51,17 @@
         --white: #ffffff;
         --gray-50: #f9fafb;
         --gray-100: #f3f4f6;
+        @keyframes sparkleOrbit {
+          0% {
+            transform: translate(-50%, -50%) rotate(0deg) translateX(14px);
+          }
+          50% {
+            transform: translate(-50%, -50%) rotate(180deg) translateX(14px);
+          }
+          100% {
+            transform: translate(-50%, -50%) rotate(360deg) translateX(14px);
+          }
+        }
         --gray-200: #e5e7eb;
         --gray-400: #9ca3af;
         --gray-600: #4b5563;
@@ -118,6 +120,8 @@
         box-sizing: border-box;
         margin: 0;
         padding: 0;
+        /* Disable text selection globally except form controls */
+        user-select: none;
       }
       html {
         scroll-behavior: smooth;
@@ -393,6 +397,30 @@
         font-weight: 500;
         letter-spacing: 0.4px;
         color: var(--gray-200);
+      }
+      .hero-subheader {
+        margin-top: 0.35rem;
+        margin-bottom: 0.75rem;
+        text-align: center;
+        color: var(--gray-100);
+        font-weight: 600;
+        letter-spacing: 0.4px;
+        opacity: 0.95;
+      }
+      .hero-subheader #hero-subheader-text {
+        display: inline-block;
+        animation: subheaderPulse 2.6s ease-in-out infinite;
+      }
+      @keyframes subheaderPulse {
+        0%,
+        100% {
+          opacity: 0.8;
+          transform: translateY(0);
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(-2px);
+        }
       }
       .hero-description {
         font-size: 1.2rem;
@@ -1984,9 +2012,16 @@
       input,
       textarea,
       select {
+        /* Allow selection in form fields */
         cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24"><defs><linearGradient id="bronzeText" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23CD7F32;stop-opacity:1" /><stop offset="50%" style="stop-color:%23B8860B;stop-opacity:1" /><stop offset="100%" style="stop-color:%23A0522D;stop-opacity:1" /></linearGradient></defs><rect x="8" y="2" width="3" height="20" fill="url(%23bronzeText)" stroke="%23654321" stroke-width="0.5"/><rect x="6" y="2" width="7" height="2" fill="url(%23bronzeText)" stroke="%23654321" stroke-width="0.3"/><rect x="6" y="20" width="7" height="2" fill="url(%23bronzeText)" stroke="%23654321" stroke-width="0.3"/></svg>')
             10 12,
           text;
+        user-select: text;
+      }
+
+      /* Ensure contenteditable elements remain selectable if present */
+      [contenteditable="true"] {
+        user-select: text;
       }
 
       /* Container to prevent body overflow from leaves */
@@ -2124,6 +2159,8 @@
         rel="stylesheet"
       />
     </noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!-- Enhanced SEO and Social Media Meta Tags -->
     <link rel="canonical" href="https://windhelm.game/" />
@@ -2446,7 +2483,9 @@
               draggable="false"
             />
           </h1>
-          <span class="hero-title-sub">Epic RPG Adventure</span>
+          <div class="hero-subheader" aria-live="polite" aria-atomic="true">
+            <span id="hero-subheader-text">Preparing your destiny...</span>
+          </div>
           <p class="hero-description">
             A procedurally generated story-driven RPG where every playthrough
             tells a unique tale with dynamic quests and legendary heroes.
@@ -3274,21 +3313,7 @@
 
     <!-- Scripts -->
     <script>
-      // Load non-critical CSS asynchronously
-      function loadCSS(href, onload) {
-        var link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = href;
-        link.onload = onload || null;
-        document.head.appendChild(link);
-      }
-
-      // Load fonts after page load
-      window.addEventListener("load", function () {
-        loadCSS(
-          "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-        );
-      });
+      // Removed delayed font loading to avoid FOUT/pop
 
       // Image loading optimization
       function optimizeImages() {
@@ -3870,6 +3895,26 @@
         // Delay loading to prioritize other content
         setTimeout(loadSteamUpdates, 1000);
       });
+
+      // ===== HERO SUBHEADER (Random, Pulsing) =====
+      (function initHeroSubheader() {
+        const phrases = [
+          "Forging legends in the frost",
+          "Every seed, a new saga",
+          "Quests that remember your choices",
+          "Heroes rise, empires fall",
+          "Where tales are never the same",
+          "A world woven from your will",
+          "The north calls—answer it",
+          "Chart destiny across endless paths",
+          "Stories born of the unexpected",
+          "Adventure awaits beyond the snow",
+        ];
+        const el = document.getElementById("hero-subheader-text");
+        if (!el) return;
+        const idx = Math.floor(Math.random() * phrases.length);
+        el.textContent = phrases[idx];
+      })();
 
       // ===== RESTRICTIONS: Disable context menu and DevTools =====
       // Disable right-click context menu
