@@ -11,12 +11,10 @@
       name="keywords"
       content="Windhelm, RPG, role playing game, adventure game, procedurally generated, story-driven, dynamic quests, narrative RPG, indie game, Steam, fantasy RPG, epic adventure, legendary heroes, infinite replayability, NorwinLabs"
     />
-    <title>
-      Windhelm® - Epic Procedurally Generated RPG Adventure | Coming to Steam
-    </title>
+    <title>Windhelm® - Coming to PC, PlayStation, Xbox, and Switch</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="images/favicon.png" />
+    <link rel="icon" href="media/favicon.png" />
 
     <!-- Preload critical resources for optimal performance -->
     <link
@@ -26,17 +24,12 @@
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <!-- Preload critical images -->
-    <link rel="preload" href="images/Logo.png" as="image" type="image/png" />
+    <link rel="preload" href="media/Logo.png" as="image" type="image/png" />
+    <link rel="preload" href="media/islandbg.png" as="image" type="image/png" />
+    <link rel="preload" href="media/BGVideo.mp4" as="video" type="video/mp4" />
     <link
       rel="preload"
-      href="images/islandbg.png"
-      as="image"
-      type="image/png"
-    />
-    <link rel="preload" href="images/BGVideo.mp4" as="video" type="video/mp4" />
-    <link
-      rel="preload"
-      href="images/WindhelmYoutubeBanner.jpg"
+      href="media/WindhelmYoutubeBanner.jpg"
       as="image"
       type="image/jpeg"
     />
@@ -89,6 +82,14 @@
         --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
           0 1px 2px 0 rgba(0, 0, 0, 0.06);
         --transition-base: all 0.2s ease;
+        /* Glassified theme variables */
+        --glass-bg: rgba(255, 255, 255, 0.14);
+        --glass-bg-2: rgba(255, 255, 255, 0.1);
+        --glass-bg-dark: rgba(15, 23, 42, 0.65);
+        --glass-bg-dark-2: rgba(15, 23, 42, 0.55);
+        --glass-border-color: rgba(255, 255, 255, 0.25);
+        --glass-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        --glass-blur: 12px;
       }
 
       /* Skip to content link for accessibility */
@@ -127,7 +128,7 @@
         font-size: 1rem;
         line-height: 1.6;
         color: var(--gray-800);
-        background: url("images/islandbg.png") repeat;
+        background: url("media/islandbg.png") repeat;
         background-attachment: fixed;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -147,7 +148,7 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        background: url("images/islandbg.png") repeat,
+        background: url("media/islandbg.png") repeat,
           linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
         background-blend-mode: overlay;
         backdrop-filter: blur(8px);
@@ -162,6 +163,7 @@
         padding: var(--space-4) var(--container-padding);
         max-width: var(--container-max-width);
         margin: 0 auto;
+        position: relative;
       }
       .logo img {
         height: 40px;
@@ -171,6 +173,9 @@
         display: flex;
         align-items: center;
         gap: var(--space-8);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
       }
       .nav-link {
         font-weight: 500;
@@ -380,6 +385,17 @@
         justify-content: center;
         flex-wrap: wrap;
       }
+      .hero-steam-widget {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+      .hero-steam-widget iframe {
+        max-width: 100%;
+        width: 646px;
+        height: 190px;
+      }
       .cta-button {
         display: inline-flex;
         align-items: center;
@@ -489,17 +505,144 @@
       .team,
       .contact {
         padding: 5rem 0;
-        background: url("images/islandbg.png") repeat,
+        background: url("media/islandbg.png") repeat,
           linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75));
         background-blend-mode: overlay;
         backdrop-filter: blur(8px);
         position: relative;
       }
+      /* Reduce bottom gap under the Let's Connect section */
+      .contact {
+        padding-bottom: 2rem;
+      }
       .features {
-        background: url("images/islandbg.png") repeat,
-          linear-gradient(rgba(249, 250, 251, 0.85), rgba(249, 250, 251, 0.85));
+        background: url("media/islandbg.png") repeat,
+          linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95));
         background-blend-mode: overlay;
         backdrop-filter: blur(10px);
+      }
+
+      /* Improve readability for Discover Windhelm section */
+      .features .section-subtitle {
+        color: var(--gray-200);
+      }
+      .features .hero-feature-content p,
+      .features .feature-card-modern p {
+        color: var(--gray-200);
+      }
+
+      /* Glassified Theme Overrides */
+      .glass-theme .header {
+        background: linear-gradient(
+          135deg,
+          rgba(17, 24, 39, 0.65),
+          rgba(17, 24, 39, 0.5)
+        );
+        backdrop-filter: blur(var(--glass-blur));
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: var(--glass-shadow);
+      }
+
+      .glass-theme .feature-card-modern {
+        background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-2));
+        backdrop-filter: blur(var(--glass-blur));
+        border: 1px solid var(--glass-border-color);
+        box-shadow: var(--glass-shadow);
+      }
+
+      .glass-theme .feature-card-overlay {
+        background: linear-gradient(
+          135deg,
+          var(--glass-bg-dark),
+          var(--glass-bg-dark-2)
+        );
+        backdrop-filter: blur(var(--glass-blur));
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: var(--glass-shadow);
+      }
+
+      .glass-theme .feature-card {
+        background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-2));
+        backdrop-filter: blur(var(--glass-blur));
+        border: 1px solid var(--glass-border-color);
+        box-shadow: var(--glass-shadow);
+      }
+
+      .glass-theme .updates-container {
+        background: linear-gradient(
+          135deg,
+          var(--glass-bg-dark),
+          var(--glass-bg-dark-2)
+        );
+        backdrop-filter: blur(var(--glass-blur));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: var(--glass-shadow);
+      }
+
+      /* Apply glass theme to Team and Contact sections */
+      .glass-theme .team,
+      .glass-theme .contact {
+        background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-2));
+        backdrop-filter: blur(var(--glass-blur));
+      }
+
+      .glass-theme .contact-card,
+      .glass-theme .contact-form-container {
+        background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-2));
+        backdrop-filter: blur(var(--glass-blur));
+        border: 1px solid var(--glass-border-color);
+        box-shadow: var(--glass-shadow);
+      }
+
+      .glass-theme .team-member {
+        background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-2));
+        backdrop-filter: blur(var(--glass-blur));
+        border: 1px solid var(--glass-border-color);
+        box-shadow: var(--glass-shadow);
+      }
+
+      .glass-theme .game-updates {
+        background: linear-gradient(
+          135deg,
+          rgba(27, 40, 56, 0.65),
+          rgba(23, 26, 33, 0.55)
+        );
+        background-blend-mode: overlay;
+        backdrop-filter: blur(var(--glass-blur));
+      }
+
+      .glass-theme .footer {
+        background: linear-gradient(
+          135deg,
+          rgba(17, 24, 39, 0.65),
+          rgba(17, 24, 39, 0.5)
+        );
+        backdrop-filter: blur(var(--glass-blur));
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* Dark header link/icon readability */
+      .glass-theme .nav-link {
+        color: var(--gray-100);
+      }
+      .glass-theme .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+        color: var(--primary-color);
+      }
+      .glass-theme .nav-link.active,
+      .glass-theme .nav-link:active {
+        background-color: var(--primary-color);
+        color: var(--white);
+      }
+      .glass-theme .nav-toggle span {
+        background: var(--gray-100);
+      }
+      .glass-theme .social-link {
+        color: var(--gray-100);
+      }
+      .glass-theme .social-link:hover {
+        color: var(--primary-color);
+        background-color: rgba(37, 99, 235, 0.15);
       }
 
       /* Removed problematic overlay that was washing out images */
@@ -512,33 +655,256 @@
         font-family: var(--font-display);
         font-size: 2.5rem;
         font-weight: 700;
-        color: var(--gray-900);
+        color: var(--gray-100);
         margin-bottom: 1rem;
-        text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         position: relative;
       }
       .section-subtitle {
         font-size: 1.25rem;
-        color: var(--gray-700);
+        color: var(--gray-300);
         max-width: 600px;
         margin: 0 auto;
-        text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         font-weight: 500;
       }
 
       /* Compact Features Grid */
-      .features-grid-compact {
+      .features-showcase {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        margin-top: 4rem;
+      }
+
+      .hero-feature-card {
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.98) 0%,
+          rgba(15, 23, 42, 0.95) 50%,
+          rgba(15, 23, 42, 0.98) 100%
+        );
+        backdrop-filter: blur(20px);
+        border-radius: var(--border-radius-xl);
+        padding: 3rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+          0 0 0 1px rgba(255, 255, 255, 0.05),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.05);
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-        margin-top: 3rem;
+        grid-template-columns: 1fr 300px;
+        gap: 3rem;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #66c0f4, #4ade80, #f59e0b, #ef4444);
+      }
+
+      .hero-feature-content h3 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero-feature-content p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: var(--gray-300);
+        margin-bottom: 2rem;
+      }
+
+      .hero-feature-stats {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .stat {
+        text-align: center;
+      }
+
+      .stat-number {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #66c0f4, #4ade80);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: var(--gray-400);
+        font-weight: 500;
+        margin-top: 0.25rem;
+      }
+
+      .hero-feature-visual {
+        position: relative;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .floating-elements {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .floating-quest,
+      .floating-sword,
+      .floating-magic,
+      .floating-treasure {
+        position: absolute;
+        font-size: 2.5rem;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-quest {
+        top: 20%;
+        left: 20%;
+        animation-delay: 0s;
+      }
+
+      .floating-sword {
+        top: 30%;
+        right: 15%;
+        animation-delay: 1.5s;
+      }
+
+      .floating-magic {
+        bottom: 25%;
+        left: 15%;
+        animation-delay: 3s;
+      }
+
+      .floating-treasure {
+        bottom: 20%;
+        right: 25%;
+        animation-delay: 4.5s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(-5deg);
+        }
+        75% {
+          transform: translateY(-25px) rotate(3deg);
+        }
+      }
+
+      .features-grid-modern {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card-modern {
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.95) 0%,
+          rgba(15, 23, 42, 0.9) 100%
+        );
+        backdrop-filter: blur(15px);
+        border-radius: var(--border-radius-lg);
+        padding: 2rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35),
+          0 0 0 1px rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: var(--transition-base);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card-modern:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45),
+          0 0 0 1px rgba(255, 255, 255, 0.08);
+      }
+
+      .feature-card-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .feature-icon {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.95),
+          rgba(30, 41, 59, 0.85)
+        );
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .feature-card-modern h4 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--gray-100);
+        margin: 0;
+        line-height: 1.3;
+      }
+
+      .feature-card-modern p {
+        color: var(--gray-300);
+        line-height: 1.6;
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .feature-accent {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #66c0f4, #4ade80, #f59e0b, #ef4444);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .feature-card-modern:hover .feature-accent {
+        transform: scaleX(1);
       }
       .feature-card {
         background: linear-gradient(
             rgba(255, 255, 255, 0.88),
             rgba(255, 255, 255, 0.88)
           ),
-          url("images/islandbg.png") repeat;
+          url("media/islandbg.png") repeat;
         background-blend-mode: normal, multiply;
         backdrop-filter: blur(10px);
         border-radius: var(--border-radius-lg);
@@ -588,6 +954,11 @@
         background: none !important;
         backdrop-filter: none !important;
         opacity: 1 !important;
+        -webkit-user-drag: none !important;
+        -khtml-user-drag: none !important;
+        -moz-user-drag: none !important;
+        -o-user-drag: none !important;
+        user-drag: none !important;
         mix-blend-mode: normal !important;
         isolation: isolate !important;
         transition: transform 0.2s ease !important;
@@ -618,15 +989,15 @@
         font-family: var(--font-display);
         font-size: 1.5rem;
         font-weight: 700;
-        color: var(--gray-900);
+        color: var(--gray-100);
         margin-bottom: 1rem;
-        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
       }
       .feature-content p {
-        color: var(--gray-800);
+        color: var(--gray-300);
         line-height: 1.8;
         font-weight: 500;
-        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
       }
 
       /* Additional Features Section Styling */
@@ -669,19 +1040,19 @@
       /* Feature Card Overlay Styles */
       .feature-card-overlay {
         background: linear-gradient(
-            rgba(255, 255, 255, 0.88),
-            rgba(255, 255, 255, 0.88)
+            rgba(15, 23, 42, 0.98),
+            rgba(15, 23, 42, 0.98)
           ),
-          url("images/islandbg.png") repeat;
+          url("media/islandbg.png") repeat;
         background-blend-mode: normal, multiply;
         backdrop-filter: blur(10px);
         border-radius: var(--border-radius-lg);
         padding: 0;
         text-align: center;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15),
-          0 0 0 1px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5),
+          0 0 0 1px rgba(255, 255, 255, 0.05);
         transition: var(--transition-base);
-        border: 1px solid rgba(200, 200, 200, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.05);
         position: relative;
         overflow: hidden;
         display: flex;
@@ -691,7 +1062,7 @@
 
       .feature-card-overlay:hover {
         transform: translateY(-4px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
       }
 
       .feature-image-container {
@@ -709,19 +1080,45 @@
         border-radius: 0;
         border: none;
         display: block;
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-select: none;
+      }
+
+      /* Global image drag prevention */
+      img {
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-select: none;
+      }
+
+      /* Global link/URL drag prevention */
+      a {
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
       }
 
       .feature-overlay-content {
-        padding: 1.5rem;
-        position: relative;
+        padding: 1.5rem 1.5rem 2rem 1.5rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
         background: linear-gradient(
           to top,
-          rgba(0, 0, 0, 0.9) 0%,
-          rgba(0, 0, 0, 0.7) 50%,
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.8) 50%,
           transparent 100%
         );
         color: white;
         text-align: left;
+        border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
       }
 
       .feature-overlay h3 {
@@ -730,6 +1127,16 @@
         font-weight: 700;
         margin: 0 0 0.5rem 0;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .feature-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .expand-toggle {
+        cursor: pointer;
       }
 
       .feature-text-overlay {
@@ -1274,11 +1681,12 @@
       }
 
       .updates-container {
-        max-width: 800px;
+        width: 100%;
+        max-width: 1100px;
         margin: 0 auto;
         background: linear-gradient(135deg, #23262e 80%, #1b2838 100%);
         border-radius: 12px;
-        padding: 2.5rem 1.2rem 2rem 1.2rem;
+        padding: 2.5rem 1.5rem 2rem 1.5rem;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 0 0 1px #23262e;
         border: 1px solid #23262e;
       }
@@ -1637,6 +2045,11 @@
           max-width: 350px;
           height: 400px;
         }
+        .updates-container {
+          max-width: 100%;
+          width: 100%;
+          padding: 1.5rem 1rem;
+        }
         .section-title {
           font-size: 2rem;
         }
@@ -1702,10 +2115,7 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://windhelm.game/" />
-    <meta
-      property="og:image"
-      content="https://windhelm.game/images/WindhelmYoutubeBanner.jpg"
-    />
+    <meta property="og:image" content="media/WindhelmYoutubeBanner.jpg" />
     <meta
       property="og:image:alt"
       content="Windhelm RPG - Epic fantasy adventure game screenshot"
@@ -1727,10 +2137,7 @@
       name="twitter:description"
       content="Embark on a procedurally generated story-driven RPG adventure with dynamic quests, legendary heroes, and infinite replayability."
     />
-    <meta
-      name="twitter:image"
-      content="https://windhelm.game/images/WindhelmYoutubeBanner.jpg"
-    />
+    <meta name="twitter:image" content="media/WindhelmYoutubeBanner.jpg" />
     <meta
       name="twitter:image:alt"
       content="Windhelm RPG - Epic fantasy adventure game screenshot"
@@ -1776,7 +2183,7 @@
         "alternateName": "Windhelm RPG",
         "description": "A procedurally generated story-driven RPG where every playthrough weaves a unique tale of adventure, featuring dynamic quests, legendary heroes, and infinite replayability.",
         "url": "https://windhelm.game/",
-        "image": "https://windhelm.game/images/WindhelmYoutubeBanner.jpg",
+        "image": "media/WindhelmYoutubeBanner.jpg",
         "genre": [
           "Role-Playing Game",
           "Adventure",
@@ -1804,7 +2211,7 @@
           "url": "https://windhelm.game/",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://windhelm.game/images/Logo.png"
+            "url": "media/Logo.png"
           },
           "foundingDate": "2023",
           "founder": [
@@ -1899,70 +2306,15 @@
         gap: 0.75rem;
       }
     </style>
-    <style>
-      /* Login Modal Enhancements */
-      #login-modal input:focus {
-        border-color: #2563eb;
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-      }
-      #login-modal button:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-      }
-      #login-modal button:disabled {
-        opacity: 0.7;
-        cursor: not-allowed;
-        transform: none;
-      }
-      #password-toggle:hover {
-        color: #2563eb;
-      }
-      @keyframes modalFadeIn {
-        from {
-          opacity: 0;
-          transform: scale(0.9);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-      .login-loading {
-        position: relative;
-        color: transparent;
-      }
-      .login-loading::after {
-        content: "";
-        position: absolute;
-        width: 16px;
-        height: 16px;
-        top: 50%;
-        left: 50%;
-        margin-left: -8px;
-        margin-top: -8px;
-        border: 2px solid #ffffff;
-        border-radius: 50%;
-        border-top-color: transparent;
-        animation: spin 1s linear infinite;
-      }
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-    </style>
   </head>
-  <body>
-    <!-- Skip to content link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
+  <body class="glass-theme">
     <!-- Navigation Header -->
     <header class="header">
       <nav class="nav" role="navigation" aria-label="Main Navigation">
         <div class="nav-container">
           <a href="#" class="logo">
             <img
-              src="images/Logo.png"
+              src="media/Logo.png"
               alt="Windhelm Logo"
               width="120"
               height="55"
@@ -1974,9 +2326,6 @@
             <a href="#features" class="nav-link">Features</a>
             <a href="#team" class="nav-link">Team</a>
             <a href="#contact" class="nav-link">Contact</a>
-            <button id="login-btn" class="nav-link" style="margin-left: auto">
-              Login
-            </button>
           </div>
           <div
             class="nav-overlay"
@@ -2041,200 +2390,6 @@
       </nav>
     </header>
 
-    <!-- Login Modal -->
-    <div
-      id="login-modal"
-      style="
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 2000;
-        justify-content: center;
-        align-items: center;
-        backdrop-filter: blur(4px);
-      "
-    >
-      <div
-        style="
-          background: #fff;
-          padding: 2.5rem 3rem;
-          border-radius: 16px;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-          max-width: 400px;
-          width: 90%;
-          position: relative;
-          animation: modalFadeIn 0.3s ease-out;
-        "
-      >
-        <button
-          id="close-login"
-          style="
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: #666;
-            transition: color 0.2s;
-          "
-        >
-          &times;
-        </button>
-        <div style="text-align: center; margin-bottom: 2rem">
-          <h2
-            style="
-              margin: 0 0 0.5rem 0;
-              color: #333;
-              font-size: 1.8rem;
-              font-weight: 600;
-            "
-          >
-            Welcome Back
-          </h2>
-          <p style="margin: 0; color: #666; font-size: 0.95rem">
-            Sign in to view your orders
-          </p>
-        </div>
-        <form id="login-form">
-          <div style="margin-bottom: 1.5rem">
-            <label
-              for="username"
-              style="
-                display: block;
-                margin-bottom: 0.5rem;
-                color: #333;
-                font-weight: 500;
-                font-size: 0.95rem;
-              "
-              >Username</label
-            >
-            <input
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Enter your username"
-              required
-              style="
-                width: 100%;
-                padding: 0.8rem 1rem;
-                border: 2px solid #e1e5e9;
-                border-radius: 8px;
-                font-size: 1rem;
-                transition: border-color 0.2s, box-shadow 0.2s;
-                outline: none;
-              "
-            />
-          </div>
-          <div style="margin-bottom: 2rem">
-            <label
-              for="password"
-              style="
-                display: block;
-                margin-bottom: 0.5rem;
-                color: #333;
-                font-weight: 500;
-                font-size: 0.95rem;
-              "
-              >Password</label
-            >
-            <div style="position: relative">
-              <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Enter your password"
-                required
-                style="
-                  width: 100%;
-                  padding: 0.8rem 3rem 0.8rem 1rem;
-                  border: 2px solid #e1e5e9;
-                  border-radius: 8px;
-                  font-size: 1rem;
-                  transition: border-color 0.2s, box-shadow 0.2s;
-                  outline: none;
-                "
-              />
-              <button
-                type="button"
-                id="password-toggle"
-                style="
-                  position: absolute;
-                  right: 0.75rem;
-                  top: 50%;
-                  transform: translateY(-50%);
-                  background: none;
-                  border: none;
-                  cursor: pointer;
-                  padding: 0.25rem;
-                  color: #666;
-                  font-size: 1.2rem;
-                  transition: color 0.2s;
-                "
-                title="Toggle password visibility"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="3"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-          <button
-            type="submit"
-            id="login-submit-btn"
-            style="
-              width: 100%;
-              padding: 0.9rem 1rem;
-              background: linear-gradient(135deg, #2563eb, #1d4ed8);
-              color: #fff;
-              border: none;
-              border-radius: 8px;
-              font-size: 1.1rem;
-              font-weight: 600;
-              cursor: pointer;
-              transition: transform 0.2s, box-shadow 0.2s;
-            "
-          >
-            Sign In
-          </button>
-        </form>
-        <div
-          id="login-message"
-          style="
-            margin-top: 1.5rem;
-            text-align: center;
-            color: #ef4444;
-            font-size: 0.9rem;
-            min-height: 1.2rem;
-          "
-        ></div>
-      </div>
-    </div>
-
     <main id="main-content">
       <!-- Hero Section -->
       <section id="home" class="hero section-animate">
@@ -2244,15 +2399,15 @@
             loop
             muted
             playsinline
-            poster="images/WindhelmYoutubeBanner.jpg"
+            poster="media/WindhelmYoutubeBanner.jpg"
             style="width: 100%; height: 100%; object-fit: cover; z-index: 1"
             preload="metadata"
           >
             <!-- Optimized versions (will be available after running optimization script) -->
-            <source src="images/BGVideo.webm" type="video/webm" />
-            <source src="images/BGVideo-optimized.mp4" type="video/mp4" />
+            <source src="media/BGVideo.webm" type="video/webm" />
+            <source src="media/BGVideo-optimized.mp4" type="video/mp4" />
             <!-- Fallback to original (remove after optimization) -->
-            <source src="images/BGVideo.mp4" type="video/mp4" />
+            <source src="media/BGVideo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div class="hero-overlay"></div>
@@ -2260,10 +2415,11 @@
         <div class="hero-content">
           <h1 class="hero-title-main">
             <img
-              src="images/Logo.png"
+              src="media/Logo.png"
               alt="Windhelm"
               class="hero-logo"
               fetchpriority="high"
+              draggable="false"
             />
           </h1>
           <span class="hero-title-sub">Epic RPG Adventure</span>
@@ -2280,36 +2436,25 @@
             >
             <a href="#features" class="cta-button secondary">Learn More</a>
           </div>
-        </div>
-      </section>
 
-      <!-- Steam Widget Section -->
-      <section id="steam-widget" class="steam-widget-section section-animate">
-        <div
-          class="container"
-          style="
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 0;
-          "
-        >
-          <iframe
-            src="https://store.steampowered.com/widget/2171040/"
-            frameborder="0"
-            width="646"
-            height="190"
-            style="
-              max-width: 100%;
-              border-radius: 12px;
-              box-shadow: 0 6px 32px #000a;
-              margin: 0 auto;
-              background: #171a21;
-            "
-            title="Windhelm on Steam"
-            allowtransparency="true"
-          ></iframe>
+          <!-- Steam Widget in Hero -->
+          <div class="hero-steam-widget">
+            <iframe
+              src="https://store.steampowered.com/widget/2171040/"
+              frameborder="0"
+              width="646"
+              height="190"
+              style="
+                max-width: 100%;
+                border-radius: 12px;
+                box-shadow: 0 6px 32px #000a;
+                margin: 2rem auto 0 auto;
+                background: #171a21;
+              "
+              title="Windhelm on Steam"
+              allowtransparency="true"
+            ></iframe>
+          </div>
         </div>
       </section>
 
@@ -2319,364 +2464,331 @@
           <header class="section-header">
             <h2 class="section-title">Discover Windhelm</h2>
             <p class="section-subtitle">
-              A procedurally generated story-driven RPG where every playthrough
-              creates a unique narrative adventure - crafted by a passionate
-              husband-wife indie team
+              Immerse yourself in a revolutionary RPG experience where every
+              decision shapes your unique story - crafted by passionate indie
+              developers
             </p>
           </header>
 
-          <div class="features-grid-compact">
-            <article
-              class="feature-card-overlay"
-              data-feature="quests"
-              tabindex="0"
-              role="button"
-              aria-label="Expand details for Procedurally Generated Quests"
-            >
-              <div class="feature-image-container">
-                <picture>
-                  <!-- Modern formats (ready for optimization) -->
-                  <!-- <source srcset="images/2.avif" type="image/avif" /> -->
-                  <!-- <source srcset="images/2.webp" type="image/webp" /> -->
-                  <!-- Current fallback (working) -->
-                  <img
-                    src="images/2.png"
-                    alt="Procedurally Generated Quests"
-                    loading="eager"
-                    fetchpriority="high"
-                    decoding="async"
-                  />
-                </picture>
-                <div class="feature-overlay-content">
-                  <div class="feature-header">
-                    <h3>Procedurally Generated Quests</h3>
-                    <div class="expand-toggle">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
+          <div class="features-showcase">
+            <!-- Hero Feature Card -->
+            <div class="hero-feature-card">
+              <div class="hero-feature-content">
+                <div class="hero-feature-icon">
+                  <svg
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 2L13.09 8.26L19 7L17.74 12.91L24 14L17.74 15.09L19 21L13.09 19.74L12 26L10.91 19.74L5 21L6.26 15.09L0 14L6.26 12.91L5 7L10.91 8.26L12 2Z"
+                      fill="url(#heroGradient)"
+                      stroke="url(#heroGradient)"
+                      stroke-width="0.5"
+                    />
+                    <defs>
+                      <linearGradient
+                        id="heroGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
                       >
-                        <path
-                          d="M6 9L12 15L18 9"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
+                        <stop offset="0%" style="stop-color: #66c0f4" />
+                        <stop offset="100%" style="stop-color: #4ade80" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <h3>Procedurally Generated Adventures</h3>
+                <p>
+                  Experience infinite replayability with our advanced procedural
+                  generation system. Every playthrough creates a unique world
+                  filled with dynamic quests, emergent stories, and
+                  unpredictable outcomes that keep you coming back for more.
+                </p>
+                <div class="hero-feature-stats">
+                  <div class="stat">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Unique Stories</span>
                   </div>
-                  <div class="feature-text-overlay">
-                    <p>
-                      Windhelm features a revolutionary procedurally generated
-                      quest system that creates unique stories for every
-                      playthrough. Unlike traditional linear RPGs, our advanced
-                      narrative engine weaves together dynamic storylines,
-                      ensuring no two adventures are the same. The world
-                      responds to your actions, offering infinite solutions to
-                      procedurally crafted challenges and ensuring no two
-                      playthroughs are the same. Experience emergent
-                      storytelling where your choices matter and consequences
-                      unfold naturally.
-                    </p>
+                  <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Procedural</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Replayability</span>
                   </div>
                 </div>
               </div>
-            </article>
+              <div class="hero-feature-visual">
+                <div class="floating-elements">
+                  <div class="floating-quest">📜</div>
+                  <div class="floating-sword">⚔️</div>
+                  <div class="floating-magic">✨</div>
+                  <div class="floating-treasure">💎</div>
+                </div>
+              </div>
+            </div>
 
-            <article
-              class="feature-card-overlay"
-              data-feature="world"
-              tabindex="0"
-              role="button"
-              aria-label="Expand details for Procedurally Generated World & Lore"
-            >
-              <div class="feature-image-container">
-                <picture>
-                  <!-- Modern formats (ready for optimization) -->
-                  <!-- <source srcset="images/3.avif" type="image/avif" /> -->
-                  <!-- <source srcset="images/3.webp" type="image/webp" /> -->
-                  <!-- Current fallback (working) -->
-                  <img
-                    src="images/3.png"
-                    alt="Procedurally Generated World & Lore"
-                    loading="eager"
-                    fetchpriority="high"
-                    decoding="async"
-                  />
-                </picture>
-                <div class="feature-overlay-content">
-                  <div class="feature-header">
-                    <h3>Procedurally Generated World & Lore</h3>
-                    <div class="expand-toggle">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6 9L12 15L18 9"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
+            <!-- Feature Cards Grid -->
+            <div class="features-grid-modern">
+              <div class="feature-card-modern">
+                <div class="feature-card-header">
+                  <div class="feature-icon">
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 7V5C3 3.9 3.9 3 5 3H19C20.1 3 21 3.9 21 5V7M3 7V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V7M3 7H21M12 11V17M9 14H15"
+                        stroke="url(#worldGradient)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                      />
+                      <defs>
+                        <linearGradient
+                          id="worldGradient"
+                          x1="0%"
+                          y1="0%"
+                          x2="100%"
+                          y2="100%"
+                        >
+                          <stop offset="0%" style="stop-color: #8b5cf6" />
+                          <stop offset="100%" style="stop-color: #ec4899" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
                   </div>
-                  <div class="feature-text-overlay">
-                    <p>
-                      Explore the vast realm of Windhelm, where advanced
-                      procedural generation creates a living fantasy world
-                      filled with unique mysteries, diverse landscapes, and rich
-                      cultural histories that evolve with each playthrough. From
-                      mystical forests to towering mountain fortresses, every
-                      location tells a different story through dynamic
-                      environmental storytelling and procedurally woven lore.
-                      Discover forgotten ruins, uncover lost civilizations, and
-                      interact with AI-driven NPCs who have their own
-                      procedurally generated goals, memories, and motivations
-                      that create authentic story moments beyond serving the
-                      player's needs.
-                    </p>
-                  </div>
+                  <h4>Dynamic World Building</h4>
                 </div>
+                <p>
+                  Explore procedurally generated landscapes that evolve with
+                  your choices. From mystical forests to ancient ruins, every
+                  location tells a unique story.
+                </p>
+                <div class="feature-accent"></div>
               </div>
-            </article>
 
-            <article
-              class="feature-card-overlay"
-              data-feature="character"
-              tabindex="0"
-              role="button"
-              aria-label="Expand details for Story-Driven Character Evolution"
-            >
-              <div class="feature-image-container">
-                <picture>
-                  <!-- Modern formats (ready for optimization) -->
-                  <!-- <source srcset="images/4.avif" type="image/avif" /> -->
-                  <!-- <source srcset="images/4.webp" type="image/webp" /> -->
-                  <!-- Current fallback (working) -->
-                  <img
-                    src="images/4.png"
-                    alt="Story-Driven Character Evolution"
-                    loading="eager"
-                    fetchpriority="high"
-                    decoding="async"
-                  />
-                </picture>
-                <div class="feature-overlay-content">
-                  <div class="feature-header">
-                    <h3>Story-Driven Character Evolution</h3>
-                    <div class="expand-toggle">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6 9L12 15L18 9"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
+              <div class="feature-card-modern">
+                <div class="feature-card-header">
+                  <div class="feature-icon">
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                        stroke="url(#characterGradient)"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z"
+                        stroke="url(#characterGradient)"
+                        stroke-width="2"
+                      />
+                      <defs>
+                        <linearGradient
+                          id="characterGradient"
+                          x1="0%"
+                          y1="0%"
+                          x2="100%"
+                          y2="100%"
+                        >
+                          <stop offset="0%" style="stop-color: #f59e0b" />
+                          <stop offset="100%" style="stop-color: #ef4444" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
                   </div>
-                  <div class="feature-text-overlay">
-                    <p>
-                      Create and develop legendary heroes whose stories unfold
-                      through our extensive narrative-integrated progression
-                      system. Choose from multiple classes, each with unique
-                      abilities, skill trees, and story arcs that interweave
-                      with the world's lore. Craft and customize equipment that
-                      carries procedural backstories, master diverse combat
-                      techniques, and develop meaningful relationships with
-                      companions whose personal narratives evolve. The game
-                      features deep character development where your build
-                      choices and story decisions significantly impact gameplay
-                      mechanics, procedural dialogue generation, and branching
-                      story outcomes, ensuring every hero's tale feels truly
-                      unique and memorable.
-                    </p>
-                  </div>
+                  <h4>Deep Character Development</h4>
                 </div>
+                <p>
+                  Craft legendary heroes with extensive customization options.
+                  Master unique abilities, forge powerful equipment, and shape
+                  your destiny through meaningful choices.
+                </p>
+                <div class="feature-accent"></div>
               </div>
-            </article>
 
-            <article
-              class="feature-card-overlay"
-              data-feature="combat"
-              tabindex="0"
-              role="button"
-              aria-label="Expand details for Tactical Combat System"
-            >
-              <div class="feature-image-container">
-                <picture>
-                  <!-- Modern formats (ready for optimization) -->
-                  <!-- <source srcset="images/5.avif" type="image/avif" /> -->
-                  <!-- <source srcset="images/5.webp" type="image/webp" /> -->
-                  <!-- Current fallback (working) -->
-                  <img
-                    src="images/5.png"
-                    alt="Tactical Combat System"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </picture>
-                <div class="feature-overlay-content">
-                  <div class="feature-header">
-                    <h3>Tactical Combat System</h3>
-                    <div class="expand-toggle">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6 9L12 15L18 9"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
+              <div class="feature-card-modern">
+                <div class="feature-card-header">
+                  <div class="feature-icon">
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                        stroke="url(#combatGradient)"
+                        stroke-width="2"
+                      />
+                      <defs>
+                        <linearGradient
+                          id="combatGradient"
+                          x1="0%"
+                          y1="0%"
+                          x2="100%"
+                          y2="100%"
+                        >
+                          <stop offset="0%" style="stop-color: #dc2626" />
+                          <stop offset="100%" style="stop-color: #7c3aed" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
                   </div>
-                  <div class="feature-text-overlay">
-                    <p>
-                      Engage in strategic, free flow combat that rewards
-                      planning and positioning over button-mashing. Utilize
-                      environmental hazards, elemental synergies, and tactical
-                      abilities to overcome challenging encounters. The combat
-                      system emphasizes resource management, timing, and smart
-                      use of abilities rather than reflexes. Face diverse enemy
-                      types that require different strategies, from cunning
-                      rogues to massive ancient dragons, each presenting unique
-                      tactical challenges.
-                    </p>
-                  </div>
+                  <h4>Strategic Combat System</h4>
                 </div>
+                <p>
+                  Engage in tactical combat that rewards planning and skill.
+                  Master timing, positioning, and elemental synergies to
+                  overcome challenging encounters.
+                </p>
+                <div class="feature-accent"></div>
               </div>
-            </article>
 
-            <article
-              class="feature-card-overlay"
-              data-feature="indie"
-              tabindex="0"
-              role="button"
-              aria-label="Expand details for Story-First Indie Vision"
-            >
-              <div class="feature-image-container">
-                <img
-                  src="images/Grasslandoverlook1.png"
-                  alt="Story-First Indie Vision"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="feature-overlay-content">
-                  <div class="feature-header">
-                    <h3>Story-First Indie Vision</h3>
-                    <div class="expand-toggle">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6 9L12 15L18 9"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
+              <div class="feature-card-modern">
+                <div class="feature-card-header">
+                  <div class="feature-icon">
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4.318 6.318C3.90009 6.73584 3.56862 7.23139 3.34254 7.7777C3.11645 8.32401 3 8.90803 3 9.5C3 10.0919 3.11645 10.676 3.34254 11.2223C3.56862 11.7686 3.90009 12.2642 4.318 12.682L12 20.364L19.682 12.682C20.5265 11.8385 21 10.6935 21 9.5C21 8.30653 20.5265 7.16149 19.682 6.318C18.8385 5.47353 17.6935 5 16.5 5C15.3065 5 14.1615 5.47353 13.318 6.318L12 7.636L10.682 6.318C10.2642 5.90009 9.76861 5.56862 9.2223 5.34254C8.67599 5.11645 8.09197 5 7.5 5C6.90803 5 6.32401 5.11645 5.7777 5.34254C5.23139 5.56862 4.73584 5.90009 4.318 6.318Z"
+                        stroke="url(#storyGradient)"
+                        stroke-width="2"
+                      />
+                      <defs>
+                        <linearGradient
+                          id="storyGradient"
+                          x1="0%"
+                          y1="0%"
+                          x2="100%"
+                          y2="100%"
+                        >
+                          <stop offset="0%" style="stop-color: #06b6d4" />
+                          <stop offset="100%" style="stop-color: #3b82f6" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
                   </div>
-                  <div class="feature-text-overlay">
-                    <p>
-                      Windhelm is lovingly crafted by NorwinLabs, a dedicated
-                      husband-wife indie development team passionate about
-                      procedural storytelling and narrative innovation. Every
-                      aspect of the game reflects our commitment to creating
-                      meaningful, emergent stories through advanced procedural
-                      generation. We prioritize deep narrative systems over
-                      flashy graphics, focusing on revolutionary story
-                      mechanics, procedurally woven narratives, and meaningful
-                      player agency that shapes unique tales. As an indie
-                      project, we maintain direct communication with our
-                      community, incorporating player feedback and ensuring the
-                      game stays true to its vision of delivering an authentic
-                      story-driven RPG experience with infinite replayability.
-                    </p>
-                  </div>
+                  <h4>Story-Driven Experience</h4>
                 </div>
+                <p>
+                  Every decision matters in our narrative-focused gameplay.
+                  Experience branching storylines, memorable characters, and
+                  emotionally impactful moments.
+                </p>
+                <div class="feature-accent"></div>
               </div>
-            </article>
 
-            <article
-              class="feature-card-overlay"
-              data-feature="community"
-              tabindex="0"
-              role="button"
-              aria-label="Expand details for Community-Driven Development"
-            >
-              <div class="feature-image-container">
-                <img
-                  src="images/pngegg.png"
-                  alt="Community-Driven Development"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="feature-overlay-content">
-                  <div class="feature-header">
-                    <h3>Community-Driven Development</h3>
-                    <div class="expand-toggle">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6 9L12 15L18 9"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
+              <div class="feature-card-modern">
+                <div class="feature-card-header">
+                  <div class="feature-icon">
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M17 20H7C5.89543 20 5 19.1046 5 18V9C5 7.89543 5.89543 7 7 7H17C18.1046 7 19 7.89543 19 9V18C19 19.1046 18.1046 20 17 20Z"
+                        stroke="url(#indieGradient)"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M12 3V7M9 4V6M15 4V6"
+                        stroke="url(#indieGradient)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                      />
+                      <defs>
+                        <linearGradient
+                          id="indieGradient"
+                          x1="0%"
+                          y1="0%"
+                          x2="100%"
+                          y2="100%"
+                        >
+                          <stop offset="0%" style="stop-color: #10b981" />
+                          <stop offset="100%" style="stop-color: #059669" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
                   </div>
-                  <div class="feature-text-overlay">
-                    <p>
-                      Join our growing community of RPG enthusiasts and become
-                      part of Windhelm's development journey. We actively engage
-                      with players through Discord, incorporating valuable
-                      feedback and suggestions into the game. Early supporters
-                      gain access to development updates, beta testing
-                      opportunities, and exclusive content. Our transparent
-                      development process allows the community to witness and
-                      influence the creation of something special. Together,
-                      we're building not just a game, but a shared adventure
-                      that celebrates the RPG genre.
-                    </p>
-                  </div>
+                  <h4>Indie Craftsmanship</h4>
                 </div>
+                <p>
+                  Lovingly crafted by a passionate husband-wife team. We
+                  prioritize meaningful gameplay over flashy graphics, focusing
+                  on authentic RPG experiences.
+                </p>
+                <div class="feature-accent"></div>
               </div>
-            </article>
+
+              <div class="feature-card-modern">
+                <div class="feature-card-header">
+                  <div class="feature-icon">
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M17 20H7C5.89543 20 5 19.1046 5 18V9C5 7.89543 5.89543 7 7 7H17C18.1046 7 19 7.89543 19 9V18C19 19.1046 18.1046 20 17 20Z"
+                        stroke="url(#communityGradient)"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M9 12L11 14L15 10"
+                        stroke="url(#communityGradient)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <defs>
+                        <linearGradient
+                          id="communityGradient"
+                          x1="0%"
+                          y1="0%"
+                          x2="100%"
+                          y2="100%"
+                        >
+                          <stop offset="0%" style="stop-color: #f97316" />
+                          <stop offset="100%" style="stop-color: #ea580c" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                  <h4>Community Connection</h4>
+                </div>
+                <p>
+                  Join our growing community of RPG enthusiasts. Share your
+                  stories, provide feedback, and help shape the future of
+                  Windhelm together.
+                </p>
+                <div class="feature-accent"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -2764,10 +2876,11 @@
                   <!-- <source srcset="images/Gavin1.webp" type="image/webp" /> -->
                   <!-- Current working image -->
                   <img
-                    src="images/Gavin1.jpg"
+                    src="media/Gavin1.jpg"
                     alt="Gavin Norwood"
                     loading="lazy"
                     decoding="async"
+                    draggable="false"
                   />
                 </picture>
               </div>
@@ -2784,10 +2897,11 @@
                   <!-- <source srcset="images/Kirstenjpg1.webp" type="image/webp" /> -->
                   <!-- Current working image -->
                   <img
-                    src="images/Kirstenjpg1.jpg"
+                    src="media/Kirstenjpg1.jpg"
                     alt="Kirsten Norwood"
                     loading="lazy"
                     decoding="async"
+                    draggable="false"
                   />
                 </picture>
               </div>
@@ -3127,11 +3241,7 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-brand">
-            <img
-              src="images/Logo.png"
-              alt="Windhelm Logo"
-              class="footer-logo"
-            />
+            <img src="media/Logo.png" alt="Windhelm Logo" class="footer-logo" />
             <p>©2025 NorwinLabs LLC. All rights reserved.</p>
           </div>
         </div>
@@ -3193,7 +3303,7 @@
 
           // Prefetch team images when halfway down
           if (scrolled > documentHeight * 0.5 && !prefetched.has("team")) {
-            const teamImages = ["images/Gavin1.jpg", "images/Kirstenjpg1.jpg"];
+            const teamImages = ["media/Gavin1.jpg", "media/Kirstenjpg1.jpg"];
             teamImages.forEach((src) => {
               const link = document.createElement("link");
               link.rel = "prefetch";
@@ -3579,19 +3689,33 @@
         loadingEl.style.display = "none";
         listEl.style.display = "block";
 
-        const fallbackImgUrl = "images/Logo.png";
+        const fallbackImgUrl = "media/Logo.png";
         listEl.innerHTML = updates
           .map((update) => {
-            // Try to extract the first image from the content (if any)
-            let imgHtml = "";
-            const imgMatch = update.content.match(
+            // Extract first image from HTML or Steam BBCode [img]...[/img]
+            let imgUrl = null;
+            const htmlImgMatch = update.content.match(
               /<img[^>]+src=["']([^"']+)["'][^>]*>/i
             );
-            if (imgMatch && imgMatch[1]) {
-              imgHtml = `<div style="text-align:center;margin-bottom:1em;"><img src="${imgMatch[1]}" alt="Update image" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px #0003;"></div>`;
-            } else {
-              imgHtml = `<div style="text-align:center;margin-bottom:1em;opacity:0.7;"><img src="${fallbackImgUrl}" alt="No update image available" style="max-width:120px;border-radius:8px;box-shadow:0 2px 12px #0001;filter: grayscale(0.2);background:#23262e;padding:0.5em;"></div>`;
+            const bbcodeImgMatch = update.content.match(
+              /\[img\]([^\[]+?)\[\/img\]/i
+            );
+            if (htmlImgMatch && htmlImgMatch[1]) {
+              imgUrl = htmlImgMatch[1];
+            } else if (bbcodeImgMatch && bbcodeImgMatch[1]) {
+              imgUrl = bbcodeImgMatch[1];
             }
+            if (imgUrl && imgUrl.startsWith("//")) {
+              imgUrl = "https:" + imgUrl;
+            }
+            const imgHtml = imgUrl
+              ? `<div style="text-align:center;margin-bottom:1em;"><img src="${imgUrl}" alt="Update image" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px #0003;"></div>`
+              : `<div style="text-align:center;margin-bottom:1em;opacity:0.7;"><img src="${fallbackImgUrl}" alt="No update image available" style="max-width:120px;border-radius:8px;box-shadow:0 2px 12px #0001;filter: grayscale(0.2);background:#23262e;padding:0.5em;"></div>`;
+
+            // Remove images from content to avoid duplication
+            const contentStripped = update.content
+              .replace(/<img[^>]*>/gi, "")
+              .replace(/\[img\][\s\S]*?\[\/img\]/gi, "");
             // Add event header if present
             let eventHeaderHtml = "";
             if (update.eventHeader) {
@@ -3609,7 +3733,7 @@
             </div>
             ${imgHtml}
             <div class="update-content">${formatUpdateContent(
-              update.content
+              contentStripped
             )}</div>
             <div style="margin-top: 0.7em;">
               <a href="${
@@ -3658,12 +3782,28 @@
       }
 
       function formatUpdateContent(content) {
-        // Convert markdown-style formatting to HTML
-        return content
-          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-          .replace(/• /g, "<br>• ")
-          .replace(/\n/g, "<br>")
-          .trim();
+        // Convert simple markdown and Steam BBCode to HTML
+        return (
+          content
+            // Bold markdown
+            .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+            // Bullet formatting
+            .replace(/• /g, "<br>• ")
+            // Steam BBCode image
+            .replace(/\[img\]([^\[]+?)\[\/img\]/gi, (_match, url) => {
+              const normalized = url.startsWith("//") ? "https:" + url : url;
+              return `<div style="text-align:center;margin:0.5em 0;"><img src="${normalized}" alt="Update image" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px #0003;"></div>`;
+            })
+            // Steam BBCode URL
+            .replace(
+              /\[url=([^\]]+)\]([^\[]+)\[\/url\]/gi,
+              (_m, href, text) =>
+                `<a href="${href}" target="_blank" rel="noopener">${text}</a>`
+            )
+            // Newlines
+            .replace(/\n/g, "<br>")
+            .trim()
+        );
       }
 
       function escapeHtml(text) {
@@ -3706,168 +3846,56 @@
         // Delay loading to prioritize other content
         setTimeout(loadSteamUpdates, 1000);
       });
-    </script>
-    <script>
-      // Login modal logic
-      const loginBtn = document.getElementById("login-btn");
-      const loginModal = document.getElementById("login-modal");
-      const closeLogin = document.getElementById("close-login");
-      const loginForm = document.getElementById("login-form");
-      const loginMessage = document.getElementById("login-message");
-      const passwordToggle = document.getElementById("password-toggle");
-      const passwordInput = document.getElementById("password");
-      let currentUser = null;
-      let passwordVisible = false;
 
-      // Function to update navigation for logged-in users
-      function updateNavigationForLoggedInUser(username) {
-        const navMenu = document.getElementById("nav-menu");
-        if (!navMenu) return;
+      // ===== RESTRICTIONS: Disable context menu and DevTools =====
+      // Disable right-click context menu
+      document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+      });
 
-        // Add Orders tab
-        const ordersLink = document.createElement("a");
-        ordersLink.href = "orders.html";
-        ordersLink.className = "nav-link";
-        ordersLink.textContent = "Orders";
-
-        // Add Logout button
-        const logoutBtn = document.createElement("button");
-        logoutBtn.id = "logout-btn";
-        logoutBtn.className = "nav-link";
-        logoutBtn.style.cssText =
-          "background:#dc2626;color:#fff;border:none;border-radius:6px;padding:0.5rem 1rem;cursor:pointer;margin-left:0.5rem;";
-        logoutBtn.textContent = "Logout";
-
-        logoutBtn.addEventListener("click", function () {
-          localStorage.removeItem("windhelm_user");
-          restoreNavigationForNotLoggedInUser();
-        });
-
-        // Insert Orders link before the social links
-        const socialLinks = document.querySelector(".social-links");
-        if (socialLinks) {
-          navMenu.insertBefore(ordersLink, socialLinks);
-          navMenu.insertBefore(logoutBtn, socialLinks);
+      // Block common DevTools shortcuts
+      document.addEventListener("keydown", function (e) {
+        const key = e.key.toUpperCase();
+        const blocked =
+          key === "F12" ||
+          (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(key)) ||
+          (e.ctrlKey && key === "U");
+        if (blocked) {
+          e.preventDefault();
+          e.stopPropagation();
         }
+      });
+
+      // Basic DevTools open detection and overlay block
+      function isDevToolsOpen() {
+        const threshold = 160;
+        return (
+          window.outerWidth - window.innerWidth > threshold ||
+          window.outerHeight - window.innerHeight > threshold
+        );
       }
 
-      // Function to restore navigation for not logged-in users
-      function restoreNavigationForNotLoggedInUser() {
-        const navMenu = document.getElementById("nav-menu");
-        if (!navMenu) return;
+      function showDevToolsBlocker() {
+        if (document.getElementById("devtools-blocker")) return;
+        const blocker = document.createElement("div");
+        blocker.id = "devtools-blocker";
+        blocker.setAttribute("role", "dialog");
+        blocker.setAttribute("aria-live", "assertive");
+        blocker.style.cssText =
+          "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(17,24,39,0.96);backdrop-filter:blur(6px);color:#fff;z-index:10000;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;";
+        blocker.innerHTML =
+          "<div style='max-width:640px'><h2 style='margin-bottom:0.75rem'>Developer tools are disabled</h2><p style='opacity:0.9'>Please close DevTools to continue browsing.</p></div>";
+        document.body.appendChild(blocker);
+      }
 
-        // Remove Orders link
-        const ordersLink = navMenu.querySelector('a[href="orders.html"]');
-        if (ordersLink) {
-          ordersLink.remove();
+      let devtoolsInterval = setInterval(function () {
+        if (isDevToolsOpen()) {
+          showDevToolsBlocker();
+        } else {
+          const blocker = document.getElementById("devtools-blocker");
+          if (blocker) blocker.remove();
         }
-
-        // Remove Logout button
-        const logoutBtn = document.getElementById("logout-btn");
-        if (logoutBtn) {
-          logoutBtn.remove();
-        }
-      } // Check if user is already logged in and update navigation
-      document.addEventListener("DOMContentLoaded", function () {
-        const savedUser = localStorage.getItem("windhelm_user");
-        if (savedUser) {
-          updateNavigationForLoggedInUser(savedUser);
-        }
-      });
-
-      passwordToggle.addEventListener("click", function () {
-        passwordVisible = !passwordVisible;
-        passwordInput.type = passwordVisible ? "text" : "password";
-        passwordToggle.innerHTML = passwordVisible
-          ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20C5 20 1 12 1 12C1 12 2.64 8.74 5.64 6.74M9.41 9.41C9.78 9.78 10.18 10.05 10.59 10.23M14.83 14.83C15.55 14.05 16 13.06 16 12C16 9.79 14.21 8 12 8C11.21 8 10.47 8.23 9.82 8.62" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M1 1L23 23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>`
-          : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-        </svg>`;
-      });
-
-      loginBtn.addEventListener("click", function () {
-        loginModal.style.display = "flex";
-        loginMessage.textContent = "";
-        loginForm.reset();
-      });
-      closeLogin.addEventListener("click", function () {
-        loginModal.style.display = "none";
-      });
-
-      // Prevent modal from closing when clicking inside the content
-      const modalContent = loginModal.querySelector("div");
-      modalContent.addEventListener("click", function (e) {
-        e.stopPropagation();
-      });
-
-      // Close modal when clicking outside
-      window.addEventListener("click", function (e) {
-        if (e.target === loginModal) loginModal.style.display = "none";
-      });
-
-      // Close modal with Escape key
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && loginModal.style.display === "flex") {
-          loginModal.style.display = "none";
-        }
-      });
-
-      // Allow Enter key in password field to submit
-      passwordInput.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-          loginForm.dispatchEvent(new Event("submit"));
-        }
-      });
-
-      loginForm.addEventListener("submit", async function (e) {
-        e.preventDefault();
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value;
-        const submitBtn = document.getElementById("login-submit-btn");
-        loginMessage.textContent = "";
-
-        if (!username || !password) {
-          loginMessage.textContent = "Please fill in all fields.";
-          loginMessage.style.color = "#ef4444";
-          return;
-        }
-
-        submitBtn.disabled = true;
-        submitBtn.classList.add("login-loading");
-        submitBtn.textContent = "Signing In...";
-
-        try {
-          const res = await fetch("http://localhost:3000/api/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, password }),
-          });
-          const data = await res.json();
-          if (data.success) {
-            currentUser = username;
-            localStorage.setItem("windhelm_user", username);
-            loginModal.style.display = "none";
-            // Update navigation to show Orders tab and Logout button
-            updateNavigationForLoggedInUser(username);
-          } else {
-            loginMessage.textContent =
-              data.message || "Invalid username or password.";
-            loginMessage.style.color = "#ef4444";
-          }
-        } catch (err) {
-          loginMessage.textContent =
-            "Unable to connect to server. Please try again.";
-          loginMessage.style.color = "#ef4444";
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.classList.remove("login-loading");
-          submitBtn.textContent = "Sign In";
-        }
-      });
+      }, 1000);
     </script>
   </body>
 </html>
