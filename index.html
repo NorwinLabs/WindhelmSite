@@ -21,7 +21,7 @@
     center; color: #ffd700; font-weight: 700; letter-spacing: 0.6px; opacity:
     0.98; text-shadow: 0 0 6px rgba(255, 215, 0, 0.7), 0 0 14px rgba(255, 215,
     0, 0.5), 0 0 22px rgba(255, 215, 0, 0.35);
-    <link rel="preload" href="media/BGVideo.mp4" as="video" type="video/mp4" />
+    <!-- YouTube video will be loaded dynamically -->
     <link display: inline-block; position: relative; animation: subheaderPulse
     2.6s ease-in-out infinite; as="image" type="image/jpeg" />
 
@@ -34,6 +34,9 @@
     <!-- Critical CSS - Inline for faster first paint -->
     <style>
       :root {
+        /* Spacing Rhythm Tokens */
+        --space-2: 0.5rem;
+        --space-3: 0.75rem;
         /* Section Animation */
         .section-animate {
           opacity: 0;
@@ -76,7 +79,11 @@
         --space-4: 1rem;
         --space-6: 1.5rem;
         --space-8: 2rem;
+        --space-12: 3rem;
+        --space-16: 4rem;
         --space-20: 5rem;
+        --space-24: 6rem;
+        --space-32: 8rem;
         --container-max-width: 1200px;
         --container-padding: 1.5rem;
         --border-radius: 0.5rem;
@@ -306,6 +313,29 @@
         right: 0;
         bottom: 0;
         z-index: 1;
+        overflow: hidden;
+      }
+
+      .hero-background iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 100vh;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+
+      @media (min-aspect-ratio: 16/9) {
+        .hero-background iframe {
+          height: 56.25vw;
+        }
+      }
+
+      @media (max-aspect-ratio: 16/9) {
+        .hero-background iframe {
+          width: 177.78vh;
+        }
       }
       .hero-bg-image {
         width: 100%;
@@ -555,16 +585,51 @@
       .features,
       .team,
       .contact {
-        padding: 5rem 0;
+        padding: var(--space-20) 0;
         background: url("media/islandbg.png") repeat,
-          linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75));
+          linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95));
         background-blend-mode: overlay;
-        backdrop-filter: blur(8px);
+        backdrop-filter: blur(10px);
         position: relative;
+      }
+
+      /* Smooth transition between sections */
+      .team::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 200px;
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba(255, 255, 255, 0.5) 50%,
+          rgba(255, 255, 255, 0.75) 100%
+        );
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      .contact::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 200px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.75) 0%,
+          rgba(255, 255, 255, 0.5) 50%,
+          transparent 100%
+        );
+        pointer-events: none;
+        z-index: 10;
       }
       /* Reduce bottom gap under the Let's Connect section */
       .contact {
-        padding-bottom: 2rem;
+        padding-bottom: var(--space-8);
       }
       .features {
         background: url("media/islandbg.png") repeat,
@@ -575,11 +640,11 @@
 
       /* Improve readability for Discover Windhelm section */
       .features .section-subtitle {
-        color: var(--gray-200);
+        color: var(--gray-100);
       }
       .features .hero-feature-content p,
       .features .feature-card-modern p {
-        color: var(--gray-200);
+        color: var(--gray-100);
       }
 
       /* Glassified Theme Overrides */
@@ -633,22 +698,53 @@
       /* Apply glass theme to Team and Contact sections */
       .glass-theme .team,
       .glass-theme .contact {
-        background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-2));
+        background: linear-gradient(
+          135deg,
+          var(--glass-bg-dark),
+          var(--glass-bg-dark-2)
+        );
         backdrop-filter: blur(var(--glass-blur));
+      }
+
+      /* Blend team/contact section edges in glass theme */
+      .glass-theme .team::after {
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba(255, 255, 255, 0.12) 50%,
+          rgba(255, 255, 255, 0.18) 100%
+        );
+      }
+
+      .glass-theme .contact::before {
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.18) 0%,
+          rgba(255, 255, 255, 0.12) 50%,
+          transparent 100%
+        );
       }
 
       .glass-theme .contact-card,
       .glass-theme .contact-form-container {
-        background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-2));
+        background: linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.85),
+          rgba(17, 24, 39, 0.8)
+        );
         backdrop-filter: blur(var(--glass-blur));
-        border: 1px solid var(--glass-border-color);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         box-shadow: var(--glass-shadow);
       }
 
       .glass-theme .team-member {
-        background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-2));
+        background: linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.85),
+          rgba(17, 24, 39, 0.8)
+        );
         backdrop-filter: blur(var(--glass-blur));
-        border: 1px solid var(--glass-border-color);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         box-shadow: var(--glass-shadow);
       }
 
@@ -700,7 +796,7 @@
       /* Section backgrounds now rely only on the main background gradients */
       .section-header {
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: var(--space-16);
       }
       .section-title {
         font-family: var(--font-display);
@@ -708,15 +804,15 @@
         letter-spacing: 0.5px;
         font-weight: 700;
         color: var(--gray-100);
-        margin-bottom: 1rem;
+        margin-bottom: var(--space-6);
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         position: relative;
       }
       .section-subtitle {
         font-size: 1.2rem;
-        color: var(--gray-300);
+        color: var(--gray-200);
         max-width: 68ch;
-        margin: 0 auto;
+        margin: 0 auto var(--space-8);
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         font-weight: 500;
       }
@@ -725,8 +821,8 @@
       .features-showcase {
         display: flex;
         flex-direction: column;
-        gap: 3rem;
-        margin-top: 4rem;
+        gap: var(--space-16);
+        margin-top: var(--space-16);
       }
 
       .hero-feature-card {
@@ -738,14 +834,14 @@
         );
         backdrop-filter: blur(20px);
         border-radius: var(--border-radius-xl);
-        padding: 3rem;
+        padding: var(--space-16);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
           0 0 0 1px rgba(255, 255, 255, 0.05),
           inset 0 1px 0 rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.05);
         display: grid;
         grid-template-columns: 1fr 300px;
-        gap: 3rem;
+        gap: var(--space-12);
         align-items: center;
         position: relative;
         overflow: hidden;
@@ -768,20 +864,20 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        margin-bottom: 1.5rem;
+        margin-bottom: var(--space-6);
         line-height: 1.2;
       }
 
       .hero-feature-content p {
         font-size: 1.1rem;
-        line-height: 1.7;
-        color: var(--gray-300);
-        margin-bottom: 2rem;
+        line-height: 1.75;
+        color: var(--gray-100);
+        margin-bottom: var(--space-8);
       }
 
       .hero-feature-stats {
         display: flex;
-        gap: 2rem;
+        gap: var(--space-8);
       }
 
       .stat {
@@ -926,14 +1022,14 @@
         font-size: 1.4rem;
         font-weight: 600;
         color: var(--gray-100);
-        margin: 0;
+        margin: 0 0 var(--space-3) 0;
         line-height: 1.3;
       }
 
       .feature-card-modern p {
-        color: var(--gray-300);
+        color: var(--gray-200);
         line-height: 1.6;
-        margin: 0;
+        margin: 0 0 var(--space-4) 0;
         font-size: 1rem;
       }
 
@@ -1215,14 +1311,14 @@
       .team-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-bottom: 3rem;
+        gap: var(--space-8);
+        margin-bottom: var(--space-12);
       }
       .team-member {
         text-align: center;
         background: transparent !important;
         border-radius: var(--border-radius-lg);
-        padding: 2rem;
+        padding: var(--space-8);
         box-shadow: none !important;
         transition: var(--transition-base);
         position: relative;
@@ -1238,7 +1334,7 @@
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       }
       .member-image {
-        margin-bottom: 1.5rem;
+        margin-bottom: var(--space-6);
         position: relative;
         z-index: 15;
       }
@@ -1281,7 +1377,7 @@
 
       /* Ensure the container doesn't affect photos */
       .member-image {
-        margin-bottom: 1.5rem !important;
+        margin-bottom: var(--space-6) !important;
         position: relative !important;
         z-index: 9998 !important;
         background: none !important;
@@ -1294,22 +1390,27 @@
         font-family: var(--font-display);
         font-size: 2.3rem;
         font-weight: 800;
-        color: var(--gray-900);
-        margin-bottom: 0.5rem;
-        text-shadow: 0 2px 12px #fff8, 0 1px 2px #0002;
+        color: var(--gray-100);
+        margin-bottom: var(--space-2);
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
         letter-spacing: 0.01em;
       }
       .member-role {
-        color: var(--blue-700);
-        font-weight: 700;
-        text-shadow: none;
+        color: var(--gray-200);
+        font-weight: 600;
+        letter-spacing: 0.5px;
       }
       .supporters {
         text-align: center;
-        padding: 2rem;
-        background: var(--gray-50);
+        padding: var(--space-8);
+        background: linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.85),
+          rgba(17, 24, 39, 0.8)
+        );
         border-radius: var(--border-radius-lg);
-        border: 2px dashed var(--gray-200);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--gray-200);
       }
       .supporters h3 {
         .supporter-name {
@@ -1352,23 +1453,23 @@
           }
         }
         font-family: var(--font-display);
-        color: var(--gray-700);
-        margin-bottom: 1rem;
+        color: var(--gray-100);
+        margin-bottom: var(--space-4);
       }
 
       /* Contact Grid Layout */
       .contact-grid {
         display: grid;
         grid-template-columns: 1fr 1.2fr;
-        gap: 4rem;
+        gap: var(--space-16);
         align-items: start;
-        margin-top: 3rem;
+        margin-top: var(--space-12);
       }
 
       @media (max-width: 768px) {
         .contact-grid {
           grid-template-columns: 1fr;
-          gap: 2rem;
+          gap: var(--space-8);
         }
       }
 
@@ -1376,7 +1477,7 @@
       .contact-info {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: var(--space-6);
       }
 
       .contact-card {
@@ -1384,7 +1485,7 @@
         backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 1rem;
-        padding: 2rem;
+        padding: var(--space-8);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
           0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -1409,7 +1510,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 1rem;
+        margin-bottom: var(--space-4);
         box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
       }
 
@@ -1422,27 +1523,27 @@
         font-size: 1.25rem;
         font-weight: 600;
         color: var(--gray-900);
-        margin-bottom: 0.5rem;
+        margin-bottom: var(--space-2);
       }
 
       .contact-card-text {
-        color: var(--gray-600);
+        color: var(--gray-200);
         line-height: 1.6;
-        margin-bottom: 1.5rem;
+        margin-bottom: var(--space-6);
       }
 
       .contact-card-link {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        color: var(--primary-color);
+        gap: var(--space-2);
+        color: var(--gray-100);
         font-weight: 600;
         text-decoration: none;
         transition: var(--transition-base);
       }
 
       .contact-card-link:hover {
-        color: var(--primary-dark);
+        color: var(--primary-color);
         transform: translateX(4px);
       }
 
@@ -2455,22 +2556,7 @@
       <!-- Hero Section -->
       <section id="home" class="hero section-animate">
         <div class="hero-background">
-          <video
-            autoplay
-            loop
-            muted
-            playsinline
-            poster="media/WindhelmYoutubeBanner.jpg"
-            style="width: 100%; height: 100%; object-fit: cover; z-index: 1"
-            preload="metadata"
-          >
-            <!-- Optimized versions (will be available after running optimization script) -->
-            <source src="media/BGVideo.webm" type="video/webm" />
-            <source src="media/BGVideo-optimized.mp4" type="video/mp4" />
-            <!-- Fallback to original (remove after optimization) -->
-            <source src="media/BGVideo.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <div id="youtube-background"></div>
           <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -3312,7 +3398,92 @@
     </footer>
 
     <!-- Scripts -->
+    <!-- YouTube iframe API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
     <script>
+      // YouTube Background Video Configuration
+      const YOUTUBE_VIDEO_ID = "gZdP3WCZJc8"; // Replace with your YouTube video ID
+
+      let player;
+      let useLocalFallback = false;
+
+      // This function will be called by YouTube API when ready
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("youtube-background", {
+          videoId: YOUTUBE_VIDEO_ID,
+          playerVars: {
+            autoplay: 1,
+            controls: 0,
+            showinfo: 0,
+            modestbranding: 1,
+            loop: 1,
+            fs: 0,
+            cc_load_policy: 0,
+            iv_load_policy: 3,
+            autohide: 1,
+            mute: 1,
+            playlist: YOUTUBE_VIDEO_ID, // Required for looping
+            enablejsapi: 1,
+            origin: window.location.origin,
+          },
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+            onError: onPlayerError,
+          },
+        });
+      }
+
+      function onPlayerReady(event) {
+        event.target.mute();
+        event.target.setVolume(0);
+        event.target.playVideo();
+      }
+
+      function onPlayerStateChange(event) {
+        // Loop video when it ends
+        if (event.data === YT.PlayerState.ENDED) {
+          player.playVideo();
+        }
+      }
+
+      function onPlayerError(event) {
+        // Error codes: 2=invalid ID, 5=HTML5 error, 100=not found, 101/150=embedding disabled
+        console.warn("YouTube player error:", event.data);
+
+        // If embedding is restricted (error 101, 150, or 153), fallback to local video
+        if (event.data === 101 || event.data === 150 || event.data === 153) {
+          loadLocalVideoFallback();
+        }
+      }
+
+      function loadLocalVideoFallback() {
+        if (useLocalFallback) return; // Already switched
+        useLocalFallback = true;
+
+        const container = document.getElementById("youtube-background");
+        if (!container) return;
+
+        // Replace with local video element
+        container.innerHTML = `
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            poster="media/WindhelmYoutubeBanner.jpg"
+            style="position: absolute; top: 50%; left: 50%; width: 100vw; height: 100vh; transform: translate(-50%, -50%); object-fit: cover; pointer-events: none;"
+          >
+            <source src="media/BGVideo.webm" type="video/webm" />
+            <source src="media/BGVideo-optimized.mp4" type="video/mp4" />
+            <source src="media/BGVideo.mp4" type="video/mp4" />
+          </video>
+        `;
+
+        console.info("Switched to local video fallback");
+      }
+
       // Removed delayed font loading to avoid FOUT/pop
 
       // Image loading optimization
@@ -3397,7 +3568,7 @@
       }, 3000); // Every 3 seconds
 
       function createLeaf(x, y, isSpecial) {
-        const leafTypes = ["🍃", "🍂", "🌿", "🍀"];
+        const leafTypes = ["🍃", "🍂"];
         const leaf = document.createElement("div");
         leaf.innerHTML =
           leafTypes[Math.floor(Math.random() * leafTypes.length)];
