@@ -1522,12 +1522,12 @@
       .contact-card-title {
         font-size: 1.25rem;
         font-weight: 600;
-        color: var(--gray-100);
+        color: var(--white);
         margin-bottom: var(--space-2);
       }
 
       .contact-card-text {
-        color: var(--gray-200);
+        color: var(--white);
         line-height: 1.6;
         margin-bottom: var(--space-6);
       }
@@ -1536,7 +1536,7 @@
         display: inline-flex;
         align-items: center;
         gap: var(--space-2);
-        color: var(--gray-100);
+        color: var(--white);
         font-weight: 600;
         text-decoration: none;
         transition: var(--transition-base);
@@ -1549,7 +1549,11 @@
 
       /* Contact Form Container */
       .contact-form-container {
-        background: linear-gradient(135deg, rgba(30,41,59,0.85), rgba(17,24,39,0.8));
+        background: linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.85),
+          rgba(17, 24, 39, 0.8)
+        );
         backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 1.5rem;
@@ -1566,12 +1570,12 @@
       .contact-form-header h3 {
         font-size: 1.5rem;
         font-weight: 700;
-        color: var(--gray-100);
+        color: var(--white);
         margin-bottom: 0.5rem;
       }
 
       .contact-form-header p {
-        color: var(--gray-200);
+        color: var(--white);
         font-size: 1rem;
       }
 
@@ -1598,7 +1602,7 @@
         align-items: center;
         gap: var(--space-2);
         font-weight: 600;
-        color: var(--gray-200);
+        color: var(--white);
         margin-bottom: var(--space-2);
         font-size: 0.95rem;
       }
@@ -1618,7 +1622,7 @@
         transition: all 0.2s ease;
         background-color: rgba(15, 23, 42, 0.75);
         backdrop-filter: blur(10px);
-        color: var(--gray-100);
+        color: var(--white);
       }
 
       .form-group input:focus,
@@ -1627,7 +1631,13 @@
         border-color: var(--primary-color);
         box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
         background-color: rgba(15, 23, 42, 0.9);
-        color: var(--gray-100);
+        color: var(--white);
+      }
+
+      /* Placeholder legibility on dark background */
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(255, 255, 255, 0.75);
       }
 
       .form-group textarea {
