@@ -592,6 +592,39 @@
         backdrop-filter: blur(10px);
         position: relative;
       }
+      .roadmap {
+        padding: var(--space-20) 0;
+        background: url("media/islandbg.png") repeat,
+          linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95));
+        background-blend-mode: overlay;
+        backdrop-filter: blur(10px);
+        position: relative;
+      }
+      .roadmap .trello-embed {
+        width: 100%;
+        height: 70vh;
+        min-height: 600px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--glass-shadow);
+        background: linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.85),
+          rgba(17, 24, 39, 0.8)
+        );
+      }
+      .roadmap .trello-fallback {
+        text-align: center;
+        color: var(--gray-100);
+        background: linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.85),
+          rgba(17, 24, 39, 0.8)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--border-radius-lg);
+        padding: var(--space-16);
+      }
 
       /* Smooth transition between sections */
       .team::after {
@@ -3018,6 +3051,39 @@
         </div>
       </section>
 
+      <!-- Roadmap Section -->
+      <section id="roadmap" class="roadmap section-animate">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title">Roadmap</h2>
+            <p class="section-subtitle">Live view of our public Trello board</p>
+          </header>
+
+          <div id="trello-embed-container">
+            <iframe
+              id="trello-embed"
+              class="trello-embed"
+              title="Windhelm Roadmap"
+              style="display: none"
+            ></iframe>
+            <div id="trello-fallback" class="trello-fallback">
+              <p style="margin-bottom: var(--space-6)">
+                Set your Trello board shortlink to display the roadmap here.
+              </p>
+              <a
+                id="trello-open-link"
+                href="#"
+                target="_blank"
+                rel="noopener"
+                class="cta-button"
+              >
+                Open Roadmap on Trello
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Team Section -->
       <section id="team" class="team section-animate">
         <div class="container">
@@ -3413,6 +3479,28 @@
     <script src="https://www.youtube.com/iframe_api"></script>
 
     <script>
+      // Roadmap (Trello) embed configuration
+      // Set this to your Trello board shortlink (the code in the board URL)
+      // Example board URL: https://trello.com/b/ABCD1234/your-board
+      // Set: const TRELLO_BOARD_SHORTLINK = "ABCD1234";
+      const TRELLO_BOARD_SHORTLINK = "mMhnJ4im"; // TODO: set your board shortlink
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const iframe = document.getElementById("trello-embed");
+        const fallback = document.getElementById("trello-fallback");
+        const openLink = document.getElementById("trello-open-link");
+
+        if (TRELLO_BOARD_SHORTLINK && iframe && fallback && openLink) {
+          const trelloUrl = `https://trello.com/b/${TRELLO_BOARD_SHORTLINK}.html?menu=hide`;
+          iframe.src = trelloUrl;
+          iframe.style.display = "block";
+          fallback.style.display = "none";
+          openLink.href = trelloUrl;
+        } else if (openLink) {
+          openLink.href = "https://trello.com/";
+        }
+      });
+
       // YouTube Background Video Configuration
       const YOUTUBE_VIDEO_ID = "gZdP3WCZJc8"; // Replace with your YouTube video ID
 
