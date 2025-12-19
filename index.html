@@ -32,13 +32,10 @@
         /* Spacing Rhythm Tokens */
         --space-2: 0.5rem;
         --space-3: 0.75rem;
-        /* Section Animation */
+        /* Section Animation - Smooth, no pop-in */
         .section-animate {
-          opacity: 0;
-          transform: translateY(40px);
-          transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-            transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-          will-change: opacity, transform;
+          opacity: 1;
+          transform: none;
         }
         .section-animate.visible {
           opacity: 1;
@@ -3309,23 +3306,13 @@
       <!-- Contact Section -->
       <section id="contact" class="contact section-animate">
         <script>
-          // Intersection Observer for section animations
+          // Smooth scroll - no pop-in animations
           document.addEventListener("DOMContentLoaded", function () {
+            // Sections are now always visible for smoother experience
             const animatedSections =
               document.querySelectorAll(".section-animate");
-            const observer = new window.IntersectionObserver(
-              (entries, obs) => {
-                entries.forEach((entry) => {
-                  if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                    obs.unobserve(entry.target);
-                  }
-                });
-              },
-              { threshold: 0.15 }
-            );
             animatedSections.forEach((section) => {
-              observer.observe(section);
+              section.classList.add("visible");
             });
           });
         </script>
