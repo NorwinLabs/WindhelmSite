@@ -586,19 +586,26 @@
       .team,
       .contact {
         padding: var(--space-20) 0;
-        background: url("media/islandbg.png") repeat,
+        background-image: url("media/islandbg.png"),
           linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95));
+        background-repeat: repeat, no-repeat;
+        background-size: auto, cover;
+        background-position: 0 0, 0 0;
         background-blend-mode: overlay;
         backdrop-filter: blur(10px);
         position: relative;
+        animation: islandPan 60s linear infinite;
       }
       .roadmap {
         padding: var(--space-20) 0;
-        background: url("media/islandbg.png") repeat,
+        background-image: url("media/islandbg.png"),
           linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95));
+        background-repeat: repeat, no-repeat;
+        background-size: auto, cover;
         background-blend-mode: overlay;
         backdrop-filter: blur(10px);
         position: relative;
+        animation: islandPan 60s linear infinite;
       }
       .roadmap .trello-embed {
         width: 100%;
@@ -1066,6 +1073,35 @@
         font-size: 1rem;
       }
 
+      .feature-visual {
+        width: 100%;
+        height: 200px;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        margin-bottom: var(--space-4);
+        background: linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.6),
+          rgba(17, 24, 39, 0.6)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .feature-visual img,
+      .feature-visual video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .feature-card-modern:hover .feature-visual {
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      }
+
       .feature-accent {
         position: absolute;
         bottom: 0;
@@ -1494,9 +1530,9 @@
       .contact-grid {
         display: grid;
         grid-template-columns: 1fr 1.2fr;
-        gap: var(--space-16);
+        gap: var(--space-8);
         align-items: start;
-        margin-top: var(--space-12);
+        margin-top: var(--space-8);
       }
 
       @media (max-width: 768px) {
@@ -1510,7 +1546,7 @@
       .contact-info {
         display: flex;
         flex-direction: column;
-        gap: var(--space-6);
+        gap: var(--space-4);
       }
 
       .contact-card {
@@ -1518,7 +1554,7 @@
         backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 1rem;
-        padding: var(--space-8);
+        padding: var(--space-6);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
           0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -1532,8 +1568,8 @@
       }
 
       .contact-card-icon {
-        width: 48px;
-        height: 48px;
+        width: 40px;
+        height: 40px;
         background: linear-gradient(
           135deg,
           var(--primary-color),
@@ -1543,17 +1579,17 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: var(--space-4);
+        margin-bottom: var(--space-3);
         box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
       }
 
       .contact-card-icon svg {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
       }
 
       .contact-card-title {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
         font-weight: 600;
         color: var(--white);
         margin-bottom: var(--space-2);
@@ -1561,8 +1597,9 @@
 
       .contact-card-text {
         color: var(--white);
-        line-height: 1.6;
-        margin-bottom: var(--space-6);
+        line-height: 1.5;
+        margin-bottom: var(--space-4);
+        font-size: 0.95rem;
       }
 
       .contact-card-link {
@@ -1590,33 +1627,33 @@
         backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 1.5rem;
-        padding: 2.5rem;
+        padding: 2rem;
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
           0 10px 10px -5px rgba(0, 0, 0, 0.04);
       }
 
       .contact-form-header {
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
       }
 
       .contact-form-header h3 {
-        font-size: 1.5rem;
+        font-size: 1.375rem;
         font-weight: 700;
         color: var(--white);
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.4rem;
       }
 
       .contact-form-header p {
         color: var(--white);
-        font-size: 1rem;
+        font-size: 0.95rem;
       }
 
       /* Form Styles */
       .contact-form {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1.25rem;
       }
 
       .form-row {
@@ -1647,11 +1684,11 @@
       .form-group input,
       .form-group textarea {
         width: 100%;
-        padding: var(--space-4);
+        padding: 0.875rem;
         border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 0.75rem;
         font-family: inherit;
-        font-size: 1rem;
+        font-size: 0.95rem;
         transition: all 0.2s ease;
         background-color: rgba(15, 23, 42, 0.75);
         backdrop-filter: blur(10px);
@@ -1675,7 +1712,7 @@
 
       .form-group textarea {
         resize: vertical;
-        min-height: 120px;
+        min-height: 100px;
       }
 
       .checkbox-group {
@@ -1693,9 +1730,9 @@
         background: var(--primary-color);
         color: var(--white);
         border: none;
-        padding: 1rem 2rem;
+        padding: 0.875rem 2rem;
         border-radius: var(--border-radius-lg);
-        font-size: 1.125rem;
+        font-size: 1rem;
         font-weight: 600;
         cursor: pointer;
         transition: var(--transition-base);
@@ -1728,7 +1765,7 @@
       .footer {
         background: var(--gray-900);
         color: var(--white);
-        padding: 0;
+        padding: var(--space-12) 0;
         margin-top: 0;
       }
       .footer-content {
@@ -1737,6 +1774,7 @@
         align-items: center;
         flex-wrap: wrap;
         gap: 1rem;
+        padding: var(--space-4) 0;
       }
       .footer-brand {
         display: flex;
@@ -1750,6 +1788,16 @@
       .footer-brand p {
         color: var(--gray-400);
         font-size: 0.9rem;
+      }
+      .footer-version {
+        display: flex;
+        align-items: center;
+      }
+      .footer-version p {
+        color: var(--gray-400);
+        font-size: 0.85rem;
+        font-family: monospace;
+        opacity: 0.8;
       }
 
       /* Form Messages */
@@ -2227,6 +2275,16 @@
         }
       }
 
+      /* Island background infinite pan animation */
+      @keyframes islandPan {
+        0% {
+          background-position: 0px 0px, 0 0;
+        }
+        100% {
+          background-position: 1000px 0px, 0 0;
+        }
+      }
+
       /* High contrast mode support */
       @media (prefers-contrast: high) {
         .section-title,
@@ -2450,7 +2508,7 @@
         "@type": "WebSite",
         "name": "Windhelm",
         "url": "https://windhelm.game/",
-        "description": "Official website for Windhelm RPG - A procedurally generated story-driven adventure game",
+        "description": "Official website for Windhelm RPG - A procedurally generated, story-driven adventure game",
         "publisher": {
           "@type": "Organization",
           "name": "NorwinLabs"
@@ -2617,8 +2675,9 @@
             <span id="hero-subheader-text">Preparing your destiny...</span>
           </div>
           <p class="hero-description">
-            A procedurally generated story-driven RPG where every playthrough
-            tells a unique tale with dynamic quests and legendary heroes.
+            A procedurally generated world, story-driven RPG where every
+            playthrough tells a unique tale with dynamic quests and legendary
+            heroes.
           </p>
           <div class="hero-cta">
             <a
@@ -2657,9 +2716,11 @@
           <header class="section-header">
             <h2 class="section-title">Discover Windhelm</h2>
             <p class="section-subtitle">
-              Immerse yourself in a revolutionary RPG experience where every
-              decision shapes your unique story - crafted by passionate indie
-              developers
+              In a time that the game industry needs it most, Windhelm reinvents
+              the RPG genre by delivering an unparalleled experience that is not
+              driven by profiting from players, but by immersing them in a rich,
+              dynamic world where every choice matters and every adventure is
+              unique.
             </p>
           </header>
 
@@ -2669,17 +2730,31 @@
               <div class="hero-feature-content">
                 <div class="hero-feature-icon">
                   <svg
-                    width="48"
-                    height="48"
+                    width="56"
+                    height="56"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M12 2L13.09 8.26L19 7L17.74 12.91L24 14L17.74 15.09L19 21L13.09 19.74L12 26L10.91 19.74L5 21L6.26 15.09L0 14L6.26 12.91L5 7L10.91 8.26L12 2Z"
-                      fill="url(#heroGradient)"
+                      d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
                       stroke="url(#heroGradient)"
-                      stroke-width="0.5"
+                      stroke-width="2"
+                      fill="url(#heroGradientFill)"
+                      opacity="0.2"
+                    />
+                    <path
+                      d="M8 12L11 15L16 9"
+                      stroke="url(#heroGradient)"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M12 2V6M12 18V22M22 12H18M6 12H2"
+                      stroke="url(#heroGradient)"
+                      stroke-width="2"
+                      stroke-linecap="round"
                     />
                     <defs>
                       <linearGradient
@@ -2689,40 +2764,53 @@
                         x2="100%"
                         y2="100%"
                       >
-                        <stop offset="0%" style="stop-color: #66c0f4" />
-                        <stop offset="100%" style="stop-color: #4ade80" />
+                        <stop offset="0%" style="stop-color: #10b981" />
+                        <stop offset="50%" style="stop-color: #14b8a6" />
+                        <stop offset="100%" style="stop-color: #06b6d4" />
+                      </linearGradient>
+                      <linearGradient
+                        id="heroGradientFill"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop offset="0%" style="stop-color: #10b981" />
+                        <stop offset="100%" style="stop-color: #06b6d4" />
                       </linearGradient>
                     </defs>
                   </svg>
                 </div>
-                <h3>Procedurally Generated Adventures</h3>
+                <h3>🎁 Free Lifetime Updates Forever</h3>
                 <p>
-                  Experience infinite replayability with our advanced procedural
-                  generation system. Every playthrough creates a unique world
-                  filled with dynamic quests, emergent stories, and
-                  unpredictable outcomes that keep you coming back for more.
+                  Buy once, enjoy forever! Every future update, content drop,
+                  and new content is
+                  <strong style="color: #10b981">100% FREE</strong>. No hidden
+                  costs, no subscriptions, no microtransactions. We're committed
+                  to continuously improving and expanding Windhelm for years to
+                  come - all included in your single purchase!
                 </p>
                 <div class="hero-feature-stats">
                   <div class="stat">
-                    <span class="stat-number">∞</span>
-                    <span class="stat-label">Unique Stories</span>
-                  </div>
-                  <div class="stat">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Procedural</span>
+                    <span class="stat-number">FREE</span>
+                    <span class="stat-label">All Updates</span>
                   </div>
                   <div class="stat">
                     <span class="stat-number">∞</span>
-                    <span class="stat-label">Replayability</span>
+                    <span class="stat-label">Support</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">$0</span>
+                    <span class="stat-label">Extra Cost</span>
                   </div>
                 </div>
               </div>
               <div class="hero-feature-visual">
                 <div class="floating-elements">
-                  <div class="floating-quest">📜</div>
-                  <div class="floating-sword">⚔️</div>
-                  <div class="floating-magic">✨</div>
-                  <div class="floating-treasure">💎</div>
+                  <div class="floating-quest">🎁</div>
+                  <div class="floating-sword">✨</div>
+                  <div class="floating-magic">🆓</div>
+                  <div class="floating-treasure">💚</div>
                 </div>
               </div>
             </div>
@@ -2760,6 +2848,14 @@
                     </svg>
                   </div>
                   <h4>Dynamic World Building</h4>
+                </div>
+                <!-- Add your gif/video here -->
+                <div class="feature-visual" style="display: none">
+                  <img
+                    src="media/features/world-building.gif"
+                    alt="Dynamic World Building"
+                    loading="lazy"
+                  />
                 </div>
                 <p>
                   Explore procedurally generated landscapes that evolve with
@@ -2805,6 +2901,14 @@
                   </div>
                   <h4>Deep Character Development</h4>
                 </div>
+                <!-- Add your gif/video here -->
+                <div class="feature-visual" style="display: none">
+                  <img
+                    src="media/features/character-development.gif"
+                    alt="Deep Character Development"
+                    loading="lazy"
+                  />
+                </div>
                 <p>
                   Craft legendary heroes with extensive customization options.
                   Master unique abilities, forge powerful equipment, and shape
@@ -2844,9 +2948,17 @@
                   </div>
                   <h4>Strategic Combat System</h4>
                 </div>
+                <!-- Add your gif/video here -->
+                <div class="feature-visual" style="display: none">
+                  <img
+                    src="media/features/combat-system.gif"
+                    alt="Strategic Combat System"
+                    loading="lazy"
+                  />
+                </div>
                 <p>
-                  Engage in tactical combat that rewards planning and skill.
-                  Master timing, positioning, and elemental synergies to
+                  Engage in combat that rewards planning and skill. Master
+                  timing, positioning, and elements of the environment to
                   overcome challenging encounters.
                 </p>
                 <div class="feature-accent"></div>
@@ -2882,6 +2994,14 @@
                     </svg>
                   </div>
                   <h4>Story-Driven Experience</h4>
+                </div>
+                <!-- Add your gif/video here -->
+                <div class="feature-visual" style="display: none">
+                  <img
+                    src="media/features/story-experience.gif"
+                    alt="Story-Driven Experience"
+                    loading="lazy"
+                  />
                 </div>
                 <p>
                   Every decision matters in our narrative-focused gameplay.
@@ -2926,7 +3046,15 @@
                       </defs>
                     </svg>
                   </div>
-                  <h4>Indie Craftsmanship</h4>
+                  <h4>Indie Development Team</h4>
+                </div>
+                <!-- Add your gif/video here -->
+                <div class="feature-visual" style="display: none">
+                  <img
+                    src="media/features/indie-craftsmanship.gif"
+                    alt="Indie Craftsmanship"
+                    loading="lazy"
+                  />
                 </div>
                 <p>
                   Lovingly crafted by a passionate husband-wife team. We
@@ -2973,6 +3101,14 @@
                     </svg>
                   </div>
                   <h4>Community Connection</h4>
+                </div>
+                <!-- Add your gif/video here -->
+                <div class="feature-visual" style="display: none">
+                  <img
+                    src="media/features/community-connection.gif"
+                    alt="Community Connection"
+                    loading="lazy"
+                  />
                 </div>
                 <p>
                   Join our growing community of RPG enthusiasts. Share your
@@ -3055,7 +3191,7 @@
       <section id="roadmap" class="roadmap section-animate">
         <div class="container">
           <header class="section-header">
-            <h2 class="section-title">Roadmap</h2>
+            <h2 class="section-title">Development Board</h2>
             <p class="section-subtitle">Live view of our public Trello board</p>
           </header>
 
@@ -3470,6 +3606,9 @@
             <img src="media/Logo.png" alt="Windhelm Logo" class="footer-logo" />
             <p>©2025 NorwinLabs LLC. All rights reserved.</p>
           </div>
+          <div class="footer-version">
+            <p>v1.0.0</p>
+          </div>
         </div>
       </div>
     </footer>
@@ -3551,36 +3690,29 @@
         // Error codes: 2=invalid ID, 5=HTML5 error, 100=not found, 101/150=embedding disabled
         console.warn("YouTube player error:", event.data);
 
-        // If embedding is restricted (error 101, 150, or 153), fallback to local video
+        // If embedding is restricted (error 101, 150, or 153), fallback to image
         if (event.data === 101 || event.data === 150 || event.data === 153) {
-          loadLocalVideoFallback();
+          loadImageFallback();
         }
       }
 
-      function loadLocalVideoFallback() {
+      function loadImageFallback() {
         if (useLocalFallback) return; // Already switched
         useLocalFallback = true;
 
         const container = document.getElementById("youtube-background");
         if (!container) return;
 
-        // Replace with local video element
+        // Replace with Windhelm image
         container.innerHTML = `
-          <video
-            autoplay
-            loop
-            muted
-            playsinline
-            poster="media/WindhelmYoutubeBanner.jpg"
+          <img
+            src="media/WindhelmYoutubeBanner.jpg"
+            alt="Windhelm"
             style="position: absolute; top: 50%; left: 50%; width: 100vw; height: 100vh; transform: translate(-50%, -50%); object-fit: cover; pointer-events: none;"
-          >
-            <source src="media/BGVideo.webm" type="video/webm" />
-            <source src="media/BGVideo-optimized.mp4" type="video/mp4" />
-            <source src="media/BGVideo.mp4" type="video/mp4" />
-          </video>
+          />
         `;
 
-        console.info("Switched to local video fallback");
+        console.info("Switched to image fallback due to YouTube error 153");
       }
 
       // Removed delayed font loading to avoid FOUT/pop
@@ -3654,7 +3786,8 @@
       console.log("Windhelm site loaded successfully!");
 
       // ===== FALLING LEAF SYSTEM =====
-      // Spawn leaves randomly at the top every few seconds
+      // DISABLED - Leaf effect turned off
+      /* 
       setInterval(() => {
         const leafCount = Math.floor(Math.random() * 3) + 1; // 1-3 leaves
         for (let i = 0; i < leafCount; i++) {
@@ -3665,6 +3798,7 @@
           }, i * 200);
         }
       }, 3000); // Every 3 seconds
+      */
 
       function createLeaf(x, y, isSpecial) {
         const leafTypes = ["🍃", "🍂"];
