@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Windhelm® - Epic procedurally generated story-driven RPG with dynamic quests, legendary heroes, and infinite replayability. Every playthrough tells a unique story. Coming to Steam."
+      content="Windhelm® - Epic procedurally generated story-driven RPG with dynamic quests, legendary heroes, and FREE lifetime updates. Infinite replayability where every playthrough tells a unique story. Wishlist now on Steam!"
     />
     <meta
       name="keywords"
@@ -17,13 +17,8 @@
     <link rel="icon" href="media/favicon.png" />
 
     <!-- Preload critical resources for optimal performance -->
-    <link rel="preload" margin-top: 0.35rem; margin-bottom: 0.75rem; text-align:
-    center; color: #ffd700; font-weight: 700; letter-spacing: 0.6px; opacity:
-    0.98; text-shadow: 0 0 6px rgba(255, 215, 0, 0.7), 0 0 14px rgba(255, 215,
-    0, 0.5), 0 0 22px rgba(255, 215, 0, 0.35);
-    <!-- YouTube video will be loaded dynamically -->
-    <link display: inline-block; position: relative; animation: subheaderPulse
-    2.6s ease-in-out infinite; as="image" type="image/jpeg" />
+    <link rel="preload" href="media/Logo.png" as="image" type="image/png" />
+    <link rel="preload" href="media/islandbg.png" as="image" type="image/png" />
 
     <!-- Performance hints -->
     <link rel="dns-prefetch" href="//api.steampowered.com" />
@@ -133,6 +128,7 @@
       html {
         scroll-behavior: smooth;
         font-size: 16px;
+        scroll-padding-top: 80px; /* Account for fixed header */
       }
       body {
         font-family: var(--font-primary);
@@ -2570,6 +2566,22 @@
         gap: 0.75rem;
       }
     </style>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "uo1vjggwak");
+    </script>
   </head>
   <body class="glass-theme">
     <!-- Navigation Header -->
@@ -2675,18 +2687,24 @@
             <span id="hero-subheader-text">Preparing your destiny...</span>
           </div>
           <p class="hero-description">
-            A procedurally generated world, story-driven RPG where every
-            playthrough tells a unique tale with dynamic quests and legendary
-            heroes.
+            Embark on an epic procedurally generated adventure where every
+            playthrough tells a unique tale. Featuring dynamic quests, legendary
+            heroes, and
+            <strong style="color: #10b981">free lifetime updates forever</strong
+            >.
           </p>
           <div class="hero-cta">
             <a
               href="https://store.steampowered.com/app/2171040/Windhelm/"
               class="cta-button primary"
               target="_blank"
-              >Wishlist on Steam</a
+              rel="noopener noreferrer"
+              aria-label="Wishlist Windhelm on Steam"
+              >🎮 Wishlist on Steam - It's Free!</a
             >
-            <a href="#features" class="cta-button secondary">Learn More</a>
+            <a href="#features" class="cta-button secondary"
+              >✨ Discover Features</a
+            >
           </div>
 
           <!-- Steam Widget in Hero -->
@@ -2714,13 +2732,16 @@
       <section id="features" class="features section-animate">
         <div class="container">
           <header class="section-header">
-            <h2 class="section-title">Discover Windhelm</h2>
+            <h2 class="section-title">Why Choose Windhelm?</h2>
             <p class="section-subtitle">
               In a time that the game industry needs it most, Windhelm reinvents
               the RPG genre by delivering an unparalleled experience that is not
               driven by profiting from players, but by immersing them in a rich,
               dynamic world where every choice matters and every adventure is
               unique.
+              <strong style="color: #10b981"
+                >All future content, free forever.</strong
+              >
             </p>
           </header>
 
@@ -3160,7 +3181,8 @@
                 href="https://store.steampowered.com/app/2171040"
                 class="steam-link"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
+                aria-label="View Windhelm on Steam Store"
               >
                 <div class="steam-icon">S</div>
                 View on Steam Store
@@ -3179,7 +3201,8 @@
                 href="https://store.steampowered.com/app/2171040"
                 class="steam-link"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
+                aria-label="View all updates on Steam"
               >
               </a>
             </div>
@@ -3191,8 +3214,10 @@
       <section id="roadmap" class="roadmap section-animate">
         <div class="container">
           <header class="section-header">
-            <h2 class="section-title">Development Board</h2>
-            <p class="section-subtitle">Live view of our public Trello board</p>
+            <h2 class="section-title">Development Roadmap</h2>
+            <p class="section-subtitle">
+              Track our progress in real-time - we build in public!
+            </p>
           </header>
 
           <div id="trello-embed-container">
@@ -3308,8 +3333,8 @@
           <header class="section-header">
             <h2 class="section-title">Let's Connect</h2>
             <p class="section-subtitle">
-              Have questions about Windhelm? Want to join our community? We'd
-              love to hear from you!
+              Join our growing community! Have questions? Want early access
+              news? We'd love to hear from you!
             </p>
           </header>
 
