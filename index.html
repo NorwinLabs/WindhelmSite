@@ -372,21 +372,83 @@
         margin-bottom: 0.5rem;
         text-align: center;
       }
+
+      .logo-fire-container {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .fire-particles {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120%;
+        height: 120%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .fire-particle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: radial-gradient(
+          circle,
+          #ff6b00 0%,
+          #ff4500 20%,
+          #ff8c00 40%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        opacity: 0;
+        bottom: 30%;
+        animation: fireParticleRise 2.5s ease-out infinite;
+        box-shadow: 0 0 4px #ff4500, 0 0 8px #ff8c00;
+      }
+
+      @keyframes fireParticleRise {
+        0% {
+          opacity: 0;
+          transform: translateY(0) translateX(0) scale(0.5);
+        }
+        15% {
+          opacity: 1;
+        }
+        40% {
+          opacity: 0.9;
+          transform: translateY(-40px) translateX(var(--particle-x, 0px))
+            scale(1.2);
+        }
+        70% {
+          opacity: 0.5;
+          transform: translateY(-80px)
+            translateX(calc(var(--particle-x, 0px) * 1.5)) scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-120px)
+            translateX(calc(var(--particle-x, 0px) * 2)) scale(0.3);
+        }
+      }
+
       .hero-logo {
         max-width: 400px;
         width: 100%;
         height: auto;
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-        transition: var(--transition-base);
-        /* Fire glow effect */
+        transition: transform 0.3s ease;
+        /* Fire glow effect - always glowing */
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))
+          drop-shadow(0 0 15px rgba(255, 69, 0, 0.5))
+          drop-shadow(0 0 25px rgba(255, 140, 0, 0.4))
+          drop-shadow(0 0 35px rgba(255, 165, 0, 0.3));
         animation: fireGlow 3s ease-in-out infinite alternate;
       }
 
       .hero-logo:hover {
         transform: scale(1.05);
-        filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
-        /* Enhanced fire glow on hover */
-        animation: fireGlowIntense 2s ease-in-out infinite alternate;
       }
 
       /* Fire glow animation keyframes */
@@ -397,30 +459,20 @@
             drop-shadow(0 0 20px rgba(255, 140, 0, 0.3))
             drop-shadow(0 0 30px rgba(255, 165, 0, 0.2));
         }
-        100% {
+        50% {
           filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))
             drop-shadow(0 0 15px rgba(255, 69, 0, 0.6))
             drop-shadow(0 0 25px rgba(255, 140, 0, 0.4))
             drop-shadow(0 0 35px rgba(255, 165, 0, 0.3))
             drop-shadow(0 0 45px rgba(255, 215, 0, 0.2));
         }
-      }
-
-      @keyframes fireGlowIntense {
-        0% {
-          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))
-            drop-shadow(0 0 20px rgba(255, 69, 0, 0.7))
-            drop-shadow(0 0 30px rgba(255, 140, 0, 0.5))
-            drop-shadow(0 0 40px rgba(255, 165, 0, 0.4))
-            drop-shadow(0 0 50px rgba(255, 215, 0, 0.3));
-        }
         100% {
-          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))
-            drop-shadow(0 0 25px rgba(255, 69, 0, 0.8))
-            drop-shadow(0 0 35px rgba(255, 140, 0, 0.6))
-            drop-shadow(0 0 45px rgba(255, 165, 0, 0.5))
-            drop-shadow(0 0 55px rgba(255, 215, 0, 0.4))
-            drop-shadow(0 0 65px rgba(255, 99, 71, 0.3));
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))
+            drop-shadow(0 0 20px rgba(255, 69, 0, 0.8))
+            drop-shadow(0 0 30px rgba(255, 140, 0, 0.6))
+            drop-shadow(0 0 40px rgba(255, 165, 0, 0.5))
+            drop-shadow(0 0 50px rgba(255, 215, 0, 0.4))
+            drop-shadow(0 0 60px rgba(255, 99, 71, 0.3));
         }
       }
       .hero-title-sub {
@@ -434,24 +486,35 @@
         margin-top: 0.35rem;
         margin-bottom: 0.75rem;
         text-align: center;
-        color: var(--gray-100);
-        font-weight: 600;
-        letter-spacing: 0.4px;
-        opacity: 0.95;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        opacity: 0.98;
       }
       .hero-subheader #hero-subheader-text {
         display: inline-block;
+        position: relative;
+        color: #ffd700;
+        -webkit-text-stroke: 3px #000000;
+        text-stroke: 3px #000000;
+        paint-order: stroke fill;
+        text-shadow: 0 0 6px rgba(255, 215, 0, 0.7),
+          0 0 14px rgba(255, 215, 0, 0.5), 0 0 22px rgba(255, 215, 0, 0.35);
         animation: subheaderPulse 2.6s ease-in-out infinite;
       }
       @keyframes subheaderPulse {
         0%,
         100% {
-          opacity: 0.8;
-          transform: translateY(0);
+          opacity: 0.85;
+          transform: scale(1) translateY(0);
+          text-shadow: 0 0 6px rgba(255, 215, 0, 0.7),
+            0 0 14px rgba(255, 215, 0, 0.5), 0 0 22px rgba(255, 215, 0, 0.35);
         }
         50% {
           opacity: 1;
-          transform: translateY(-2px);
+          transform: scale(1.05) translateY(-2px);
+          text-shadow: 0 0 10px rgba(255, 215, 0, 0.9),
+            0 0 20px rgba(255, 215, 0, 0.7), 0 0 30px rgba(255, 215, 0, 0.5),
+            0 0 40px rgba(255, 215, 0, 0.3);
         }
       }
       .hero-description {
@@ -2612,13 +2675,16 @@
         </div>
         <div class="hero-content">
           <h1 class="hero-title-main">
-            <img
-              src="media/Logo.png"
-              alt="Windhelm"
-              class="hero-logo"
-              fetchpriority="high"
-              draggable="false"
-            />
+            <div class="logo-fire-container">
+              <div class="fire-particles"></div>
+              <img
+                src="media/Logo.png"
+                alt="Windhelm"
+                class="hero-logo"
+                fetchpriority="high"
+                draggable="false"
+              />
+            </div>
           </h1>
           <div class="hero-subheader" aria-live="polite" aria-atomic="true">
             <span id="hero-subheader-text">Preparing your destiny...</span>
@@ -3755,6 +3821,41 @@
       console.log(
         `Windhelm site loaded successfully! Version: ${SITE_VERSION}`
       );
+
+      // ===== FIRE PARTICLES FOR LOGO =====
+      function createFireParticles() {
+        const fireContainer = document.querySelector(".fire-particles");
+        if (!fireContainer) return;
+
+        // Create multiple fire particles
+        for (let i = 0; i < 12; i++) {
+          const particle = document.createElement("div");
+          particle.className = "fire-particle";
+
+          // Random horizontal position
+          const xPos = 10 + Math.random() * 80;
+          particle.style.left = `${xPos}%`;
+
+          // Random animation delay
+          const delay = Math.random() * 2;
+          particle.style.animationDelay = `${delay}s`;
+
+          // Random horizontal drift
+          particle.style.setProperty(
+            "--particle-x",
+            `${(Math.random() - 0.5) * 40}px`
+          );
+
+          fireContainer.appendChild(particle);
+        }
+      }
+
+      // Initialize fire particles when DOM is ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", createFireParticles);
+      } else {
+        createFireParticles();
+      }
 
       // ===== MOBILE NAVIGATION =====
       const navToggle = document.getElementById("nav-toggle");
