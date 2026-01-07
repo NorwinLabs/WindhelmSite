@@ -78,6 +78,12 @@
         scroll-behavior: smooth;
         font-size: 16px;
         scroll-padding-top: 80px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }
+
+      * {
+        scroll-behavior: smooth;
       }
 
       @media (min-width: 768px) {
@@ -97,6 +103,68 @@
         cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><defs><linearGradient id="bronze" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23CD7F32;stop-opacity:1" /><stop offset="30%" style="stop-color:%23B8860B;stop-opacity:1" /><stop offset="70%" style="stop-color:%23A0522D;stop-opacity:1" /><stop offset="100%" style="stop-color:%23654321;stop-opacity:1" /></linearGradient></defs><path d="M2 2 L2 18 L7 13 L10 13 L15 22 L17 21 L12 12 L15 12 L2 2 Z" fill="url(%23bronze)" stroke="%232F1B14" stroke-width="0.5"/></svg>')
             2 2,
           auto;
+      }
+
+      /* Custom Scrollbar Styles */
+      ::-webkit-scrollbar {
+        width: 14px;
+        height: 14px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: linear-gradient(
+          to bottom,
+          rgba(30, 27, 75, 0.3),
+          rgba(49, 46, 129, 0.3)
+        );
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+          135deg,
+          #cd7f32 0%,
+          #b8860b 30%,
+          #a0522d 70%,
+          #654321 100%
+        );
+        border-radius: 10px;
+        border: 2px solid rgba(30, 27, 75, 0.5);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(
+          135deg,
+          #daa520 0%,
+          #cd7f32 30%,
+          #b8860b 70%,
+          #a0522d 100%
+        );
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+
+      ::-webkit-scrollbar-thumb:active {
+        background: linear-gradient(
+          135deg,
+          #a0522d 0%,
+          #654321 30%,
+          #8b4513 70%,
+          #654321 100%
+        );
+      }
+
+      ::-webkit-scrollbar-corner {
+        background: rgba(30, 27, 75, 0.3);
+      }
+
+      /* Firefox Scrollbar */
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #b8860b rgba(30, 27, 75, 0.3);
       }
 
       .container {
@@ -168,6 +236,7 @@
           var(--hero-gradient-end)
         );
         overflow: hidden;
+        scroll-snap-align: start;
       }
 
       .hero-content {
@@ -247,6 +316,7 @@
           <div class="nav-menu" id="nav-menu">
             <a href="#home" class="nav-link">Home</a>
             <a href="#features" class="nav-link">Features</a>
+            <a href="#gallery" class="nav-link">Gallery</a>
             <a href="#team" class="nav-link">Team</a>
             <a href="#contact" class="nav-link">Contact</a>
           </div>
@@ -398,7 +468,138 @@
 
           <div class="features-showcase">
             <!-- Hero Feature Card -->
-            <div class="hero-feature-card">
+            <div
+              class="hero-feature-card"
+              style="position: relative; overflow: visible"
+            >
+              <style>
+                .hero-feature-card {
+                  position: relative;
+                  background: linear-gradient(
+                    135deg,
+                    rgba(16, 185, 129, 0.15) 0%,
+                    rgba(15, 23, 42, 0.98) 20%,
+                    rgba(15, 23, 42, 0.95) 80%,
+                    rgba(16, 185, 129, 0.15) 100%
+                  ) !important;
+                  border: 2px solid rgba(16, 185, 129, 0.3) !important;
+                  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                    0 0 40px rgba(16, 185, 129, 0.2),
+                    inset 0 1px 0 rgba(16, 185, 129, 0.2) !important;
+                }
+
+                .hero-feature-card::after {
+                  content: "";
+                  position: absolute;
+                  top: -2px;
+                  left: -2px;
+                  right: -2px;
+                  bottom: -2px;
+                  background: linear-gradient(
+                    45deg,
+                    #10b981,
+                    #14b8a6,
+                    #06b6d4,
+                    #10b981
+                  );
+                  border-radius: inherit;
+                  z-index: -1;
+                  opacity: 0;
+                  transition: opacity 0.3s ease;
+                  animation: borderGlow 3s linear infinite;
+                  background-size: 200% 200%;
+                }
+
+                .hero-feature-card:hover::after {
+                  opacity: 0.6;
+                }
+
+                @keyframes borderGlow {
+                  0% {
+                    background-position: 0% 50%;
+                  }
+                  50% {
+                    background-position: 100% 50%;
+                  }
+                  100% {
+                    background-position: 0% 50%;
+                  }
+                }
+
+                .hero-feature-icon {
+                  position: relative;
+                  animation: iconPulse 2s ease-in-out infinite;
+                }
+
+                @keyframes iconPulse {
+                  0%,
+                  100% {
+                    transform: scale(1);
+                    filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));
+                  }
+                  50% {
+                    transform: scale(1.1);
+                    filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.8));
+                  }
+                }
+
+                .hero-feature-card h3 {
+                  position: relative;
+                  background: linear-gradient(
+                    135deg,
+                    #10b981,
+                    #14b8a6,
+                    #06b6d4
+                  );
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  background-clip: text;
+                  animation: titleShimmer 3s ease-in-out infinite;
+                  background-size: 200% auto;
+                }
+
+                @keyframes titleShimmer {
+                  0%,
+                  100% {
+                    background-position: 0% center;
+                  }
+                  50% {
+                    background-position: 100% center;
+                  }
+                }
+
+                .hero-feature-card .stat-number {
+                  font-size: 2.5rem;
+                  font-weight: 800;
+                  text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+                }
+
+                .hero-feature-stats {
+                  gap: var(--space-12);
+                  padding: var(--space-6);
+                  background: linear-gradient(
+                    135deg,
+                    rgba(16, 185, 129, 0.1),
+                    rgba(6, 182, 212, 0.1)
+                  );
+                  border-radius: var(--border-radius-lg);
+                  border: 1px solid rgba(16, 185, 129, 0.2);
+                  margin-top: var(--space-6);
+                }
+
+                .floating-elements {
+                  position: relative;
+                  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.6));
+                }
+
+                .floating-quest,
+                .floating-sword,
+                .floating-magic,
+                .floating-treasure {
+                  font-size: 3rem;
+                  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+                }
+              </style>
               <div class="hero-feature-content">
                 <div class="hero-feature-icon">
                   <svg
@@ -453,36 +654,88 @@
                     </defs>
                   </svg>
                 </div>
-                <h3>🎁 Free Lifetime Updates Forever</h3>
-                <p>
-                  Buy once, enjoy forever! Every future update, content drop,
-                  and new content is
-                  <strong style="color: #10b981">100% FREE</strong>. No hidden
-                  costs, no subscriptions, no microtransactions. We're committed
-                  to continuously improving and expanding Windhelm for years to
-                  come - all included in your single purchase!
+                <h3>Free Lifetime Updates Forever</h3>
+                <p style="font-size: 1.15rem; line-height: 1.8">
+                  <strong>Buy once, enjoy forever!</strong> Every future update,
+                  expansion, feature, and content drop is
+                  <strong
+                    style="
+                      color: #10b981;
+                      font-size: 1.25rem;
+                      text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+                    "
+                    >100% FREE</strong
+                  >.
+                  <span
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        rgba(16, 185, 129, 0.2),
+                        rgba(6, 182, 212, 0.2)
+                      );
+                      padding: 0.2em 0.5em;
+                      border-radius: 4px;
+                      border: 1px solid rgba(16, 185, 129, 0.3);
+                    "
+                  >
+                    Zero hidden costs. Zero subscriptions. Zero
+                    microtransactions.
+                  </span>
+                  <br /><br />
+                  We're committed to continuously improving and expanding
+                  Windhelm for years to come -
+                  <em style="color: #14b8a6"
+                    >all included in your single purchase!</em
+                  >
                 </p>
                 <div class="hero-feature-stats">
                   <div class="stat">
-                    <span class="stat-number">FREE</span>
+                    <span
+                      class="stat-number"
+                      style="
+                        background: linear-gradient(135deg, #10b981, #14b8a6);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                      "
+                      >FREE</span
+                    >
                     <span class="stat-label">All Updates</span>
                   </div>
                   <div class="stat">
-                    <span class="stat-number">∞</span>
-                    <span class="stat-label">Support</span>
+                    <span
+                      class="stat-number"
+                      style="
+                        background: linear-gradient(135deg, #14b8a6, #06b6d4);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                      "
+                      >∞</span
+                    >
+                    <span class="stat-label">Lifetime Support</span>
                   </div>
                   <div class="stat">
-                    <span class="stat-number">$0</span>
-                    <span class="stat-label">Extra Cost</span>
+                    <span
+                      class="stat-number"
+                      style="
+                        background: linear-gradient(135deg, #06b6d4, #10b981);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                      "
+                      >$0</span
+                    >
+                    <span class="stat-label">Extra Costs</span>
                   </div>
                 </div>
               </div>
               <div class="hero-feature-visual">
                 <div class="floating-elements">
-                  <div class="floating-quest">🎁</div>
-                  <div class="floating-sword">✨</div>
-                  <div class="floating-magic">🆓</div>
-                  <div class="floating-treasure">💚</div>
+                  <div class="floating-quest"></div>
+                  <div class="floating-sword"></div>
+                  <div class="floating-magic"></div>
+                  <div class="floating-treasure"></div>
                 </div>
               </div>
             </div>
@@ -865,7 +1118,7 @@
       <section id="roadmap" class="roadmap section-animate">
         <div class="container">
           <header class="section-header">
-            <h2 class="section-title">Development Roadmap</h2>
+            <h2 class="section-title">Development Board</h2>
             <p class="section-subtitle">
               Track our progress in real-time - we build in public!
             </p>
@@ -894,6 +1147,423 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <!-- Media Gallery Section -->
+      <section id="gallery" class="gallery section-animate">
+        <style>
+          .gallery {
+            padding: var(--space-20) 0;
+            background-image: url("media/islandbg.png?v=1"),
+              linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95));
+            background-repeat: repeat, no-repeat;
+            background-size: auto, cover;
+            background-position: 0 0, 0 0;
+            background-blend-mode: overlay;
+            backdrop-filter: blur(10px);
+            position: relative;
+            animation: islandPan 60s linear infinite;
+          }
+
+          .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: var(--space-8);
+          }
+
+          .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius-lg);
+            cursor: pointer;
+            aspect-ratio: 16/9;
+            background: linear-gradient(
+              135deg,
+              rgba(30, 41, 59, 0.85),
+              rgba(17, 24, 39, 0.8)
+            );
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+          }
+
+          .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+            border-color: rgba(255, 255, 255, 0.15);
+          }
+
+          .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+          }
+
+          .gallery-item:hover img {
+            transform: scale(1.05);
+          }
+
+          .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(
+              to top,
+              rgba(0, 0, 0, 0.9) 0%,
+              rgba(0, 0, 0, 0.6) 50%,
+              transparent 100%
+            );
+            color: white;
+            padding: 1rem;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+          }
+
+          .gallery-item-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+          }
+
+          .gallery-item-caption {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0.25rem 0 0 0;
+          }
+
+          /* Lightbox Styles */
+          .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+          }
+
+          .lightbox.active {
+            display: flex;
+          }
+
+          .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            animation: lightboxZoomIn 0.3s ease;
+          }
+
+          @keyframes lightboxZoomIn {
+            from {
+              transform: scale(0.8);
+              opacity: 0;
+            }
+            to {
+              transform: scale(1);
+              opacity: 1;
+            }
+          }
+
+          .lightbox-image {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+          }
+
+          .lightbox-caption {
+            text-align: center;
+            color: white;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+          }
+
+          .lightbox-close {
+            position: absolute;
+            top: -3rem;
+            right: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+          }
+
+          .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+          }
+
+          .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+          }
+
+          .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+          }
+
+          .lightbox-prev {
+            left: -5rem;
+          }
+
+          .lightbox-next {
+            right: -5rem;
+          }
+
+          @media (max-width: 768px) {
+            .gallery-grid {
+              grid-template-columns: 1fr;
+              gap: 1rem;
+            }
+
+            .lightbox {
+              padding: 1rem;
+            }
+
+            .lightbox-nav {
+              display: none;
+            }
+
+            .lightbox-close {
+              top: 1rem;
+              right: 1rem;
+            }
+          }
+        </style>
+
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title">Gallery</h2>
+            <p class="section-subtitle">
+              Explore the breathtaking world of Windhelm through stunning
+              screenshots and artwork
+            </p>
+          </header>
+
+          <div class="gallery-grid">
+            <div class="gallery-item" data-index="0">
+              <img
+                src="media/Grasslandoverlook1.png"
+                alt="Grassland Overlook"
+                loading="lazy"
+              />
+              <div class="gallery-item-overlay">
+                <h3 class="gallery-item-title">Grassland Overlook</h3>
+                <p class="gallery-item-caption">
+                  A serene view across the rolling hills
+                </p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-index="1">
+              <img src="media/2.png" alt="Game Screenshot 2" loading="lazy" />
+              <div class="gallery-item-overlay">
+                <h3 class="gallery-item-title">Epic Adventure</h3>
+                <p class="gallery-item-caption">
+                  Journey through mystical landscapes
+                </p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-index="2">
+              <img src="media/3.png" alt="Game Screenshot 3" loading="lazy" />
+              <div class="gallery-item-overlay">
+                <h3 class="gallery-item-title">Dynamic Encounters</h3>
+                <p class="gallery-item-caption">
+                  Every playthrough brings new challenges
+                </p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-index="3">
+              <img src="media/4.png" alt="Game Screenshot 4" loading="lazy" />
+              <div class="gallery-item-overlay">
+                <h3 class="gallery-item-title">Rich Environments</h3>
+                <p class="gallery-item-caption">
+                  Immersive world-building at its finest
+                </p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-index="4">
+              <img src="media/5.png" alt="Game Screenshot 5" loading="lazy" />
+              <div class="gallery-item-overlay">
+                <h3 class="gallery-item-title">Story-Driven Gameplay</h3>
+                <p class="gallery-item-caption">
+                  Your choices shape the narrative
+                </p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-index="5">
+              <img
+                src="media/1920x622CenteredLogo.jpg"
+                alt="Windhelm Banner"
+                loading="lazy"
+              />
+              <div class="gallery-item-overlay">
+                <h3 class="gallery-item-title">Windhelm</h3>
+                <p class="gallery-item-caption">An epic RPG adventure awaits</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+          <div class="lightbox-content">
+            <button
+              class="lightbox-close"
+              id="lightbox-close"
+              aria-label="Close lightbox"
+            >
+              ×
+            </button>
+            <button
+              class="lightbox-nav lightbox-prev"
+              id="lightbox-prev"
+              aria-label="Previous image"
+            >
+              ‹
+            </button>
+            <img src="" alt="" class="lightbox-image" id="lightbox-image" />
+            <button
+              class="lightbox-nav lightbox-next"
+              id="lightbox-next"
+              aria-label="Next image"
+            >
+              ›
+            </button>
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+          </div>
+        </div>
+
+        <script>
+          // Gallery Lightbox Functionality
+          (function () {
+            const galleryItems = document.querySelectorAll(".gallery-item");
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImage = document.getElementById("lightbox-image");
+            const lightboxCaption = document.getElementById("lightbox-caption");
+            const lightboxClose = document.getElementById("lightbox-close");
+            const lightboxPrev = document.getElementById("lightbox-prev");
+            const lightboxNext = document.getElementById("lightbox-next");
+            let currentIndex = 0;
+
+            const galleryData = Array.from(galleryItems).map((item) => ({
+              src: item.querySelector("img").src,
+              alt: item.querySelector("img").alt,
+              title:
+                item.querySelector(".gallery-item-title")?.textContent || "",
+              caption:
+                item.querySelector(".gallery-item-caption")?.textContent || "",
+            }));
+
+            function openLightbox(index) {
+              currentIndex = index;
+              updateLightboxContent();
+              lightbox.classList.add("active");
+              document.body.style.overflow = "hidden";
+            }
+
+            function closeLightbox() {
+              lightbox.classList.remove("active");
+              document.body.style.overflow = "";
+            }
+
+            function updateLightboxContent() {
+              const item = galleryData[currentIndex];
+              lightboxImage.src = item.src;
+              lightboxImage.alt = item.alt;
+              lightboxCaption.innerHTML = `<strong>${item.title}</strong><br>${item.caption}`;
+            }
+
+            function showNext() {
+              currentIndex = (currentIndex + 1) % galleryData.length;
+              updateLightboxContent();
+            }
+
+            function showPrev() {
+              currentIndex =
+                (currentIndex - 1 + galleryData.length) % galleryData.length;
+              updateLightboxContent();
+            }
+
+            // Event listeners
+            galleryItems.forEach((item, index) => {
+              item.addEventListener("click", () => openLightbox(index));
+              item.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  openLightbox(index);
+                }
+              });
+              item.setAttribute("tabindex", "0");
+              item.setAttribute("role", "button");
+            });
+
+            lightboxClose.addEventListener("click", closeLightbox);
+            lightboxNext.addEventListener("click", showNext);
+            lightboxPrev.addEventListener("click", showPrev);
+
+            // Close on background click
+            lightbox.addEventListener("click", (e) => {
+              if (e.target === lightbox) {
+                closeLightbox();
+              }
+            });
+
+            // Keyboard navigation
+            document.addEventListener("keydown", (e) => {
+              if (!lightbox.classList.contains("active")) return;
+
+              switch (e.key) {
+                case "Escape":
+                  closeLightbox();
+                  break;
+                case "ArrowRight":
+                  showNext();
+                  break;
+                case "ArrowLeft":
+                  showPrev();
+                  break;
+              }
+            });
+          })();
+        </script>
       </section>
 
       <!-- Team Section -->
@@ -1273,7 +1943,7 @@
             <p>©2025 NorwinLabs LLC. All rights reserved.</p>
           </div>
           <div class="footer-version">
-            <p>v1.0.0</p>
+            <p>v1.2.2</p>
           </div>
         </div>
       </div>
