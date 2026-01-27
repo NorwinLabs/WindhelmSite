@@ -18,6 +18,23 @@
       name="keywords"
       content="Windhelm, RPG, role playing game, adventure game, procedurally generated, story-driven, dynamic quests, narrative RPG, indie game, Steam, fantasy RPG, epic adventure, legendary heroes, infinite replayability, NorwinLabs"
     />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://windhelm.com/" />
+    <meta property="og:title" content="Windhelm® - Epic Story-Driven RPG with Free Lifetime Updates" />
+    <meta property="og:description" content="Epic procedurally generated story-driven RPG with dynamic quests, legendary heroes, and FREE lifetime updates. Infinite replayability where every playthrough tells a unique story. Wishlist now on Steam!" />
+    <meta property="og:image" content="https://windhelm.com/media/1920x622CenteredLogo.jpg" />
+    <meta property="og:site_name" content="Windhelm" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://windhelm.com/" />
+    <meta property="twitter:title" content="Windhelm® - Epic Story-Driven RPG with Free Lifetime Updates" />
+    <meta property="twitter:description" content="Epic procedurally generated story-driven RPG with dynamic quests, legendary heroes, and FREE lifetime updates. Wishlist now on Steam!" />
+    <meta property="twitter:image" content="https://windhelm.com/media/1920x622CenteredLogo.jpg" />
+    <meta property="twitter:creator" content="@NorwinLabs" />
+    
     <title>Windhelm® - Coming to PC, PlayStation, Xbox, and Switch</title>
 
     <!-- Theme color for mobile browsers -->
@@ -38,7 +55,8 @@
     <!-- Performance hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="//api.steampowered.com" />
+    <link rel="dns-prefetch" href="//gamalytic.com" />
+    <link rel="dns-prefetch" href="//discord.com" />
     <link rel="dns-prefetch" href="//www.youtube.com" />
 
     <!-- Critical CSS - Minimal inline for fastest first paint -->
@@ -247,6 +265,199 @@
         height: auto;
       }
 
+      /* Standardized Section Styles */
+      .section-animate {
+        padding: 5rem 0;
+        position: relative;
+      }
+
+      .discord-section {
+        background: linear-gradient(135deg, rgba(88, 101, 242, 0.15), rgba(114, 137, 218, 0.15));
+        text-align: center;
+      }
+
+      .discord-section .container {
+        max-width: 800px;
+      }
+
+      .discord-section .section-title {
+        color: #1e293b;
+      }
+
+      .discord-section .section-subtitle {
+        color: #334155;
+      }
+
+      .characters,
+      .press {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.95));
+      }
+
+      .stats {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(17, 24, 39, 0.95));
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #e2e8f0;
+        margin-bottom: 1rem;
+      }
+
+      .section-subtitle {
+        color: #94a3b8;
+        font-size: 1.2rem;
+        line-height: 1.8;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Character Showcase Styles */
+      .character-carousel {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .character-slide {
+        text-align: center;
+      }
+
+      .character-icon {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto 2rem;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(147, 51, 234, 0.2));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid rgba(37, 99, 235, 0.5);
+        font-size: 8rem;
+      }
+
+      .character-name {
+        font-size: 2rem;
+        color: #e2e8f0;
+        margin-bottom: 1rem;
+      }
+
+      .character-description {
+        color: #94a3b8;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+
+      .character-note {
+        text-align: center;
+        color: #64748b;
+        margin-top: 3rem;
+        font-style: italic;
+      }
+
+      /* Statistics Styles */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .stat-box {
+        text-align: center;
+      }
+
+      .stat-value {
+        font-size: 3rem;
+        font-weight: 800;
+        color: #e2e8f0;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Fallback for browsers that don't support gradient text */
+      @supports not (background-clip: text) {
+        .stat-value {
+          color: #3b82f6;
+        }
+      }
+
+      .stat-label {
+        color: #94a3b8;
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      /* Press Kit Styles */
+      .press-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .press-card {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(17, 24, 39, 0.85));
+        border-radius: 1rem;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: transform 0.3s ease;
+      }
+
+      .press-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .press-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .press-card h3 {
+        color: #e2e8f0;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .press-card p {
+        color: #94a3b8;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .press-download {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.3s;
+      }
+
+      .press-download:hover {
+        background: var(--primary-dark);
+      }
+
+      /* Discord Stats */
+      .discord-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin: 3rem 0;
+        flex-wrap: wrap;
+      }
+
       /* Skip to content for accessibility */
       .skip-link {
         position: absolute;
@@ -414,10 +625,10 @@
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Wishlist Windhelm on Steam"
-              >🎮 Wishlist on Steam!</a
+              >Wishlist on Steam!</a
             >
             <a href="#features" class="cta-button secondary"
-              >✨ Discover Features</a
+              >Discover Features</a
             >
           </div>
 
@@ -430,15 +641,57 @@
               height="190"
               loading="lazy"
               style="
-                max-width: 100%;
+                width: 100%;
+                max-width: 646px;
+                height: 190px;
                 border-radius: 12px;
                 box-shadow: 0 6px 32px #000a;
                 margin: 2rem auto 0 auto;
                 background: #171a21;
+                display: block;
               "
               title="Windhelm on Steam"
               allowtransparency="true"
             ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Discord Community Section -->
+      <section id="discord" class="discord-section section-animate">
+        <div class="container">
+          <header class="section-header">
+            <div style="font-size: 5rem; margin-bottom: 2rem;">
+              <svg width="80" height="80" viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z" fill="#5865F2"/>
+              </svg>
+            </div>
+            <h2 class="section-title">Join Our Community</h2>
+            <p class="section-subtitle">
+              Connect with fellow adventurers, get exclusive updates, and shape the future of Windhelm!
+            </p>
+          </header>
+          <div class="discord-stats" style="display: flex; justify-content: center; gap: 3rem; margin: 3rem 0; flex-wrap: wrap;">
+            <div style="text-align: center;">
+              <div id="discord-member-count" style="font-size: 2.5rem; font-weight: 800; color: #5865F2;">Loading...</div>
+              <div style="color: #1e293b; font-weight: 600;">Community Members</div>
+            </div>
+            <div style="text-align: center;">
+              <div id="discord-online-count" style="font-size: 2.5rem; font-weight: 800; color: #5865F2;">24/7</div>
+              <div style="color: #1e293b; font-weight: 600;">Active Chat</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 2.5rem; font-weight: 800; color: #5865F2;">🔥</div>
+              <div style="color: #1e293b; font-weight: 600;">Exclusive Content</div>
+            </div>
+          </div>
+          <div style="text-align: center;">
+            <a href="https://discord.gg/PgGA8Zsj4g" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2rem; background: #5865F2; color: white; border-radius: 0.75rem; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(88, 101, 242, 0.4);">
+              <svg width="24" height="24" viewBox="0 0 71 55" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z"/>
+              </svg>
+              Join Discord Server
+            </a>
           </div>
         </div>
       </section>
@@ -502,10 +755,6 @@
                   transition: opacity 0.3s ease;
                   animation: borderGlow 3s linear infinite;
                   background-size: 200% 200%;
-                }
-
-                .hero-feature-card:hover::after {
-                  opacity: 0.6;
                 }
 
                 @keyframes borderGlow {
@@ -648,39 +897,9 @@
                     </defs>
                   </svg>
                 </div>
-                <h3>Free Lifetime Updates Forever</h3>
-                <p style="font-size: 1.15rem; line-height: 1.8">
-                  <strong>Buy once, enjoy forever!</strong> Every future update,
-                  expansion, feature, and content drop is
-                  <strong
-                    style="
-                      color: #10b981;
-                      font-size: 1.25rem;
-                      text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-                    "
-                    >100% FREE</strong
-                  >.
-                  <span
-                    style="
-                      background: linear-gradient(
-                        135deg,
-                        rgba(16, 185, 129, 0.2),
-                        rgba(6, 182, 212, 0.2)
-                      );
-                      padding: 0.2em 0.5em;
-                      border-radius: 4px;
-                      border: 1px solid rgba(16, 185, 129, 0.3);
-                    "
-                  >
-                    Zero hidden costs. Zero subscriptions. Zero
-                    microtransactions.
-                  </span>
-                  <br /><br />
-                  We're committed to continuously improving and expanding
-                  Windhelm for years to come -
-                  <em style="color: #14b8a6"
-                    >all included in your single purchase!</em
-                  >
+                <h3>Free Lifetime Updates</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8">
+                  Buy once, enjoy forever. Every future update, expansion, and content drop is completely free - no subscriptions, no microtransactions, no hidden costs.
                 </p>
                 <div class="hero-feature-stats">
                   <div class="stat">
@@ -692,9 +911,9 @@
                         -webkit-text-fill-color: transparent;
                         background-clip: text;
                       "
-                      >FREE</span
+                      >100%</span
                     >
-                    <span class="stat-label">All Updates</span>
+                    <span class="stat-label">Free Content</span>
                   </div>
                   <div class="stat">
                     <span
@@ -705,9 +924,9 @@
                         -webkit-text-fill-color: transparent;
                         background-clip: text;
                       "
-                      >∞</span
+                      >$0</span
                     >
-                    <span class="stat-label">Lifetime Support</span>
+                    <span class="stat-label">Extra Costs</span>
                   </div>
                   <div class="stat">
                     <span
@@ -718,9 +937,9 @@
                         -webkit-text-fill-color: transparent;
                         background-clip: text;
                       "
-                      >$0</span
+                      >∞</span
                     >
-                    <span class="stat-label">Extra Costs</span>
+                    <span class="stat-label">Lifetime Support</span>
                   </div>
                 </div>
               </div>
@@ -1112,9 +1331,7 @@
       <section id="roadmap" class="roadmap section-animate">
         <div class="container">
           <header class="section-header">
-            <h2 class="section-title">Development Board</h2>
-            <p class="section-subtitle">
-              Track our progress in real-time - we build in public!
+            <h2 class="section-title">Dev Board</h2>
             </p>
           </header>
 
@@ -1161,9 +1378,10 @@
 
           .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, 420px);
             gap: 1.5rem;
             margin-top: var(--space-8);
+            justify-content: center;
           }
 
           .gallery-item {
@@ -1171,12 +1389,9 @@
             overflow: hidden;
             border-radius: var(--border-radius-lg);
             cursor: pointer;
-            aspect-ratio: 16/9;
-            background: linear-gradient(
-              135deg,
-              rgba(30, 41, 59, 0.85),
-              rgba(17, 24, 39, 0.8)
-            );
+            width: 420px;
+            height: 240px;
+            background: rgba(17, 24, 39, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             transition: all 0.3s ease;
@@ -1192,7 +1407,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             transition: transform 0.3s ease;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
           }
 
           .gallery-item:hover img {
@@ -1206,27 +1427,31 @@
             right: 0;
             background: linear-gradient(
               to top,
-              rgba(0, 0, 0, 0.9) 0%,
-              rgba(0, 0, 0, 0.6) 50%,
+              rgba(0, 0, 0, 0.85) 0%,
+              rgba(0, 0, 0, 0.4) 40%,
               transparent 100%
             );
             color: white;
-            padding: 1rem;
+            padding: 0.75rem 1rem;
             transform: translateY(0);
             transition: transform 0.3s ease;
+            z-index: 20;
+            pointer-events: none;
           }
 
           .gallery-item-title {
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
             margin: 0;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.8);
+            color: #ffffff;
           }
 
           .gallery-item-caption {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.95);
             margin: 0.25rem 0 0 0;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
           }
 
           /* Lightbox Styles */
@@ -1250,8 +1475,8 @@
 
           .lightbox-content {
             position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
+            width: 1120px;
+            height: 640px;
             animation: lightboxZoomIn 0.3s ease;
           }
 
@@ -1267,9 +1492,10 @@
           }
 
           .lightbox-image {
-            max-width: 100%;
-            max-height: 85vh;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             border-radius: var(--border-radius-lg);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
           }
@@ -1361,10 +1587,6 @@
         <div class="container">
           <header class="section-header">
             <h2 class="section-title">Gallery</h2>
-            <p class="section-subtitle">
-              Explore the breathtaking world of Windhelm through stunning
-              screenshots and artwork
-            </p>
           </header>
 
           <div class="gallery-grid">
@@ -1372,7 +1594,6 @@
               <img
                 src="media/Grasslandoverlook1.png"
                 alt="Grassland Overlook"
-                loading="lazy"
               />
               <div class="gallery-item-overlay">
                 <h3 class="gallery-item-title">Grassland Overlook</h3>
@@ -1383,7 +1604,7 @@
             </div>
 
             <div class="gallery-item" data-index="1">
-              <img src="media/2.png" alt="Game Screenshot 2" loading="lazy" />
+              <img src="media/2.png" alt="Game Screenshot 2" />
               <div class="gallery-item-overlay">
                 <h3 class="gallery-item-title">Epic Adventure</h3>
                 <p class="gallery-item-caption">
@@ -1393,7 +1614,7 @@
             </div>
 
             <div class="gallery-item" data-index="2">
-              <img src="media/3.png" alt="Game Screenshot 3" loading="lazy" />
+              <img src="media/3.png" alt="Game Screenshot 3" />
               <div class="gallery-item-overlay">
                 <h3 class="gallery-item-title">Dynamic Encounters</h3>
                 <p class="gallery-item-caption">
@@ -1403,7 +1624,7 @@
             </div>
 
             <div class="gallery-item" data-index="3">
-              <img src="media/4.png" alt="Game Screenshot 4" loading="lazy" />
+              <img src="media/4.png" alt="Game Screenshot 4" />
               <div class="gallery-item-overlay">
                 <h3 class="gallery-item-title">Rich Environments</h3>
                 <p class="gallery-item-caption">
@@ -1413,7 +1634,7 @@
             </div>
 
             <div class="gallery-item" data-index="4">
-              <img src="media/5.png" alt="Game Screenshot 5" loading="lazy" />
+              <img src="media/5.png" alt="Game Screenshot 5" />
               <div class="gallery-item-overlay">
                 <h3 class="gallery-item-title">Story-Driven Gameplay</h3>
                 <p class="gallery-item-caption">
@@ -1426,7 +1647,6 @@
               <img
                 src="media/1920x622CenteredLogo.jpg"
                 alt="Windhelm Banner"
-                loading="lazy"
               />
               <div class="gallery-item-overlay">
                 <h3 class="gallery-item-title">Windhelm</h3>
@@ -1574,15 +1794,17 @@
             <article class="team-member">
               <div class="member-image">
                 <picture>
-                  <!-- Modern formats (ready for optimization) -->
-                  <!-- <source srcset="images/Gavin1.webp" type="image/webp" /> -->
-                  <!-- Current working image -->
+                  <!-- Modern formats for better performance -->
+                  <source srcset="media/Gavin1.webp" type="image/webp" />
+                  <!-- Fallback for browsers without WebP support -->
                   <img
                     src="media/Gavin1.jpg"
-                    alt="Gavin Norwood"
+                    alt="Gavin Norwood - Creator and Developer of Windhelm"
                     loading="lazy"
                     decoding="async"
                     draggable="false"
+                    width="300"
+                    height="300"
                   />
                 </picture>
               </div>
@@ -1595,15 +1817,17 @@
             <article class="team-member">
               <div class="member-image">
                 <picture>
-                  <!-- Modern formats (ready for optimization) -->
-                  <!-- <source srcset="images/Kirstenjpg1.webp" type="image/webp" /> -->
-                  <!-- Current working image -->
+                  <!-- Modern formats for better performance -->
+                  <source srcset="media/Kirstenjpg1.webp" type="image/webp" />
+                  <!-- Fallback for browsers without WebP support -->
                   <img
                     src="media/Kirstenjpg1.jpg"
-                    alt="Kirsten Norwood"
+                    alt="Kirsten Norwood - Level Designer and Writer of Windhelm"
                     loading="lazy"
                     decoding="async"
                     draggable="false"
+                    width="300"
+                    height="300"
                   />
                 </picture>
               </div>
@@ -1613,16 +1837,68 @@
               </div>
             </article>
           </div>
+        </div>
+      </section>
 
-          <div class="supporters">
-            <h3>Early Backers / Patrons</h3>
-            <p><span class="supporter-name">Cody Palmer</span></p>
+      <!-- Statistics Section -->
+      <section id="stats" class="stats section-animate">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-box">
+              <div id="wishlist-count" class="stat-value" data-target="0" style="background-image: linear-gradient(135deg, #3b82f6, #8b5cf6);">Loading...</div>
+              <div class="stat-label">Wishlist Count</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value" data-target="100" style="background-image: linear-gradient(135deg, #10b981, #14b8a6);">0%</div>
+              <div class="stat-label">Free Content</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value" data-target="999" style="background-image: linear-gradient(135deg, #f59e0b, #ef4444);">∞</div>
+              <div class="stat-label">Replayability</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value" data-target="4" style="background-image: linear-gradient(135deg, #06b6d4, #3b82f6);">4</div>
+              <div class="stat-label">Platforms</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Press Kit Section -->
+      <section id="press" class="press section-animate">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title">Press Kit</h2>
+            <p class="section-subtitle">Resources for media and content creators</p>
+          </header>
+          
+          <div class="press-grid">
+            <div class="press-card">
+              <div class="press-icon">📄</div>
+              <h3>Fact Sheet</h3>
+              <p>Essential game information, features, and platform details.</p>
+              <a href="#" class="press-download">Download</a>
+            </div>
+            
+            <div class="press-card">
+              <div class="press-icon">🖼️</div>
+              <h3>Logos & Assets</h3>
+              <p>High-resolution logos, screenshots, and promotional artwork.</p>
+              <a href="#" class="press-download">Download</a>
+            </div>
+            
+            <div class="press-card">
+              <div class="press-icon">🎥</div>
+              <h3>Media Kit</h3>
+              <p>Trailers, gameplay footage, and promotional videos.</p>
+              <a href="#" class="press-download">Download</a>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- Contact Section -->
-      <section id="contact" class="contact section-animate">
+      <section id="contact" class="contact section-animate" style="padding-bottom: 5rem;">
         <script>
           // Smooth scroll - no pop-in animations
           document.addEventListener("DOMContentLoaded", function () {
@@ -1636,154 +1912,84 @@
         </script>
         <div class="container">
           <header class="section-header">
-            <h2 class="section-title">Let's Connect</h2>
+            <h2 class="section-title">Connect With Us</h2>
             <p class="section-subtitle">
-              Join our growing community! Have questions? Want early access
-              news? We'd love to hear from you!
+              Stay updated on development, join our community, and be part of the journey
             </p>
           </header>
 
-          <div class="contact-grid">
-            <!-- Contact Info Cards -->
-            <div class="contact-info">
-              <div class="contact-card">
-                <div class="contact-card-icon">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.019 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"
-                      fill="#5865F2"
-                    />
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+            <!-- Discord Card -->
+            <a href="https://discord.gg/PgGA8Zsj4g" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+              <div style="background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%); border-radius: 1rem; padding: 2.5rem 2rem; text-align: center; transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3); height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <div style="width: 70px; height: 70px; background: rgba(255, 255, 255, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                    <svg width="40" height="40" viewBox="0 0 71 55" fill="white" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z"/>
+                    </svg>
+                  </div>
+                  <h3 style="color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">Discord Community</h3>
+                  <p style="color: rgba(255, 255, 255, 0.9); line-height: 1.6; margin-bottom: 1.5rem;">Join <span id="discord-member-count-contact" style="font-weight: 700;">1,000+</span> members in our active community. Get exclusive dev updates, participate in events, and connect with fellow adventurers.</p>
+                </div>
+                <div style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.75rem; background: rgba(255, 255, 255, 0.2); border-radius: 0.5rem; font-weight: 600; color: white; backdrop-filter: blur(10px);">
+                  Join Server
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
-                <h3 class="contact-card-title">Join Our Discord</h3>
-                <p class="contact-card-text">
-                  Connect with our community, get live updates, and chat with
-                  the developers!
-                </p>
-                <a
-                  href="https://discord.gg/PgGA8Zsj4g"
-                  class="contact-card-link"
-                  target="_blank"
-                >
-                  Join Discord
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M7 17L17 7M17 7H7M17 7V17"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
               </div>
+            </a>
 
-              <div class="contact-card">
-                <div class="contact-card-icon">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
-                      fill="#FF0000"
-                    />
+            <!-- Steam Card -->
+            <a href="https://store.steampowered.com/app/2171040/Windhelm/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+              <div style="background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%); border-radius: 1rem; padding: 2.5rem 2rem; text-align: center; transition: all 0.3s ease; border: 2px solid rgba(102, 192, 244, 0.3); box-shadow: 0 10px 30px rgba(27, 40, 56, 0.5); height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <div style="width: 70px; height: 70px; background: rgba(102, 192, 244, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="#66c0f4">
+                      <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.62 20.51 6.363 24 11.979 24c6.624 0 11.979-5.354 11.979-11.979C23.958 5.354 18.603.001 11.979.001zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.66-1.353-3.015-3.015-3.015-1.665 0-3.015 1.355-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/>
+                    </svg>
+                  </div>
+                  <h3 style="color: #66c0f4; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">Wishlist on Steam</h3>
+                  <p style="color: #c7d5e0; line-height: 1.6; margin-bottom: 1.5rem;">Add Windhelm to your Steam wishlist and be notified the moment we launch. Get exclusive release discounts and early access opportunities.</p>
+                </div>
+                <div style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.75rem; background: #66c0f4; border-radius: 0.5rem; font-weight: 600; color: #1b2838;">
+                  Add to Wishlist
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
-                <h3 class="contact-card-title">YouTube Channel</h3>
-                <p class="contact-card-text">
-                  Watch development vlogs, gameplay previews, and
-                  behind-the-scenes content!
-                </p>
-                <a
-                  href="https://www.youtube.com/@NorwinLabs"
-                  class="contact-card-link"
-                  target="_blank"
-                >
-                  Watch Videos
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M7 17L17 7M17 7H7M17 7V17"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
               </div>
+            </a>
 
-              <div class="contact-card">
-                <div class="contact-card-icon">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                      fill="#00D924"
-                    />
+            <!-- YouTube Card -->
+            <a href="https://www.youtube.com/@NorwinLabs" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+              <div style="background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%); border-radius: 1rem; padding: 2.5rem 2rem; text-align: center; transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3); height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <div style="width: 70px; height: 70px; background: rgba(255, 255, 255, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                  </div>
+                  <h3 style="color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">YouTube Channel</h3>
+                  <p style="color: rgba(255, 255, 255, 0.9); line-height: 1.6; margin-bottom: 1.5rem;">Watch development vlogs, gameplay showcases, and behind-the-scenes content. New videos weekly covering game mechanics and lore.</p>
+                </div>
+                <div style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.75rem; background: rgba(255, 255, 255, 0.2); border-radius: 0.5rem; font-weight: 600; color: white; backdrop-filter: blur(10px);">
+                  Subscribe Now
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
-                <h3 class="contact-card-title">Wishlist on Steam</h3>
-                <p class="contact-card-text">
-                  Add Windhelm to your Steam wishlist to get notified when we
-                  launch!
-                </p>
-                <a
-                  href="https://store.steampowered.com/app/2171040/Windhelm/"
-                  class="contact-card-link"
-                  target="_blank"
-                >
-                  Wishlist Now
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M7 17L17 7M17 7H7M17 7V17"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
               </div>
-            </div>
+            </a>
+          </div>
 
-            <!-- Contact Form -->
+          <!-- Contact Form -->
+          <div style="margin-top: 4rem;">
             <div class="contact-form-container">
               <div class="contact-form-header">
-                <h3>Send us a Message</h3>
-                <p>Got a specific question or feedback? Drop us a line!</p>
+                <h3>Send a Message</h3>
+                <p>Questions or feedback? We'd love to hear from you</p>
               </div>
 
               <form
@@ -1809,13 +2015,13 @@
                         stroke-linejoin="round"
                       />
                     </svg>
-                    Your Name
+                    Name
                   </label>
                   <input
                     type="text"
                     id="name"
                     name="name"
-                    placeholder="Enter your name"
+                    placeholder="Your name"
                     required
                   />
                 </div>
@@ -1843,13 +2049,13 @@
                         stroke-linejoin="round"
                       />
                     </svg>
-                    Email Address
+                    Email
                   </label>
                   <input
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="your.email@example.com"
+                    placeholder="your@email.com"
                     required
                   />
                 </div>
@@ -1871,24 +2077,16 @@
                         stroke-linejoin="round"
                       />
                     </svg>
-                    Your Message
+                    Message
                   </label>
+                  <textarea
                   <textarea
                     id="message"
                     name="message"
                     rows="5"
-                    placeholder="Tell us about your thoughts, questions, or feedback..."
+                    placeholder="Your message..."
                     required
                   ></textarea>
-                </div>
-
-                <div class="form-group checkbox-group">
-                  <input type="checkbox" id="agree" name="agree" required />
-                  <label for="agree" class="checkbox-label">
-                    I accept the
-                    <a href="#" class="terms-link">Terms of Service</a> and
-                    <a href="#" class="terms-link">Privacy Policy</a>
-                  </label>
                 </div>
 
                 <button type="submit" class="submit-button">
@@ -1926,6 +2124,18 @@
           </div>
         </div>
       </section>
+
+      <!-- Early Backers / Patrons Section -->
+      <section class="supporters-section section-animate">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title">Early Backers / Patrons</h2>
+          </header>
+          <div class="supporters">
+            <p><span class="supporter-name">Cody Palmer</span></p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -1934,18 +2144,123 @@
         <div class="footer-content">
           <div class="footer-brand">
             <img src="media/Logo.png" alt="Windhelm Logo" class="footer-logo" />
-            <p>©2025 NorwinLabs LLC. All rights reserved.</p>
+            <p>©<span id="copyright-year"></span> NorwinLabs LLC. All rights reserved.</p>
           </div>
           <div class="footer-version">
-            <p>v1.2.2</p>
+            <p id="site-version">v1.2.2</p>
           </div>
         </div>
       </div>
     </footer>
 
+    <script>
+      // Dynamically update copyright year
+      document.getElementById('copyright-year').textContent = new Date().getFullYear();
+      
+      // Fetch and display site version
+      (async function() {
+        try {
+          const response = await fetch('version.json');
+          const data = await response.json();
+          const versionElement = document.getElementById('site-version');
+          if (versionElement && data.version) {
+            versionElement.textContent = `v${data.version}`;
+            versionElement.title = `Build ${data.build} - Last updated ${new Date(data.lastUpdated).toLocaleString()}`;
+          }
+        } catch (error) {
+          console.log('Version fetch failed, using default');
+        }
+      })();
+    </script>
+
+    <!-- Discord Member Count Fetcher -->
+    <script>
+      (function() {
+        const DISCORD_SERVER_ID = '974051907058405467';
+        const CACHE_KEY = 'discord_stats_cache';
+        const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+        const memberCountElement = document.getElementById('discord-member-count');
+        const onlineCountElement = document.getElementById('discord-online-count');
+        
+        async function fetchDiscordStats() {
+          try {
+            // Check cache first
+            const cached = localStorage.getItem(CACHE_KEY);
+            if (cached) {
+              const { data, timestamp } = JSON.parse(cached);
+              if (Date.now() - timestamp < CACHE_DURATION) {
+                updateUI(data);
+                return;
+              }
+            }
+            
+            // Using Discord Widget API
+            const response = await fetch(`https://discord.com/api/guilds/${DISCORD_SERVER_ID}/widget.json`);
+            
+            if (!response.ok) {
+              throw new Error('Widget not enabled');
+            }
+            
+            const data = await response.json();
+            
+            // Cache the response
+            localStorage.setItem(CACHE_KEY, JSON.stringify({
+              data: data,
+              timestamp: Date.now()
+            }));
+            
+            updateUI(data);
+          } catch (error) {
+            console.log('Discord API fetch error:', error);
+            // Fallback values
+            if (memberCountElement) {
+              memberCountElement.textContent = '50+';
+            }
+            if (onlineCountElement) {
+              onlineCountElement.textContent = '24/7';
+              onlineCountElement.nextElementSibling.textContent = 'Active Chat';
+            }
+          }
+        }
+        
+        function updateUI(data) {
+          if (memberCountElement) {
+            // Total members (approximate from presence)
+            const totalMembers = data.presence_count || data.members?.length || 0;
+            memberCountElement.textContent = totalMembers.toLocaleString() + '+';
+            
+            // Also update contact section if it exists
+            const contactMemberCount = document.getElementById('discord-member-count-contact');
+            if (contactMemberCount) {
+              contactMemberCount.textContent = totalMembers.toLocaleString() + '+';
+            }
+          }
+          
+          if (onlineCountElement) {
+            // Online members
+            const onlineMembers = data.presence_count || 0;
+            onlineCountElement.textContent = onlineMembers.toLocaleString();
+            onlineCountElement.nextElementSibling.textContent = 'Members Online';
+          }
+        }
+        
+        // Fetch on page load (deferred)
+        if (memberCountElement) {
+          // Use requestIdleCallback for non-critical data
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => fetchDiscordStats());
+          } else {
+            setTimeout(fetchDiscordStats, 100);
+          }
+          // Refresh every 5 minutes
+          setInterval(fetchDiscordStats, CACHE_DURATION);
+        }
+      })();
+    </script>
+
     <!-- Scripts -->
     <!-- YouTube iframe API -->
-    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://www.youtube.com/iframe_api" defer></script>
 
     <script>
       // Roadmap (Trello) embed configuration
@@ -2680,6 +2995,155 @@
           if (blocker) blocker.remove();
         }
       }, 1000);
+    </script>
+
+    <!-- Gamalytic Wishlist Counter -->
+    <script>
+      (function() {
+        const STEAM_APP_ID = '2171040';
+        const CACHE_KEY = 'gamalytic_stats_cache';
+        const CACHE_DURATION = 60 * 60 * 1000; // 1 hour
+        const wishlistElement = document.getElementById('wishlist-count');
+        
+        // Fetch game stats from Gamalytic API
+        async function fetchGamalyticStats() {
+          try {
+            // Check cache first
+            const cached = localStorage.getItem(CACHE_KEY);
+            if (cached) {
+              const { wishlistCount, timestamp } = JSON.parse(cached);
+              if (Date.now() - timestamp < CACHE_DURATION) {
+                animateWishlistValue(wishlistElement, 0, wishlistCount, 2000);
+                return;
+              }
+            }
+            
+            // Using Gamalytic API to get game statistics
+            const response = await fetch(`https://gamalytic.com/api/game/${STEAM_APP_ID}`);
+            const data = await response.json();
+            
+            if (data && data.appid) {
+              // Gamalytic provides comprehensive game metrics including:
+              // - wishlist: actual wishlist count
+              // - followers: Steam followers
+              // - reviews: review data
+              // - players: player counts
+              
+              let wishlistCount = 1000; // Default fallback
+              
+              // Use the wishlist count directly if available
+              if (data.wishlist && typeof data.wishlist === 'number') {
+                wishlistCount = data.wishlist;
+              } else if (data.wishlists && typeof data.wishlists === 'number') {
+                wishlistCount = data.wishlists;
+              } else if (data.followers && typeof data.followers === 'number') {
+                // Followers can be a good proxy for wishlists
+                wishlistCount = data.followers;
+              } else if (data.stats && data.stats.wishlist) {
+                wishlistCount = data.stats.wishlist;
+              }
+              
+              // Cache the result
+              localStorage.setItem(CACHE_KEY, JSON.stringify({
+                wishlistCount: wishlistCount,
+                timestamp: Date.now()
+              }));
+              
+              if (wishlistElement) {
+                wishlistElement.setAttribute('data-target', wishlistCount);
+                wishlistElement.textContent = '0+';
+                
+                // Trigger animation
+                setTimeout(() => {
+                  animateWishlistValue(wishlistElement, 0, wishlistCount, 2000);
+                }, 500);
+              }
+            }
+          } catch (error) {
+            console.log('Gamalytic API fetch error:', error);
+            // Fallback to estimated value
+            if (wishlistElement) {
+              const fallbackValue = 1000;
+              wishlistElement.setAttribute('data-target', fallbackValue);
+              wishlistElement.textContent = fallbackValue.toLocaleString() + '+';
+            }
+          }
+        }
+        
+        function animateWishlistValue(element, start, end, duration) {
+          const range = end - start;
+          const increment = range / (duration / 16);
+          let current = start;
+          
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= end) {
+              element.textContent = Math.floor(end).toLocaleString() + '+';
+              clearInterval(timer);
+            } else {
+              element.textContent = Math.floor(current).toLocaleString() + '+';
+            }
+          }, 16);
+        }
+        
+        // Fetch on page load (deferred for performance)
+        if (wishlistElement) {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => fetchGamalyticStats());
+          } else {
+            setTimeout(fetchGamalyticStats, 100);
+          }
+        }
+      })();
+    </script>
+
+    <!-- Animated Statistics Counter -->
+    <script>
+      (function() {
+        const observerOptions = {
+          threshold: 0.5,
+          rootMargin: '0px'
+        };
+        
+        const animateValue = (element, start, end, duration, suffix = '') => {
+          const range = end - start;
+          const increment = range / (duration / 16);
+          let current = start;
+          
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= end) {
+              element.textContent = end + suffix;
+              clearInterval(timer);
+            } else {
+              element.textContent = Math.floor(current) + suffix;
+            }
+          }, 16);
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const statValue = entry.target;
+              const target = parseInt(statValue.getAttribute('data-target'));
+              const text = statValue.textContent;
+              const suffix = text.includes('%') ? '%' : text.includes('+') ? '+' : '';
+              
+              if (!statValue.classList.contains('animated')) {
+                statValue.classList.add('animated');
+                if (text.includes('∞')) {
+                  return;
+                }
+                animateValue(statValue, 0, target, 2000, suffix);
+              }
+            }
+          });
+        }, observerOptions);
+        
+        document.querySelectorAll('.stat-value').forEach(stat => {
+          observer.observe(stat);
+        });
+      })();
     </script>
 
     <!-- Service Worker Registration for offline support and caching -->
