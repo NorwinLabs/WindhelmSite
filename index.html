@@ -2,7 +2,7 @@
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
     <!-- Content Security Policy for improved security -->
     <meta
@@ -476,6 +476,65 @@
         top: 6px;
         outline: 3px solid #ffcc00;
         outline-offset: 2px;
+      }
+
+      /* Critical mobile: correct first paint before async CSS loads */
+      @media (max-width: 768px) {
+        .nav-menu {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 80vw;
+          max-width: 340px;
+          height: calc(100vh - 80px);
+          background: rgba(255, 255, 255, 0.97);
+          box-shadow: 2px 0 24px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          gap: 2rem;
+          padding: 2.5rem 2rem;
+          transition: left 0.32s cubic-bezier(0.77, 0, 0.18, 1);
+          z-index: 1001;
+        }
+        .nav-menu.active {
+          left: 0;
+        }
+        .nav-menu .nav-link {
+          font-size: 1.25rem;
+          padding: 1rem 0;
+          width: 100%;
+          text-align: left;
+        }
+        .nav-toggle {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          width: 28px;
+          height: 28px;
+          min-width: 44px;
+          min-height: 44px;
+          align-items: center;
+          justify-content: center;
+          padding: 8px;
+        }
+        .nav-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.32);
+          z-index: 1000;
+          opacity: 0;
+          transition: opacity 0.25s;
+        }
+        .nav-overlay.active {
+          display: block;
+          opacity: 1;
+        }
       }
     </style>
 
@@ -2487,22 +2546,36 @@
       // ===== MOBILE NAVIGATION =====
       const navToggle = document.getElementById("nav-toggle");
       const navMenu = document.getElementById("nav-menu");
+      const navOverlay = document.getElementById("nav-overlay");
+
+      function closeMobileMenu() {
+        if (navToggle) navToggle.classList.remove("active");
+        if (navMenu) navMenu.classList.remove("active");
+        if (navOverlay) navOverlay.classList.remove("active");
+        if (navToggle) navToggle.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      }
 
       if (navToggle && navMenu) {
         navToggle.addEventListener("click", function () {
+          const isOpening = !navMenu.classList.contains("active");
           navToggle.classList.toggle("active");
           navMenu.classList.toggle("active");
-          const expanded = navToggle.getAttribute("aria-expanded") === "true";
-          navToggle.setAttribute("aria-expanded", !expanded);
+          if (navOverlay) navOverlay.classList.toggle("active");
+          navToggle.setAttribute("aria-expanded", navMenu.classList.contains("active"));
+          document.body.style.overflow = isOpening && window.innerWidth <= 768 ? "hidden" : "";
         });
 
-        // Close mobile menu when clicking on nav links
+        if (navOverlay) {
+          navOverlay.addEventListener("click", closeMobileMenu);
+        }
+
         document.querySelectorAll(".nav-link").forEach((link) => {
-          link.addEventListener("click", function () {
-            navToggle.classList.remove("active");
-            navMenu.classList.remove("active");
-            navToggle.setAttribute("aria-expanded", "false");
-          });
+          link.addEventListener("click", closeMobileMenu);
+        });
+
+        window.addEventListener("resize", function () {
+          if (window.innerWidth > 768) closeMobileMenu();
         });
       }
 
