@@ -51,6 +51,7 @@
       as="image"
       type="image/png"
     />
+    <link rel="preload" href="media/WindhelmYoutubeBanner.jpg" as="image" />
 
     <!-- Performance hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -257,6 +258,19 @@
         text-align: center;
         color: var(--white);
         padding: var(--space-20) 0;
+      }
+
+      .hero-fallback-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 100vh;
+        min-width: 100%;
+        min-height: 100%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        pointer-events: none;
       }
 
       .hero-logo {
@@ -568,7 +582,7 @@
     <header class="header">
       <nav class="nav" role="navigation" aria-label="Main Navigation">
         <div class="nav-container">
-          <a href="#" class="logo">
+          <a href="#home" class="logo">
             <img
               src="media/Logo.png"
               alt="Windhelm Logo"
@@ -774,132 +788,58 @@
 
           <div class="features-showcase">
             <!-- Hero Feature Card -->
-            <div
-              class="hero-feature-card"
-              style="position: relative; overflow: visible"
-            >
+            <div class="hero-feature-card">
               <style>
                 .hero-feature-card {
                   position: relative;
-                  background: linear-gradient(
-                    135deg,
-                    rgba(16, 185, 129, 0.15) 0%,
-                    rgba(15, 23, 42, 0.98) 20%,
-                    rgba(15, 23, 42, 0.95) 80%,
-                    rgba(16, 185, 129, 0.15) 100%
-                  ) !important;
-                  border: 2px solid rgba(16, 185, 129, 0.3) !important;
-                  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
-                    0 0 40px rgba(16, 185, 129, 0.2),
-                    inset 0 1px 0 rgba(16, 185, 129, 0.2) !important;
+                  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(17, 24, 39, 0.85));
+                  border-radius: 1rem;
+                  padding: 2rem;
+                  border: 1px solid rgba(255, 255, 255, 0.08);
+                  transition: transform 0.3s ease;
                 }
-
-                .hero-feature-card::after {
-                  content: "";
-                  position: absolute;
-                  top: -2px;
-                  left: -2px;
-                  right: -2px;
-                  bottom: -2px;
-                  background: linear-gradient(
-                    45deg,
-                    #10b981,
-                    #14b8a6,
-                    #06b6d4,
-                    #10b981
-                  );
-                  border-radius: inherit;
-                  z-index: -1;
-                  opacity: 0;
-                  transition: opacity 0.3s ease;
-                  animation: borderGlow 3s linear infinite;
-                  background-size: 200% 200%;
+                .hero-feature-card:hover {
+                  transform: translateY(-5px);
                 }
-
-                @keyframes borderGlow {
-                  0% {
-                    background-position: 0% 50%;
-                  }
-                  50% {
-                    background-position: 100% 50%;
-                  }
-                  100% {
-                    background-position: 0% 50%;
-                  }
-                }
-
                 .hero-feature-icon {
                   position: relative;
-                  animation: iconPulse 2s ease-in-out infinite;
                 }
-
-                @keyframes iconPulse {
-                  0%,
-                  100% {
-                    transform: scale(1);
-                    filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));
-                  }
-                  50% {
-                    transform: scale(1.1);
-                    filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.8));
-                  }
-                }
-
                 .hero-feature-card h3 {
-                  position: relative;
-                  background: linear-gradient(
-                    135deg,
-                    #10b981,
-                    #14b8a6,
-                    #06b6d4
-                  );
-                  -webkit-background-clip: text;
-                  -webkit-text-fill-color: transparent;
-                  background-clip: text;
-                  animation: titleShimmer 3s ease-in-out infinite;
-                  background-size: 200% auto;
+                  color: #e2e8f0;
+                  font-size: 1.5rem;
+                  margin-bottom: 1rem;
                 }
-
-                @keyframes titleShimmer {
-                  0%,
-                  100% {
-                    background-position: 0% center;
-                  }
-                  50% {
-                    background-position: 100% center;
-                  }
+                .hero-feature-card .hero-feature-content > p {
+                  color: #94a3b8;
+                  margin-bottom: 1.5rem;
+                  line-height: 1.6;
                 }
-
-                .hero-feature-card .stat-number {
+                .hero-feature-stats {
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 1.5rem;
+                  padding: 1.5rem;
+                  background: rgba(255, 255, 255, 0.04);
+                  border-radius: 0.5rem;
+                  border: 1px solid rgba(255, 255, 255, 0.08);
+                  margin-top: 1.5rem;
+                }
+                .hero-feature-stats .stat {
+                  text-align: center;
+                }
+                .hero-feature-stats .stat-number {
                   font-size: 2.5rem;
                   font-weight: 800;
-                  text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+                  display: block;
+                  background-clip: text;
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
                 }
-
-                .hero-feature-stats {
-                  gap: var(--space-12);
-                  padding: var(--space-6);
-                  background: linear-gradient(
-                    135deg,
-                    rgba(16, 185, 129, 0.1),
-                    rgba(6, 182, 212, 0.1)
-                  );
-                  border-radius: var(--border-radius-lg);
-                  border: 1px solid rgba(16, 185, 129, 0.2);
-                  margin-top: var(--space-6);
-                }
-
-                .floating-elements {
-                  position: relative;
-                  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.6));
-                }
-
-                .floating-quest,
-                .floating-sword,
-                .floating-magic,
-                .floating-treasure {
-                  font-size: 3rem;
-                  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+                .hero-feature-stats .stat-label {
+                  color: #94a3b8;
+                  margin-top: 0.5rem;
+                  font-size: 1.1rem;
+                  font-weight: 600;
                 }
               </style>
               <div class="hero-feature-content">
@@ -957,57 +897,22 @@
                   </svg>
                 </div>
                 <h3>Free Lifetime Updates</h3>
-                <p style="font-size: 1.1rem; line-height: 1.8">
+                <p>
                   Buy once, enjoy forever. Every future update, expansion, and content drop is completely free - no subscriptions, no microtransactions, no hidden costs.
                 </p>
                 <div class="hero-feature-stats">
                   <div class="stat">
-                    <span
-                      class="stat-number"
-                      style="
-                        background: linear-gradient(135deg, #10b981, #14b8a6);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        background-clip: text;
-                      "
-                      >100%</span
-                    >
+                    <span class="stat-number" style="background-image: linear-gradient(135deg, #10b981, #14b8a6);">100%</span>
                     <span class="stat-label">Free Update Content</span>
                   </div>
                   <div class="stat">
-                    <span
-                      class="stat-number"
-                      style="
-                        background: linear-gradient(135deg, #14b8a6, #06b6d4);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        background-clip: text;
-                      "
-                      >$0</span
-                    >
+                    <span class="stat-number" style="background-image: linear-gradient(135deg, #14b8a6, #06b6d4);">$0</span>
                     <span class="stat-label">Extra Costs</span>
                   </div>
                   <div class="stat">
-                    <span
-                      class="stat-number"
-                      style="
-                        background: linear-gradient(135deg, #06b6d4, #10b981);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        background-clip: text;
-                      "
-                      >∞</span
-                    >
+                    <span class="stat-number" style="background-image: linear-gradient(135deg, #06b6d4, #3b82f6);">∞</span>
                     <span class="stat-label">Lifetime Support</span>
                   </div>
-                </div>
-              </div>
-              <div class="hero-feature-visual">
-                <div class="floating-elements">
-                  <div class="floating-quest"></div>
-                  <div class="floating-sword"></div>
-                  <div class="floating-magic"></div>
-                  <div class="floating-treasure"></div>
                 </div>
               </div>
             </div>
@@ -1780,7 +1685,7 @@
             function updateLightboxContent() {
               const item = galleryData[currentIndex];
               lightboxImage.src = item.src;
-              lightboxImage.alt = item.alt;
+              lightboxImage.alt = item.alt || item.title || item.caption || "Gallery image";
               lightboxCaption.innerHTML = `<strong>${item.title}</strong><br>${item.caption}`;
             }
 
@@ -2139,7 +2044,6 @@
                     Message
                   </label>
                   <textarea
-                  <textarea
                     id="message"
                     name="message"
                     rows="5"
@@ -2346,12 +2250,24 @@
 
       // YouTube Background Video Configuration
       const YOUTUBE_VIDEO_ID = "gZdP3WCZJc8"; // Replace with your YouTube video ID
+      const HERO_FALLBACK_IMAGE = "media/WindhelmYoutubeBanner.jpg";
 
       let player;
       let useLocalFallback = false;
+      let youtubeApiTimeout;
+
+      // If YouTube API never loads (blocked, offline, etc.), show static image after 10s
+      youtubeApiTimeout = window.setTimeout(function () {
+        if (useLocalFallback) return;
+        loadImageFallback("video unavailable");
+      }, 10000);
 
       // This function will be called by YouTube API when ready
       function onYouTubeIframeAPIReady() {
+        if (youtubeApiTimeout) {
+          clearTimeout(youtubeApiTimeout);
+          youtubeApiTimeout = null;
+        }
         player = new YT.Player("youtube-background", {
           videoId: YOUTUBE_VIDEO_ID,
           playerVars: {
@@ -2381,6 +2297,14 @@
         event.target.mute();
         event.target.setVolume(0);
         event.target.playVideo();
+        // If video doesn't actually start (e.g. autoplay blocked), show static image after 3s
+        window.setTimeout(function () {
+          if (useLocalFallback || !player || !player.getPlayerState) return;
+          var state = player.getPlayerState();
+          if (state !== YT.PlayerState.PLAYING && state !== YT.PlayerState.BUFFERING) {
+            loadImageFallback("video could not play");
+          }
+        }, 3000);
       }
 
       function onPlayerStateChange(event) {
@@ -2391,32 +2315,24 @@
       }
 
       function onPlayerError(event) {
-        // Error codes: 2=invalid ID, 5=HTML5 error, 100=not found, 101/150=embedding disabled
+        // Error codes: 2=invalid ID, 5=HTML5 error, 100=not found, 101/150/153=embedding disabled
         console.warn("YouTube player error:", event.data);
-
-        // If embedding is restricted (error 101, 150, or 153), fallback to image
-        if (event.data === 101 || event.data === 150 || event.data === 153) {
-          loadImageFallback();
-        }
+        loadImageFallback("YouTube error " + event.data);
       }
 
-      function loadImageFallback() {
-        if (useLocalFallback) return; // Already switched
+      function loadImageFallback(reason) {
+        if (useLocalFallback) return;
         useLocalFallback = true;
+        if (youtubeApiTimeout) {
+          clearTimeout(youtubeApiTimeout);
+          youtubeApiTimeout = null;
+        }
 
         const container = document.getElementById("youtube-background");
         if (!container) return;
 
-        // Replace with Windhelm image
-        container.innerHTML = `
-          <img
-            src="media/WindhelmYoutubeBanner.jpg"
-            alt="Windhelm"
-            style="position: absolute; top: 50%; left: 50%; width: 100vw; height: 100vh; transform: translate(-50%, -50%); object-fit: cover; pointer-events: none;"
-          />
-        `;
-
-        console.info("Switched to image fallback due to YouTube error 153");
+        container.innerHTML = "<img src=\"" + HERO_FALLBACK_IMAGE + "\" alt=\"Windhelm\" class=\"hero-fallback-image\" />";
+        console.info("Hero background: showing static image (" + (reason || "video cannot play") + ")");
       }
 
       // Removed delayed font loading to avoid FOUT/pop
