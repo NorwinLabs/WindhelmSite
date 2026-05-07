@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
 
     <!-- Content Security Policy for improved security -->
     <meta
@@ -18,23 +21,98 @@
       name="keywords"
       content="Windhelm, RPG, role playing game, adventure game, procedurally generated, story-driven, dynamic quests, narrative RPG, indie game, Steam, fantasy RPG, epic adventure, legendary heroes, infinite replayability, NorwinLabs"
     />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://windhelm.com/" />
-    <meta property="og:title" content="Windhelm® - Epic Story-Driven RPG with Free Lifetime Updates" />
-    <meta property="og:description" content="Epic procedurally generated story-driven RPG with dynamic quests, legendary heroes, and FREE lifetime updates. Infinite replayability where every playthrough tells a unique story. Wishlist now on Steam!" />
-    <meta property="og:image" content="https://windhelm.com/media/1920x622CenteredLogo.jpg" />
+    <meta
+      property="og:title"
+      content="Windhelm® - Epic Story-Driven RPG with Free Lifetime Updates"
+    />
+    <meta
+      property="og:description"
+      content="Epic procedurally generated story-driven RPG with dynamic quests, legendary heroes, and FREE lifetime updates. Infinite replayability where every playthrough tells a unique story. Wishlist now on Steam!"
+    />
+    <meta
+      property="og:image"
+      content="https://windhelm.com/media/1920x622CenteredLogo.jpg"
+    />
     <meta property="og:site_name" content="Windhelm" />
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://windhelm.com/" />
-    <meta property="twitter:title" content="Windhelm® - Epic Story-Driven RPG with Free Lifetime Updates" />
-    <meta property="twitter:description" content="Epic procedurally generated story-driven RPG with dynamic quests, legendary heroes, and FREE lifetime updates. Wishlist now on Steam!" />
-    <meta property="twitter:image" content="https://windhelm.com/media/1920x622CenteredLogo.jpg" />
+    <meta
+      property="twitter:title"
+      content="Windhelm® - Epic Story-Driven RPG with Free Lifetime Updates"
+    />
+    <meta
+      property="twitter:description"
+      content="Epic procedurally generated story-driven RPG with dynamic quests, legendary heroes, and FREE lifetime updates. Wishlist now on Steam!"
+    />
+    <meta
+      property="twitter:image"
+      content="https://windhelm.com/media/1920x622CenteredLogo.jpg"
+    />
     <meta property="twitter:creator" content="@NorwinLabs" />
-    
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://windhelm.com/" />
+
+    <!-- Robots meta -->
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Windhelm",
+        "description": "Epic procedurally generated story-driven RPG with dynamic quests, legendary heroes, and FREE lifetime updates. Infinite replayability where every playthrough tells a unique story.",
+        "url": "https://windhelm.com/",
+        "image": "https://windhelm.com/media/1920x622CenteredLogo.jpg",
+        "genre": ["Role-playing game", "Adventure", "Fantasy"],
+        "gamePlatform": ["PC", "PlayStation", "Xbox", "Nintendo Switch"],
+        "applicationCategory": "Game",
+        "operatingSystem": [
+          "Windows",
+          "PlayStation 5",
+          "Xbox Series X/S",
+          "Nintendo Switch"
+        ],
+        "publisher": {
+          "@type": "Organization",
+          "name": "NorwinLabs LLC",
+          "url": "https://windhelm.com/"
+        },
+        "author": [
+          {
+            "@type": "Person",
+            "name": "Gavin Norwood",
+            "jobTitle": "Creator & Developer"
+          },
+          {
+            "@type": "Person",
+            "name": "Kirsten Norwood",
+            "jobTitle": "Level Designer & Writer"
+          }
+        ],
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/PreOrder",
+          "url": "https://store.steampowered.com/app/2171040/Windhelm/"
+        },
+        "sameAs": [
+          "https://store.steampowered.com/app/2171040/Windhelm/",
+          "https://www.youtube.com/@NorwinLabs",
+          "https://discord.gg/PgGA8Zsj4g"
+        ]
+      }
+    </script>
+
     <title>Windhelm® - Coming to PC, PlayStation, Xbox, and Switch</title>
 
     <!-- Theme color for mobile browsers -->
@@ -72,8 +150,9 @@
         --gray-800: #1f2937;
         --hero-gradient-start: #1e1b4b;
         --hero-gradient-end: #312e81;
-        --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, sans-serif;
+        --font-primary:
+          "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
         --space-4: 1rem;
         --space-6: 1.5rem;
         --space-8: 2rem;
@@ -113,7 +192,8 @@
         background: url("media/islandbg.png?v=1") repeat;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><defs><linearGradient id="bronze" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23CD7F32;stop-opacity:1" /><stop offset="30%" style="stop-color:%23B8860B;stop-opacity:1" /><stop offset="70%" style="stop-color:%23A0522D;stop-opacity:1" /><stop offset="100%" style="stop-color:%23654321;stop-opacity:1" /></linearGradient></defs><path d="M2 2 L2 18 L7 13 L10 13 L15 22 L17 21 L12 12 L15 12 L2 2 Z" fill="url(%23bronze)" stroke="%232F1B14" stroke-width="0.5"/></svg>')
+        cursor:
+          url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><defs><linearGradient id="bronze" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23CD7F32;stop-opacity:1" /><stop offset="30%" style="stop-color:%23B8860B;stop-opacity:1" /><stop offset="70%" style="stop-color:%23A0522D;stop-opacity:1" /><stop offset="100%" style="stop-color:%23654321;stop-opacity:1" /></linearGradient></defs><path d="M2 2 L2 18 L7 13 L10 13 L15 22 L17 21 L12 12 L15 12 L2 2 Z" fill="url(%23bronze)" stroke="%232F1B14" stroke-width="0.5"/></svg>')
             2 2,
           auto;
       }
@@ -144,7 +224,8 @@
         );
         border-radius: 10px;
         border: 2px solid rgba(30, 27, 75, 0.5);
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3),
+        box-shadow:
+          0 2px 6px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.2);
       }
 
@@ -156,7 +237,8 @@
           #b8860b 70%,
           #a0522d 100%
         );
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4),
+        box-shadow:
+          0 4px 8px rgba(0, 0, 0, 0.4),
           inset 0 1px 0 rgba(255, 255, 255, 0.3);
       }
 
@@ -193,47 +275,83 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        background: url("media/islandbg.png?v=1") repeat,
-          linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
-        background-blend-mode: overlay;
-        backdrop-filter: blur(8px);
-        border-bottom: 1px solid rgba(229, 231, 235, 0.6);
+        background: rgba(18, 22, 36, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         transition: var(--transition-base);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
       }
 
       .nav-container {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: var(--space-4) var(--container-padding);
+        padding: 0 var(--container-padding);
         max-width: var(--container-max-width);
         margin: 0 auto;
         position: relative;
+        height: 64px;
       }
 
       .logo img {
-        height: 40px;
+        height: 38px;
         width: auto;
       }
 
       .nav-menu {
         display: flex;
-        align-items: center;
-        gap: var(--space-8);
+        align-items: stretch;
+        gap: 0;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        height: 100%;
       }
 
       .nav-link {
-        font-weight: 500;
-        color: #000000;
-        padding: 0.5rem 0.75rem;
-        border-radius: var(--border-radius);
-        transition: var(--transition-base);
-        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.78rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.72);
+        padding: 0 1.1rem;
+        display: flex;
+        align-items: center;
         position: relative;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 3px;
+        background: var(--primary-color, #f59e0b);
+        border-radius: 3px 3px 0 0;
+        transition: width 0.2s ease;
+      }
+
+      .nav-link:hover {
+        color: #ffffff;
+      }
+
+      .nav-link:hover::after {
+        width: 60%;
+      }
+
+      .nav-link.active {
+        color: #f59e0b;
+      }
+
+      .nav-link.active::after {
+        width: 60%;
+        background: #f59e0b;
       }
 
       /* Hero Section - Critical above the fold */
@@ -257,7 +375,7 @@
         z-index: 10;
         text-align: center;
         color: var(--white);
-        padding: var(--space-20) 0;
+        padding: 2rem 0 1.5rem;
       }
 
       .hero-fallback-image {
@@ -286,7 +404,11 @@
       }
 
       .discord-section {
-        background: linear-gradient(135deg, rgba(88, 101, 242, 0.15), rgba(114, 137, 218, 0.15));
+        background: linear-gradient(
+          135deg,
+          rgba(88, 101, 242, 0.15),
+          rgba(114, 137, 218, 0.15)
+        );
         text-align: center;
       }
 
@@ -297,6 +419,9 @@
       .discord-section .section-title {
         color: #1e293b;
       }
+      .discord-section .section-title::after {
+        background: #1e293b;
+      }
 
       .discord-section .section-subtitle {
         color: #334155;
@@ -304,11 +429,19 @@
 
       .characters,
       .press {
-        background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.95));
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.98),
+          rgba(15, 23, 42, 0.95)
+        );
       }
 
       .stats {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(17, 24, 39, 0.95));
+        background: linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.98),
+          rgba(17, 24, 39, 0.95)
+        );
       }
 
       .section-header {
@@ -319,8 +452,19 @@
       .section-title {
         font-size: 2.5rem;
         font-weight: 800;
-        color: #e2e8f0;
-        margin-bottom: 1rem;
+        color: #f59e0b;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.4rem;
+      }
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 48px;
+        height: 3px;
+        background: #f59e0b;
+        border-radius: 2px;
+        margin: 0.6rem auto 0.9rem;
       }
 
       .section-subtitle {
@@ -346,7 +490,11 @@
         width: 300px;
         height: 300px;
         margin: 0 auto 2rem;
-        background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(147, 51, 234, 0.2));
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.2),
+          rgba(147, 51, 234, 0.2)
+        );
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -420,7 +568,11 @@
       }
 
       .press-card {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(17, 24, 39, 0.85));
+        background: linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.9),
+          rgba(17, 24, 39, 0.85)
+        );
         border-radius: 1rem;
         padding: 2rem;
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -496,19 +648,19 @@
       @media (max-width: 768px) {
         .nav-menu {
           position: fixed;
-          top: 80px;
+          top: 64px;
           left: -100%;
           width: 80vw;
-          max-width: 340px;
-          height: calc(100vh - 80px);
-          background: rgba(255, 255, 255, 0.97);
-          box-shadow: 2px 0 24px rgba(0, 0, 0, 0.1);
-          backdrop-filter: blur(10px);
+          max-width: 300px;
+          height: calc(100vh - 64px);
+          background: rgba(14, 18, 30, 0.98);
+          box-shadow: 4px 0 32px rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(16px);
           flex-direction: column;
           justify-content: flex-start;
           align-items: flex-start;
-          gap: 2rem;
-          padding: 2.5rem 2rem;
+          gap: 0;
+          padding: 1.5rem 0;
           transition: left 0.32s cubic-bezier(0.77, 0, 0.18, 1);
           z-index: 1001;
         }
@@ -516,15 +668,24 @@
           left: 0;
         }
         .nav-menu .nav-link {
-          font-size: 1.25rem;
-          padding: 1rem 0;
+          font-size: 0.85rem;
+          padding: 1rem 2rem;
           width: 100%;
           text-align: left;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          color: rgba(255, 255, 255, 0.8);
+        }
+        .nav-menu .nav-link::after {
+          display: none;
+        }
+        .nav-menu .nav-link.active {
+          color: #f59e0b;
+          background: rgba(245, 158, 11, 0.08);
         }
         .nav-toggle {
           display: flex;
           flex-direction: column;
-          gap: 4px;
+          gap: 5px;
           width: 28px;
           height: 28px;
           min-width: 44px;
@@ -532,6 +693,17 @@
           align-items: center;
           justify-content: center;
           padding: 8px;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+        .nav-toggle span {
+          display: block;
+          width: 22px;
+          height: 2px;
+          background: rgba(255, 255, 255, 0.85);
+          border-radius: 2px;
+          transition: all 0.25s ease;
         }
         .nav-overlay {
           display: none;
@@ -557,7 +729,7 @@
       rel="stylesheet"
       href="styles.min.css?v=1.2"
       media="print"
-      onload="this.media='all'"
+      onload="this.media = 'all'"
     />
     <noscript><link rel="stylesheet" href="styles.min.css?v=1.2" /></noscript>
 
@@ -578,6 +750,7 @@
     </script>
   </head>
   <body class="glass-theme">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Navigation Header -->
     <header class="header">
       <nav class="nav" role="navigation" aria-label="Main Navigation">
@@ -595,7 +768,8 @@
             <a href="#home" class="nav-link">Home</a>
             <a href="#features" class="nav-link">Features</a>
             <a href="#gallery" class="nav-link">Gallery</a>
-            <a href="#team" class="nav-link">Team</a>
+            <a href="#updates" class="nav-link">Updates</a>
+            <a href="#faq" class="nav-link">FAQ</a>
             <a href="#contact" class="nav-link">Contact</a>
           </div>
           <div
@@ -605,7 +779,7 @@
             aria-hidden="true"
           ></div>
 
-          <div class="social-links">
+          <div class="social-links" style="color: rgba(255, 255, 255, 0.7)">
             <a
               href="https://www.youtube.com/@NorwinLabs"
               target="_blank"
@@ -665,6 +839,14 @@
       <!-- Hero Section -->
       <section id="home" class="hero section-animate">
         <div class="hero-background">
+          <style>
+            #youtube-background iframe,
+            #youtube-background {
+              pointer-events: none !important;
+              opacity: 0;
+              transition: opacity 1s ease;
+            }
+          </style>
           <div id="youtube-background"></div>
           <div class="hero-overlay"></div>
         </div>
@@ -687,9 +869,7 @@
           <p class="hero-description">
             Embark on an epic procedurally generated adventure where every
             playthrough tells a unique tale. Featuring dynamic quests, legendary
-            heroes, and
-            <strong style="color: #10b981">free lifetime updates forever</strong
-            >.
+            heroes, and an ever-expanding world.
           </p>
           <div class="hero-cta">
             <a
@@ -705,66 +885,157 @@
             >
           </div>
 
-          <!-- Steam Widget in Hero -->
-          <div class="hero-steam-widget">
-            <iframe
-              src="https://store.steampowered.com/widget/2171040/"
-              frameborder="0"
-              width="646"
-              height="190"
-              loading="lazy"
-              style="
-                width: 100%;
-                max-width: 646px;
-                height: 190px;
-                border-radius: 12px;
-                box-shadow: 0 6px 32px #000a;
-                margin: 2rem auto 0 auto;
-                background: #171a21;
-                display: block;
-              "
-              title="Windhelm on Steam"
-              allowtransparency="true"
-            ></iframe>
-          </div>
-        </div>
-      </section>
-
-      <!-- Discord Community Section -->
-      <section id="discord" class="discord-section section-animate">
-        <div class="container">
-          <header class="section-header">
-            <div style="font-size: 5rem; margin-bottom: 2rem;">
-              <svg width="80" height="80" viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z" fill="#5865F2"/>
-              </svg>
+          <!-- Platform Availability -->
+          <div class="hero-platforms" aria-label="Available platforms">
+            <style>
+              .hero-platforms {
+                margin-top: 0.75rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.6rem;
+              }
+              .hero-platforms-label {
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                font-weight: 600;
+              }
+              .hero-platform-badges {
+                display: flex;
+                gap: 0.6rem;
+                flex-wrap: wrap;
+                justify-content: center;
+              }
+              .platform-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.35rem;
+                padding: 0.35rem 0.85rem;
+                border-radius: 2rem;
+                font-size: 0.82rem;
+                font-weight: 600;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                color: rgba(255, 255, 255, 0.9);
+                backdrop-filter: blur(8px);
+                letter-spacing: 0.02em;
+              }
+              .platform-badge-pc {
+                border-color: rgba(200, 200, 255, 0.35);
+              }
+              .platform-badge-ps {
+                border-color: rgba(0, 114, 239, 0.45);
+              }
+              .platform-badge-xbox {
+                border-color: rgba(16, 180, 16, 0.45);
+              }
+              .platform-badge-sw {
+                border-color: rgba(230, 0, 35, 0.45);
+              }
+            </style>
+            <p class="hero-platforms-label">Coming to</p>
+            <div class="hero-platform-badges" role="list">
+              <span class="platform-badge platform-badge-pc" role="listitem">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="2"
+                    y="3"
+                    width="20"
+                    height="14"
+                    rx="2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M8 21h8M12 17v4"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                PC
+              </span>
+              <span class="platform-badge platform-badge-ps" role="listitem">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8.984 4.348c0-.964.775-1.752 1.734-1.752.96 0 1.734.788 1.734 1.752V14.5l4.016 1.25V6.5c0-.964.775-1.752 1.734-1.752.96 0 1.734.788 1.734 1.752v10.75L12 19.5 3.75 17.25V6.5c0-.964.775-1.752 1.734-1.752.96 0 1.734.788 1.734 1.752v8.25l1.766.5V4.348z"
+                  />
+                </svg>
+                PlayStation
+              </span>
+              <span class="platform-badge platform-badge-xbox" role="listitem">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M7 8c1.5 1.5 2.5 3 5 4s3.5 2.5 5 4M17 8c-1.5 1.5-2.5 3-5 4S8.5 14.5 7 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                Xbox
+              </span>
+              <span class="platform-badge platform-badge-sw" role="listitem">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="4"
+                    y="2"
+                    width="16"
+                    height="20"
+                    rx="3"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <circle cx="12" cy="17" r="1.5" />
+                  <rect
+                    x="8"
+                    y="5"
+                    width="8"
+                    height="8"
+                    rx="1"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                </svg>
+                Switch
+              </span>
             </div>
-            <h2 class="section-title">Join Our Community</h2>
-            <p class="section-subtitle">
-              Connect with fellow adventurers, get exclusive updates, and shape the future of Windhelm!
-            </p>
-          </header>
-          <div class="discord-stats" style="display: flex; justify-content: center; gap: 3rem; margin: 3rem 0; flex-wrap: wrap;">
-            <div style="text-align: center;">
-              <div id="discord-member-count" style="font-size: 2.5rem; font-weight: 800; color: #5865F2;">Loading...</div>
-              <div style="color: #1e293b; font-weight: 600;">Community Members</div>
-            </div>
-            <div style="text-align: center;">
-              <div id="discord-online-count" style="font-size: 2.5rem; font-weight: 800; color: #5865F2;">24/7</div>
-              <div style="color: #1e293b; font-weight: 600;">Active Chat</div>
-            </div>
-            <div style="text-align: center;">
-              <div style="font-size: 2.5rem; font-weight: 800; color: #5865F2;">🔥</div>
-              <div style="color: #1e293b; font-weight: 600;">Exclusive Content</div>
-            </div>
-          </div>
-          <div style="text-align: center;">
-            <a href="https://discord.gg/PgGA8Zsj4g" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2rem; background: #5865F2; color: white; border-radius: 0.75rem; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(88, 101, 242, 0.4);">
-              <svg width="24" height="24" viewBox="0 0 71 55" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z"/>
-              </svg>
-              Join Discord Server
-            </a>
           </div>
         </div>
       </section>
@@ -780,144 +1051,10 @@
               driven by profiting from players, but by immersing them in a rich,
               dynamic world where every choice matters and every adventure is
               unique.
-              <strong style="color: #10b981"
-                >All future content, free forever.</strong
-              >
             </p>
           </header>
 
           <div class="features-showcase">
-            <!-- Hero Feature Card -->
-            <div class="hero-feature-card">
-              <style>
-                .hero-feature-card {
-                  position: relative;
-                  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(17, 24, 39, 0.85));
-                  border-radius: 1rem;
-                  padding: 2rem;
-                  border: 1px solid rgba(255, 255, 255, 0.08);
-                  transition: transform 0.3s ease;
-                }
-                .hero-feature-card:hover {
-                  transform: translateY(-5px);
-                }
-                .hero-feature-icon {
-                  position: relative;
-                }
-                .hero-feature-card h3 {
-                  color: #e2e8f0;
-                  font-size: 1.5rem;
-                  margin-bottom: 1rem;
-                }
-                .hero-feature-card .hero-feature-content > p {
-                  color: #94a3b8;
-                  margin-bottom: 1.5rem;
-                  line-height: 1.6;
-                }
-                .hero-feature-stats {
-                  display: grid;
-                  grid-template-columns: repeat(3, 1fr);
-                  gap: 1.5rem;
-                  padding: 1.5rem;
-                  background: rgba(255, 255, 255, 0.04);
-                  border-radius: 0.5rem;
-                  border: 1px solid rgba(255, 255, 255, 0.08);
-                  margin-top: 1.5rem;
-                }
-                .hero-feature-stats .stat {
-                  text-align: center;
-                }
-                .hero-feature-stats .stat-number {
-                  font-size: 2.5rem;
-                  font-weight: 800;
-                  display: block;
-                  background-clip: text;
-                  -webkit-background-clip: text;
-                  -webkit-text-fill-color: transparent;
-                }
-                .hero-feature-stats .stat-label {
-                  color: #94a3b8;
-                  margin-top: 0.5rem;
-                  font-size: 1.1rem;
-                  font-weight: 600;
-                }
-              </style>
-              <div class="hero-feature-content">
-                <div class="hero-feature-icon">
-                  <svg
-                    width="56"
-                    height="56"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                      stroke="url(#heroGradient)"
-                      stroke-width="2"
-                      fill="url(#heroGradientFill)"
-                      opacity="0.2"
-                    />
-                    <path
-                      d="M8 12L11 15L16 9"
-                      stroke="url(#heroGradient)"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M12 2V6M12 18V22M22 12H18M6 12H2"
-                      stroke="url(#heroGradient)"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
-                    <defs>
-                      <linearGradient
-                        id="heroGradient"
-                        x1="0%"
-                        y1="0%"
-                        x2="100%"
-                        y2="100%"
-                      >
-                        <stop offset="0%" style="stop-color: #10b981" />
-                        <stop offset="50%" style="stop-color: #14b8a6" />
-                        <stop offset="100%" style="stop-color: #06b6d4" />
-                      </linearGradient>
-                      <linearGradient
-                        id="heroGradientFill"
-                        x1="0%"
-                        y1="0%"
-                        x2="100%"
-                        y2="100%"
-                      >
-                        <stop offset="0%" style="stop-color: #10b981" />
-                        <stop offset="100%" style="stop-color: #06b6d4" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </div>
-                <h3>Free Lifetime Updates</h3>
-                <p>
-                  Buy once, enjoy forever. Every future update, expansion, and content drop is completely free - no subscriptions, no microtransactions, no hidden costs.
-                </p>
-                <div class="hero-feature-stats">
-                  <div class="stat">
-                    <span class="stat-number" style="background-image: linear-gradient(135deg, #10b981, #14b8a6);">100%</span>
-                    <span class="stat-label">Free Update Content</span>
-                  </div>
-                  <div class="stat">
-                    <span class="stat-number" style="background-image: linear-gradient(135deg, #14b8a6, #06b6d4);">$0</span>
-                    <span class="stat-label">Extra Costs</span>
-                  </div>
-                  <div class="stat">
-                    <span class="stat-number" style="background-image: linear-gradient(135deg, #06b6d4, #3b82f6);">∞</span>
-                    <span class="stat-label">Lifetime Support</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Feature Cards Grid -->
             <div class="features-grid-modern">
               <div class="feature-card-modern">
                 <div class="feature-card-header">
@@ -1222,118 +1359,678 @@
             </div>
           </div>
         </div>
+
+        <!-- Gallery -->
+        <div id="gallery" class="gallery">
+          <style>
+            .gallery-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, 420px);
+              gap: 1.5rem;
+              margin-top: var(--space-8);
+              justify-content: center;
+            }
+            .gallery-item {
+              position: relative;
+              overflow: hidden;
+              border-radius: var(--border-radius-lg);
+              cursor: pointer;
+              width: 420px;
+              height: 240px;
+              background: rgba(17, 24, 39, 0.8);
+              border: 1px solid rgba(255, 255, 255, 0.08);
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+              transition: all 0.3s ease;
+            }
+            .gallery-item:hover {
+              transform: translateY(-8px);
+              box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+              border-color: rgba(255, 255, 255, 0.15);
+            }
+            .gallery-item img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+              transition: transform 0.3s ease;
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 10;
+            }
+            .gallery-item:hover img {
+              transform: scale(1.05);
+            }
+            .gallery-item-overlay {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              background: linear-gradient(
+                to top,
+                rgba(0, 0, 0, 0.85) 0%,
+                rgba(0, 0, 0, 0.4) 40%,
+                transparent 100%
+              );
+              color: white;
+              padding: 0.75rem 1rem;
+              z-index: 20;
+              pointer-events: none;
+            }
+            .gallery-item-title {
+              font-size: 1.1rem;
+              font-weight: 700;
+              margin: 0;
+              text-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.9),
+                0 0 4px rgba(0, 0, 0, 0.8);
+              color: #ffffff;
+            }
+            .gallery-item-caption {
+              font-size: 0.9rem;
+              color: rgba(255, 255, 255, 0.95);
+              margin: 0.25rem 0 0 0;
+              text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+            }
+            .lightbox {
+              display: none;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.95);
+              z-index: 10000;
+              align-items: center;
+              justify-content: center;
+              padding: 2rem;
+            }
+            .lightbox.active {
+              display: flex;
+            }
+            .lightbox-content {
+              position: relative;
+              width: 1120px;
+              height: 640px;
+              animation: lightboxZoomIn 0.3s ease;
+            }
+            @keyframes lightboxZoomIn {
+              from {
+                transform: scale(0.8);
+                opacity: 0;
+              }
+              to {
+                transform: scale(1);
+                opacity: 1;
+              }
+            }
+            .lightbox-image {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+              border-radius: var(--border-radius-lg);
+              box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            }
+            .lightbox-caption {
+              text-align: center;
+              color: white;
+              margin-top: 1rem;
+              font-size: 1.1rem;
+              text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            }
+            .lightbox-close {
+              position: absolute;
+              top: -3rem;
+              right: 0;
+              background: rgba(255, 255, 255, 0.1);
+              border: 2px solid rgba(255, 255, 255, 0.3);
+              color: white;
+              font-size: 2rem;
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: all 0.3s ease;
+              backdrop-filter: blur(10px);
+            }
+            .lightbox-close:hover {
+              background: rgba(255, 255, 255, 0.2);
+              transform: rotate(90deg);
+            }
+            .lightbox-nav {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              background: rgba(255, 255, 255, 0.1);
+              border: 2px solid rgba(255, 255, 255, 0.3);
+              color: white;
+              font-size: 2rem;
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: all 0.3s ease;
+              backdrop-filter: blur(10px);
+            }
+            .lightbox-nav:hover {
+              background: rgba(255, 255, 255, 0.2);
+            }
+            .lightbox-prev {
+              left: -5rem;
+            }
+            .lightbox-next {
+              right: -5rem;
+            }
+            @media (max-width: 768px) {
+              .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+              }
+              .lightbox {
+                padding: 1rem;
+              }
+              .lightbox-nav {
+                display: none;
+              }
+              .lightbox-close {
+                top: 1rem;
+                right: 1rem;
+              }
+            }
+          </style>
+          <div class="container">
+            <header
+              class="section-header"
+              style="
+                margin-top: 3rem;
+                padding-top: 3rem;
+                border-top: 1px solid rgba(245, 158, 11, 0.2);
+              "
+            >
+              <h2 class="section-title">Gallery</h2>
+            </header>
+            <div class="gallery-grid">
+              <div class="gallery-item" data-index="0">
+                <img
+                  src="media/Grasslandoverlook1.png"
+                  alt="Grassland Overlook"
+                />
+                <div class="gallery-item-overlay">
+                  <h3 class="gallery-item-title">Grassland Overlook</h3>
+                  <p class="gallery-item-caption">
+                    A serene view across the rolling hills
+                  </p>
+                </div>
+              </div>
+              <div class="gallery-item" data-index="1">
+                <img
+                  src="media/2.png"
+                  alt="Epic Adventure — journey through mystical landscapes"
+                />
+                <div class="gallery-item-overlay">
+                  <h3 class="gallery-item-title">Epic Adventure</h3>
+                  <p class="gallery-item-caption">
+                    Journey through mystical landscapes
+                  </p>
+                </div>
+              </div>
+              <div class="gallery-item" data-index="2">
+                <img
+                  src="media/3.png"
+                  alt="Dynamic Encounters — every playthrough brings new challenges"
+                />
+                <div class="gallery-item-overlay">
+                  <h3 class="gallery-item-title">Dynamic Encounters</h3>
+                  <p class="gallery-item-caption">
+                    Every playthrough brings new challenges
+                  </p>
+                </div>
+              </div>
+              <div class="gallery-item" data-index="3">
+                <img
+                  src="media/4.png"
+                  alt="Rich Environments — immersive world-building"
+                />
+                <div class="gallery-item-overlay">
+                  <h3 class="gallery-item-title">Rich Environments</h3>
+                  <p class="gallery-item-caption">
+                    Immersive world-building at its finest
+                  </p>
+                </div>
+              </div>
+              <div class="gallery-item" data-index="4">
+                <img
+                  src="media/5.png"
+                  alt="Story-Driven Gameplay — your choices shape the narrative"
+                />
+                <div class="gallery-item-overlay">
+                  <h3 class="gallery-item-title">Story-Driven Gameplay</h3>
+                  <p class="gallery-item-caption">
+                    Your choices shape the narrative
+                  </p>
+                </div>
+              </div>
+              <div class="gallery-item" data-index="5">
+                <img
+                  src="media/1920x622CenteredLogo.jpg"
+                  alt="Windhelm Banner"
+                />
+                <div class="gallery-item-overlay">
+                  <h3 class="gallery-item-title">Windhelm</h3>
+                  <p class="gallery-item-caption">
+                    An epic RPG adventure awaits
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Lightbox -->
+          <div class="lightbox" id="lightbox">
+            <div class="lightbox-content">
+              <button
+                class="lightbox-close"
+                id="lightbox-close"
+                aria-label="Close lightbox"
+              >
+                ×
+              </button>
+              <button
+                class="lightbox-nav lightbox-prev"
+                id="lightbox-prev"
+                aria-label="Previous image"
+              >
+                ‹
+              </button>
+              <img src="" alt="" class="lightbox-image" id="lightbox-image" />
+              <button
+                class="lightbox-nav lightbox-next"
+                id="lightbox-next"
+                aria-label="Next image"
+              >
+                ›
+              </button>
+              <div class="lightbox-caption" id="lightbox-caption"></div>
+            </div>
+          </div>
+          <script>
+            (function () {
+              const galleryItems = document.querySelectorAll(".gallery-item");
+              const lightbox = document.getElementById("lightbox");
+              const lightboxImage = document.getElementById("lightbox-image");
+              const lightboxCaption =
+                document.getElementById("lightbox-caption");
+              const lightboxClose = document.getElementById("lightbox-close");
+              const lightboxPrev = document.getElementById("lightbox-prev");
+              const lightboxNext = document.getElementById("lightbox-next");
+              let currentIndex = 0;
+              const galleryData = Array.from(galleryItems).map((item) => ({
+                src: item.querySelector("img").src,
+                alt: item.querySelector("img").alt,
+                title:
+                  item.querySelector(".gallery-item-title")?.textContent || "",
+                caption:
+                  item.querySelector(".gallery-item-caption")?.textContent ||
+                  "",
+              }));
+              function openLightbox(index) {
+                currentIndex = index;
+                updateLightboxContent();
+                lightbox.classList.add("active");
+                document.body.style.overflow = "hidden";
+              }
+              function closeLightbox() {
+                lightbox.classList.remove("active");
+                document.body.style.overflow = "";
+              }
+              function updateLightboxContent() {
+                const item = galleryData[currentIndex];
+                lightboxImage.src = item.src;
+                lightboxImage.alt =
+                  item.alt || item.title || item.caption || "Gallery image";
+                lightboxCaption.innerHTML = `<strong>${item.title}</strong><br>${item.caption}`;
+              }
+              function showNext() {
+                currentIndex = (currentIndex + 1) % galleryData.length;
+                updateLightboxContent();
+              }
+              function showPrev() {
+                currentIndex =
+                  (currentIndex - 1 + galleryData.length) % galleryData.length;
+                updateLightboxContent();
+              }
+              galleryItems.forEach((item, index) => {
+                item.addEventListener("click", () => openLightbox(index));
+                item.addEventListener("keydown", (e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    openLightbox(index);
+                  }
+                });
+                item.setAttribute("tabindex", "0");
+                item.setAttribute("role", "button");
+              });
+              lightboxClose.addEventListener("click", closeLightbox);
+              lightboxNext.addEventListener("click", showNext);
+              lightboxPrev.addEventListener("click", showPrev);
+              lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) closeLightbox();
+              });
+              document.addEventListener("keydown", (e) => {
+                if (!lightbox.classList.contains("active")) return;
+                switch (e.key) {
+                  case "Escape":
+                    closeLightbox();
+                    break;
+                  case "ArrowRight":
+                    showNext();
+                    break;
+                  case "ArrowLeft":
+                    showPrev();
+                    break;
+                }
+              });
+            })();
+          </script>
+        </div>
+      </section>
+
+      <!-- Discord Community Section -->
+      <section id="discord" class="discord-section section-animate">
+        <div class="container">
+          <header class="section-header">
+            <div style="font-size: 5rem; margin-bottom: 2rem">
+              <svg
+                width="80"
+                height="80"
+                viewBox="0 0 71 55"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z"
+                  fill="#5865F2"
+                />
+              </svg>
+            </div>
+            <h2 class="section-title">Join Our Community</h2>
+            <p class="section-subtitle">
+              Connect with fellow adventurers, get exclusive updates, and shape
+              the future of Windhelm!
+            </p>
+          </header>
+          <div
+            class="discord-stats"
+            style="
+              display: flex;
+              justify-content: center;
+              gap: 3rem;
+              margin: 3rem 0;
+              flex-wrap: wrap;
+            "
+          >
+            <div style="text-align: center">
+              <div
+                id="discord-member-count"
+                style="font-size: 2.5rem; font-weight: 800; color: #5865f2"
+              >
+                Loading...
+              </div>
+              <div style="color: #1e293b; font-weight: 600">
+                Community Members
+              </div>
+            </div>
+            <div style="text-align: center">
+              <div
+                id="discord-online-count"
+                style="font-size: 2.5rem; font-weight: 800; color: #5865f2"
+              >
+                24/7
+              </div>
+              <div style="color: #1e293b; font-weight: 600">Active Chat</div>
+            </div>
+            <div style="text-align: center">
+              <div style="font-size: 2.5rem; font-weight: 800; color: #5865f2">
+                🔥
+              </div>
+              <div style="color: #1e293b; font-weight: 600">
+                Exclusive Content
+              </div>
+            </div>
+          </div>
+          <div style="text-align: center">
+            <a
+              href="https://discord.gg/PgGA8Zsj4g"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="
+                display: inline-flex;
+                align-items: center;
+                gap: 0.75rem;
+                padding: 1rem 2rem;
+                background: #5865f2;
+                color: white;
+                border-radius: 0.75rem;
+                text-decoration: none;
+                font-weight: 700;
+                font-size: 1.1rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 12px rgba(88, 101, 242, 0.4);
+              "
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 71 55"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z"
+                />
+              </svg>
+              Join Discord Server
+            </a>
+          </div>
+        </div>
       </section>
 
       <!-- Game Updates Section -->
       <section id="updates" class="game-updates section-animate">
+        <style>
+          /* Blog-style overrides scoped to #updates */
+          .blog-header {
+            text-align: center;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #f59e0b;
+          }
+          .blog-header h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #f59e0b;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin: 0;
+          }
+          .blog-list {
+            max-width: 960px;
+            margin: 0 auto;
+          }
+          .blog-post {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.25);
+            align-items: flex-start;
+          }
+          .blog-post:first-child {
+            border-top: none;
+          }
+          .blog-post:last-child {
+            border-bottom: none;
+          }
+          .blog-thumb {
+            flex: 0 0 260px;
+            width: 260px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 6px;
+            background: rgba(15, 23, 42, 0.8);
+          }
+          .blog-thumb-placeholder {
+            flex: 0 0 260px;
+            width: 260px;
+            height: 160px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .blog-thumb-placeholder img {
+            max-width: 100px;
+            max-height: 100px;
+            opacity: 0.5;
+            filter: grayscale(0.3);
+          }
+          .blog-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+          }
+          .blog-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #f59e0b;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.3;
+            text-decoration: none;
+          }
+          .blog-title:hover {
+            text-decoration: underline;
+          }
+          .blog-excerpt {
+            color: #cbd5e1;
+            font-size: 0.97rem;
+            line-height: 1.7;
+            flex: 1;
+          }
+          .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+          }
+          .blog-loading {
+            text-align: center;
+            padding: 3rem;
+            color: #94a3b8;
+          }
+          .blog-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(245, 158, 11, 0.2);
+            border-top-color: #f59e0b;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1rem;
+          }
+          @keyframes spin {
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          @media (max-width: 640px) {
+            .blog-post {
+              flex-direction: column;
+            }
+            .blog-thumb,
+            .blog-thumb-placeholder {
+              flex: none;
+              width: 100%;
+              height: 180px;
+            }
+          }
+        </style>
         <div class="container">
-          <div class="updates-container">
-            <div class="updates-header">
-              <h2>Latest Game Updates</h2>
-              <p style="color: var(--gray-600); margin: 0">
-                Latest development updates and changelogs from Steam
-              </p>
-            </div>
-
-            <!-- Loading State -->
-            <div class="updates-loading" id="updates-loading">
-              <div class="updates-spinner"></div>
-              <h3>Loading Updates...</h3>
-              <p style="color: var(--gray-600)">
-                Fetching latest changes from Steam
-              </p>
-            </div>
-
-            <!-- Updates List -->
-            <div
-              class="updates-list"
-              id="updates-list"
-              style="display: none"
-            ></div>
-
-            <!-- Error State -->
-            <div class="updates-error" id="updates-error" style="display: none">
-              <h3>📡 Unable to Load Updates</h3>
-              <p>
-                We're having trouble connecting to Steam right now. Please check
-                back later or visit our Steam page directly.
-              </p>
-              <a
-                href="https://store.steampowered.com/app/2171040"
-                class="steam-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="View Windhelm on Steam Store"
-              >
-                <div class="steam-icon">S</div>
-                View on Steam Store
-              </a>
-            </div>
-
-            <!-- Fallback container (empty unless real Steam data fails to load) -->
-            <div
-              class="updates-fallback"
-              id="updates-fallback"
-              style="display: none"
-            ></div>
-
-            <div style="text-align: center; margin-top: 1.5rem">
-              <a
-                href="https://store.steampowered.com/app/2171040"
-                class="steam-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="View all updates on Steam"
-              >
-              </a>
-            </div>
+          <div class="blog-header">
+            <h2>Blog</h2>
           </div>
-        </div>
-      </section>
 
-      <!-- Roadmap Section -->
-      <section id="roadmap" class="roadmap section-animate">
-        <div class="container">
-          <header class="section-header">
-            <h2 class="section-title">Dev Board</h2>
+          <!-- Loading State -->
+          <div class="blog-loading" id="updates-loading">
+            <div class="blog-spinner"></div>
+            <p>Loading updates from Steam…</p>
+          </div>
+
+          <!-- Blog Post List -->
+          <div class="blog-list" id="updates-list" style="display: none"></div>
+
+          <!-- Error / No Updates State -->
+          <div
+            id="updates-error"
+            style="
+              display: none;
+              text-align: center;
+              padding: 3rem;
+              color: #94a3b8;
+            "
+          >
+            <p style="margin-bottom: 1.5rem">
+              We're having trouble fetching updates right now.
             </p>
-          </header>
+            <a
+              href="https://store.steampowered.com/app/2171040"
+              class="steam-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Windhelm on Steam Store"
+              >View on Steam Store</a
+            >
+          </div>
 
-          <div id="trello-embed-container">
-            <iframe
-              id="trello-embed"
-              class="trello-embed"
-              title="Windhelm Roadmap"
-              style="display: none"
-            ></iframe>
-            <div id="trello-fallback" class="trello-fallback">
-              <p style="margin-bottom: var(--space-6)">
-                Set your Trello board shortlink to display the roadmap here.
-              </p>
-              <a
-                id="trello-open-link"
-                href="#"
-                target="_blank"
-                rel="noopener"
-                class="cta-button"
-              >
-                Open Roadmap on Trello
-              </a>
-            </div>
+          <div id="updates-fallback" style="display: none"></div>
+
+          <div style="text-align: center; margin-top: 2rem">
+            <a
+              href="https://store.steampowered.com/app/2171040"
+              class="steam-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View all updates on Steam"
+              >View All Updates on Steam →</a
+            >
           </div>
         </div>
       </section>
 
-      <!-- Media Gallery Section -->
-      <section id="gallery" class="gallery section-animate">
+      <!-- Gallery section merged into features section above -->
+      <template>
         <style>
           .gallery {
             padding: var(--space-20) 0;
-            background-image: url("media/islandbg.png?v=1"),
+            background-image:
+              url("media/islandbg.png?v=1"),
               linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95));
             background-repeat: repeat, no-repeat;
             background-size: auto, cover;
-            background-position: 0 0, 0 0;
+            background-position:
+              0 0,
+              0 0;
             background-blend-mode: overlay;
             backdrop-filter: blur(10px);
             position: relative;
@@ -1407,7 +2104,9 @@
             font-size: 1.1rem;
             font-weight: 700;
             margin: 0;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.8);
+            text-shadow:
+              0 2px 8px rgba(0, 0, 0, 0.9),
+              0 0 4px rgba(0, 0, 0, 0.8);
             color: #ffffff;
           }
 
@@ -1568,7 +2267,10 @@
             </div>
 
             <div class="gallery-item" data-index="1">
-              <img src="media/2.png" alt="Game Screenshot 2" />
+              <img
+                src="media/2.png"
+                alt="Epic Adventure — journey through mystical landscapes"
+              />
               <div class="gallery-item-overlay">
                 <h3 class="gallery-item-title">Epic Adventure</h3>
                 <p class="gallery-item-caption">
@@ -1578,7 +2280,10 @@
             </div>
 
             <div class="gallery-item" data-index="2">
-              <img src="media/3.png" alt="Game Screenshot 3" />
+              <img
+                src="media/3.png"
+                alt="Dynamic Encounters — every playthrough brings new challenges"
+              />
               <div class="gallery-item-overlay">
                 <h3 class="gallery-item-title">Dynamic Encounters</h3>
                 <p class="gallery-item-caption">
@@ -1588,7 +2293,10 @@
             </div>
 
             <div class="gallery-item" data-index="3">
-              <img src="media/4.png" alt="Game Screenshot 4" />
+              <img
+                src="media/4.png"
+                alt="Rich Environments — immersive world-building"
+              />
               <div class="gallery-item-overlay">
                 <h3 class="gallery-item-title">Rich Environments</h3>
                 <p class="gallery-item-caption">
@@ -1598,7 +2306,10 @@
             </div>
 
             <div class="gallery-item" data-index="4">
-              <img src="media/5.png" alt="Game Screenshot 5" />
+              <img
+                src="media/5.png"
+                alt="Story-Driven Gameplay — your choices shape the narrative"
+              />
               <div class="gallery-item-overlay">
                 <h3 class="gallery-item-title">Story-Driven Gameplay</h3>
                 <p class="gallery-item-caption">
@@ -1608,10 +2319,7 @@
             </div>
 
             <div class="gallery-item" data-index="5">
-              <img
-                src="media/1920x622CenteredLogo.jpg"
-                alt="Windhelm Banner"
-              />
+              <img src="media/1920x622CenteredLogo.jpg" alt="Windhelm Banner" />
               <div class="gallery-item-overlay">
                 <h3 class="gallery-item-title">Windhelm</h3>
                 <p class="gallery-item-caption">An epic RPG adventure awaits</p>
@@ -1685,7 +2393,8 @@
             function updateLightboxContent() {
               const item = galleryData[currentIndex];
               lightboxImage.src = item.src;
-              lightboxImage.alt = item.alt || item.title || item.caption || "Gallery image";
+              lightboxImage.alt =
+                item.alt || item.title || item.caption || "Gallery image";
               lightboxCaption.innerHTML = `<strong>${item.title}</strong><br>${item.caption}`;
             }
 
@@ -1742,16 +2451,13 @@
             });
           })();
         </script>
-      </section>
+      </template>
 
       <!-- Team Section -->
       <section id="team" class="team section-animate">
         <div class="container">
           <header class="section-header">
             <h2 class="section-title">The Dynamic Duo</h2>
-            <p class="section-subtitle">
-              + Arkyn 👶, Luna 🐶, Stella 🐶, and Neptune 😺
-            </p>
           </header>
 
           <div class="team-grid">
@@ -1807,62 +2513,448 @@
       <!-- Statistics Section -->
       <section id="stats" class="stats section-animate">
         <div class="container">
+          <header class="section-header" style="margin-bottom: 3rem">
+            <h2 class="section-title">Windhelm by the Numbers</h2>
+            <p class="section-subtitle">
+              A game built around players, not profits.
+            </p>
+          </header>
           <div class="stats-grid">
             <div class="stat-box">
-              <div id="wishlist-count" class="stat-value" data-target="0" style="background-image: linear-gradient(135deg, #3b82f6, #8b5cf6);">Loading...</div>
+              <div
+                id="wishlist-count"
+                class="stat-value"
+                data-target="0"
+                style="
+                  background-image: linear-gradient(135deg, #3b82f6, #8b5cf6);
+                "
+              >
+                Loading...
+              </div>
               <div class="stat-label">Wishlist Count</div>
             </div>
             <div class="stat-box">
-              <div class="stat-value" data-target="100" style="background-image: linear-gradient(135deg, #10b981, #14b8a6);">0%</div>
+              <div
+                class="stat-value"
+                data-target="100"
+                style="
+                  background-image: linear-gradient(135deg, #10b981, #14b8a6);
+                "
+              >
+                0%
+              </div>
               <div class="stat-label">Free Update Content</div>
             </div>
             <div class="stat-box">
-              <div class="stat-value" data-target="999" style="background-image: linear-gradient(135deg, #f59e0b, #ef4444);">∞</div>
+              <div
+                class="stat-value"
+                data-target="999"
+                style="
+                  background-image: linear-gradient(135deg, #f59e0b, #ef4444);
+                "
+              >
+                ∞
+              </div>
               <div class="stat-label">Replayability</div>
             </div>
             <div class="stat-box">
-              <div class="stat-value" data-target="4" style="background-image: linear-gradient(135deg, #06b6d4, #3b82f6);">4</div>
+              <div
+                class="stat-value"
+                data-target="4"
+                style="
+                  background-image: linear-gradient(135deg, #06b6d4, #3b82f6);
+                "
+              >
+                4
+              </div>
               <div class="stat-label">Platforms</div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Press Kit Section -->
-      <section id="press" class="press section-animate">
+      <!-- System Requirements Section -->
+      <section id="requirements" class="section-animate">
+        <style>
+          #requirements {
+            background-image:
+              url("media/islandbg.png?v=1"),
+              linear-gradient(rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.98));
+            background-repeat: repeat, no-repeat;
+            background-size: auto, cover;
+            background-blend-mode: overlay;
+            backdrop-filter: blur(10px);
+          }
+          .requirements-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 2rem auto 0;
+          }
+          @media (max-width: 640px) {
+            .requirements-grid {
+              grid-template-columns: 1fr;
+            }
+          }
+          .requirements-card {
+            background: linear-gradient(
+              135deg,
+              rgba(30, 41, 59, 0.9),
+              rgba(17, 24, 39, 0.85)
+            );
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+          }
+          .requirements-card.recommended {
+            border-color: rgba(37, 99, 235, 0.35);
+          }
+          .requirements-tier {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.4rem;
+          }
+          .requirements-tier.min {
+            color: #64748b;
+          }
+          .requirements-tier.rec {
+            color: #2563eb;
+          }
+          .requirements-card h3 {
+            color: #e2e8f0;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          }
+          .requirements-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+          }
+          .requirements-list li {
+            display: flex;
+            gap: 0.75rem;
+            font-size: 0.92rem;
+            line-height: 1.5;
+          }
+          .req-label {
+            color: #475569;
+            font-weight: 700;
+            min-width: 80px;
+            flex-shrink: 0;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding-top: 0.1rem;
+          }
+          .req-value {
+            color: #cbd5e1;
+          }
+          .requirements-note {
+            text-align: center;
+            color: #475569;
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            font-style: italic;
+          }
+        </style>
         <div class="container">
           <header class="section-header">
-            <h2 class="section-title">Press Kit</h2>
-            <p class="section-subtitle">Resources for media and content creators</p>
+            <h2 class="section-title">PC System Requirements</h2>
+            <p class="section-subtitle">
+              Hardware specifications for Windhelm on PC. Console requirements
+              will be announced separately.
+            </p>
           </header>
-          
-          <div class="press-grid">
-            <div class="press-card">
-              <div class="press-icon">📄</div>
-              <h3>Fact Sheet</h3>
-              <p>Essential game information, features, and platform details.</p>
-              <a href="#" class="press-download">Download</a>
+          <div class="requirements-grid">
+            <div class="requirements-card">
+              <div class="requirements-tier min">Minimum</div>
+              <h3>Entry Level</h3>
+              <ul class="requirements-list">
+                <li>
+                  <span class="req-label">OS</span
+                  ><span class="req-value">Windows 10 64-bit</span>
+                </li>
+                <li>
+                  <span class="req-label">CPU</span
+                  ><span class="req-value"
+                    >Intel Core i5-4460 / AMD Ryzen 3 1200</span
+                  >
+                </li>
+                <li>
+                  <span class="req-label">RAM</span
+                  ><span class="req-value">8 GB</span>
+                </li>
+                <li>
+                  <span class="req-label">GPU</span
+                  ><span class="req-value"
+                    >NVIDIA GTX 960 / AMD RX 470 (4 GB VRAM)</span
+                  >
+                </li>
+                <li>
+                  <span class="req-label">Storage</span
+                  ><span class="req-value">4 GB available space</span>
+                </li>
+                <li>
+                  <span class="req-label">DirectX</span
+                  ><span class="req-value">Version 11</span>
+                </li>
+              </ul>
             </div>
-            
-            <div class="press-card">
-              <div class="press-icon">🖼️</div>
-              <h3>Logos & Assets</h3>
-              <p>High-resolution logos, screenshots, and promotional artwork.</p>
-              <a href="#" class="press-download">Download</a>
+            <div class="requirements-card recommended">
+              <div class="requirements-tier rec">Recommended</div>
+              <h3>Optimal Experience</h3>
+              <ul class="requirements-list">
+                <li>
+                  <span class="req-label">OS</span
+                  ><span class="req-value">Windows 10 / 11 64-bit</span>
+                </li>
+                <li>
+                  <span class="req-label">CPU</span
+                  ><span class="req-value"
+                    >Intel Core i7-8700 / AMD Ryzen 5 3600</span
+                  >
+                </li>
+                <li>
+                  <span class="req-label">RAM</span
+                  ><span class="req-value">16 GB</span>
+                </li>
+                <li>
+                  <span class="req-label">GPU</span
+                  ><span class="req-value"
+                    >NVIDIA GTX 1070 / AMD RX 5700 (8 GB VRAM)</span
+                  >
+                </li>
+                <li>
+                  <span class="req-label">Storage</span
+                  ><span class="req-value"
+                    >8 GB available space (SSD recommended)</span
+                  >
+                </li>
+                <li>
+                  <span class="req-label">DirectX</span
+                  ><span class="req-value">Version 12</span>
+                </li>
+              </ul>
             </div>
-            
-            <div class="press-card">
-              <div class="press-icon">🎥</div>
-              <h3>Media Kit</h3>
-              <p>Trailers, gameplay footage, and promotional videos.</p>
-              <a href="#" class="press-download">Download</a>
-            </div>
+          </div>
+          <p class="requirements-note">
+            * Requirements are subject to change as development progresses.
+          </p>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section id="faq" class="faq section-animate">
+        <style>
+          .faq {
+            background-image:
+              url("media/islandbg.png?v=1"),
+              linear-gradient(rgba(15, 23, 42, 0.97), rgba(15, 23, 42, 0.97));
+            background-repeat: repeat, no-repeat;
+            background-size: auto, cover;
+            background-blend-mode: overlay;
+            backdrop-filter: blur(10px);
+          }
+          .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+          }
+          .faq-item {
+            background: linear-gradient(
+              135deg,
+              rgba(30, 41, 59, 0.9),
+              rgba(17, 24, 39, 0.85)
+            );
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            transition: border-color 0.2s ease;
+          }
+          .faq-item[open] {
+            border-color: rgba(102, 192, 244, 0.3);
+          }
+          .faq-item summary {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: #e2e8f0;
+            font-size: 1.05rem;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+          }
+          .faq-item summary::-webkit-details-marker {
+            display: none;
+          }
+          .faq-item summary:hover {
+            background: rgba(255, 255, 255, 0.04);
+          }
+          .faq-item summary:focus {
+            outline: 3px solid #2563eb;
+            outline-offset: -3px;
+          }
+          .faq-item summary::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: #66c0f4;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 1rem;
+            line-height: 1;
+          }
+          .faq-item[open] summary::after {
+            transform: rotate(45deg);
+          }
+          .faq-item[open] summary {
+            background: rgba(255, 255, 255, 0.04);
+          }
+          .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #94a3b8;
+            line-height: 1.75;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1rem;
+          }
+          .faq-answer a {
+            color: #66c0f4;
+            text-decoration: underline;
+          }
+          .faq-answer a:hover {
+            color: #93c5fd;
+          }
+        </style>
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Got questions? We've got answers.</p>
+          </header>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>When will Windhelm be released?</summary>
+              <div class="faq-answer">
+                <p>
+                  We're working hard to deliver the best possible experience.
+                  Follow our
+                  <a
+                    href="https://store.steampowered.com/app/2171040/Windhelm/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Steam page</a
+                  >
+                  and
+                  <a
+                    href="https://discord.gg/PgGA8Zsj4g"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Discord server</a
+                  >
+                  for the latest release date announcements.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>What platforms will Windhelm launch on?</summary>
+              <div class="faq-answer">
+                <p>
+                  Windhelm is planned for release on PC (Steam), PlayStation,
+                  Xbox, and Nintendo Switch. All platforms will receive the same
+                  content and updates at no extra cost.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>How much will the game cost?</summary>
+              <div class="faq-answer">
+                <p>
+                  Pricing details will be announced closer to launch. What we
+                  can promise: buy it once, own it forever. No subscriptions, no
+                  season passes, no microtransactions. All future content
+                  updates are free for life.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>What makes Windhelm different from other RPGs?</summary>
+              <div class="faq-answer">
+                <p>
+                  Windhelm combines procedural generation with rich narrative
+                  storytelling so that no two playthroughs are ever identical.
+                  Built by a small indie husband-wife team, every design
+                  decision is driven by passion rather than profit. We focus on
+                  authentic, meaningful gameplay over flashy graphics or
+                  monetisation schemes.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Will there be co-op or multiplayer?</summary>
+              <div class="faq-answer">
+                <p>
+                  Windhelm is designed as a single-player experience to preserve
+                  the personal, narrative-driven journey at its core.
+                  Multiplayer features may be explored in future updates — share
+                  your thoughts in our
+                  <a
+                    href="https://discord.gg/PgGA8Zsj4g"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Discord</a
+                  >!
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>How can I support the development?</summary>
+              <div class="faq-answer">
+                <p>
+                  The best way to support us is to
+                  <a
+                    href="https://store.steampowered.com/app/2171040/Windhelm/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >wishlist the game on Steam</a
+                  >
+                  — it genuinely helps with visibility and launch momentum. You
+                  can also join our
+                  <a
+                    href="https://discord.gg/PgGA8Zsj4g"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Discord</a
+                  >, share the game with friends, and subscribe to our
+                  <a
+                    href="https://www.youtube.com/@NorwinLabs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >YouTube channel</a
+                  >.
+                </p>
+              </div>
+            </details>
           </div>
         </div>
       </section>
 
       <!-- Contact Section -->
-      <section id="contact" class="contact section-animate" style="padding-bottom: 5rem;">
+      <section
+        id="contact"
+        class="contact section-animate"
+        style="padding-bottom: 5rem"
+      >
         <script>
           // Smooth scroll - no pop-in animations
           document.addEventListener("DOMContentLoaded", function () {
@@ -1878,212 +2970,332 @@
           <header class="section-header">
             <h2 class="section-title">Connect With Us</h2>
             <p class="section-subtitle">
-              Stay updated on development, join our community, and be part of the journey
+              Have a question, suggestion, or just want to say hi? Head over to
+              our Discord — the team is active there daily.
             </p>
           </header>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+              gap: 2rem;
+              margin-top: 3rem;
+            "
+          >
             <!-- Discord Card -->
-            <a href="https://discord.gg/PgGA8Zsj4g" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-              <div style="background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%); border-radius: 1rem; padding: 2.5rem 2rem; text-align: center; transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3); height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+            <a
+              href="https://discord.gg/PgGA8Zsj4g"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="text-decoration: none"
+            >
+              <div
+                style="
+                  background: linear-gradient(135deg, #5865f2 0%, #4752c4 100%);
+                  border-radius: 1rem;
+                  padding: 2.5rem 2rem;
+                  text-align: center;
+                  transition: all 0.3s ease;
+                  border: 2px solid rgba(255, 255, 255, 0.1);
+                  box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
+                  height: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                "
+              >
                 <div>
-                  <div style="width: 70px; height: 70px; background: rgba(255, 255, 255, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
-                    <svg width="40" height="40" viewBox="0 0 71 55" fill="white" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z"/>
+                  <div
+                    style="
+                      width: 70px;
+                      height: 70px;
+                      background: rgba(255, 255, 255, 0.15);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin: 0 auto 1.5rem;
+                    "
+                  >
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 71 55"
+                      fill="white"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z"
+                      />
                     </svg>
                   </div>
-                  <h3 style="color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">Discord Community</h3>
-                  <p style="color: rgba(255, 255, 255, 0.9); line-height: 1.6; margin-bottom: 1.5rem;">Join <span id="discord-member-count-contact" style="font-weight: 700;">1,000+</span> members in our active community. Get exclusive dev updates, participate in events, and connect with fellow adventurers.</p>
+                  <h3
+                    style="
+                      color: white;
+                      font-size: 1.5rem;
+                      font-weight: 700;
+                      margin-bottom: 0.75rem;
+                    "
+                  >
+                    Discord Community
+                  </h3>
+                  <p
+                    style="
+                      color: rgba(255, 255, 255, 0.9);
+                      line-height: 1.6;
+                      margin-bottom: 1.5rem;
+                    "
+                  >
+                    Join
+                    <span
+                      id="discord-member-count-contact"
+                      style="font-weight: 700"
+                      >1,000+</span
+                    >
+                    members in our active community. Get exclusive dev updates,
+                    participate in events, and connect with fellow adventurers.
+                  </p>
                 </div>
-                <div style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.75rem; background: rgba(255, 255, 255, 0.2); border-radius: 0.5rem; font-weight: 600; color: white; backdrop-filter: blur(10px);">
+                <div
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+                    padding: 0.875rem 1.75rem;
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 0.5rem;
+                    font-weight: 600;
+                    color: white;
+                    backdrop-filter: blur(10px);
+                  "
+                >
                   Join Server
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round"/>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
                   </svg>
                 </div>
               </div>
             </a>
 
             <!-- Steam Card -->
-            <a href="https://store.steampowered.com/app/2171040/Windhelm/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-              <div style="background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%); border-radius: 1rem; padding: 2.5rem 2rem; text-align: center; transition: all 0.3s ease; border: 2px solid rgba(102, 192, 244, 0.3); box-shadow: 0 10px 30px rgba(27, 40, 56, 0.5); height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+            <a
+              href="https://store.steampowered.com/app/2171040/Windhelm/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="text-decoration: none"
+            >
+              <div
+                style="
+                  background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%);
+                  border-radius: 1rem;
+                  padding: 2.5rem 2rem;
+                  text-align: center;
+                  transition: all 0.3s ease;
+                  border: 2px solid rgba(102, 192, 244, 0.3);
+                  box-shadow: 0 10px 30px rgba(27, 40, 56, 0.5);
+                  height: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                "
+              >
                 <div>
-                  <div style="width: 70px; height: 70px; background: rgba(102, 192, 244, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="#66c0f4">
-                      <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.62 20.51 6.363 24 11.979 24c6.624 0 11.979-5.354 11.979-11.979C23.958 5.354 18.603.001 11.979.001zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.66-1.353-3.015-3.015-3.015-1.665 0-3.015 1.355-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/>
+                  <div
+                    style="
+                      width: 70px;
+                      height: 70px;
+                      background: rgba(102, 192, 244, 0.15);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin: 0 auto 1.5rem;
+                    "
+                  >
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 24 24"
+                      fill="#66c0f4"
+                    >
+                      <path
+                        d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.62 20.51 6.363 24 11.979 24c6.624 0 11.979-5.354 11.979-11.979C23.958 5.354 18.603.001 11.979.001zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.66-1.353-3.015-3.015-3.015-1.665 0-3.015 1.355-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"
+                      />
                     </svg>
                   </div>
-                  <h3 style="color: #66c0f4; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">Wishlist on Steam</h3>
-                  <p style="color: #c7d5e0; line-height: 1.6; margin-bottom: 1.5rem;">Add Windhelm to your Steam wishlist and be notified the moment we launch. Get exclusive release discounts and early access opportunities.</p>
+                  <h3
+                    style="
+                      color: #66c0f4;
+                      font-size: 1.5rem;
+                      font-weight: 700;
+                      margin-bottom: 0.75rem;
+                    "
+                  >
+                    Wishlist on Steam
+                  </h3>
+                  <p
+                    style="
+                      color: #c7d5e0;
+                      line-height: 1.6;
+                      margin-bottom: 1.5rem;
+                    "
+                  >
+                    Add Windhelm to your Steam wishlist and be notified the
+                    moment we launch. Get exclusive release discounts and early
+                    access opportunities.
+                  </p>
                 </div>
-                <div style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.75rem; background: #66c0f4; border-radius: 0.5rem; font-weight: 600; color: #1b2838;">
+                <div
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+                    padding: 0.875rem 1.75rem;
+                    background: #66c0f4;
+                    border-radius: 0.5rem;
+                    font-weight: 600;
+                    color: #1b2838;
+                  "
+                >
                   Add to Wishlist
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
                   </svg>
                 </div>
               </div>
             </a>
 
             <!-- YouTube Card -->
-            <a href="https://www.youtube.com/@NorwinLabs" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-              <div style="background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%); border-radius: 1rem; padding: 2.5rem 2rem; text-align: center; transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3); height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+            <a
+              href="https://www.youtube.com/@NorwinLabs"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="text-decoration: none"
+            >
+              <div
+                style="
+                  background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+                  border-radius: 1rem;
+                  padding: 2.5rem 2rem;
+                  text-align: center;
+                  transition: all 0.3s ease;
+                  border: 2px solid rgba(255, 255, 255, 0.1);
+                  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+                  height: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                "
+              >
                 <div>
-                  <div style="width: 70px; height: 70px; background: rgba(255, 255, 255, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  <div
+                    style="
+                      width: 70px;
+                      height: 70px;
+                      background: rgba(255, 255, 255, 0.15);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin: 0 auto 1.5rem;
+                    "
+                  >
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 24 24"
+                      fill="white"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                      />
                     </svg>
                   </div>
-                  <h3 style="color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">YouTube Channel</h3>
-                  <p style="color: rgba(255, 255, 255, 0.9); line-height: 1.6; margin-bottom: 1.5rem;">Watch development vlogs, gameplay showcases, and behind-the-scenes content. New videos weekly covering game mechanics and lore.</p>
+                  <h3
+                    style="
+                      color: white;
+                      font-size: 1.5rem;
+                      font-weight: 700;
+                      margin-bottom: 0.75rem;
+                    "
+                  >
+                    YouTube Channel
+                  </h3>
+                  <p
+                    style="
+                      color: rgba(255, 255, 255, 0.9);
+                      line-height: 1.6;
+                      margin-bottom: 1.5rem;
+                    "
+                  >
+                    Watch development vlogs, gameplay showcases, and
+                    behind-the-scenes content. New videos weekly covering game
+                    mechanics and lore.
+                  </p>
                 </div>
-                <div style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.75rem; background: rgba(255, 255, 255, 0.2); border-radius: 0.5rem; font-weight: 600; color: white; backdrop-filter: blur(10px);">
+                <div
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+                    padding: 0.875rem 1.75rem;
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 0.5rem;
+                    font-weight: 600;
+                    color: white;
+                    backdrop-filter: blur(10px);
+                  "
+                >
                   Subscribe Now
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/>
-                    <polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- Contact Form -->
-          <div style="margin-top: 4rem;">
-            <div class="contact-form-container">
-              <div class="contact-form-header">
-                <h3>Send a Message</h3>
-                <p>Questions or feedback? We'd love to hear from you</p>
-              </div>
-
-              <form
-                class="contact-form"
-                id="contact-form"
-                action="https://forms.nicepagesrv.com/v2/form/process"
-                method="POST"
-              >
-                <div class="form-group">
-                  <label for="name">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Your name"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="email">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <polyline
-                        points="22,6 12,13 2,6"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="your@email.com"
-                    required
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label for="message">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="5"
-                    placeholder="Your message..."
-                    required
-                  ></textarea>
-                </div>
-
-                <button type="submit" class="submit-button">
                   <svg
-                    width="20"
-                    height="20"
+                    width="16"
+                    height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                    stroke="currentColor"
+                    stroke-width="2"
                   >
                     <path
-                      d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      d="M22 11.08V12a10 10 0 1 1-5.93-9.14"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <polyline
+                      points="22 4 12 14.01 9 11.01"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
                   </svg>
-                  Send Message
-                </button>
-
-                <input
-                  type="hidden"
-                  name="formServices"
-                  value="fd87cc1f-cce2-e1b0-f874-071208ba58c1"
-                />
-                <input
-                  type="hidden"
-                  name="siteKey"
-                  value="6LcIF7AqAAAAANPHfgAYi7su81ChnUac3zICzAc0"
-                />
-                <input type="hidden" name="recaptchaResponse" value="" />
-              </form>
-            </div>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -2099,16 +3311,303 @@
           </div>
         </div>
       </section>
+
+      <!-- Newsletter Section -->
+      <section class="newsletter-section">
+        <style>
+          .newsletter-section {
+            background: linear-gradient(
+              135deg,
+              rgba(37, 99, 235, 0.12),
+              rgba(29, 78, 216, 0.08)
+            );
+            border-top: 1px solid rgba(37, 99, 235, 0.18);
+            border-bottom: 1px solid rgba(37, 99, 235, 0.18);
+            padding: 4rem 0;
+          }
+          .newsletter-inner {
+            max-width: 580px;
+            margin: 0 auto;
+            text-align: center;
+          }
+          .newsletter-heading {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #e2e8f0;
+            margin-bottom: 0.6rem;
+          }
+          .newsletter-subheading {
+            color: #94a3b8;
+            margin-bottom: 1.75rem;
+            line-height: 1.65;
+            font-size: 1rem;
+          }
+          .newsletter-form-row {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 460px;
+            margin: 0 auto;
+          }
+          .newsletter-email-input {
+            flex: 1;
+            padding: 0.875rem 1.125rem;
+            border-radius: 0.625rem;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(15, 23, 42, 0.75);
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition:
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+          }
+          .newsletter-email-input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+          }
+          .newsletter-email-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+          }
+          .newsletter-submit-btn {
+            padding: 0.875rem 1.375rem;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 0.625rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition:
+              background 0.2s ease,
+              transform 0.2s ease;
+            white-space: nowrap;
+          }
+          .newsletter-submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+          }
+          .newsletter-submit-btn:focus {
+            outline: 3px solid #60a5fa;
+            outline-offset: 2px;
+          }
+          .newsletter-note {
+            margin-top: 0.875rem;
+            font-size: 0.8rem;
+            color: #475569;
+          }
+          .newsletter-success-msg {
+            display: none;
+            color: #10b981;
+            font-weight: 600;
+            margin-top: 1rem;
+            font-size: 1rem;
+          }
+          @media (max-width: 480px) {
+            .newsletter-form-row {
+              flex-direction: column;
+            }
+            .newsletter-submit-btn {
+              width: 100%;
+            }
+          }
+        </style>
+        <div class="container">
+          <div class="newsletter-inner">
+            <h2 class="newsletter-heading">📬 Stay in the Loop</h2>
+            <p class="newsletter-subheading">
+              Get development updates, early access news, and exclusive content
+              — no spam, ever.
+            </p>
+            <!-- TODO: Replace the action URL with your email service endpoint (Mailchimp, ConvertKit, Formspree, etc.) -->
+            <form
+              class="newsletter-form-row"
+              id="newsletter-form"
+              action="#"
+              method="POST"
+              onsubmit="handleNewsletterSubmit(event)"
+            >
+              <input
+                type="email"
+                class="newsletter-email-input"
+                id="newsletter-email"
+                name="email"
+                placeholder="your@email.com"
+                required
+                aria-required="true"
+                aria-label="Email address for newsletter"
+                autocomplete="email"
+              />
+              <button type="submit" class="newsletter-submit-btn">
+                Subscribe
+              </button>
+            </form>
+            <p class="newsletter-note">
+              Join our
+              <a
+                href="https://discord.gg/PgGA8Zsj4g"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color: #5865f2; text-decoration: underline"
+                >Discord</a
+              >
+              for the most active community updates.
+            </p>
+            <p
+              class="newsletter-success-msg"
+              id="newsletter-success"
+              role="status"
+              aria-live="polite"
+            >
+              ✓ Thanks for subscribing! We'll be in touch.
+            </p>
+          </div>
+        </div>
+        <script>
+          function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector(".newsletter-submit-btn");
+            const successMsg = document.getElementById("newsletter-success");
+            btn.textContent = "Subscribing...";
+            btn.disabled = true;
+            // TODO: Replace with actual fetch() call to your email service
+            setTimeout(function () {
+              form.style.display = "none";
+              if (successMsg) successMsg.style.display = "block";
+            }, 800);
+          }
+        </script>
+      </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" style="padding: 1.5rem 0">
       <div class="container">
         <div class="footer-content">
           <div class="footer-brand">
             <img src="media/Logo.png" alt="Windhelm Logo" class="footer-logo" />
-            <p>©<span id="copyright-year"></span> NorwinLabs LLC. All rights reserved.</p>
+            <p>
+              ©<span id="copyright-year"></span> NorwinLabs LLC. All rights
+              reserved.
+            </p>
           </div>
+          <nav
+            aria-label="Footer navigation"
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 0.25rem 1.25rem;
+              justify-content: center;
+            "
+          >
+            <a
+              href="#home"
+              style="
+                color: #94a3b8;
+                text-decoration: none;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                font-weight: 600;
+                transition: color 0.2s;
+              "
+              onmouseover="this.style.color = '#e2e8f0'"
+              onmouseout="this.style.color = '#94a3b8'"
+              >Home</a
+            >
+            <a
+              href="#features"
+              style="
+                color: #94a3b8;
+                text-decoration: none;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                font-weight: 600;
+                transition: color 0.2s;
+              "
+              onmouseover="this.style.color = '#e2e8f0'"
+              onmouseout="this.style.color = '#94a3b8'"
+              >Features</a
+            >
+            <a
+              href="#gallery"
+              style="
+                color: #94a3b8;
+                text-decoration: none;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                font-weight: 600;
+                transition: color 0.2s;
+              "
+              onmouseover="this.style.color = '#e2e8f0'"
+              onmouseout="this.style.color = '#94a3b8'"
+              >Gallery</a
+            >
+            <a
+              href="#updates"
+              style="
+                color: #94a3b8;
+                text-decoration: none;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                font-weight: 600;
+                transition: color 0.2s;
+              "
+              onmouseover="this.style.color = '#e2e8f0'"
+              onmouseout="this.style.color = '#94a3b8'"
+              >Updates</a
+            >
+            <a
+              href="#faq"
+              style="
+                color: #94a3b8;
+                text-decoration: none;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                font-weight: 600;
+                transition: color 0.2s;
+              "
+              onmouseover="this.style.color = '#e2e8f0'"
+              onmouseout="this.style.color = '#94a3b8'"
+              >FAQ</a
+            >
+            <a
+              href="#contact"
+              style="
+                color: #94a3b8;
+                text-decoration: none;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                font-weight: 600;
+                transition: color 0.2s;
+              "
+              onmouseover="this.style.color = '#e2e8f0'"
+              onmouseout="this.style.color = '#94a3b8'"
+              >Contact</a
+            >
+            <a
+              href="presskit.html"
+              style="
+                color: #94a3b8;
+                text-decoration: none;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                font-weight: 600;
+                transition: color 0.2s;
+              "
+              onmouseover="this.style.color = '#e2e8f0'"
+              onmouseout="this.style.color = '#94a3b8'"
+              >Press Kit</a
+            >
+          </nav>
           <div class="footer-version">
             <p id="site-version">v1.2.2</p>
           </div>
@@ -2118,33 +3617,38 @@
 
     <script>
       // Dynamically update copyright year
-      document.getElementById('copyright-year').textContent = new Date().getFullYear();
-      
+      document.getElementById("copyright-year").textContent =
+        new Date().getFullYear();
+
       // Fetch and display site version
-      (async function() {
+      (async function () {
         try {
-          const response = await fetch('version.json');
+          const response = await fetch("version.json");
           const data = await response.json();
-          const versionElement = document.getElementById('site-version');
+          const versionElement = document.getElementById("site-version");
           if (versionElement && data.version) {
             versionElement.textContent = `v${data.version}`;
             versionElement.title = `Build ${data.build} - Last updated ${new Date(data.lastUpdated).toLocaleString()}`;
           }
         } catch (error) {
-          console.log('Version fetch failed, using default');
+          console.log("Version fetch failed, using default");
         }
       })();
     </script>
 
     <!-- Discord Member Count Fetcher -->
     <script>
-      (function() {
-        const DISCORD_SERVER_ID = '974051907058405467';
-        const CACHE_KEY = 'discord_stats_cache';
+      (function () {
+        const DISCORD_SERVER_ID = "974051907058405467";
+        const CACHE_KEY = "discord_stats_cache";
         const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
-        const memberCountElement = document.getElementById('discord-member-count');
-        const onlineCountElement = document.getElementById('discord-online-count');
-        
+        const memberCountElement = document.getElementById(
+          "discord-member-count",
+        );
+        const onlineCountElement = document.getElementById(
+          "discord-online-count",
+        );
+
         async function fetchDiscordStats() {
           try {
             // Check cache first
@@ -2156,61 +3660,72 @@
                 return;
               }
             }
-            
+
             // Using Discord Widget API
-            const response = await fetch(`https://discord.com/api/guilds/${DISCORD_SERVER_ID}/widget.json`);
-            
+            const response = await fetch(
+              `https://discord.com/api/guilds/${DISCORD_SERVER_ID}/widget.json`,
+            );
+
             if (!response.ok) {
-              throw new Error('Widget not enabled');
+              throw new Error("Widget not enabled");
             }
-            
+
             const data = await response.json();
-            
+
             // Cache the response
-            localStorage.setItem(CACHE_KEY, JSON.stringify({
-              data: data,
-              timestamp: Date.now()
-            }));
-            
+            localStorage.setItem(
+              CACHE_KEY,
+              JSON.stringify({
+                data: data,
+                timestamp: Date.now(),
+              }),
+            );
+
             updateUI(data);
           } catch (error) {
-            console.log('Discord API fetch error:', error);
+            console.log("Discord API fetch error:", error);
             // Fallback values
             if (memberCountElement) {
-              memberCountElement.textContent = '50+';
+              memberCountElement.textContent = "50+";
             }
             if (onlineCountElement) {
-              onlineCountElement.textContent = '24/7';
-              onlineCountElement.nextElementSibling.textContent = 'Active Chat';
+              onlineCountElement.textContent = "24/7";
+              onlineCountElement.nextElementSibling.textContent = "Active Chat";
             }
           }
         }
-        
+
         function updateUI(data) {
           if (memberCountElement) {
             // Total members (approximate from presence)
-            const totalMembers = data.presence_count || data.members?.length || 0;
-            memberCountElement.textContent = totalMembers.toLocaleString() + '+';
-            
+            const totalMembers =
+              data.presence_count || data.members?.length || 0;
+            memberCountElement.textContent =
+              totalMembers.toLocaleString() + "+";
+
             // Also update contact section if it exists
-            const contactMemberCount = document.getElementById('discord-member-count-contact');
+            const contactMemberCount = document.getElementById(
+              "discord-member-count-contact",
+            );
             if (contactMemberCount) {
-              contactMemberCount.textContent = totalMembers.toLocaleString() + '+';
+              contactMemberCount.textContent =
+                totalMembers.toLocaleString() + "+";
             }
           }
-          
+
           if (onlineCountElement) {
             // Online members
             const onlineMembers = data.presence_count || 0;
             onlineCountElement.textContent = onlineMembers.toLocaleString();
-            onlineCountElement.nextElementSibling.textContent = 'Members Online';
+            onlineCountElement.nextElementSibling.textContent =
+              "Members Online";
           }
         }
-        
+
         // Fetch on page load (deferred)
         if (memberCountElement) {
           // Use requestIdleCallback for non-critical data
-          if ('requestIdleCallback' in window) {
+          if ("requestIdleCallback" in window) {
             requestIdleCallback(() => fetchDiscordStats());
           } else {
             setTimeout(fetchDiscordStats, 100);
@@ -2226,28 +3741,6 @@
     <script src="https://www.youtube.com/iframe_api" defer></script>
 
     <script>
-      // Roadmap (Trello) embed configuration
-      // Set this to your Trello board shortlink (the code in the board URL)
-      // Example board URL: https://trello.com/b/ABCD1234/your-board
-      // Set: const TRELLO_BOARD_SHORTLINK = "ABCD1234";
-      const TRELLO_BOARD_SHORTLINK = "mMhnJ4im"; // TODO: set your board shortlink
-
-      document.addEventListener("DOMContentLoaded", function () {
-        const iframe = document.getElementById("trello-embed");
-        const fallback = document.getElementById("trello-fallback");
-        const openLink = document.getElementById("trello-open-link");
-
-        if (TRELLO_BOARD_SHORTLINK && iframe && fallback && openLink) {
-          const trelloUrl = `https://trello.com/b/${TRELLO_BOARD_SHORTLINK}.html?menu=hide`;
-          iframe.src = trelloUrl;
-          iframe.style.display = "block";
-          fallback.style.display = "none";
-          openLink.href = trelloUrl;
-        } else if (openLink) {
-          openLink.href = "https://trello.com/";
-        }
-      });
-
       // YouTube Background Video Configuration
       const YOUTUBE_VIDEO_ID = "gZdP3WCZJc8"; // Replace with your YouTube video ID
       const HERO_FALLBACK_IMAGE = "media/WindhelmYoutubeBanner.jpg";
@@ -2297,11 +3790,17 @@
         event.target.mute();
         event.target.setVolume(0);
         event.target.playVideo();
+        // Fade in background only after player is ready (hides controls flash)
+        var bgEl = document.getElementById("youtube-background");
+        if (bgEl) bgEl.style.opacity = "1";
         // If video doesn't actually start (e.g. autoplay blocked), show static image after 3s
         window.setTimeout(function () {
           if (useLocalFallback || !player || !player.getPlayerState) return;
           var state = player.getPlayerState();
-          if (state !== YT.PlayerState.PLAYING && state !== YT.PlayerState.BUFFERING) {
+          if (
+            state !== YT.PlayerState.PLAYING &&
+            state !== YT.PlayerState.BUFFERING
+          ) {
             loadImageFallback("video could not play");
           }
         }, 3000);
@@ -2331,8 +3830,15 @@
         const container = document.getElementById("youtube-background");
         if (!container) return;
 
-        container.innerHTML = "<img src=\"" + HERO_FALLBACK_IMAGE + "\" alt=\"Windhelm\" class=\"hero-fallback-image\" />";
-        console.info("Hero background: showing static image (" + (reason || "video cannot play") + ")");
+        container.innerHTML =
+          '<img src="' +
+          HERO_FALLBACK_IMAGE +
+          '" alt="Windhelm" class="hero-fallback-image" />';
+        console.info(
+          "Hero background: showing static image (" +
+            (reason || "video cannot play") +
+            ")",
+        );
       }
 
       // Removed delayed font loading to avoid FOUT/pop
@@ -2360,7 +3866,7 @@
           },
           {
             rootMargin: "50px",
-          }
+          },
         );
 
         images.forEach((img) => imageObserver.observe(img));
@@ -2393,15 +3899,6 @@
     </script>
     <script src="script.min.js?v=1.2" defer></script>
 
-    <!-- Form success/error messages -->
-    <div id="form-messages" class="form-messages" style="display: none">
-      <div class="form-success" id="form-success">
-        Thank you! Your message has been sent.
-      </div>
-      <div class="form-error" id="form-error">
-        Unable to send your message. Please try again.
-      </div>
-    </div>
     <script>
       // ===== FORCE CACHE REFRESH ON EVERY VISIT =====
       const SITE_VERSION = "1.0.0";
@@ -2421,7 +3918,7 @@
       }
 
       console.log(
-        `Windhelm site loaded successfully! Version: ${SITE_VERSION}`
+        `Windhelm site loaded successfully! Version: ${SITE_VERSION}`,
       );
 
       // ===== FIRE PARTICLES FOR LOGO =====
@@ -2445,7 +3942,7 @@
           // Random horizontal drift
           particle.style.setProperty(
             "--particle-x",
-            `${(Math.random() - 0.5) * 40}px`
+            `${(Math.random() - 0.5) * 40}px`,
           );
 
           fireContainer.appendChild(particle);
@@ -2478,8 +3975,12 @@
           navToggle.classList.toggle("active");
           navMenu.classList.toggle("active");
           if (navOverlay) navOverlay.classList.toggle("active");
-          navToggle.setAttribute("aria-expanded", navMenu.classList.contains("active"));
-          document.body.style.overflow = isOpening && window.innerWidth <= 768 ? "hidden" : "";
+          navToggle.setAttribute(
+            "aria-expanded",
+            navMenu.classList.contains("active"),
+          );
+          document.body.style.overflow =
+            isOpening && window.innerWidth <= 768 ? "hidden" : "";
         });
 
         if (navOverlay) {
@@ -2494,6 +3995,33 @@
           if (window.innerWidth > 768) closeMobileMenu();
         });
       }
+
+      // ===== SWIPE TO CLOSE MOBILE NAV =====
+      (function () {
+        var touchStartX = 0;
+        var touchStartY = 0;
+        document.addEventListener(
+          "touchstart",
+          function (e) {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+          },
+          { passive: true },
+        );
+        document.addEventListener(
+          "touchend",
+          function (e) {
+            if (!navMenu || !navMenu.classList.contains("active")) return;
+            var deltaX = e.changedTouches[0].screenX - touchStartX;
+            var deltaY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+            // Swipe left (deltaX < -50) with mostly horizontal motion to close menu
+            if (deltaX < -50 && deltaY < 100) {
+              closeMobileMenu();
+            }
+          },
+          { passive: true },
+        );
+      })();
 
       // ===== EXPANDABLE FEATURE CARDS =====
       function initializeExpandableFeatures() {
@@ -2518,7 +4046,7 @@
             this.classList.toggle("expanded");
             this.setAttribute(
               "aria-expanded",
-              this.classList.contains("expanded")
+              this.classList.contains("expanded"),
             );
 
             // Add extra leaves when expanding
@@ -2553,7 +4081,7 @@
           if (title) {
             card.setAttribute(
               "aria-label",
-              `Expand details for ${title.textContent}`
+              `Expand details for ${title.textContent}`,
             );
           }
         });
@@ -2606,27 +4134,6 @@
             collapse.style.display =
               collapse.style.display === "none" ? "block" : "none";
           }
-        });
-      }
-
-      // ===== CONTACT FORM =====
-      const contactForm = document.getElementById("contact-form");
-      const formSuccess = document.getElementById("form-success");
-
-      if (contactForm && formSuccess) {
-        contactForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          // Show success message
-          formSuccess.style.display = "block";
-
-          // Hide success message after 5 seconds
-          setTimeout(() => {
-            formSuccess.style.display = "none";
-          }, 5000);
-
-          // Reset form
-          contactForm.reset();
         });
       }
 
@@ -2691,7 +4198,7 @@
         const fallbackEl = document.getElementById("updates-fallback");
 
         // Check cache first (30 minute TTL)
-        const CACHE_KEY = "steam-news-cache";
+        const CACHE_KEY = "steam-news-cache-v2";
         const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
 
         try {
@@ -2707,13 +4214,30 @@
 
           const steamAppId = "2171040";
           const newsUrl = `https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=${steamAppId}&count=5&maxlength=1200&format=json`;
-          const proxyUrl = "https://api.allorigins.win/get?url=";
-          const fullUrl = `${proxyUrl}${encodeURIComponent(newsUrl)}`;
-          console.log("Fetching Steam news from:", fullUrl);
 
-          const response = await fetch(fullUrl);
-          const proxyData = await response.json();
-          const newsData = JSON.parse(proxyData.contents);
+          // Try multiple proxies in order — allorigins /raw returns unwrapped JSON
+          const proxies = [
+            `https://api.allorigins.win/raw?url=${encodeURIComponent(newsUrl)}`,
+            `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(newsUrl)}`,
+          ];
+
+          let newsData = null;
+          for (const proxyEndpoint of proxies) {
+            try {
+              console.log("Trying proxy:", proxyEndpoint);
+              const resp = await fetch(proxyEndpoint, {
+                signal: AbortSignal.timeout(8000),
+              });
+              if (!resp.ok) continue;
+              newsData = await resp.json();
+              if (newsData && newsData.appnews) break; // success
+              newsData = null;
+            } catch (_) {
+              console.warn("Proxy failed, trying next...");
+            }
+          }
+
+          if (!newsData) throw new Error("All proxies failed");
 
           if (
             newsData &&
@@ -2736,7 +4260,7 @@
               JSON.stringify({
                 data: updates,
                 timestamp: Date.now(),
-              })
+              }),
             );
 
             displaySteamUpdates(updates);
@@ -2763,10 +4287,10 @@
             // Extract first image from HTML or Steam BBCode [img]...[/img]
             let imgUrl = null;
             const htmlImgMatch = update.content.match(
-              /<img[^>]+src=["']([^"']+)["'][^>]*>/i
+              /<img[^>]+src=["']([^"']+)["'][^>]*>/i,
             );
             const bbcodeImgMatch = update.content.match(
-              /\[img\]([^\[]+?)\[\/img\]/i
+              /\[img\]([^\[]+?)\[\/img\]/i,
             );
             if (htmlImgMatch && htmlImgMatch[1]) {
               imgUrl = htmlImgMatch[1];
@@ -2776,46 +4300,46 @@
             if (imgUrl && imgUrl.startsWith("//")) {
               imgUrl = "https:" + imgUrl;
             }
-            const imgHtml = imgUrl
-              ? `<div style="text-align:center;margin-bottom:1em;"><img src="${imgUrl}" alt="Update image" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px #0003;"></div>`
-              : `<div style="text-align:center;margin-bottom:1em;opacity:0.7;"><img src="${fallbackImgUrl}" alt="No update image available" style="max-width:120px;border-radius:8px;box-shadow:0 2px 12px #0001;filter: grayscale(0.2);background:#23262e;padding:0.5em;"></div>`;
 
-            // Remove images from content to avoid duplication
-            const contentStripped = update.content
+            const thumbHtml = imgUrl
+              ? `<img class="blog-thumb" src="${imgUrl}" alt="${escapeHtml(update.title)} thumbnail" loading="lazy">`
+              : `<div class="blog-thumb-placeholder"><img src="${fallbackImgUrl}" alt="Windhelm logo"></div>`;
+
+            // Strip images and BBCode from content for excerpt
+            const plainContent = update.content
               .replace(/<img[^>]*>/gi, "")
-              .replace(/\[img\][\s\S]*?\[\/img\]/gi, "");
-            // Add event header if present
-            let eventHeaderHtml = "";
-            if (update.eventHeader) {
-              eventHeaderHtml = `<div class="update-event-header" style="font-size:0.98em;font-weight:600;color:#66c0f4;margin-bottom:0.3em;letter-spacing:0.01em;">${escapeHtml(
-                update.eventHeader
-              )}</div>`;
-            }
+              .replace(/\[img\][\s\S]*?\[\/img\]/gi, "")
+              .replace(/\[url=[^\]]+\]([^\[]+)\[\/url\]/gi, "$1")
+              .replace(/<[^>]+>/g, "")
+              .replace(/\[.*?\]/g, "")
+              .replace(/\n+/g, " ")
+              .trim();
+            const excerpt =
+              plainContent.length > 280
+                ? plainContent.slice(0, 277) + "…"
+                : plainContent;
+
+            const authorLabel =
+              update.author && update.author !== "Steam News"
+                ? `Posted by ${escapeHtml(update.author)}`
+                : "Posted by Windhelm Team";
+
             return `
-          <div class="update-item">
-            <div class="update-header">
-              ${eventHeaderHtml}<h3 class="update-title">${escapeHtml(
-              update.title
-            )}</h3>
-              <span class="update-date">${formatDate(update.date)}</span>
+          <div class="blog-post">
+            ${thumbHtml}
+            <div class="blog-body">
+              <a class="blog-title" href="${update.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(update.title)}</a>
+              <p class="blog-excerpt">${escapeHtml(excerpt)}</p>
+              <div class="blog-meta">
+                <span>${formatDate(update.date)}</span>
+                <span>${authorLabel}</span>
+              </div>
             </div>
-            ${imgHtml}
-            <div class="update-content">${formatUpdateContent(
-              contentStripped
-            )}</div>
-            <div style="margin-top: 0.7em;">
-              <a href="${
-                update.url
-              }" class="steam-link" target="_blank" rel="noopener" style="font-size:0.98em;">
-                Read on Steam
-              </a>
-            </div>
-          </div>
-        `;
+          </div>`;
           })
           .join("");
 
-        console.log(`Displayed ${updates.length} Steam news updates`);
+        console.log(`Displayed ${updates.length} Steam blog posts`);
       }
 
       // No longer needed: extractSteamUpdates
@@ -2823,17 +4347,12 @@
       function showSteamError() {
         const loadingEl = document.getElementById("updates-loading");
         const listEl = document.getElementById("updates-list");
-        const errorEl = document.getElementById("updates-error");
-        const fallbackEl = document.getElementById("updates-fallback");
 
         loadingEl.style.display = "none";
-
-        // Show clean "no updates available" message instead of error
         listEl.style.display = "block";
         listEl.innerHTML = `
-          <div style="text-align: center; padding: 3rem; color: var(--gray-600);">
-            <h3 style="margin-bottom: 1rem; color: var(--gray-700);">📡 No Updates Available</h3>
-            <p style="margin-bottom: 1.5rem;">We're currently working on connecting to Steam's update feed.</p>
+          <div style="text-align: center; padding: 3rem; color: #94a3b8;">
+            <p style="margin-bottom: 1rem; font-size: 1.1rem;">No updates available right now.</p>
             <p style="font-size: 0.9rem;">Check back soon for the latest development updates!</p>
           </div>
         `;
@@ -2866,7 +4385,7 @@
             .replace(
               /\[url=([^\]]+)\]([^\[]+)\[\/url\]/gi,
               (_m, href, text) =>
-                `<a href="${href}" target="_blank" rel="noopener">${text}</a>`
+                `<a href="${href}" target="_blank" rel="noopener">${text}</a>`,
             )
             // Newlines
             .replace(/\n/g, "<br>")
@@ -2890,16 +4409,16 @@
                 console.log("Page Load Performance:", {
                   "DOM Content Loaded": Math.round(
                     perf.domContentLoadedEventEnd -
-                      perf.domContentLoadedEventStart
+                      perf.domContentLoadedEventStart,
                   ),
                   "Full Load Time": Math.round(
-                    perf.loadEventEnd - perf.loadEventStart
+                    perf.loadEventEnd - perf.loadEventStart,
                   ),
                   "DNS Lookup": Math.round(
-                    perf.domainLookupEnd - perf.domainLookupStart
+                    perf.domainLookupEnd - perf.domainLookupStart,
                   ),
                   "Connect Time": Math.round(
-                    perf.connectEnd - perf.connectStart
+                    perf.connectEnd - perf.connectStart,
                   ),
                 });
               }
@@ -2918,16 +4437,16 @@
       // ===== HERO SUBHEADER (Random, Pulsing) =====
       (function initHeroSubheader() {
         const phrases = [
-          "Forging legends in the frost",
-          "Every seed, a new saga",
-          "Quests that remember your choices",
-          "Heroes rise, empires fall",
-          "Where tales are never the same",
-          "A world woven from your will",
-          "The north calls—answer it",
-          "Chart destiny across endless paths",
-          "Stories born of the unexpected",
-          "Adventure awaits beyond the snow",
+          "Every biome holds a different fate",
+          "Build your keep, forge your legend",
+          "No two rulers rise the same way",
+          "Every quest reshapes the land",
+          "Craft weapons, craft destinies",
+          "From desert ruins to ancient forests",
+          "Your bloodline writes the history",
+          "Dungeons uncharted. Enemies unending.",
+          "Ally with townsfolk — or betray them",
+          "The world of Windhelm does not forgive weakness",
         ];
         const el = document.getElementById("hero-subheader-text");
         if (!el) return;
@@ -2988,12 +4507,12 @@
 
     <!-- Gamalytic Wishlist Counter -->
     <script>
-      (function() {
-        const STEAM_APP_ID = '2171040';
-        const CACHE_KEY = 'gamalytic_stats_cache';
+      (function () {
+        const STEAM_APP_ID = "2171040";
+        const CACHE_KEY = "gamalytic_stats_cache";
         const CACHE_DURATION = 60 * 60 * 1000; // 1 hour
-        const wishlistElement = document.getElementById('wishlist-count');
-        
+        const wishlistElement = document.getElementById("wishlist-count");
+
         // Fetch game stats from Gamalytic API
         async function fetchGamalyticStats() {
           try {
@@ -3006,42 +4525,47 @@
                 return;
               }
             }
-            
+
             // Using Gamalytic API to get game statistics
-            const response = await fetch(`https://gamalytic.com/api/game/${STEAM_APP_ID}`);
+            const response = await fetch(
+              `https://gamalytic.com/api/game/${STEAM_APP_ID}`,
+            );
             const data = await response.json();
-            
+
             if (data && data.appid) {
               // Gamalytic provides comprehensive game metrics including:
               // - wishlist: actual wishlist count
               // - followers: Steam followers
               // - reviews: review data
               // - players: player counts
-              
+
               let wishlistCount = 1000; // Default fallback
-              
+
               // Use the wishlist count directly if available
-              if (data.wishlist && typeof data.wishlist === 'number') {
+              if (data.wishlist && typeof data.wishlist === "number") {
                 wishlistCount = data.wishlist;
-              } else if (data.wishlists && typeof data.wishlists === 'number') {
+              } else if (data.wishlists && typeof data.wishlists === "number") {
                 wishlistCount = data.wishlists;
-              } else if (data.followers && typeof data.followers === 'number') {
+              } else if (data.followers && typeof data.followers === "number") {
                 // Followers can be a good proxy for wishlists
                 wishlistCount = data.followers;
               } else if (data.stats && data.stats.wishlist) {
                 wishlistCount = data.stats.wishlist;
               }
-              
+
               // Cache the result
-              localStorage.setItem(CACHE_KEY, JSON.stringify({
-                wishlistCount: wishlistCount,
-                timestamp: Date.now()
-              }));
-              
+              localStorage.setItem(
+                CACHE_KEY,
+                JSON.stringify({
+                  wishlistCount: wishlistCount,
+                  timestamp: Date.now(),
+                }),
+              );
+
               if (wishlistElement) {
-                wishlistElement.setAttribute('data-target', wishlistCount);
-                wishlistElement.textContent = '0+';
-                
+                wishlistElement.setAttribute("data-target", wishlistCount);
+                wishlistElement.textContent = "0+";
+
                 // Trigger animation
                 setTimeout(() => {
                   animateWishlistValue(wishlistElement, 0, wishlistCount, 2000);
@@ -3049,35 +4573,36 @@
               }
             }
           } catch (error) {
-            console.log('Gamalytic API fetch error:', error);
+            console.log("Gamalytic API fetch error:", error);
             // Fallback to estimated value
             if (wishlistElement) {
               const fallbackValue = 1000;
-              wishlistElement.setAttribute('data-target', fallbackValue);
-              wishlistElement.textContent = fallbackValue.toLocaleString() + '+';
+              wishlistElement.setAttribute("data-target", fallbackValue);
+              wishlistElement.textContent =
+                fallbackValue.toLocaleString() + "+";
             }
           }
         }
-        
+
         function animateWishlistValue(element, start, end, duration) {
           const range = end - start;
           const increment = range / (duration / 16);
           let current = start;
-          
+
           const timer = setInterval(() => {
             current += increment;
             if (current >= end) {
-              element.textContent = Math.floor(end).toLocaleString() + '+';
+              element.textContent = Math.floor(end).toLocaleString() + "+";
               clearInterval(timer);
             } else {
-              element.textContent = Math.floor(current).toLocaleString() + '+';
+              element.textContent = Math.floor(current).toLocaleString() + "+";
             }
           }, 16);
         }
-        
+
         // Fetch on page load (deferred for performance)
         if (wishlistElement) {
-          if ('requestIdleCallback' in window) {
+          if ("requestIdleCallback" in window) {
             requestIdleCallback(() => fetchGamalyticStats());
           } else {
             setTimeout(fetchGamalyticStats, 100);
@@ -3088,17 +4613,17 @@
 
     <!-- Animated Statistics Counter -->
     <script>
-      (function() {
+      (function () {
         const observerOptions = {
           threshold: 0.5,
-          rootMargin: '0px'
+          rootMargin: "0px",
         };
-        
-        const animateValue = (element, start, end, duration, suffix = '') => {
+
+        const animateValue = (element, start, end, duration, suffix = "") => {
           const range = end - start;
           const increment = range / (duration / 16);
           let current = start;
-          
+
           const timer = setInterval(() => {
             current += increment;
             if (current >= end) {
@@ -3109,18 +4634,22 @@
             }
           }, 16);
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const statValue = entry.target;
-              const target = parseInt(statValue.getAttribute('data-target'));
+              const target = parseInt(statValue.getAttribute("data-target"));
               const text = statValue.textContent;
-              const suffix = text.includes('%') ? '%' : text.includes('+') ? '+' : '';
-              
-              if (!statValue.classList.contains('animated')) {
-                statValue.classList.add('animated');
-                if (text.includes('∞')) {
+              const suffix = text.includes("%")
+                ? "%"
+                : text.includes("+")
+                  ? "+"
+                  : "";
+
+              if (!statValue.classList.contains("animated")) {
+                statValue.classList.add("animated");
+                if (text.includes("∞")) {
                   return;
                 }
                 animateValue(statValue, 0, target, 2000, suffix);
@@ -3128,8 +4657,8 @@
             }
           });
         }, observerOptions);
-        
-        document.querySelectorAll('.stat-value').forEach(stat => {
+
+        document.querySelectorAll(".stat-value").forEach((stat) => {
           observer.observe(stat);
         });
       })();
@@ -3149,6 +4678,76 @@
             });
         });
       }
+    </script>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top" title="Back to top">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </button>
+    <style>
+      #back-to-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--primary-color, #2563eb);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease;
+        z-index: 900;
+      }
+      #back-to-top.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      #back-to-top:hover {
+        transform: translateY(-3px);
+      }
+      #back-to-top:focus {
+        outline: 3px solid #60a5fa;
+        outline-offset: 2px;
+      }
+    </style>
+    <script>
+      (function () {
+        var btn = document.getElementById("back-to-top");
+        window.addEventListener(
+          "scroll",
+          function () {
+            if (window.scrollY > 400) {
+              btn.classList.add("visible");
+            } else {
+              btn.classList.remove("visible");
+            }
+          },
+          { passive: true },
+        );
+        btn.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      })();
     </script>
   </body>
 </html>

@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Press Kit | Windhelm®</title>
+    <meta
+      name="description"
+      content="Official Windhelm press kit — fact sheets, logos, screenshots, and media resources for journalists and content creators."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://windhelm.com/presskit.html" />
+    <link rel="icon" href="media/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Press Kit | Windhelm®" />
+    <meta
+      property="og:description"
+      content="Official press kit for Windhelm — logos, screenshots, and media resources."
+    />
+    <meta property="og:url" content="https://windhelm.com/presskit.html" />
+    <meta
+      property="og:image"
+      content="https://windhelm.com/media/WindhelmYoutubeBanner.jpg"
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --font-primary:
+          "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-primary);
+        background: #0c1020;
+        color: #e2e8f0;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ===== NAV ===== */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(18, 22, 36, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        height: 64px;
+        display: flex;
+        align-items: center;
+        padding: 0 2rem;
+        gap: 1.5rem;
+      }
+
+      .nav-logo {
+        height: 36px;
+        width: auto;
+      }
+
+      .nav-back {
+        margin-left: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        transition: color 0.2s;
+      }
+      .nav-back:hover {
+        color: #e2e8f0;
+      }
+
+      /* ===== HERO ===== */
+      .pk-hero {
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e1b4b 60%,
+          #312e81 100%
+        );
+        padding: 5rem 2rem 4rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+      }
+
+      .pk-hero img {
+        max-width: 260px;
+        width: 100%;
+        margin-bottom: 2rem;
+        filter: drop-shadow(0 4px 24px rgba(245, 158, 11, 0.3));
+      }
+
+      .pk-hero h1 {
+        font-size: 3rem;
+        font-weight: 900;
+        color: #f59e0b;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 0.75rem;
+      }
+
+      .pk-hero p {
+        color: #94a3b8;
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* ===== CONTAINER ===== */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* ===== SECTIONS ===== */
+      .pk-section {
+        padding: 4rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .pk-section:last-of-type {
+        border-bottom: none;
+      }
+
+      .pk-section-title {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #f59e0b;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.4rem;
+      }
+
+      .pk-section-divider {
+        width: 48px;
+        height: 3px;
+        background: #f59e0b;
+        border-radius: 2px;
+        margin-bottom: 2rem;
+      }
+
+      /* ===== FACT SHEET ===== */
+      .fact-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+      }
+
+      .fact-table tr {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .fact-table tr:last-child {
+        border-bottom: none;
+      }
+
+      .fact-table td {
+        padding: 0.85rem 1rem;
+        vertical-align: top;
+      }
+
+      .fact-table td:first-child {
+        color: #64748b;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.78rem;
+        letter-spacing: 0.07em;
+        white-space: nowrap;
+        width: 160px;
+      }
+
+      .fact-table td:last-child {
+        color: #cbd5e1;
+      }
+
+      /* ===== DOWNLOAD GRID ===== */
+      .pk-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .pk-card {
+        background: linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.9),
+          rgba(17, 24, 39, 0.85)
+        );
+        border-radius: 1rem;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition:
+          transform 0.25s ease,
+          border-color 0.25s ease;
+      }
+
+      .pk-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(245, 158, 11, 0.3);
+      }
+
+      .pk-card-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .pk-card h3 {
+        color: #e2e8f0;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .pk-card p {
+        color: #64748b;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+      }
+
+      .pk-download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.5rem 1.1rem;
+        border-radius: 0.5rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        text-decoration: none;
+        transition: all 0.2s;
+        background: rgba(245, 158, 11, 0.12);
+        border: 1px solid rgba(245, 158, 11, 0.35);
+        color: #f59e0b;
+      }
+
+      .pk-download-btn:hover {
+        background: rgba(245, 158, 11, 0.22);
+        border-color: #f59e0b;
+      }
+
+      .pk-coming-soon {
+        display: inline-block;
+        padding: 0.5rem 1.1rem;
+        border-radius: 0.5rem;
+        font-size: 0.82rem;
+        font-weight: 600;
+        font-style: italic;
+        color: #475569;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        cursor: default;
+      }
+
+      /* ===== CONTACT BLOCK ===== */
+      .pk-contact {
+        background: linear-gradient(
+          135deg,
+          rgba(30, 41, 59, 0.7),
+          rgba(17, 24, 39, 0.7)
+        );
+        border-radius: 1rem;
+        padding: 2.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto;
+      }
+
+      .pk-contact h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #e2e8f0;
+        margin-bottom: 0.5rem;
+      }
+
+      .pk-contact p {
+        color: #64748b;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .pk-contact a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.75rem;
+        background: #5865f2;
+        color: #fff;
+        border-radius: 0.75rem;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1rem;
+        transition: background 0.2s;
+      }
+
+      .pk-contact a:hover {
+        background: #4752c4;
+      }
+
+      /* ===== FOOTER ===== */
+      .pk-footer {
+        background: rgba(12, 16, 32, 0.95);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 2rem;
+        text-align: center;
+        color: #334155;
+        font-size: 0.82rem;
+      }
+
+      .pk-footer a {
+        color: #475569;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .pk-footer a:hover {
+        color: #94a3b8;
+      }
+
+      @media (max-width: 640px) {
+        .pk-hero h1 {
+          font-size: 2rem;
+        }
+        .fact-table td:first-child {
+          width: 110px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav class="nav">
+      <a href="index.html">
+        <img src="media/Logo.png" alt="Windhelm" class="nav-logo" />
+      </a>
+      <a href="index.html" class="nav-back"> ← Back to Site </a>
+    </nav>
+
+    <!-- Hero -->
+    <div class="pk-hero">
+      <img src="media/Logo.png" alt="Windhelm Logo" />
+      <h1>Press Kit</h1>
+      <p>
+        Resources for journalists, streamers, and content creators covering
+        Windhelm®.
+      </p>
+    </div>
+
+    <main>
+      <!-- Fact Sheet -->
+      <section class="pk-section">
+        <div class="container">
+          <h2 class="pk-section-title">Fact Sheet</h2>
+          <div class="pk-section-divider"></div>
+          <table class="fact-table">
+            <tbody>
+              <tr>
+                <td>Title</td>
+                <td>Windhelm®</td>
+              </tr>
+              <tr>
+                <td>Developer</td>
+                <td>NorwinLabs LLC</td>
+              </tr>
+              <tr>
+                <td>Genre</td>
+                <td>Procedurally Generated Story-Driven RPG</td>
+              </tr>
+              <tr>
+                <td>Platforms</td>
+                <td>
+                  PC (Windows), PS5, Xbox Series X/S, Nintendo Switch 2, Steam
+                  Deck
+                </td>
+              </tr>
+              <tr>
+                <td>Engine</td>
+                <td>Unreal Engine 5</td>
+              </tr>
+              <tr>
+                <td>Release</td>
+                <td>TBA — Wishlist on Steam</td>
+              </tr>
+              <tr>
+                <td>Steam</td>
+                <td>
+                  <a
+                    href="https://store.steampowered.com/app/2171040/Windhelm/"
+                    target="_blank"
+                    rel="noopener"
+                    style="color: #f59e0b"
+                    >store.steampowered.com/app/2171040</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Website</td>
+                <td>
+                  <a
+                    href="https://windhelmthegame.ddns.net"
+                    style="color: #f59e0b"
+                    >windhelmthegame.ddns.net</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Discord</td>
+                <td>
+                  <a
+                    href="https://discord.gg/PgGA8Zsj4g"
+                    target="_blank"
+                    rel="noopener"
+                    style="color: #f59e0b"
+                    >discord.gg/PgGA8Zsj4g</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Description</td>
+                <td>
+                  Windhelm is an epic procedurally generated RPG where every
+                  playthrough tells a unique tale. Featuring dynamic quests,
+                  legendary heroes, multi-biome exploration, crafting,
+                  base-building, and an ever-expanding world — no two adventures
+                  are ever the same.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Downloads -->
+      <section class="pk-section">
+        <div class="container">
+          <h2 class="pk-section-title">Downloads</h2>
+          <div class="pk-section-divider"></div>
+          <div class="pk-grid">
+            <div class="pk-card">
+              <div class="pk-card-icon">🖼️</div>
+              <h3>Logos &amp; Branding</h3>
+              <p>
+                High-resolution Windhelm logos in PNG and SVG formats, with
+                transparent backgrounds for light and dark backgrounds.
+              </p>
+              <span class="pk-coming-soon">Coming Soon</span>
+            </div>
+
+            <div class="pk-card">
+              <div class="pk-card-icon">📸</div>
+              <h3>Screenshots</h3>
+              <p>
+                Official 4K screenshots showcasing gameplay, biomes, characters,
+                and UI across the world of Windhelm.
+              </p>
+              <span class="pk-coming-soon">Coming Soon</span>
+            </div>
+
+            <div class="pk-card">
+              <div class="pk-card-icon">🎥</div>
+              <h3>Trailers &amp; Footage</h3>
+              <p>
+                Gameplay trailers, teaser videos, and promotional footage
+                available for press and content creator use.
+              </p>
+              <a
+                class="pk-download-btn"
+                href="https://www.youtube.com/@NorwinLabs"
+                target="_blank"
+                rel="noopener"
+              >
+                View on YouTube
+              </a>
+            </div>
+
+            <div class="pk-card">
+              <div class="pk-card-icon">📄</div>
+              <h3>Full Press Kit ZIP</h3>
+              <p>
+                Everything in one download — logos, screenshots, key art, and
+                the full fact sheet as a PDF.
+              </p>
+              <span class="pk-coming-soon">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Media Contact -->
+      <section class="pk-section">
+        <div class="container">
+          <h2 class="pk-section-title">Media Contact</h2>
+          <div class="pk-section-divider"></div>
+          <div class="pk-contact">
+            <h3>Get in Touch</h3>
+            <p>
+              For press inquiries, review keys, or interview requests, reach out
+              to the team on Discord. We're active daily.
+            </p>
+            <a
+              href="https://discord.gg/PgGA8Zsj4g"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 71 55"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978Z"
+                />
+              </svg>
+              Join Discord for Press Inquiries
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pk-footer">
+      <p>
+        ©<span id="copyright-year"></span> NorwinLabs LLC. All rights reserved.
+        &nbsp;|&nbsp; <a href="index.html">windhelm.com</a>
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById("copyright-year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>

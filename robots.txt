@@ -5,8 +5,7 @@ Allow: /
 
 # Important pages for crawling
 Allow: /index.html
-Allow: /images/
-Allow: /products/
+Allow: /media/
 
 # Disallow any admin or private areas (if they exist)
 Disallow: /admin/
@@ -14,10 +13,14 @@ Disallow: /private/
 Disallow: /.git/
 Disallow: /node_modules/
 Disallow: /.env
+Disallow: /blog-backend/
 
 # Allow social media crawlers
 User-agent: facebookexternalhit/*
 Allow: /
+
+# Sitemap location
+Sitemap: https://windhelm.com/sitemap.xml
 
 User-agent: Twitterbot
 Allow: /
