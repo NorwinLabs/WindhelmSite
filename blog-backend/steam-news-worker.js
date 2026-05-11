@@ -24,7 +24,6 @@ const CACHE_TTL = 1800; // 30 minutes in seconds
 // Only accept requests from your own domain (add others if needed)
 const ALLOWED_ORIGINS = [
   "https://windhelmthegame.ddns.net",
-  "https://windhelm.com",
   "http://localhost",
   "http://127.0.0.1",
 ];
