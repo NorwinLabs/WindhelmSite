@@ -1089,9 +1089,9 @@
                   <h4>Dynamic World Building</h4>
                 </div>
                 <!-- Add your gif/video here -->
-                <div class="feature-visual" style="display: none">
+                <div class="feature-visual">
                   <img
-                    src="media/features/world-building.gif"
+                    src="media/Grasslandoverlook1.png"
                     alt="Dynamic World Building"
                     loading="lazy"
                   />
@@ -1141,9 +1141,9 @@
                   <h4>Deep Character Development</h4>
                 </div>
                 <!-- Add your gif/video here -->
-                <div class="feature-visual" style="display: none">
+                <div class="feature-visual">
                   <img
-                    src="media/features/character-development.gif"
+                    src="media/2.png"
                     alt="Deep Character Development"
                     loading="lazy"
                   />
@@ -1188,9 +1188,9 @@
                   <h4>Strategic Combat System</h4>
                 </div>
                 <!-- Add your gif/video here -->
-                <div class="feature-visual" style="display: none">
+                <div class="feature-visual">
                   <img
-                    src="media/features/combat-system.gif"
+                    src="media/3.png"
                     alt="Strategic Combat System"
                     loading="lazy"
                   />
@@ -1235,9 +1235,9 @@
                   <h4>Story-Driven Experience</h4>
                 </div>
                 <!-- Add your gif/video here -->
-                <div class="feature-visual" style="display: none">
+                <div class="feature-visual">
                   <img
-                    src="media/features/story-experience.gif"
+                    src="media/4.png"
                     alt="Story-Driven Experience"
                     loading="lazy"
                   />
@@ -1288,10 +1288,10 @@
                   <h4>Indie Development Team</h4>
                 </div>
                 <!-- Add your gif/video here -->
-                <div class="feature-visual" style="display: none">
+                <div class="feature-visual">
                   <img
-                    src="media/features/indie-craftsmanship.gif"
-                    alt="Indie Craftsmanship"
+                    src="media/5.png"
+                    alt="Indie Development Team"
                     loading="lazy"
                   />
                 </div>
@@ -1342,9 +1342,9 @@
                   <h4>Community Connection</h4>
                 </div>
                 <!-- Add your gif/video here -->
-                <div class="feature-visual" style="display: none">
+                <div class="feature-visual">
                   <img
-                    src="media/features/community-connection.gif"
+                    src="media/islandbg.png"
                     alt="Community Connection"
                     loading="lazy"
                   />
@@ -1358,387 +1358,6 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Gallery -->
-        <div id="gallery" class="gallery">
-          <style>
-            .gallery-grid {
-              display: grid;
-              grid-template-columns: repeat(auto-fit, 420px);
-              gap: 1.5rem;
-              margin-top: var(--space-8);
-              justify-content: center;
-            }
-            .gallery-item {
-              position: relative;
-              overflow: hidden;
-              border-radius: var(--border-radius-lg);
-              cursor: pointer;
-              width: 420px;
-              height: 240px;
-              background: rgba(17, 24, 39, 0.8);
-              border: 1px solid rgba(255, 255, 255, 0.08);
-              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-              transition: all 0.3s ease;
-            }
-            .gallery-item:hover {
-              transform: translateY(-8px);
-              box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
-              border-color: rgba(255, 255, 255, 0.15);
-            }
-            .gallery-item img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              object-position: center;
-              transition: transform 0.3s ease;
-              display: block;
-              position: absolute;
-              top: 0;
-              left: 0;
-              z-index: 10;
-            }
-            .gallery-item:hover img {
-              transform: scale(1.05);
-            }
-            .gallery-item-overlay {
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              right: 0;
-              background: linear-gradient(
-                to top,
-                rgba(0, 0, 0, 0.85) 0%,
-                rgba(0, 0, 0, 0.4) 40%,
-                transparent 100%
-              );
-              color: white;
-              padding: 0.75rem 1rem;
-              z-index: 20;
-              pointer-events: none;
-            }
-            .gallery-item-title {
-              font-size: 1.1rem;
-              font-weight: 700;
-              margin: 0;
-              text-shadow:
-                0 2px 8px rgba(0, 0, 0, 0.9),
-                0 0 4px rgba(0, 0, 0, 0.8);
-              color: #ffffff;
-            }
-            .gallery-item-caption {
-              font-size: 0.9rem;
-              color: rgba(255, 255, 255, 0.95);
-              margin: 0.25rem 0 0 0;
-              text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-            }
-            .lightbox {
-              display: none;
-              position: fixed;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background: rgba(0, 0, 0, 0.95);
-              z-index: 10000;
-              align-items: center;
-              justify-content: center;
-              padding: 2rem;
-            }
-            .lightbox.active {
-              display: flex;
-            }
-            .lightbox-content {
-              position: relative;
-              width: 1120px;
-              height: 640px;
-              animation: lightboxZoomIn 0.3s ease;
-            }
-            @keyframes lightboxZoomIn {
-              from {
-                transform: scale(0.8);
-                opacity: 0;
-              }
-              to {
-                transform: scale(1);
-                opacity: 1;
-              }
-            }
-            .lightbox-image {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              object-position: center;
-              border-radius: var(--border-radius-lg);
-              box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-            }
-            .lightbox-caption {
-              text-align: center;
-              color: white;
-              margin-top: 1rem;
-              font-size: 1.1rem;
-              text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-            }
-            .lightbox-close {
-              position: absolute;
-              top: -3rem;
-              right: 0;
-              background: rgba(255, 255, 255, 0.1);
-              border: 2px solid rgba(255, 255, 255, 0.3);
-              color: white;
-              font-size: 2rem;
-              width: 50px;
-              height: 50px;
-              border-radius: 50%;
-              cursor: pointer;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              transition: all 0.3s ease;
-              backdrop-filter: blur(10px);
-            }
-            .lightbox-close:hover {
-              background: rgba(255, 255, 255, 0.2);
-              transform: rotate(90deg);
-            }
-            .lightbox-nav {
-              position: absolute;
-              top: 50%;
-              transform: translateY(-50%);
-              background: rgba(255, 255, 255, 0.1);
-              border: 2px solid rgba(255, 255, 255, 0.3);
-              color: white;
-              font-size: 2rem;
-              width: 50px;
-              height: 50px;
-              border-radius: 50%;
-              cursor: pointer;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              transition: all 0.3s ease;
-              backdrop-filter: blur(10px);
-            }
-            .lightbox-nav:hover {
-              background: rgba(255, 255, 255, 0.2);
-            }
-            .lightbox-prev {
-              left: -5rem;
-            }
-            .lightbox-next {
-              right: -5rem;
-            }
-            @media (max-width: 768px) {
-              .gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-              }
-              .lightbox {
-                padding: 1rem;
-              }
-              .lightbox-nav {
-                display: none;
-              }
-              .lightbox-close {
-                top: 1rem;
-                right: 1rem;
-              }
-            }
-          </style>
-          <div class="container">
-            <header
-              class="section-header"
-              style="
-                margin-top: 3rem;
-                padding-top: 3rem;
-                border-top: 1px solid rgba(245, 158, 11, 0.2);
-              "
-            >
-              <h2 class="section-title">Gallery</h2>
-            </header>
-            <div class="gallery-grid">
-              <div class="gallery-item" data-index="0">
-                <img
-                  src="media/Grasslandoverlook1.png"
-                  alt="Grassland Overlook"
-                />
-                <div class="gallery-item-overlay">
-                  <h3 class="gallery-item-title">Grassland Overlook</h3>
-                  <p class="gallery-item-caption">
-                    A serene view across the rolling hills
-                  </p>
-                </div>
-              </div>
-              <div class="gallery-item" data-index="1">
-                <img
-                  src="media/2.png"
-                  alt="Epic Adventure — journey through mystical landscapes"
-                />
-                <div class="gallery-item-overlay">
-                  <h3 class="gallery-item-title">Epic Adventure</h3>
-                  <p class="gallery-item-caption">
-                    Journey through mystical landscapes
-                  </p>
-                </div>
-              </div>
-              <div class="gallery-item" data-index="2">
-                <img
-                  src="media/3.png"
-                  alt="Dynamic Encounters — every playthrough brings new challenges"
-                />
-                <div class="gallery-item-overlay">
-                  <h3 class="gallery-item-title">Dynamic Encounters</h3>
-                  <p class="gallery-item-caption">
-                    Every playthrough brings new challenges
-                  </p>
-                </div>
-              </div>
-              <div class="gallery-item" data-index="3">
-                <img
-                  src="media/4.png"
-                  alt="Rich Environments — immersive world-building"
-                />
-                <div class="gallery-item-overlay">
-                  <h3 class="gallery-item-title">Rich Environments</h3>
-                  <p class="gallery-item-caption">
-                    Immersive world-building at its finest
-                  </p>
-                </div>
-              </div>
-              <div class="gallery-item" data-index="4">
-                <img
-                  src="media/5.png"
-                  alt="Story-Driven Gameplay — your choices shape the narrative"
-                />
-                <div class="gallery-item-overlay">
-                  <h3 class="gallery-item-title">Story-Driven Gameplay</h3>
-                  <p class="gallery-item-caption">
-                    Your choices shape the narrative
-                  </p>
-                </div>
-              </div>
-              <div class="gallery-item" data-index="5">
-                <img
-                  src="media/1920x622CenteredLogo.jpg"
-                  alt="Windhelm Banner"
-                />
-                <div class="gallery-item-overlay">
-                  <h3 class="gallery-item-title">Windhelm</h3>
-                  <p class="gallery-item-caption">
-                    An epic RPG adventure awaits
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Lightbox -->
-          <div class="lightbox" id="lightbox">
-            <div class="lightbox-content">
-              <button
-                class="lightbox-close"
-                id="lightbox-close"
-                aria-label="Close lightbox"
-              >
-                ×
-              </button>
-              <button
-                class="lightbox-nav lightbox-prev"
-                id="lightbox-prev"
-                aria-label="Previous image"
-              >
-                ‹
-              </button>
-              <img src="" alt="" class="lightbox-image" id="lightbox-image" />
-              <button
-                class="lightbox-nav lightbox-next"
-                id="lightbox-next"
-                aria-label="Next image"
-              >
-                ›
-              </button>
-              <div class="lightbox-caption" id="lightbox-caption"></div>
-            </div>
-          </div>
-          <script>
-            (function () {
-              const galleryItems = document.querySelectorAll(".gallery-item");
-              const lightbox = document.getElementById("lightbox");
-              const lightboxImage = document.getElementById("lightbox-image");
-              const lightboxCaption =
-                document.getElementById("lightbox-caption");
-              const lightboxClose = document.getElementById("lightbox-close");
-              const lightboxPrev = document.getElementById("lightbox-prev");
-              const lightboxNext = document.getElementById("lightbox-next");
-              let currentIndex = 0;
-              const galleryData = Array.from(galleryItems).map((item) => ({
-                src: item.querySelector("img").src,
-                alt: item.querySelector("img").alt,
-                title:
-                  item.querySelector(".gallery-item-title")?.textContent || "",
-                caption:
-                  item.querySelector(".gallery-item-caption")?.textContent ||
-                  "",
-              }));
-              function openLightbox(index) {
-                currentIndex = index;
-                updateLightboxContent();
-                lightbox.classList.add("active");
-                document.body.style.overflow = "hidden";
-              }
-              function closeLightbox() {
-                lightbox.classList.remove("active");
-                document.body.style.overflow = "";
-              }
-              function updateLightboxContent() {
-                const item = galleryData[currentIndex];
-                lightboxImage.src = item.src;
-                lightboxImage.alt =
-                  item.alt || item.title || item.caption || "Gallery image";
-                lightboxCaption.innerHTML = `<strong>${item.title}</strong><br>${item.caption}`;
-              }
-              function showNext() {
-                currentIndex = (currentIndex + 1) % galleryData.length;
-                updateLightboxContent();
-              }
-              function showPrev() {
-                currentIndex =
-                  (currentIndex - 1 + galleryData.length) % galleryData.length;
-                updateLightboxContent();
-              }
-              galleryItems.forEach((item, index) => {
-                item.addEventListener("click", () => openLightbox(index));
-                item.addEventListener("keydown", (e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    openLightbox(index);
-                  }
-                });
-                item.setAttribute("tabindex", "0");
-                item.setAttribute("role", "button");
-              });
-              lightboxClose.addEventListener("click", closeLightbox);
-              lightboxNext.addEventListener("click", showNext);
-              lightboxPrev.addEventListener("click", showPrev);
-              lightbox.addEventListener("click", (e) => {
-                if (e.target === lightbox) closeLightbox();
-              });
-              document.addEventListener("keydown", (e) => {
-                if (!lightbox.classList.contains("active")) return;
-                switch (e.key) {
-                  case "Escape":
-                    closeLightbox();
-                    break;
-                  case "ArrowRight":
-                    showNext();
-                    break;
-                  case "ArrowLeft":
-                    showPrev();
-                    break;
-                }
-              });
-            })();
-          </script>
         </div>
       </section>
 
@@ -4215,8 +3834,18 @@
           const steamAppId = "2171040";
           const newsUrl = `https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=${steamAppId}&count=5&maxlength=1200&format=json`;
 
-          // Try multiple proxies in order — allorigins /raw returns unwrapped JSON
+          // ── After deploying blog-backend/steam-news-worker.js to Cloudflare, paste
+          //    the worker URL here, e.g. "https://windhelm-steam-news.YOUR_SUB.workers.dev"
+          const STEAM_NEWS_WORKER =
+            "https://windhelm-steam-news.windhelmthegame.workers.dev";
+
+          // Worker first (self-hosted, no CORS proxy dependency), then public proxies as fallback
           const proxies = [
+            ...(STEAM_NEWS_WORKER
+              ? [
+                  `${STEAM_NEWS_WORKER}?appid=${steamAppId}&count=5&maxlength=1200`,
+                ]
+              : []),
             `https://api.allorigins.win/raw?url=${encodeURIComponent(newsUrl)}`,
             `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(newsUrl)}`,
           ];

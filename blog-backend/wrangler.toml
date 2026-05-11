@@ -1,0 +1,9 @@
+name = "windhelm-steam-news"
+main = "steam-news-worker.js"
+compatibility_date = "2024-09-23"
+workers_dev = true
+
+# Uncomment to bind a custom route on your own domain (requires domain on Cloudflare):
+# routes = [
+#   { pattern = "api.windhelmthegame.ddns.net/steam-news*", zone_name = "windhelmthegame.ddns.net" }
+# ]
