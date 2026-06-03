@@ -393,6 +393,19 @@
         pointer-events: none;
       }
 
+      .hero-bg-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 100vh;
+        min-width: 100%;
+        min-height: 100%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        pointer-events: none;
+      }
+
       .hero-logo {
         max-width: 400px;
         width: 100%;
@@ -895,15 +908,15 @@
       <!-- Hero Section -->
       <section id="home" class="hero section-animate">
         <div class="hero-background">
-          <style>
-            #youtube-background iframe,
-            #youtube-background {
-              pointer-events: none !important;
-              opacity: 0;
-              transition: opacity 1s ease;
-            }
-          </style>
-          <div id="youtube-background"></div>
+          <video
+            id="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            class="hero-bg-video"
+          ></video>
           <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -2906,109 +2919,18 @@
     </script>
 
     <!-- Scripts -->
-    <!-- YouTube iframe API -->
-    <script src="https://www.youtube.com/iframe_api"></script>
-
     <script>
-      // YouTube Background Video Configuration
-      const YOUTUBE_VIDEO_ID = "gZdP3WCZJc8"; // Replace with your YouTube video ID
-      const HERO_FALLBACK_IMAGE = "media/WindhelmYoutubeBanner.jpg";
-
-      let player;
-      let useLocalFallback = false;
-      let youtubeApiTimeout;
-
-      // If YouTube API never loads (blocked, offline, etc.), show static image after 10s
-      youtubeApiTimeout = window.setTimeout(function () {
-        if (useLocalFallback) return;
-        loadImageFallback("video unavailable");
-      }, 10000);
-
-      // This function will be called by YouTube API when ready
-      function onYouTubeIframeAPIReady() {
-        if (youtubeApiTimeout) {
-          clearTimeout(youtubeApiTimeout);
-          youtubeApiTimeout = null;
+      // Hero background video — random selection
+      (function () {
+        var HERO_VIDEOS = ["media/BGVideo.mp4"];
+        var video = document.getElementById("hero-video");
+        if (video && HERO_VIDEOS.length > 0) {
+          var src = HERO_VIDEOS[Math.floor(Math.random() * HERO_VIDEOS.length)];
+          video.src = src;
+          video.load();
+          video.play().catch(function () {}); // silently handle autoplay policy
         }
-        player = new YT.Player("youtube-background", {
-          videoId: YOUTUBE_VIDEO_ID,
-          playerVars: {
-            autoplay: 1,
-            controls: 0,
-            showinfo: 0,
-            modestbranding: 1,
-            loop: 1,
-            fs: 0,
-            cc_load_policy: 0,
-            iv_load_policy: 3,
-            autohide: 1,
-            mute: 1,
-            playlist: YOUTUBE_VIDEO_ID, // Required for looping
-            enablejsapi: 1,
-            origin: window.location.origin,
-          },
-          events: {
-            onReady: onPlayerReady,
-            onStateChange: onPlayerStateChange,
-            onError: onPlayerError,
-          },
-        });
-      }
-
-      function onPlayerReady(event) {
-        event.target.mute();
-        event.target.setVolume(0);
-        event.target.playVideo();
-        // Fade in background only after player is ready (hides controls flash)
-        var bgEl = document.getElementById("youtube-background");
-        if (bgEl) bgEl.style.opacity = "1";
-        // If video doesn't actually start (e.g. autoplay blocked), show static image after 3s
-        window.setTimeout(function () {
-          if (useLocalFallback || !player || !player.getPlayerState) return;
-          var state = player.getPlayerState();
-          if (
-            state !== YT.PlayerState.PLAYING &&
-            state !== YT.PlayerState.BUFFERING
-          ) {
-            loadImageFallback("video could not play");
-          }
-        }, 3000);
-      }
-
-      function onPlayerStateChange(event) {
-        // Loop video when it ends
-        if (event.data === YT.PlayerState.ENDED) {
-          player.playVideo();
-        }
-      }
-
-      function onPlayerError(event) {
-        // Error codes: 2=invalid ID, 5=HTML5 error, 100=not found, 101/150/153=embedding disabled
-        console.warn("YouTube player error:", event.data);
-        loadImageFallback("YouTube error " + event.data);
-      }
-
-      function loadImageFallback(reason) {
-        if (useLocalFallback) return;
-        useLocalFallback = true;
-        if (youtubeApiTimeout) {
-          clearTimeout(youtubeApiTimeout);
-          youtubeApiTimeout = null;
-        }
-
-        const container = document.getElementById("youtube-background");
-        if (!container) return;
-
-        container.innerHTML =
-          '<img src="' +
-          HERO_FALLBACK_IMAGE +
-          '" alt="Windhelm" class="hero-fallback-image" />';
-        console.info(
-          "Hero background: showing static image (" +
-            (reason || "video cannot play") +
-            ")",
-        );
-      }
+      })();
 
       // Removed delayed font loading to avoid FOUT/pop
 
