@@ -3287,7 +3287,7 @@
         const errorEl = document.getElementById("updates-error");
         const fallbackEl = document.getElementById("updates-fallback");
 
-        const CACHE_KEY = "steam-news-cache-v4";
+        const CACHE_KEY = "steam-news-cache-v5";
         const CACHE_TTL = 30 * 60 * 1000;
 
         try {
@@ -3359,7 +3359,8 @@
         loadingEl.style.display = "none";
         listEl.style.display = "block";
 
-        const fallbackImgUrl = "media/Logo.png";
+        const fallbackImgUrl =
+          "https://cdn.akamai.steamstatic.com/steam/apps/2171040/header.jpg";
         listEl.innerHTML = updates
           .map((update) => {
             // Extract first image from HTML or Steam BBCode variants
@@ -3379,7 +3380,9 @@
             if (bbSrcMatch) {
               imgUrl = CLAN_IMG + bbSrcMatch[1].trim();
             } else if (bbPlainMatch) {
-              imgUrl = bbPlainMatch[1].trim();
+              imgUrl = bbPlainMatch[1]
+                .trim()
+                .replace("{STEAM_CLAN_IMAGE}", CLAN_IMG);
             } else if (htmlImgMatch) {
               imgUrl = htmlImgMatch[1];
             }
