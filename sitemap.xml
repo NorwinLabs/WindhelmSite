@@ -1,126 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-  
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://windhelm.com/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://windhelm.dev/</loc>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://windhelm.com/media/Logo.png</image:loc>
-      <image:title>Windhelm RPG Logo</image:title>
-      <image:caption>Official logo for Windhelm - Epic procedurally generated RPG</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://windhelm.com/media/WindhelmYoutubeBanner.jpg</image:loc>
-      <image:title>Windhelm Game Banner</image:title>
-      <image:caption>Epic fantasy adventure game screenshot showing the world of Windhelm</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://windhelm.com/media/Grasslandoverlook1.png</image:loc>
-      <image:title>Grassland Overlook</image:title>
-      <image:caption>A serene view across the rolling hills in Windhelm RPG</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://windhelm.com/media/2.png</image:loc>
-      <image:title>Epic Adventure</image:title>
-      <image:caption>Dynamic quest system in Windhelm RPG</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://windhelm.com/media/3.png</image:loc>
-      <image:title>Dynamic Encounters</image:title>
-      <image:caption>Infinite world generation and lore in Windhelm</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://windhelm.com/media/4.png</image:loc>
-      <image:title>Rich Environments</image:title>
-      <image:caption>Character development and story progression in Windhelm RPG</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://windhelm.com/media/5.png</image:loc>
-      <image:title>Story-Driven Gameplay</image:title>
-      <image:caption>Strategic combat mechanics in Windhelm adventure game</image:caption>
-    </image:image>
-    <video:video>
-      <video:thumbnail_loc>https://windhelm.com/media/WindhelmYoutubeBanner.jpg</video:thumbnail_loc>
-      <video:title>Windhelm RPG Background Video</video:title>
-      <video:description>Atmospheric background video showcasing the world of Windhelm RPG</video:description>
-      <video:content_loc>https://windhelm.com/media/BGVideo.mp4</video:content_loc>
-      <video:duration>30</video:duration>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
   </url>
-
-  <!-- Section Deep Links -->
   <url>
-    <loc>https://windhelm.com/#features</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://windhelm.dev/presskit.html</loc>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
-
-  <url>
-    <loc>https://windhelm.com/#gallery</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://windhelm.com/#updates</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://windhelm.com/#roadmap</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://windhelm.com/#team</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://windhelm.com/media/Gavin1.jpg</image:loc>
-      <image:title>Gavin Norwood - Creator/Developer</image:title>
-      <image:caption>Gavin Norwood, Creator and Developer of Windhelm RPG</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://windhelm.com/media/Kirstenjpg1.jpg</image:loc>
-      <image:title>Kirsten Norwood - Level Designer/Writer</image:title>
-      <image:caption>Kirsten Norwood, Level Designer and Writer for Windhelm RPG</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://windhelm.com/#faq</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://windhelm.com/#contact</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- External important links (for reference) -->
-  <!-- Steam Store Page -->
-  <url>
-    <loc>https://store.steampowered.com/app/2171040/Windhelm/</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
 </urlset>
