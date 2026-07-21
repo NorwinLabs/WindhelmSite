@@ -10,7 +10,7 @@
     <!-- Content Security Policy for improved security -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https: data:; connect-src 'self' https://api.steampowered.com https://discord.com https://gamalytic.com https://www.clarity.ms https://api.codetabs.com https://windhelm-steam-news.windhelmthegame.workers.dev; worker-src 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https: data:; connect-src 'self' https://api.steampowered.com https://gamalytic.com https://www.clarity.ms https://api.codetabs.com https://windhelm-steam-news.windhelmthegame.workers.dev; worker-src 'self';"
     />
 
     <meta
@@ -132,7 +132,6 @@
 
     <!-- Performance hints -->
     <link rel="dns-prefetch" href="//gamalytic.com" />
-    <link rel="dns-prefetch" href="//discord.com" />
 
     <!-- Critical CSS - Minimal inline for fastest first paint -->
     <style>
@@ -165,7 +164,6 @@
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        user-select: none;
       }
 
       html {
@@ -188,74 +186,31 @@
         background: url("media/islandbg.webp") repeat;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        cursor:
-          url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><defs><linearGradient id="bronze" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23CD7F32;stop-opacity:1" /><stop offset="30%" style="stop-color:%23B8860B;stop-opacity:1" /><stop offset="70%" style="stop-color:%23A0522D;stop-opacity:1" /><stop offset="100%" style="stop-color:%23654321;stop-opacity:1" /></linearGradient></defs><path d="M2 2 L2 18 L7 13 L10 13 L15 22 L17 21 L12 12 L15 12 L2 2 Z" fill="url(%23bronze)" stroke="%232F1B14" stroke-width="0.5"/></svg>')
-            2 2,
-          auto;
       }
 
       /* Custom Scrollbar Styles */
       ::-webkit-scrollbar {
-        width: 14px;
-        height: 14px;
+        width: 10px;
+        height: 10px;
       }
 
       ::-webkit-scrollbar-track {
-        background: linear-gradient(
-          to bottom,
-          rgba(30, 27, 75, 0.3),
-          rgba(49, 46, 129, 0.3)
-        );
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(30, 27, 75, 0.3);
       }
 
       ::-webkit-scrollbar-thumb {
-        background: linear-gradient(
-          135deg,
-          #cd7f32 0%,
-          #b8860b 30%,
-          #a0522d 70%,
-          #654321 100%
-        );
-        border-radius: 10px;
-        border: 2px solid rgba(30, 27, 75, 0.5);
-        box-shadow:
-          0 2px 6px rgba(0, 0, 0, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        background: #4b5563;
+        border-radius: 8px;
       }
 
       ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(
-          135deg,
-          #daa520 0%,
-          #cd7f32 30%,
-          #b8860b 70%,
-          #a0522d 100%
-        );
-        box-shadow:
-          0 4px 8px rgba(0, 0, 0, 0.4),
-          inset 0 1px 0 rgba(255, 255, 255, 0.3);
-      }
-
-      ::-webkit-scrollbar-thumb:active {
-        background: linear-gradient(
-          135deg,
-          #a0522d 0%,
-          #654321 30%,
-          #8b4513 70%,
-          #654321 100%
-        );
-      }
-
-      ::-webkit-scrollbar-corner {
-        background: rgba(30, 27, 75, 0.3);
+        background: #6b7280;
       }
 
       /* Firefox Scrollbar */
       * {
         scrollbar-width: thin;
-        scrollbar-color: #b8860b rgba(30, 27, 75, 0.3);
+        scrollbar-color: #4b5563 rgba(30, 27, 75, 0.3);
       }
 
       .container {
@@ -919,7 +874,6 @@
         <div class="hero-content">
           <h1 class="hero-title-main">
             <div class="logo-fire-container">
-              <div class="fire-particles"></div>
               <img
                 src="media/Logo.webp"
                 alt="Windhelm"
@@ -963,7 +917,7 @@
 
           <!-- Platform Availability -->
           <div class="hero-platforms" aria-label="Available platforms">
-<p class="hero-platforms-label">Coming to</p>
+            <p class="hero-platforms-label">Coming to</p>
             <div class="hero-platform-badges" role="list">
               <span class="platform-badge platform-badge-pc" role="listitem">
                 <svg
@@ -1043,7 +997,7 @@
       <section id="features" class="features section-animate">
         <div class="container">
           <header class="section-header">
-            <h2 class="section-title">Why Choose Windhelm?</h2>
+            <h2 class="section-title">Why play Windhelm?</h2>
             <p class="section-subtitle">
               In a time that the game industry needs it most, Windhelm reinvents
               the RPG genre by delivering an unparalleled experience that
@@ -1435,23 +1389,13 @@
               </svg>
               Join Discord
             </a>
-            <p
-              style="
-                font-size: 0.8rem;
-                color: var(--gray-400, #94a3b8);
-                margin: 0;
-              "
-            >
-              <span id="discord-member-count"></span
-              ><span id="discord-member-label"></span>
-            </p>
           </div>
         </div>
       </section>
 
       <!-- Game Updates Section -->
       <section id="updates" class="game-updates section-animate">
-<div class="container">
+        <div class="container">
           <div class="blog-header">
             <h2>Blog</h2>
           </div>
@@ -1527,7 +1471,7 @@
         </div>
       </section>
 
-<!-- Team Section -->
+      <!-- Team Section -->
       <section id="team" class="team section-animate">
         <div class="container">
           <header class="section-header">
@@ -1610,7 +1554,7 @@
                   background-image: linear-gradient(135deg, #10b981, #14b8a6);
                 "
               >
-                0%
+                100%
               </div>
               <div class="stat-label">Free Update Content</div>
             </div>
@@ -1644,7 +1588,7 @@
 
       <!-- System Requirements Section -->
       <section id="requirements" class="section-animate">
-<div class="container">
+        <div class="container">
           <header class="section-header">
             <h2 class="section-title">PC System Requirements</h2>
             <p class="section-subtitle">
@@ -1731,7 +1675,7 @@
 
       <!-- FAQ Section -->
       <section id="faq" class="faq section-animate">
-<div class="container">
+        <div class="container">
           <header class="section-header">
             <h2 class="section-title">Frequently Asked Questions</h2>
             <p class="section-subtitle">Got questions? We've got answers.</p>
@@ -1850,7 +1794,7 @@
         class="contact section-animate"
         style="padding-bottom: 5rem"
       >
-<div class="container">
+        <div class="container">
           <header class="section-header">
             <h2 class="section-title">Connect With Us</h2>
             <p class="section-subtitle">
@@ -1867,7 +1811,7 @@
               margin-top: 3rem;
             "
           >
-<!-- Discord Card -->
+            <!-- Discord Card -->
             <a
               href="https://discord.gg/PgGA8Zsj4g"
               target="_blank"
@@ -1890,13 +1834,7 @@
                   </div>
                   <h3 class="connect-title">Discord Community</h3>
                   <p class="connect-body">
-                    Join
-                    <span
-                      id="discord-member-count-contact"
-                      style="font-weight: 700; color: #94a3b8"
-                      >50+</span
-                    >
-                    members in our active community. Get exclusive dev updates,
+                    Join our active community. Get exclusive dev updates,
                     participate in events, and connect with fellow adventurers.
                   </p>
                 </div>
@@ -2026,7 +1964,11 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-brand">
-            <img src="media/Logo.webp" alt="Windhelm Logo" class="footer-logo" />
+            <img
+              src="media/Logo.webp"
+              alt="Windhelm Logo"
+              class="footer-logo"
+            />
             <p>
               ©<span id="copyright-year"></span> NorwinLabs LLC. All rights
               reserved.
@@ -2157,14 +2099,14 @@
       </div>
     </footer>
 
-<!-- Discord Member Count Fetcher -->
-<!-- Scripts -->
-<script src="script.min.js?v=1.3" defer></script>
+    <!-- Discord Member Count Fetcher -->
+    <!-- Scripts -->
+    <script src="script.min.js?v=1.3" defer></script>
 
-<!-- Gamalytic Wishlist Counter -->
-<!-- Animated Statistics Counter -->
-<!-- Service Worker Registration for offline support and caching -->
-<!-- Back to Top Button -->
+    <!-- Gamalytic Wishlist Counter -->
+    <!-- Animated Statistics Counter -->
+    <!-- Service Worker Registration for offline support and caching -->
+    <!-- Back to Top Button -->
     <button id="back-to-top" aria-label="Back to top" title="Back to top">
       <svg
         width="20"
@@ -2179,5 +2121,5 @@
         <polyline points="18 15 12 9 6 15" />
       </svg>
     </button>
-</body>
+  </body>
 </html>
