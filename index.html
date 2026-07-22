@@ -20,7 +20,7 @@
     <!-- Content Security Policy for improved security -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https: data:; connect-src 'self' https://api.steampowered.com https://gamalytic.com https://www.clarity.ms https://api.codetabs.com https://windhelm-steam-news.windhelmthegame.workers.dev https://windhelmthegame.cloudflareaccess.com; worker-src 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https: data:; connect-src 'self' https://api.steampowered.com https://gamalytic.com https://www.clarity.ms https://api.codetabs.com https://windhelm-steam-news.windhelmthegame.workers.dev https://windhelmthegame.cloudflareaccess.com https://discord.com; worker-src 'self';"
     />
 
     <meta
@@ -1627,6 +1627,32 @@
             <p class="section-subtitle" style="margin: 0">
               Connect with fellow adventurers and shape the future of Windhelm.
             </p>
+            
+            <!-- Live Discord Stats -->
+            <div id="discord-stats" style="display: flex; gap: 2rem; margin: 0.5rem 0; flex-wrap: wrap; justify-content: center;">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                  <span id="discord-members" style="font-size: 1.5rem; font-weight: 700; color: #5865F2;">...</span>
+                </div>
+                <span style="font-size: 0.85rem; color: #94a3b8; font-weight: 600;">Members</span>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#43b581">
+                    <circle cx="12" cy="12" r="8"/>
+                  </svg>
+                  <span id="discord-online" style="font-size: 1.5rem; font-weight: 700; color: #43b581;">...</span>
+                </div>
+                <span style="font-size: 0.85rem; color: #94a3b8; font-weight: 600;">Online</span>
+              </div>
+            </div>
+            
             <a
               href="https://discord.gg/PgGA8Zsj4g"
               target="_blank"

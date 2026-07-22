@@ -2,7 +2,7 @@
 // HTML: network-first (so updates ship immediately)
 // Static same-origin assets: cache-first (they carry ?v= cache busters)
 
-const CACHE_NAME = "windhelm-v2.0";
+const CACHE_NAME = "windhelm-v2.1";
 
 // Core assets to cache on install
 const PRECACHE_ASSETS = [
@@ -52,13 +52,14 @@ self.addEventListener("fetch", (event) => {
   if (request.mode === "navigate" || url.pathname.endsWith(".html")) {
     event.respondWith(networkFirst(request));
   } else if (
-    /\.(css|js|png|jpg|jpeg|gif|webp|svg|mp4|webm|woff2?|ico)$/i.test(
+    /\.(css|js|png|jpg|jpeg|gif|webp|svg|woff2?|ico)$/i.test(
       url.pathname
     )
   ) {
     event.respondWith(cacheFirst(request));
   }
-  // Anything else (JSON, etc.) goes straight to the network untouched
+  // Skip caching videos (mp4, webm) - they use range requests (HTTP 206)
+  // Let them go straight to network for proper streaming support
 });
 
 // Network-first: fresh HTML when online, cached copy offline
@@ -91,7 +92,8 @@ async function cacheFirst(request) {
   const cache = await caches.open(CACHE_NAME);
   try {
     const response = await fetch(request);
-    if (response.ok) {
+    // Only cache full responses (200), not partial content (206) or other status codes
+    if (response.ok && response.status === 200) {
       cache.put(request, response.clone());
     }
     return response;
