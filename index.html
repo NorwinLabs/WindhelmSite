@@ -4,13 +4,23 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover, user-scalable=yes"
     />
+
+    <!-- Mobile Web App Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Windhelm" />
+    <meta name="format-detection" content="telephone=no" />
 
     <!-- Content Security Policy for improved security -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https: data:; connect-src 'self' https://api.steampowered.com https://gamalytic.com https://www.clarity.ms https://api.codetabs.com https://windhelm-steam-news.windhelmthegame.workers.dev; worker-src 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https: data:; connect-src 'self' https://api.steampowered.com https://gamalytic.com https://www.clarity.ms https://api.codetabs.com https://windhelm-steam-news.windhelmthegame.workers.dev https://windhelmthegame.cloudflareaccess.com; worker-src 'self';"
     />
 
     <meta
@@ -55,6 +65,10 @@
       content="https://windhelm.dev/media/1920x622CenteredLogo.jpg"
     />
     <meta property="twitter:creator" content="@NorwinLabs" />
+
+    <!-- Discord Embed -->
+    <meta name="theme-color" content="#8b5cf6" data-react-helmet="true" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://windhelm.dev/" />
@@ -109,6 +123,76 @@
           "https://store.steampowered.com/app/2171040/Windhelm/",
           "https://www.youtube.com/@NorwinLabs",
           "https://discord.gg/PgGA8Zsj4g"
+        ]
+      }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "When will Windhelm be released?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We're working hard to deliver the best possible experience. Follow our Steam page and Discord for the latest updates on release dates and development milestones."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What platforms will Windhelm be available on?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Windhelm is coming to PC (Steam), PlayStation 5, Xbox Series X/S, and Nintendo Switch."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there multiplayer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Windhelm focuses on delivering an exceptional single-player experience. We're exploring multiplayer features for post-launch updates based on community feedback."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will there be mod support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Modding support is planned for the PC version, with comprehensive mod tools to be released shortly after launch."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://windhelm.dev/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://windhelm.dev/#features"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "FAQ",
+            "item": "https://windhelm.dev/#faq"
+          }
         ]
       }
     </script>
@@ -489,42 +573,6 @@
         font-style: italic;
       }
 
-      /* Statistics Styles */
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 3rem;
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-
-      .stat-box {
-        text-align: center;
-      }
-
-      .stat-value {
-        font-size: 3rem;
-        font-weight: 800;
-        color: #e2e8f0;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      /* Fallback for browsers that don't support gradient text */
-      @supports not (background-clip: text) {
-        .stat-value {
-          color: #3b82f6;
-        }
-      }
-
-      .stat-label {
-        color: #94a3b8;
-        margin-top: 0.5rem;
-        font-size: 1.1rem;
-        font-weight: 600;
-      }
-
       /* Press Kit Styles */
       .press-grid {
         display: grid;
@@ -709,16 +757,6 @@
         .hero-logo {
           max-width: 280px;
         }
-        .stats-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1.5rem;
-        }
-        .stat-value {
-          font-size: 2.2rem;
-        }
-        .stat-label {
-          font-size: 0.9rem;
-        }
         .discord-stats {
           gap: 1.5rem;
         }
@@ -735,13 +773,6 @@
         .hero-logo {
           max-width: 220px;
         }
-        .stats-grid {
-          grid-template-columns: 1fr;
-          gap: 1.25rem;
-        }
-        .stat-value {
-          font-size: 2rem;
-        }
       }
     </style>
 
@@ -753,6 +784,51 @@
       onload="this.media = 'all'"
     />
     <noscript><link rel="stylesheet" href="styles.min.css?v=1.3" /></noscript>
+
+    <!-- Google Analytics 4 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX"); // Replace with your GA4 Measurement ID
+
+      // Track custom events
+      function trackEvent(eventName, eventParams) {
+        if (typeof gtag !== "undefined") {
+          gtag("event", eventName, eventParams);
+        }
+      }
+
+      // Track Steam wishlist clicks
+      document.addEventListener("DOMContentLoaded", function () {
+        const steamLinks = document.querySelectorAll(
+          'a[href*="store.steampowered.com"]',
+        );
+        steamLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            trackEvent("steam_wishlist_click", {
+              location: this.textContent.trim() || "Unknown",
+            });
+          });
+        });
+
+        // Track Discord joins
+        const discordLinks = document.querySelectorAll('a[href*="discord.gg"]');
+        discordLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            trackEvent("discord_join_click", {
+              location: this.textContent.trim() || "Unknown",
+            });
+          });
+        });
+      });
+    </script>
 
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
@@ -771,6 +847,113 @@
     </script>
   </head>
   <body class="glass-theme">
+    <!-- Loading Preloader -->
+    <div
+      id="page-loader"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #1e1b4b, #312e81);
+        z-index: 10000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.5s ease;
+      "
+    >
+      <img
+        src="media/Logo.webp"
+        alt="Windhelm"
+        style="
+          width: 200px;
+          height: auto;
+          margin-bottom: 2rem;
+          animation: pulse 2s ease-in-out infinite;
+        "
+      />
+      <div
+        style="
+          width: 200px;
+          height: 4px;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 2px;
+          overflow: hidden;
+        "
+      >
+        <div
+          style="
+            height: 100%;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            animation: loading 1.5s ease-in-out infinite;
+          "
+        ></div>
+      </div>
+      <p
+        style="
+          color: rgba(255, 255, 255, 0.7);
+          margin-top: 1rem;
+          font-size: 0.9rem;
+        "
+      >
+        Loading your adventure...
+      </p>
+    </div>
+    <script>
+      // Hide loader immediately when page is ready
+      window.addEventListener("DOMContentLoaded", function () {
+        const loader = document.getElementById("page-loader");
+        const heroVideo = document.getElementById("hero-video");
+
+        if (loader) {
+          // Wait a moment for content to render
+          setTimeout(function () {
+            loader.style.opacity = "0";
+            setTimeout(function () {
+              loader.style.display = "none";
+              // Try to play video once loader is hidden
+              if (heroVideo && heroVideo.src) {
+                heroVideo.play().catch(function () {});
+              }
+            }, 500);
+          }, 800);
+        }
+      });
+    </script>
+    <style>
+      @keyframes loading {
+        0% {
+          width: 0;
+          transform: translateX(0);
+        }
+        50% {
+          width: 100%;
+          transform: translateX(0);
+        }
+        100% {
+          width: 100%;
+          transform: translateX(200px);
+        }
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.8;
+          transform: scale(1.05);
+        }
+      }
+    </style>
+
+    <!-- Skip to main content for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation Header -->
     <header class="header">
       <nav class="nav" role="navigation" aria-label="Main Navigation">
@@ -787,9 +970,9 @@
           <div class="nav-menu" id="nav-menu">
             <a href="#home" class="nav-link">Home</a>
             <a href="#features" class="nav-link">Features</a>
+            <a href="#discord" class="nav-link">Discord</a>
             <a href="#updates" class="nav-link">Updates</a>
             <a href="#faq" class="nav-link">FAQ</a>
-            <a href="#discord" class="nav-link">Discord</a>
             <a href="#contact" class="nav-link">Contact</a>
           </div>
           <div
@@ -861,13 +1044,13 @@
         <div class="hero-background">
           <video
             id="hero-video"
-            autoplay
             muted
             loop
             playsinline
-            preload="metadata"
+            preload="none"
             poster="media/BGVideo-poster.jpg"
             class="hero-bg-video"
+            webkit-playsinline
           ></video>
           <div class="hero-overlay"></div>
         </div>
@@ -891,6 +1074,33 @@
             playthrough tells a unique tale. Featuring dynamic quests, legendary
             heroes, and an ever-expanding world.
           </p>
+          <div class="release-date-banner">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <rect
+                x="3"
+                y="6"
+                width="18"
+                height="15"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path
+                d="M3 10h18M8 3v4M16 3v4"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            <span id="release-date">Next Update Coming Q4 2026</span>
+          </div>
           <div class="hero-cta">
             <a
               href="https://store.steampowered.com/app/2171040/Windhelm/"
@@ -1321,6 +1531,67 @@
             </div>
           </div>
         </div>
+
+        <!-- CTA After Features -->
+        <div class="container" style="margin-top: 4rem; text-align: center">
+          <div
+            style="
+              background: linear-gradient(
+                135deg,
+                rgba(139, 92, 246, 0.1),
+                rgba(236, 72, 153, 0.1)
+              );
+              border: 1px solid rgba(139, 92, 246, 0.2);
+              border-radius: 1.5rem;
+              padding: 3rem 2rem;
+              max-width: 700px;
+              margin: 0 auto;
+            "
+          >
+            <h3
+              style="
+                font-size: 2rem;
+                font-weight: 700;
+                color: #f1f5f9;
+                margin-bottom: 1rem;
+              "
+            >
+              Ready to Begin Your Adventure?
+            </h3>
+            <p
+              style="
+                font-size: 1.1rem;
+                color: #cbd5e1;
+                margin-bottom: 2rem;
+                line-height: 1.6;
+              "
+            >
+              Join thousands of adventurers who have wishlisted Windhelm. Be
+              among the first to experience the next generation of RPG gaming.
+            </p>
+            <a
+              href="https://store.steampowered.com/app/2171040/Windhelm/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cta-button primary"
+              style="font-size: 1.2rem; padding: 1rem 2.5rem"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                style="margin-right: 0.5rem"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                />
+              </svg>
+              Wishlist on Steam Now
+            </a>
+          </div>
+        </div>
       </section>
 
       <!-- Discord Community Section -->
@@ -1433,156 +1704,6 @@
           </div>
 
           <div id="updates-fallback" style="display: none"></div>
-
-          <div style="text-align: center; margin-top: 2rem">
-            <a
-              href="https://store.steampowered.com/app/2171040"
-              class="steam-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="View all updates on Steam"
-              style="
-                display: inline-flex;
-                align-items: center;
-                gap: 0.5rem;
-                padding: 0.75rem 1.5rem;
-                background: transparent;
-                border: 2px solid #66c0f4;
-                border-radius: 0.5rem;
-                color: #66c0f4;
-                font-weight: 600;
-                font-size: 0.95rem;
-                text-decoration: none;
-                transition:
-                  background 0.2s,
-                  color 0.2s;
-              "
-              onmouseover="
-                this.style.background = '#66c0f4';
-                this.style.color = '#0f172a';
-              "
-              onmouseout="
-                this.style.background = 'transparent';
-                this.style.color = '#66c0f4';
-              "
-              >View All Updates on Steam →</a
-            >
-          </div>
-        </div>
-      </section>
-
-      <!-- Team Section -->
-      <section id="team" class="team section-animate">
-        <div class="container">
-          <header class="section-header">
-            <h2 class="section-title">The Dynamic Duo</h2>
-          </header>
-
-          <div class="team-grid">
-            <article class="team-member">
-              <div class="member-image">
-                <picture>
-                  <!-- Modern formats for better performance -->
-                  <source srcset="media/Gavin1.webp" type="image/webp" />
-                  <!-- Fallback for browsers without WebP support -->
-                  <img
-                    src="media/Gavin1.jpg"
-                    alt="Gavin Norwood - Creator and Developer of Windhelm"
-                    loading="lazy"
-                    decoding="async"
-                    draggable="false"
-                    width="300"
-                    height="300"
-                  />
-                </picture>
-              </div>
-              <div class="member-info">
-                <h3>Gavin Norwood</h3>
-                <p class="member-role">Creator / Developer</p>
-              </div>
-            </article>
-
-            <article class="team-member">
-              <div class="member-image">
-                <picture>
-                  <!-- Modern formats for better performance -->
-                  <source srcset="media/Kirstenjpg1.webp" type="image/webp" />
-                  <!-- Fallback for browsers without WebP support -->
-                  <img
-                    src="media/Kirstenjpg1.jpg"
-                    alt="Kirsten Norwood - Level Designer and Writer of Windhelm"
-                    loading="lazy"
-                    decoding="async"
-                    draggable="false"
-                    width="300"
-                    height="300"
-                  />
-                </picture>
-              </div>
-              <div class="member-info">
-                <h3>Kirsten Norwood</h3>
-                <p class="member-role">Level Designer / Writer</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Statistics Section -->
-      <section id="stats" class="stats section-animate">
-        <div class="container">
-          <header class="section-header" style="margin-bottom: 3rem"></header>
-          <div class="stats-grid">
-            <div class="stat-box">
-              <div
-                id="wishlist-count"
-                class="stat-value"
-                data-target="0"
-                style="
-                  background-image: linear-gradient(135deg, #3b82f6, #8b5cf6);
-                "
-              >
-                Loading...
-              </div>
-              <div class="stat-label">Wishlist Count</div>
-            </div>
-            <div class="stat-box">
-              <div
-                class="stat-value"
-                data-target="100"
-                style="
-                  background-image: linear-gradient(135deg, #10b981, #14b8a6);
-                "
-              >
-                100%
-              </div>
-              <div class="stat-label">Free Update Content</div>
-            </div>
-            <div class="stat-box">
-              <div
-                class="stat-value"
-                data-target="999"
-                style="
-                  background-image: linear-gradient(135deg, #f59e0b, #ef4444);
-                "
-              >
-                ∞
-              </div>
-              <div class="stat-label">Replayability</div>
-            </div>
-            <div class="stat-box">
-              <div
-                class="stat-value"
-                data-target="4"
-                style="
-                  background-image: linear-gradient(135deg, #06b6d4, #3b82f6);
-                "
-              >
-                4
-              </div>
-              <div class="stat-label">Platforms</div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -1788,6 +1909,63 @@
         </div>
       </section>
 
+      <!-- Team Section -->
+      <section id="team" class="team section-animate">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title">The Dynamic Duo</h2>
+          </header>
+
+          <div class="team-grid">
+            <article class="team-member">
+              <div class="member-image">
+                <picture>
+                  <!-- Modern formats for better performance -->
+                  <source srcset="media/Gavin1.webp" type="image/webp" />
+                  <!-- Fallback for browsers without WebP support -->
+                  <img
+                    src="media/Gavin1.jpg"
+                    alt="Gavin Norwood - Creator and Developer of Windhelm"
+                    loading="lazy"
+                    decoding="async"
+                    draggable="false"
+                    width="300"
+                    height="300"
+                  />
+                </picture>
+              </div>
+              <div class="member-info">
+                <h3>Gavin Norwood</h3>
+                <p class="member-role">Creator / Developer</p>
+              </div>
+            </article>
+
+            <article class="team-member">
+              <div class="member-image">
+                <picture>
+                  <!-- Modern formats for better performance -->
+                  <source srcset="media/Kirstenjpg1.webp" type="image/webp" />
+                  <!-- Fallback for browsers without WebP support -->
+                  <img
+                    src="media/Kirstenjpg1.jpg"
+                    alt="Kirsten Norwood - Level Designer and Writer of Windhelm"
+                    loading="lazy"
+                    decoding="async"
+                    draggable="false"
+                    width="300"
+                    height="300"
+                  />
+                </picture>
+              </div>
+              <div class="member-info">
+                <h3>Kirsten Norwood</h3>
+                <p class="member-role">Level Designer / Writer</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <!-- Contact Section -->
       <section
         id="contact"
@@ -1957,6 +2135,108 @@
           </div>
         </div>
       </section>
+
+      <!-- Newsletter Section -->
+      <section
+        class="section-animate"
+        style="
+          padding: 4rem 0;
+          background: linear-gradient(
+            135deg,
+            rgba(30, 41, 59, 0.95),
+            rgba(17, 24, 39, 0.95)
+          );
+        "
+      >
+        <div class="container">
+          <div style="max-width: 600px; margin: 0 auto; text-align: center">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              style="margin: 0 auto 1.5rem; color: #8b5cf6"
+              aria-hidden="true"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <h2
+              style="
+                font-size: 2.2rem;
+                font-weight: 700;
+                color: #f1f5f9;
+                margin-bottom: 1rem;
+              "
+            >
+              Stay Updated
+            </h2>
+            <p
+              style="
+                font-size: 1.1rem;
+                color: #cbd5e1;
+                margin-bottom: 2rem;
+                line-height: 1.6;
+              "
+            >
+              Get notified when Windhelm launches, plus exclusive development
+              updates and behind-the-scenes content.
+            </p>
+            <form
+              id="newsletter-form"
+              style="
+                display: flex;
+                gap: 0.75rem;
+                max-width: 500px;
+                margin: 0 auto;
+                flex-wrap: wrap;
+              "
+            >
+              <input
+                type="email"
+                id="newsletter-email"
+                placeholder="Enter your email"
+                required
+                aria-label="Email address for newsletter"
+                style="
+                  flex: 1;
+                  min-width: 250px;
+                  padding: 0.875rem 1.25rem;
+                  border: 1px solid rgba(255, 255, 255, 0.2);
+                  border-radius: 0.5rem;
+                  background: rgba(15, 23, 42, 0.8);
+                  color: #fff;
+                  font-size: 1rem;
+                  font-family: inherit;
+                "
+              />
+              <button
+                type="submit"
+                class="cta-button primary"
+                style="padding: 0.875rem 2rem; white-space: nowrap"
+              >
+                Subscribe
+              </button>
+            </form>
+            <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 1rem">
+              We respect your privacy. Unsubscribe at any time.
+            </p>
+            <div
+              id="newsletter-message"
+              style="
+                margin-top: 1rem;
+                padding: 0.75rem;
+                border-radius: 0.5rem;
+                display: none;
+              "
+            ></div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -2121,5 +2401,28 @@
         <polyline points="18 15 12 9 6 15" />
       </svg>
     </button>
+
+    <!-- Sticky Wishlist Button -->
+    <a
+      id="sticky-wishlist"
+      href="https://store.steampowered.com/app/2171040/Windhelm/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Wishlist on Steam"
+      title="Wishlist Windhelm on Steam"
+    >
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+        />
+      </svg>
+      <span>Wishlist</span>
+    </a>
   </body>
 </html>

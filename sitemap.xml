@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Homepage -->
   <url>
     <loc>https://windhelm.dev/</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://windhelm.dev/media/Logo.webp</image:loc>
+      <image:title>Windhelm Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://windhelm.dev/media/1920x622CenteredLogo.jpg</image:loc>
+      <image:title>Windhelm Banner</image:title>
+    </image:image>
   </url>
+
+  <!-- Press Kit -->
   <url>
     <loc>https://windhelm.dev/presskit.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
   </url>
+
+  <!-- External Important Links -->
+  <url>
+    <loc>https://store.steampowered.com/app/2171040/Windhelm/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>
