@@ -85,7 +85,9 @@
         "@context": "https://schema.org",
         "@type": "VideoGame",
         "name": "Windhelm",
+        "alternateName": "Windhelm (video game)",
         "description": "Epic procedurally generated story-driven RPG with dynamic quests, an unexpected hero, and FREE lifetime updates. Infinite replayability where every playthrough tells a unique story.",
+        "disambiguatingDescription": "An original indie RPG title developed by NorwinLabs, unrelated to the fictional city of Windhelm in Bethesda's The Elder Scrolls V: Skyrim.",
         "url": "https://windhelm.dev/",
         "image": "https://windhelm.dev/media/1920x622CenteredLogo.jpg",
         "genre": ["Role-playing game", "Adventure", "Fantasy"],
@@ -100,7 +102,8 @@
         "publisher": {
           "@type": "Organization",
           "name": "NorwinLabs LLC",
-          "url": "https://windhelm.dev/"
+          "url": "https://windhelm.dev/",
+          "logo": "https://windhelm.dev/media/Logo.webp"
         },
         "author": [
           {
@@ -1714,39 +1717,125 @@
             <h2>Blog</h2>
           </div>
 
-          <!-- Loading State -->
-          <div class="blog-loading" id="updates-loading">
-            <div class="blog-spinner"></div>
-            <p>Loading updates from Steam…</p>
-          </div>
-
-          <!-- Blog Post List -->
-          <div class="blog-list" id="updates-list" style="display: none"></div>
-
-          <!-- Error / No Updates State -->
-          <div
-            id="updates-error"
-            style="
-              display: none;
-              text-align: center;
-              padding: 3rem;
-              color: #94a3b8;
-            "
-          >
-            <p style="margin-bottom: 1.5rem">
-              We're having trouble fetching updates right now.
-            </p>
-            <a
-              href="https://store.steampowered.com/app/2171040"
-              class="steam-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="View Windhelm on Steam Store"
-              >View on Steam Store</a
+          <!-- Blog Post List. Rendered statically so it's real, crawlable
+               content on first load; loadSteamUpdates() quietly swaps in
+               live Steam News API posts in the background if it can. -->
+          <div class="blog-list" id="updates-list">
+            <div class="blog-post">
+              <img
+                class="blog-thumb"
+                src="media/Grasslandoverlook1.webp"
+                alt="Windhelm procedurally generated grassland overlook"
+                loading="lazy"
+                width="400"
+                height="200"
+              />
+              <div class="blog-body">
+                <a
+                  class="blog-title"
+                  href="https://store.steampowered.com/app/2171040/Windhelm/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Welcome to Windhelm's Development Blog</a
+                >
+                <p class="blog-excerpt">
+                  We're building an epic procedurally generated, story-driven
+                  RPG with dynamic quests and infinite replayability. This
+                  blog mirrors our official Steam News feed — follow along
+                  for regular development updates, behind-the-scenes content,
+                  and community spotlights as we bring Windhelm to life.
+                </p>
+                <div class="blog-meta">
+                  <span>Ongoing development</span>
+                  <span>Posted by Windhelm Team</span>
+                </div>
+              </div>
+            </div>
+            <div class="blog-post">
+              <img
+                class="blog-thumb"
+                src="media/2.webp"
+                alt="Windhelm procedural terrain system screenshot"
+                loading="lazy"
+                width="400"
+                height="200"
+              />
+              <div class="blog-body">
+                <a
+                  class="blog-title"
+                  href="https://store.steampowered.com/app/2171040/Windhelm/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Procedural Terrain System Deep Dive</a
+                >
+                <p class="blog-excerpt">
+                  Our custom C++ terrain generation creates infinite, unique
+                  landscapes. Each playthrough features distinct biomes,
+                  elevation changes, and natural features that make
+                  exploration feel fresh every time you start a new game.
+                </p>
+                <div class="blog-meta">
+                  <span>Ongoing development</span>
+                  <span>Posted by Windhelm Team</span>
+                </div>
+              </div>
+            </div>
+            <div class="blog-post">
+              <img
+                class="blog-thumb"
+                src="media/islandbg.webp"
+                alt="Windhelm community and Discord artwork"
+                loading="lazy"
+                width="400"
+                height="200"
+              />
+              <div class="blog-body">
+                <a
+                  class="blog-title"
+                  href="https://discord.gg/PgGA8Zsj4g"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Community Feedback Is Shaping Development</a
+                >
+                <p class="blog-excerpt">
+                  Your input matters! We're listening to early testers on
+                  Discord and implementing requested features. Join our
+                  Discord to share ideas and help shape the future of
+                  Windhelm.
+                </p>
+                <div class="blog-meta">
+                  <span>Ongoing development</span>
+                  <span>Posted by Windhelm Team</span>
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                text-align: center;
+                padding: 2rem 0;
+                margin-top: 2rem;
+                border-top: 1px solid rgba(245, 158, 11, 0.2);
+              "
             >
+              <p style="color: #94a3b8; margin-bottom: 1rem">
+                Want the latest updates?
+              </p>
+              <a
+                href="https://store.steampowered.com/app/2171040/Windhelm/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  color: #f59e0b;
+                  text-decoration: none;
+                  font-weight: 600;
+                "
+                >View all posts on Steam</a
+              >
+            </div>
           </div>
-
-          <div id="updates-fallback" style="display: none"></div>
         </div>
       </section>
 
