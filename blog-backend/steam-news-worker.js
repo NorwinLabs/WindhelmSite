@@ -1,6 +1,21 @@
 /**
  * Windhelm Steam News Proxy — Cloudflare Worker
  *
+ * STATUS: not currently used by the site. The blog section in index.html
+ * is now refreshed at build time by ../scripts/update-blog.js (see
+ * ../.github/workflows/update-blog.yml), which fetches Steam News
+ * server-side in CI and commits the result directly into index.html —
+ * no runtime proxy needed at all, so nothing depends on this worker.
+ *
+ * It's kept here in case you want a live (rather than ~6-hour-cached)
+ * feed again someday. As of 2026-08-13 it's unreachable from the browser
+ * because a Cloudflare Access (Zero Trust) application on the
+ * `windhelmthegame` team is intercepting requests to
+ * windhelm-steam-news.windhelmthegame.workers.dev and redirecting them to
+ * a login page — fix that in the Zero Trust dashboard before relying on
+ * this again (Access → Applications → remove or add a bypass policy for
+ * this hostname).
+ *
  * Fetches news from the Steam Web API on the server side, adds CORS headers,
  * and caches responses at the edge for 30 minutes — eliminating reliance on
  * third-party CORS proxies.

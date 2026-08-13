@@ -1717,98 +1717,51 @@
             <h2>Blog</h2>
           </div>
 
-          <!-- Blog Post List. Rendered statically so it's real, crawlable
-               content on first load; loadSteamUpdates() quietly swaps in
-               live Steam News API posts in the background if it can. -->
+          <!-- Blog Post List. Rendered statically at build time by
+               scripts/update-blog.js (run on a schedule by
+               .github/workflows/update-blog.yml), which pulls the latest
+               posts straight from the Steam News API server-side — no
+               browser CORS proxy or Cloudflare Worker involved. This means
+               there's always real, crawlable blog content in the page's
+               initial HTML, regardless of any third-party service being
+               up. Do not hand-edit between the BLOG-POSTS markers; the
+               next scheduled run will overwrite it. -->
           <div class="blog-list" id="updates-list">
+            <!-- BLOG-POSTS:START -->
             <div class="blog-post">
-              <img
-                class="blog-thumb"
-                src="media/Grasslandoverlook1.webp"
-                alt="Windhelm procedurally generated grassland overlook"
-                loading="lazy"
-                width="400"
-                height="200"
-              />
+              <div class="blog-thumb-placeholder"><img src="https://cdn.akamai.steamstatic.com/steam/apps/2171040/header.jpg" alt="Windhelm logo"></div>
               <div class="blog-body">
-                <a
-                  class="blog-title"
-                  href="https://store.steampowered.com/app/2171040/Windhelm/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Welcome to Windhelm's Development Blog</a
-                >
-                <p class="blog-excerpt">
-                  We're building an epic procedurally generated, story-driven
-                  RPG with dynamic quests and infinite replayability. This
-                  blog mirrors our official Steam News feed — follow along
-                  for regular development updates, behind-the-scenes content,
-                  and community spotlights as we bring Windhelm to life.
-                </p>
+                <a class="blog-title" href="https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1834602721200951" target="_blank" rel="noopener noreferrer">Q2-26 Controller Support &amp; Convention Update</a>
+                <p class="blog-excerpt">Windhelm — Q2-26 Minor Update Patch Notes New Features and Quality of Life Additions Gameplay and Mechanics Directional Dodge Rolling: Introduced a new directional dodge roll and combat roll mechanic to give players more fluid positioning choices during fights. Auto-Equip: Wea…</p>
                 <div class="blog-meta">
-                  <span>Ongoing development</span>
+                  <span>June 9, 2026</span>
                   <span>Posted by Windhelm Team</span>
                 </div>
               </div>
             </div>
             <div class="blog-post">
-              <img
-                class="blog-thumb"
-                src="media/2.webp"
-                alt="Windhelm procedural terrain system screenshot"
-                loading="lazy"
-                width="400"
-                height="200"
-              />
+              <div class="blog-thumb-placeholder"><img src="https://cdn.akamai.steamstatic.com/steam/apps/2171040/header.jpg" alt="Windhelm logo"></div>
               <div class="blog-body">
-                <a
-                  class="blog-title"
-                  href="https://store.steampowered.com/app/2171040/Windhelm/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Procedural Terrain System Deep Dive</a
-                >
-                <p class="blog-excerpt">
-                  Our custom C++ terrain generation creates infinite, unique
-                  landscapes. Each playthrough features distinct biomes,
-                  elevation changes, and natural features that make
-                  exploration feel fresh every time you start a new game.
-                </p>
+                <a class="blog-title" href="https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1829528821317024" target="_blank" rel="noopener noreferrer">Hot Fix Update (Q126HF3)</a>
+                <p class="blog-excerpt">Hot Fix Update (Q126HF3) Bug Fixes Upon playtesting after the Spring update (Q126), I found and fixed a few bugs: Enemy AI Navigation: (FIXED) I finally figured out why the enemy AI could not move on the procedural terrain and I have put in a fix to allow them to be able to mo…</p>
                 <div class="blog-meta">
-                  <span>Ongoing development</span>
+                  <span>April 14, 2026</span>
                   <span>Posted by Windhelm Team</span>
                 </div>
               </div>
             </div>
             <div class="blog-post">
-              <img
-                class="blog-thumb"
-                src="media/islandbg.webp"
-                alt="Windhelm community and Discord artwork"
-                loading="lazy"
-                width="400"
-                height="200"
-              />
+              <div class="blog-thumb-placeholder"><img src="https://cdn.akamai.steamstatic.com/steam/apps/2171040/header.jpg" alt="Windhelm logo"></div>
               <div class="blog-body">
-                <a
-                  class="blog-title"
-                  href="https://discord.gg/PgGA8Zsj4g"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Community Feedback Is Shaping Development</a
-                >
-                <p class="blog-excerpt">
-                  Your input matters! We're listening to early testers on
-                  Discord and implementing requested features. Join our
-                  Discord to share ideas and help shape the future of
-                  Windhelm.
-                </p>
+                <a class="blog-title" href="https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1828894815556584" target="_blank" rel="noopener noreferrer">Procedural Terrain Say Whatttt?</a>
+                <p class="blog-excerpt">Windhelm: The Combat, Performance, and World Update (Q1-2026) Hello, Explorers! We’ve been hard at work making the world of Windhelm more responsive and immersive. Version Q1-2026 is now live, focusing on a major overhaul of our combat mechanics, inventory logic, and a leap fo…</p>
                 <div class="blog-meta">
-                  <span>Ongoing development</span>
+                  <span>April 2, 2026</span>
                   <span>Posted by Windhelm Team</span>
                 </div>
               </div>
             </div>
+            <!-- BLOG-POSTS:END -->
             <div
               style="
                 text-align: center;
