@@ -1,0 +1,36 @@
+name: Update Open Source Projects From GitHub
+
+on:
+  schedule:
+    # Daily. Fetches public repos server-side and commits static HTML
+    # (see scripts/update-repos.js).
+    - cron: "23 5 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-repos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch public repositories and update opensource.html
+        run: node scripts/update-repos.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add opensource.html
+          git commit -m "chore: refresh open source projects from GitHub [skip ci]" || echo "No changes to commit"
+          git push

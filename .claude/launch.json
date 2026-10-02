@@ -6,6 +6,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["--yes", "serve", "-l", "8123", "."],
       "port": 8123
+    },
+    {
+      "name": "windhelm-site-alt",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "-l", "8124", "."],
+      "port": 8124
     }
   ]
 }

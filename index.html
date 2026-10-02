@@ -677,6 +677,28 @@
         outline-offset: 2px;
       }
 
+      /* Eight nav links: tighten spacing on mid-width screens so they clear the logo and social icons */
+      @media (min-width: 769px) and (max-width: 1180px) {
+        .nav-link {
+          padding: 0 0.55rem;
+          font-size: 0.7rem;
+          letter-spacing: 0.06em;
+        }
+        .social-links {
+          gap: 0.25rem;
+        }
+      }
+      @media (min-width: 769px) and (max-width: 960px) {
+        .nav-link {
+          padding: 0 0.4rem;
+          font-size: 0.66rem;
+          letter-spacing: 0.04em;
+        }
+        .social-links {
+          display: none;
+        }
+      }
+
       /* Critical mobile: correct first paint before async CSS loads */
       @media (max-width: 768px) {
         .nav-menu {
@@ -994,6 +1016,8 @@
             <a href="#updates" class="nav-link">Updates</a>
             <a href="#faq" class="nav-link">FAQ</a>
             <a href="#contact" class="nav-link">Contact</a>
+            <a href="opensource.html" class="nav-link">Open Source</a>
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
           </div>
           <div
             class="nav-overlay"
@@ -2455,6 +2479,36 @@
               onmouseover="this.style.color = '#e2e8f0'"
               onmouseout="this.style.color = '#94a3b8'"
               >Press Kit</a
+            >
+            <a
+              href="opensource.html"
+              style="
+                color: #94a3b8;
+                text-decoration: none;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                font-weight: 600;
+                transition: color 0.2s;
+              "
+              onmouseover="this.style.color = '#e2e8f0'"
+              onmouseout="this.style.color = '#94a3b8'"
+              >Open Source</a
+            >
+            <a
+              href="portfolio.html"
+              style="
+                color: #94a3b8;
+                text-decoration: none;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                font-weight: 600;
+                transition: color 0.2s;
+              "
+              onmouseover="this.style.color = '#e2e8f0'"
+              onmouseout="this.style.color = '#94a3b8'"
+              >Portfolio</a
             >
           </nav>
           <div class="footer-version">

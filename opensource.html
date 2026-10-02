@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self';"
+    />
+    <title>Open Source &amp; Portfolio | Gavin Norwood</title>
+    <meta
+      name="description"
+      content="Gavin Norwood — Senior IT Administrator. Free and open source software by NorwinLabs, plus a look at the networking, security and infrastructure work behind it."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://windhelm.dev/opensource.html" />
+    <link rel="icon" href="media/favicon.png" />
+
+    <meta property="og:title" content="Open Source &amp; Portfolio | Gavin Norwood" />
+    <meta
+      property="og:description"
+      content="Free and open source software by NorwinLabs, built by a Senior IT Administrator."
+    />
+    <meta property="og:url" content="https://windhelm.dev/opensource.html" />
+    <meta
+      property="og:image"
+      content="https://windhelm.dev/media/WindhelmYoutubeBanner.jpg"
+    />
+    <meta property="og:type" content="website" />
+
+    <style>
+      :root {
+        --bg: #070b12;
+        --bg-2: #0b121c;
+        --panel: rgba(13, 22, 34, 0.78);
+        --line: rgba(0, 255, 170, 0.16);
+        --line-strong: rgba(0, 255, 170, 0.4);
+        --green: #00ffaa;
+        --cyan: #22d3ee;
+        --amber: #f59e0b;
+        --red: #ff5370;
+        --text: #cfe3ee;
+        --muted: #7a92a3;
+        --mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas,
+          "Liberation Mono", Menlo, monospace;
+        --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--sans);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      /* Network-grid backdrop + faint scanlines */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        background:
+          radial-gradient(
+            ellipse at 20% 0%,
+            rgba(34, 211, 238, 0.12),
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse at 90% 30%,
+            rgba(0, 255, 170, 0.08),
+            transparent 50%
+          ),
+          linear-gradient(rgba(0, 255, 170, 0.05) 1px, transparent 1px) 0 0 /
+            48px 48px,
+          linear-gradient(90deg, rgba(0, 255, 170, 0.05) 1px, transparent 1px) 0
+            0 / 48px 48px,
+          var(--bg);
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 0,
+          rgba(0, 0, 0, 0) 2px,
+          rgba(0, 0, 0, 0.14) 3px
+        );
+        opacity: 0.35;
+      }
+
+      a {
+        color: var(--cyan);
+        text-decoration: none;
+      }
+      a:hover {
+        color: var(--green);
+      }
+
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: 0;
+        background: var(--green);
+        color: #000;
+        padding: 0.5rem 1rem;
+        z-index: 200;
+        font-family: var(--mono);
+      }
+      .skip-link:focus {
+        left: 0;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--green);
+        outline-offset: 3px;
+      }
+
+      /* ===== NAV ===== */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(7, 11, 18, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+        height: 64px;
+        display: flex;
+        align-items: center;
+        padding: 0 2rem;
+        gap: 1.5rem;
+      }
+      .nav-logo {
+        height: 36px;
+        width: auto;
+      }
+      .nav-spacer {
+        flex: 1;
+      }
+      .nav-clock {
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--muted);
+        letter-spacing: 0.06em;
+      }
+      .nav-back {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+      }
+      .nav-back:hover {
+        color: var(--green);
+      }
+
+      .wrap {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* ===== HERO / TERMINAL ===== */
+      .hero {
+        padding: 4.5rem 0 3rem;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      .terminal {
+        background: rgba(5, 9, 14, 0.9);
+        border: 1px solid var(--line-strong);
+        border-radius: 10px;
+        box-shadow:
+          0 0 0 1px rgba(0, 0, 0, 0.6),
+          0 0 40px rgba(0, 255, 170, 0.08),
+          inset 0 0 60px rgba(0, 255, 170, 0.03);
+        overflow: hidden;
+      }
+      .term-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.6rem 0.9rem;
+        background: rgba(0, 255, 170, 0.06);
+        border-bottom: 1px solid var(--line);
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        color: var(--muted);
+      }
+      .term-bar i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #26323f;
+      }
+      .term-bar i:nth-child(1) {
+        background: var(--red);
+      }
+      .term-bar i:nth-child(2) {
+        background: var(--amber);
+      }
+      .term-bar i:nth-child(3) {
+        background: var(--green);
+      }
+      .term-bar span {
+        margin-left: 0.6rem;
+      }
+      .term-body {
+        padding: 1.4rem 1.5rem 1.6rem;
+        font-family: var(--mono);
+        font-size: 0.9rem;
+        line-height: 1.85;
+      }
+      .prompt {
+        color: var(--green);
+      }
+      .prompt .host {
+        color: var(--cyan);
+      }
+      .out {
+        color: var(--text);
+        padding-left: 0.1rem;
+      }
+      .out b {
+        color: var(--amber);
+        font-weight: 600;
+      }
+      .out .dim {
+        color: var(--muted);
+      }
+      .cursor {
+        display: inline-block;
+        width: 0.55em;
+        height: 1.05em;
+        background: var(--green);
+        vertical-align: text-bottom;
+        animation: blink 1.05s steps(1) infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .hero-side h1 {
+        font-family: var(--mono);
+        font-size: 2.3rem;
+        line-height: 1.15;
+        color: #fff;
+        letter-spacing: -0.01em;
+      }
+      .hero-side h1 em {
+        font-style: normal;
+        color: var(--green);
+        text-shadow: 0 0 18px rgba(0, 255, 170, 0.45);
+      }
+      .hero-side p {
+        color: var(--muted);
+        margin: 1rem 0 1.4rem;
+        max-width: 46ch;
+      }
+      .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+      }
+      .btn {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 0.7rem 1.1rem;
+        border: 1px solid var(--green);
+        color: var(--green);
+        border-radius: 6px;
+        transition: all 0.2s ease;
+      }
+      .btn:hover {
+        background: var(--green);
+        color: #02130d;
+        box-shadow: 0 0 22px rgba(0, 255, 170, 0.45);
+      }
+      .btn.ghost {
+        border-color: var(--line-strong);
+        color: var(--text);
+      }
+      .btn.ghost:hover {
+        background: rgba(34, 211, 238, 0.12);
+        color: var(--cyan);
+        border-color: var(--cyan);
+        box-shadow: none;
+      }
+
+      /* ===== SECTION HEADS ===== */
+      section {
+        padding: 3rem 0;
+        scroll-margin-top: 64px;
+      }
+      .sec-head {
+        display: flex;
+        align-items: baseline;
+        gap: 0.9rem;
+        margin-bottom: 1.8rem;
+        flex-wrap: wrap;
+      }
+      .sec-head .idx {
+        font-family: var(--mono);
+        color: var(--green);
+        font-size: 0.85rem;
+      }
+      .sec-head h2 {
+        font-family: var(--mono);
+        font-size: 1.5rem;
+        color: #fff;
+        letter-spacing: 0.02em;
+      }
+      .sec-head .rule {
+        flex: 1;
+        height: 1px;
+        min-width: 40px;
+        background: linear-gradient(90deg, var(--line-strong), transparent);
+      }
+      .sec-head .count {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      /* ===== TOPOLOGY ===== */
+      .topology {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--panel);
+        padding: 1rem;
+      }
+      .topology svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .topology .link {
+        stroke: rgba(0, 255, 170, 0.35);
+        stroke-width: 1.4;
+        stroke-dasharray: 5 6;
+        animation: flow 1.6s linear infinite;
+      }
+      @keyframes flow {
+        to {
+          stroke-dashoffset: -22;
+        }
+      }
+      .topology .node-box {
+        fill: rgba(5, 9, 14, 0.95);
+        stroke: var(--line-strong);
+        stroke-width: 1.2;
+      }
+      .topology .node-box.core {
+        stroke: var(--green);
+        filter: drop-shadow(0 0 8px rgba(0, 255, 170, 0.5));
+      }
+      .topology text {
+        font-family: var(--mono);
+        fill: var(--text);
+        font-size: 12px;
+        text-anchor: middle;
+      }
+      .topology text.sub {
+        fill: var(--muted);
+        font-size: 10px;
+      }
+
+      /* ===== DOMAINS ===== */
+      .domains {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+      }
+      .domain {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 1.3rem 1.4rem;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .domain:hover {
+        border-color: var(--line-strong);
+        transform: translateY(-2px);
+      }
+      .domain h3 {
+        font-family: var(--mono);
+        font-size: 0.95rem;
+        color: var(--cyan);
+        margin-bottom: 0.6rem;
+      }
+      .domain h3::before {
+        content: "# ";
+        color: var(--green);
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .chip {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        padding: 0.18rem 0.55rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--text);
+        background: rgba(0, 255, 170, 0.05);
+      }
+
+      /* ===== REPO GRID ===== */
+      .repo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+        gap: 1.1rem;
+      }
+      .repo-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 1.2rem 1.3rem;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+      .repo-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 14px;
+        bottom: 14px;
+        width: 2px;
+        background: var(--green);
+        box-shadow: 0 0 10px var(--green);
+        border-radius: 2px;
+        opacity: 0.55;
+      }
+      .repo-card:hover {
+        border-color: var(--line-strong);
+        box-shadow: 0 0 28px rgba(0, 255, 170, 0.1);
+        transform: translateY(-3px);
+      }
+      .repo-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--green);
+      }
+      .status i {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 8px var(--green);
+        animation: pulse 2s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        50% {
+          opacity: 0.35;
+        }
+      }
+      .repo-card h3 {
+        font-family: var(--mono);
+        font-size: 1.1rem;
+        line-height: 1.3;
+        word-break: break-word;
+      }
+      .repo-card h3 a {
+        color: #fff;
+      }
+      .repo-card h3 a:hover {
+        color: var(--green);
+      }
+      .tag {
+        font-family: var(--mono);
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 0.1rem 0.45rem;
+        border-radius: 4px;
+        vertical-align: middle;
+      }
+      .tag-fork {
+        border: 1px solid var(--amber);
+        color: var(--amber);
+      }
+      .repo-card p {
+        color: var(--muted);
+        font-size: 0.92rem;
+        flex: 1;
+      }
+      .repo-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 1rem;
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        color: var(--muted);
+        padding-top: 0.7rem;
+        border-top: 1px dashed var(--line);
+      }
+      .lang-dot {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        margin-right: 0.35rem;
+      }
+      .repo-actions {
+        display: flex;
+        gap: 1.1rem;
+      }
+      .repo-link {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .gh-cta {
+        margin-top: 1.8rem;
+        text-align: center;
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        margin-top: 2rem;
+        border-top: 1px solid var(--line);
+        padding: 1.8rem 1.5rem;
+        text-align: center;
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      @media (max-width: 860px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-side {
+          order: -1;
+        }
+        .hero-side h1 {
+          font-size: 1.8rem;
+        }
+        .nav {
+          padding: 0 1rem;
+        }
+        .nav-clock {
+          display: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <nav class="nav" aria-label="Main Navigation">
+      <a href="index.html" aria-label="Windhelm home">
+        <img src="media/Logo.webp" alt="Windhelm" class="nav-logo" />
+      </a>
+      <span class="nav-spacer"></span>
+      <span class="nav-clock" id="clock" aria-hidden="true"></span>
+      <a href="index.html" class="nav-back">&larr; Back to Site</a>
+    </nav>
+
+    <main id="main">
+      <!-- ===== HERO ===== -->
+      <header class="hero">
+        <div class="wrap hero-grid">
+          <div class="terminal" role="img" aria-label="Terminal introduction">
+            <div class="term-bar">
+              <i></i><i></i><i></i><span>gavin@windhelm: ~</span>
+            </div>
+            <div class="term-body">
+              <div class="prompt">
+                <span class="host">gavin@windhelm</span>:~$ whoami
+              </div>
+              <div class="out"><b>Gavin Norwood</b> — Senior IT Administrator</div>
+              <div class="prompt">
+                <span class="host">gavin@windhelm</span>:~$ cat focus.txt
+              </div>
+              <div class="out">networking &middot; security &middot; infrastructure</div>
+              <div class="prompt">
+                <span class="host">gavin@windhelm</span>:~$ ls ./open-source
+                | wc -l
+              </div>
+              <div class="out"><b id="term-count">--</b> <span class="dim">projects online</span></div>
+              <div class="prompt">
+                <span class="host">gavin@windhelm</span>:~$ <span class="cursor"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <h1>Free tools,<br /><em>open source</em>,<br />built to be used.</h1>
+            <p>
+              I keep systems running for a living. These are the things I build
+              on the side &mdash; free, open source, and published under
+              NorwinLabs.
+            </p>
+            <div class="btn-row">
+              <a class="btn" href="#projects">Browse projects</a>
+              <a
+                class="btn ghost"
+                href="https://github.com/NorwinLabs"
+                target="_blank"
+                rel="noopener"
+                >GitHub &rarr;</a
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===== TOPOLOGY ===== -->
+      <section aria-labelledby="h-topology">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="idx">01</span>
+            <h2 id="h-topology">network_map</h2>
+            <span class="rule"></span>
+          </div>
+          <div class="topology">
+            <svg
+              viewBox="0 0 900 250"
+              role="img"
+              aria-label="Network diagram: the internet connects through a firewall and core switch to servers, workstations and open source projects"
+            >
+              <g>
+                <line class="link" x1="170" y1="125" x2="215" y2="125" />
+                <line class="link" x1="365" y1="125" x2="410" y2="125" />
+                <line class="link" x1="560" y1="125" x2="660" y2="52" />
+                <line class="link" x1="560" y1="125" x2="660" y2="125" />
+                <line class="link" x1="560" y1="125" x2="660" y2="198" />
+              </g>
+              <g>
+                <rect class="node-box" x="20" y="95" width="150" height="60" rx="8" />
+                <text x="95" y="122">INTERNET</text>
+                <text class="sub" x="95" y="140">WAN / ISP</text>
+
+                <rect class="node-box" x="215" y="95" width="150" height="60" rx="8" />
+                <text x="290" y="122">FIREWALL</text>
+                <text class="sub" x="290" y="140">segmentation / ACLs</text>
+
+                <rect class="node-box core" x="410" y="95" width="150" height="60" rx="8" />
+                <text x="485" y="122">CORE SWITCH</text>
+                <text class="sub" x="485" y="140">VLANs / routing</text>
+
+                <rect class="node-box" x="660" y="22" width="220" height="60" rx="8" />
+                <text x="770" y="49">SERVERS</text>
+                <text class="sub" x="770" y="67">identity / storage / VMs</text>
+
+                <rect class="node-box" x="660" y="95" width="220" height="60" rx="8" />
+                <text x="770" y="122">ENDPOINTS</text>
+                <text class="sub" x="770" y="140">managed / patched / monitored</text>
+
+                <rect class="node-box core" x="660" y="168" width="220" height="60" rx="8" />
+                <text x="770" y="195">NORWINLABS</text>
+                <text class="sub" x="770" y="213">open source projects</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== DOMAINS ===== -->
+      <section aria-labelledby="h-domains">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="idx">02</span>
+            <h2 id="h-domains">skills_matrix</h2>
+            <span class="rule"></span>
+          </div>
+          <div class="domains">
+            <div class="domain">
+              <h3>Networking</h3>
+              <div class="chips">
+                <span class="chip">TCP/IP</span><span class="chip">DNS</span
+                ><span class="chip">DHCP</span><span class="chip">VLANs</span
+                ><span class="chip">VPN</span><span class="chip">Routing</span
+                ><span class="chip">Wi-Fi</span>
+              </div>
+            </div>
+            <div class="domain">
+              <h3>Cybersecurity</h3>
+              <div class="chips">
+                <span class="chip">Hardening</span><span class="chip">IAM / MFA</span
+                ><span class="chip">Patching</span
+                ><span class="chip">Endpoint protection</span
+                ><span class="chip">Log review</span
+                ><span class="chip">Backups</span>
+              </div>
+            </div>
+            <div class="domain">
+              <h3>Systems &amp; Infrastructure</h3>
+              <div class="chips">
+                <span class="chip">Windows Server</span
+                ><span class="chip">Active Directory</span
+                ><span class="chip">Linux</span
+                ><span class="chip">Virtualisation</span
+                ><span class="chip">Microsoft 365</span>
+              </div>
+            </div>
+            <div class="domain">
+              <h3>Automation &amp; Dev</h3>
+              <div class="chips">
+                <span class="chip">PowerShell</span><span class="chip">Python</span
+                ><span class="chip">JavaScript</span
+                ><span class="chip">Kotlin</span
+                ><span class="chip">CI/CD</span><span class="chip">Git</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PROJECTS ===== -->
+      <section id="projects" aria-labelledby="h-projects">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="idx">03</span>
+            <h2 id="h-projects">open_source</h2>
+            <span class="rule"></span>
+            <span class="count"><span id="repo-count">7</span> nodes &middot; synced from GitHub</span>
+          </div>
+
+          <div class="repo-grid">
+            <!-- REPOS:START -->
+          <article class="repo-card">
+            <header class="repo-head">
+              <span class="node-id">NODE-01</span>
+              <span class="status"><i></i>online</span>
+            </header>
+            <h3><a href="https://github.com/NorwinLabs/NorwinVibe" target="_blank" rel="noopener">NorwinVibe</a> </h3>
+            <p>open source floating media player for Windows and Android</p>
+            <footer class="repo-meta">
+              <span class="meta-item"><span class="lang-dot" style="background:#f1e05a"></span>JavaScript</span><span class="meta-item">&#9733; 0</span>
+              <span class="meta-item">pushed 2026-10-02</span>
+            </footer>
+            <div class="repo-actions">
+              <a class="repo-link" href="https://github.com/NorwinLabs/NorwinVibe" target="_blank" rel="noopener">view source &rarr;</a>
+              
+            </div>
+          </article>
+          <article class="repo-card">
+            <header class="repo-head">
+              <span class="node-id">NODE-02</span>
+              <span class="status"><i></i>online</span>
+            </header>
+            <h3><a href="https://github.com/NorwinLabs/WindhelmSite" target="_blank" rel="noopener">WindhelmSite</a> </h3>
+            <p>Windhelm site hosted on Github Pages</p>
+            <footer class="repo-meta">
+              <span class="meta-item"><span class="lang-dot" style="background:#e34c26"></span>HTML</span><span class="meta-item">&#9733; 0</span>
+              <span class="meta-item">pushed 2026-09-30</span>
+            </footer>
+            <div class="repo-actions">
+              <a class="repo-link" href="https://github.com/NorwinLabs/WindhelmSite" target="_blank" rel="noopener">view source &rarr;</a>
+              
+            </div>
+          </article>
+          <article class="repo-card">
+            <header class="repo-head">
+              <span class="node-id">NODE-03</span>
+              <span class="status"><i></i>online</span>
+            </header>
+            <h3><a href="https://github.com/NorwinLabs/NorwinLabsTools" target="_blank" rel="noopener">NorwinLabsTools</a> </h3>
+            <p>Android App that contains useful tools I need every day</p>
+            <footer class="repo-meta">
+              <span class="meta-item"><span class="lang-dot" style="background:#a97bff"></span>Kotlin</span><span class="meta-item">&#9733; 1</span>
+              <span class="meta-item">pushed 2026-09-02</span>
+            </footer>
+            <div class="repo-actions">
+              <a class="repo-link" href="https://github.com/NorwinLabs/NorwinLabsTools" target="_blank" rel="noopener">view source &rarr;</a>
+              
+            </div>
+          </article>
+          <article class="repo-card">
+            <header class="repo-head">
+              <span class="node-id">NODE-04</span>
+              <span class="status"><i></i>online</span>
+            </header>
+            <h3><a href="https://github.com/NorwinLabs/mechvibes-2.0" target="_blank" rel="noopener">mechvibes-2.0</a> <span class="tag tag-fork">fork</span></h3>
+            <p>Mechvibes Clone To Add Some Favorite Features</p>
+            <footer class="repo-meta">
+              <span class="meta-item"><span class="lang-dot" style="background:#f1e05a"></span>JavaScript</span><span class="meta-item">MIT</span><span class="meta-item">&#9733; 1</span>
+              <span class="meta-item">pushed 2026-08-01</span>
+            </footer>
+            <div class="repo-actions">
+              <a class="repo-link" href="https://github.com/NorwinLabs/mechvibes-2.0" target="_blank" rel="noopener">view source &rarr;</a>
+              <a class="repo-link" href="https://mechvibes.com" target="_blank" rel="noopener">website</a>
+            </div>
+          </article>
+          <article class="repo-card">
+            <header class="repo-head">
+              <span class="node-id">NODE-05</span>
+              <span class="status"><i></i>online</span>
+            </header>
+            <h3><a href="https://github.com/NorwinLabs/NorwinMouseAssist" target="_blank" rel="noopener">NorwinMouseAssist</a> </h3>
+            <p>An open-source software that can help people with non-steady hands.</p>
+            <footer class="repo-meta">
+              <span class="meta-item"><span class="lang-dot" style="background:#3572a5"></span>Python</span><span class="meta-item">MIT</span><span class="meta-item">&#9733; 0</span>
+              <span class="meta-item">pushed 2026-01-20</span>
+            </footer>
+            <div class="repo-actions">
+              <a class="repo-link" href="https://github.com/NorwinLabs/NorwinMouseAssist" target="_blank" rel="noopener">view source &rarr;</a>
+              
+            </div>
+          </article>
+          <article class="repo-card">
+            <header class="repo-head">
+              <span class="node-id">NODE-06</span>
+              <span class="status"><i></i>online</span>
+            </header>
+            <h3><a href="https://github.com/NorwinLabs/AthenaPortfolio" target="_blank" rel="noopener">AthenaPortfolio</a> </h3>
+            <p>An Open-Source, free portfolio site for use to host a portfolio! Developed by Gavin Norwood</p>
+            <footer class="repo-meta">
+              <span class="meta-item"><span class="lang-dot" style="background:#f1e05a"></span>JavaScript</span><span class="meta-item">&#9733; 1</span>
+              <span class="meta-item">pushed 2025-09-29</span>
+            </footer>
+            <div class="repo-actions">
+              <a class="repo-link" href="https://github.com/NorwinLabs/AthenaPortfolio" target="_blank" rel="noopener">view source &rarr;</a>
+              <a class="repo-link" href="https://store.steampowered.com/app/2171040/Windhelm/" target="_blank" rel="noopener">website</a>
+            </div>
+          </article>
+          <article class="repo-card">
+            <header class="repo-head">
+              <span class="node-id">NODE-07</span>
+              <span class="status"><i></i>online</span>
+            </header>
+            <h3><a href="https://github.com/NorwinLabs/WorldGuardBatch" target="_blank" rel="noopener">WorldGuardBatch</a> </h3>
+            <p>Plugin to execute batch commands in WorldGuard.</p>
+            <footer class="repo-meta">
+              <span class="meta-item"><span class="lang-dot" style="background:#b07219"></span>Java</span><span class="meta-item">AGPL-3.0</span><span class="meta-item">&#9733; 0</span>
+              <span class="meta-item">pushed 2022-02-10</span>
+            </footer>
+            <div class="repo-actions">
+              <a class="repo-link" href="https://github.com/NorwinLabs/WorldGuardBatch" target="_blank" rel="noopener">view source &rarr;</a>
+              
+            </div>
+          </article>
+          <!-- REPOS:END -->
+          </div>
+
+          <div class="gh-cta">
+            <a
+              class="btn"
+              href="https://github.com/NorwinLabs"
+              target="_blank"
+              rel="noopener"
+              >View everything on GitHub &rarr;</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        &copy;<span id="copyright-year"></span> NorwinLabs LLC. &nbsp;|&nbsp;
+        <a href="index.html">windhelm.dev</a> &nbsp;|&nbsp;
+        <a href="presskit.html">Press Kit</a>
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById("copyright-year").textContent =
+        new Date().getFullYear();
+
+      var count = document.getElementById("repo-count").textContent;
+      document.getElementById("term-count").textContent = count;
+
+      var clock = document.getElementById("clock");
+      function tick() {
+        clock.textContent =
+          "UTC " + new Date().toISOString().slice(0, 19).replace("T", " ");
+      }
+      tick();
+      setInterval(tick, 1000);
+    </script>
+  </body>
+</html>
