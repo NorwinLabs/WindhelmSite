@@ -8,7 +8,7 @@ const CACHE_NAME = "windhelm-v2.1";
 const PRECACHE_ASSETS = [
   "/",
   "/styles.min.css?v=1.3",
-  "/script.min.js?v=1.5",
+  "/script.min.js?v=1.7",
   "/media/Logo.webp",
   "/media/favicon.png",
   "/media/islandbg.webp",
