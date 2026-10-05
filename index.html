@@ -20,7 +20,7 @@
     <!-- Content Security Policy for improved security -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https: data:; connect-src 'self' https://api.steampowered.com https://gamalytic.com https://www.clarity.ms https://api.codetabs.com https://windhelm-steam-news.windhelmthegame.workers.dev https://windhelmthegame.cloudflareaccess.com https://discord.com; worker-src 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://scripts.clarity.ms; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https: data:; connect-src 'self' https://api.steampowered.com https://gamalytic.com https://www.clarity.ms https://*.clarity.ms https://api.codetabs.com https://windhelm-steam-news.windhelmthegame.workers.dev https://windhelmthegame.cloudflareaccess.com https://discord.com https://buttondown.com; worker-src 'self';"
     />
 
     <meta
@@ -885,7 +885,7 @@
         t.src = "https://www.clarity.ms/tag/" + i;
         y = l.getElementsByTagName(r)[0];
         y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "uo1vjggwak");
+      })(window, document, "clarity", "script", "r99n3cjmzk");
     </script>
   </head>
   <body class="glass-theme">
@@ -2336,6 +2336,7 @@
             </p>
             <div
               id="newsletter-message"
+              role="status"
               style="
                 margin-top: 1rem;
                 padding: 0.75rem;
@@ -2520,7 +2521,7 @@
 
     <!-- Discord Member Count Fetcher -->
     <!-- Scripts -->
-    <script src="script.min.js?v=1.3" defer></script>
+    <script src="script.min.js?v=1.5" defer></script>
 
     <!-- Gamalytic Wishlist Counter -->
     <!-- Animated Statistics Counter -->
