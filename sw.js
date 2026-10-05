@@ -7,7 +7,7 @@ const CACHE_NAME = "windhelm-v2.1";
 // Core assets to cache on install
 const PRECACHE_ASSETS = [
   "/",
-  "/styles.min.css?v=1.3",
+  "/styles.min.css?v=1.4",
   "/script.min.js?v=1.7",
   "/media/Logo.webp",
   "/media/favicon.png",
