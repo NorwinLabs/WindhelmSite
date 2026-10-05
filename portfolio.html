@@ -6,7 +6,7 @@
     <title>Portfolio &amp; Open Source | Gavin Norwood</title>
     <meta
       name="description"
-      content="Gavin Norwood — Senior IT Administrator and developer. Free, open source software from NorwinLabs on GitHub."
+      content="Gavin Norwood — Senior IT Administrator, network architect, Linux admin, hardware technician, Salesforce/Apex and C++ game developer. Free, open source software from NorwinLabs on GitHub."
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://windhelm.dev/portfolio.html" />
@@ -664,7 +664,7 @@
           <div class="terminal-body" id="term">
             <noscript>
               <span class="ln"><span class="prompt">$</span> whoami</span>
-              <span class="ln out">Gavin Norwood — Senior IT Administrator</span>
+              <span class="ln out">Gavin Norwood — Senior IT Administrator, Network Architect</span>
             </noscript>
           </div>
         </div>
@@ -731,35 +731,45 @@
         </div>
         <div class="skills">
           <div class="skill">
-            <h3>networking</h3>
+            <h3>network-architecture</h3>
             <div class="chips">
-              <span>Routing &amp; Switching</span><span>VLANs</span
-              ><span>DNS / DHCP</span><span>VPN</span><span>Firewalls</span
-              ><span>Wi-Fi</span>
+              <span>Network Design</span><span>Routing &amp; Switching</span><span>VLANs &amp; Segmentation</span><span>DNS / DHCP</span><span>VPN</span><span>Firewalls</span><span>Wi-Fi</span>
+            </div>
+          </div>
+          <div class="skill">
+            <h3>linux</h3>
+            <div class="chips">
+              <span>Linux Administration</span><span>Shell Scripting</span><span>Service Hardening</span><span>Troubleshooting</span>
+            </div>
+          </div>
+          <div class="skill">
+            <h3>salesforce</h3>
+            <div class="chips">
+              <span>Apex</span><span>Salesforce Development</span><span>Triggers &amp; Automation</span><span>Integrations</span>
+            </div>
+          </div>
+          <div class="skill">
+            <h3>hardware</h3>
+            <div class="chips">
+              <span>Hardware Repair</span><span>Builds &amp; Upgrades</span><span>Diagnostics</span><span>Cabling &amp; Rack Work</span>
+            </div>
+          </div>
+          <div class="skill">
+            <h3>game-dev</h3>
+            <div class="chips">
+              <span>C++</span><span>Game Development</span><span>Gameplay Systems</span><span>Windhelm</span>
             </div>
           </div>
           <div class="skill">
             <h3>security</h3>
             <div class="chips">
-              <span>Hardening</span><span>Access Control</span
-              ><span>Patch Management</span><span>Monitoring</span
-              ><span>Backup &amp; Recovery</span>
-            </div>
-          </div>
-          <div class="skill">
-            <h3>infrastructure</h3>
-            <div class="chips">
-              <span>Windows Server</span><span>Linux</span
-              ><span>Virtualization</span><span>Cloud</span
-              ><span>Identity</span>
+              <span>Hardening</span><span>Access Control</span><span>Patch Management</span><span>Monitoring</span><span>Backup &amp; Recovery</span>
             </div>
           </div>
           <div class="skill">
             <h3>automation &amp; dev</h3>
             <div class="chips">
-              <span>PowerShell</span><span>Python</span><span>Shell</span
-              ><span>JavaScript</span><span>Kotlin</span><span>Java</span
-              ><span>CI/CD</span>
+              <span>PowerShell</span><span>Python</span><span>Bash</span><span>JavaScript</span><span>Kotlin</span><span>Java</span><span>CI/CD</span>
             </div>
           </div>
         </div>
@@ -1044,7 +1054,7 @@
         var SCRIPT = [
           { cmd: "whoami", out: "" },
           { cmd: null, html: "h1" },
-          { cmd: "cat role.txt", out: "Senior IT Administrator · Networks · Security · Automation" },
+          { cmd: "cat role.txt", out: "Senior IT Administrator · Network Architect · Linux · Salesforce / Apex · C++ Game Dev" },
           { cmd: "ls ~/open-source | wc -l", out: String(PROJECTS.length) + " public projects, all free" },
           { cmd: "./status.sh", out: "[ OK ] all systems nominal" },
         ];
