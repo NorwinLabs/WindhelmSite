@@ -21,7 +21,12 @@ const START_MARKER = "<!-- REPOS:START -->";
 const END_MARKER = "<!-- REPOS:END -->";
 
 // Public repos that are experiments / scratch work and shouldn't be showcased.
-const EXCLUDE = new Set(["TestPhonePipeline", "ModrinthApp", "DiscordDupe"]);
+const EXCLUDE = new Set([
+  "TestPhonePipeline",
+  "ModrinthApp",
+  "DiscordDupe",
+  "WindhelmSite",
+]);
 
 // Used when a repo has no GitHub description of its own.
 const DESCRIPTION_FALLBACK = {
