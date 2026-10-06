@@ -369,6 +369,118 @@
 
       /* Project cards */
       
+      /* Resume button */
+      .nav-resume {
+        margin-left: auto;
+        padding: 0.35rem 0.8rem;
+        border: 1px solid var(--cyan);
+        border-radius: 4px;
+        color: var(--cyan);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+      }
+      .nav-resume:hover {
+        background: var(--cyan);
+        color: #001018;
+        text-decoration: none;
+      }
+      .nav-resume + .nav-back {
+        margin-left: 0;
+      }
+
+      /* Experience timeline */
+      .timeline {
+        position: relative;
+        padding-left: 1.6rem;
+        border-left: 1px dashed var(--line-strong);
+        display: grid;
+        gap: 1.1rem;
+      }
+      .job {
+        position: relative;
+        background: linear-gradient(180deg, var(--panel-2), var(--panel));
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 1.1rem 1.3rem;
+      }
+      .job::before {
+        content: "";
+        position: absolute;
+        left: calc(-1.6rem - 5px);
+        top: 1.5rem;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 8px var(--green);
+      }
+      .job-head {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0.2rem 1rem;
+        margin-bottom: 0.5rem;
+      }
+      .job h3 {
+        font-size: 1rem;
+        color: #fff;
+      }
+      .job h3 span {
+        color: var(--cyan);
+        font-weight: 400;
+      }
+      .job .when {
+        font-size: 0.78rem;
+        color: var(--green);
+        white-space: nowrap;
+      }
+      .job ul,
+      .card-list {
+        list-style: none;
+        display: grid;
+        gap: 0.45rem;
+      }
+      .job li,
+      .card-list li {
+        font-size: 0.84rem;
+        padding-left: 1.1rem;
+        position: relative;
+      }
+      .job li::before,
+      .card-list li::before {
+        content: ">";
+        position: absolute;
+        left: 0;
+        color: var(--green);
+      }
+      .job li b,
+      .card-list li b {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 1rem;
+      }
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 1.1rem 1.3rem;
+      }
+      .panel h3 {
+        font-size: 0.9rem;
+        color: var(--green);
+        margin-bottom: 0.7rem;
+      }
+      .panel h3::before {
+        content: "$ ";
+        color: var(--muted);
+      }
+
       /* Open-source teaser */
       .teaser {
         background: linear-gradient(180deg, var(--panel-2), var(--panel));
@@ -460,6 +572,9 @@
 
 
       @media (max-width: 860px) {
+        .two-col {
+          grid-template-columns: 1fr;
+        }
         .hero {
           grid-template-columns: 1fr;
           padding-top: 2.5rem;
@@ -513,6 +628,12 @@
         />
       </a>
       <span class="nav-title"><b>root@windhelm</b>:~/portfolio</span>
+      <a
+        href="media/Gavin-Norwood-Resume.pdf"
+        class="nav-resume"
+        download="Gavin-Norwood-Resume.pdf"
+        >Resume &darr;</a
+      >
       <a href="/" class="nav-back">&larr; Back to Windhelm</a>
     </nav>
 
@@ -567,6 +688,99 @@
         </svg>
       </div>
 
+      <!-- EXPERIENCE -->
+      <section id="experience" aria-labelledby="experience-h">
+        <div class="sec-head">
+          <h2 id="experience-h">experience --log</h2>
+          <span class="sub">Where I have worked &middot;
+            <a href="media/Gavin-Norwood-Resume.pdf" download="Gavin-Norwood-Resume.pdf">download resume (PDF)</a></span>
+        </div>
+        <div class="timeline">
+          <article class="job">
+            <div class="job-head">
+              <h3>IT System Administrator <span>@ TrxNow</span></h3>
+              <span class="when">June 2025 &ndash; Present</span>
+            </div>
+            <ul>
+              <li><b>Network Architecture &amp; Infrastructure:</b> Design, implement and optimize enterprise FortiNet network topology and infrastructure, with security, high availability and redundancy across Linux and Windows server environments.</li>
+              <li><b>Payment Systems:</b> Overhauled Salesforce application payment integrations using Apex and SOQL, improving transaction reliability and data security.</li>
+              <li><b>IT Operations &amp; User Support:</b> Full-spectrum support across hardware, software, connectivity and peripherals, plus onboarding/offboarding, equipment provisioning, user accounts and access permissions.</li>
+              <li><b>Fleet &amp; License Management:</b> Oversee procurement, inventory, deployment and maintenance of 300+ workstations and peripherals through MSP platforms (Syncro, Atera), with timely patching and remote support.</li>
+              <li><b>Security &amp; System Administration:</b> Maintain Microsoft 365 and corporate applications while enforcing endpoint protection, identity authentication, system updates and cybersecurity incident response.</li>
+              <li><b>Vendor &amp; Project Coordination:</b> Lead vendor contract negotiations and work with third-party IT providers to optimize licensing, reduce overhead and deliver key technology projects.</li>
+            </ul>
+          </article>
+          <article class="job">
+            <div class="job-head">
+              <h3>Java API Developer <span>@ CGI</span></h3>
+              <span class="when">Jan 2022 &ndash; Apr 2025</span>
+            </div>
+            <ul>
+              <li><b>API Management:</b> Built and maintained RESTful APIs for a diverse client portfolio using Spring Boot and Java.</li>
+              <li><b>Modernization:</b> Streamlined backend logic for legacy systems, improving data retrieval speed and integration with third-party services.</li>
+              <li><b>Collaborative Dev:</b> Worked in an Agile team using Jira for task tracking and Jenkins for automated deployment.</li>
+            </ul>
+          </article>
+          <article class="job">
+            <div class="job-head">
+              <h3>Lead Unreal Engine Developer <span>@ Windhelm (Independent Project)</span></h3>
+              <span class="when">2021 &ndash; Present</span>
+            </div>
+            <ul>
+              <li><b>Software Architecture:</b> Designed and programmed a full-scale game in C++ on Unreal Engine 5, owning the lifecycle from concept to Steam publication.</li>
+              <li><b>Performance Optimization:</b> Built procedural generation systems and optimized the rendering pipeline (LOD, culling) to hold high frame rates in complex environments.</li>
+              <li><b>Live Ops:</b> Run quarterly update cycles, using version control and community feedback to refactor code and ship new features.</li>
+            </ul>
+          </article>
+          <article class="job">
+            <div class="job-head">
+              <h3>SAP ABAP Developer <span>@ Building Information</span></h3>
+              <span class="when">Fall 2020 &ndash; Spring 2021</span>
+            </div>
+            <ul>
+              <li><b>ERP Customization:</b> Developed and modified financial and inventory reports in ABAP to meet client business requirements.</li>
+              <li><b>Lifecycle Management:</b> Managed change requests through Jira and kept technical documentation current for every report modification.</li>
+            </ul>
+          </article>
+          <article class="job">
+            <div class="job-head">
+              <h3>IT Specialist (Internship) <span>@ Kingsport General Sessions Court</span></h3>
+              <span class="when">Spring 2018</span>
+            </div>
+            <ul>
+              <li><b>Database Migration:</b> Led the migration of police department servers from Ruby-based data structures to MySQL, improving query performance, adding features and preserving data integrity.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- EDUCATION & HOME LAB -->
+      <section id="background" aria-labelledby="background-h">
+        <div class="sec-head">
+          <h2 id="background-h">education --lab</h2>
+          <span class="sub">Credentials and what I build at home</span>
+        </div>
+        <div class="two-col">
+          <div class="panel">
+            <h3>education &amp; certs</h3>
+            <ul class="card-list">
+              <li><b>BS, Computer Science</b> &mdash; East Tennessee State University (GPA 3.50)</li>
+              <li><b>AAS, Computer Programming</b> &mdash; Northeast State Community College (GPA 3.80)</li>
+              <li><b>AWS Certified Cloud Practitioner</b> (2023)</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>home lab</h3>
+            <ul class="card-list">
+              <li><b>Self-hosted infrastructure:</b> Ubuntu and Apache2 web server hosting personal full-stack MEAN apps, tuned for performance and access control.</li>
+              <li><b>CI/CD:</b> end-to-end Jenkins pipelines for build testing, validation and deployment of personal projects.</li>
+              <li><b>Data redundancy:</b> high-capacity NAS on a RAID 5 array for fault tolerance and secure storage.</li>
+              <li><b>Open source (NorwinLabs):</b> free software on GitHub, including accessibility tools, with issue tracking, PR reviews and release pipelines.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <!-- OPEN SOURCE -->
       <section id="projects" aria-labelledby="projects-h">
         <div class="sec-head">
@@ -599,45 +813,45 @@
         </div>
         <div class="skills">
           <div class="skill">
-            <h3>network-architecture</h3>
+            <h3>network &amp; infrastructure</h3>
             <div class="chips">
-              <span>Network Design</span><span>Routing &amp; Switching</span><span>VLANs &amp; Segmentation</span><span>DNS / DHCP</span><span>VPN</span><span>Firewalls</span><span>Wi-Fi</span>
+              <span>FortiNet</span><span>Network Design</span><span>High Availability</span><span>Windows Server</span><span>Linux Server</span><span>Ubuntu</span><span>Apache2</span><span>Active Directory</span>
             </div>
           </div>
           <div class="skill">
-            <h3>linux</h3>
+            <h3>security &amp; endpoint</h3>
             <div class="chips">
-              <span>Linux Administration</span><span>Shell Scripting</span><span>Service Hardening</span><span>Troubleshooting</span>
+              <span>Microsoft 365</span><span>Endpoint Protection</span><span>Identity &amp; Access</span><span>Patch Management</span><span>Incident Response</span><span>Syncro</span><span>Atera</span>
             </div>
           </div>
           <div class="skill">
             <h3>salesforce</h3>
             <div class="chips">
-              <span>Apex</span><span>Salesforce Development</span><span>Triggers &amp; Automation</span><span>Integrations</span>
+              <span>Apex</span><span>SOQL</span><span>MuleSoft</span><span>Heroku</span><span>DevOps Center</span><span>Payment Integrations</span>
+            </div>
+          </div>
+          <div class="skill">
+            <h3>cloud &amp; devops</h3>
+            <div class="chips">
+              <span>AWS (S3, CloudFront)</span><span>Jenkins</span><span>Docker</span><span>Kubernetes</span><span>Gradle / Maven</span><span>Git</span><span>CI/CD</span>
+            </div>
+          </div>
+          <div class="skill">
+            <h3>languages</h3>
+            <div class="chips">
+              <span>Apex</span><span>C</span><span>C++</span><span>C#</span><span>Java</span><span>Python</span><span>SQL</span><span>JavaScript (MERN/MEAN)</span><span>Bash</span><span>PHP</span><span>SAP ABAP</span>
+            </div>
+          </div>
+          <div class="skill">
+            <h3>game-dev</h3>
+            <div class="chips">
+              <span>C++</span><span>Unreal Engine 5</span><span>Procedural Generation</span><span>LOD &amp; Culling</span><span>Steam Publishing</span>
             </div>
           </div>
           <div class="skill">
             <h3>hardware</h3>
             <div class="chips">
               <span>Hardware Repair</span><span>Builds &amp; Upgrades</span><span>Diagnostics</span><span>Cabling &amp; Rack Work</span>
-            </div>
-          </div>
-          <div class="skill">
-            <h3>game-dev</h3>
-            <div class="chips">
-              <span>C++</span><span>Game Development</span><span>Gameplay Systems</span><span>Windhelm</span>
-            </div>
-          </div>
-          <div class="skill">
-            <h3>security</h3>
-            <div class="chips">
-              <span>Hardening</span><span>Access Control</span><span>Patch Management</span><span>Monitoring</span><span>Backup &amp; Recovery</span>
-            </div>
-          </div>
-          <div class="skill">
-            <h3>automation &amp; dev</h3>
-            <div class="chips">
-              <span>PowerShell</span><span>Python</span><span>Bash</span><span>JavaScript</span><span>Kotlin</span><span>Java</span><span>CI/CD</span>
             </div>
           </div>
         </div>
@@ -656,6 +870,12 @@
             target="_blank"
             rel="noopener"
             >&gt; GitHub</a
+          >
+          <a
+            class="btn"
+            href="media/Gavin-Norwood-Resume.pdf"
+            download="Gavin-Norwood-Resume.pdf"
+            >&gt; Resume (PDF)</a
           >
           <a class="btn" href="/#contact">&gt; Contact</a>
         </div>
@@ -684,7 +904,7 @@
         var SCRIPT = [
           { cmd: "whoami", out: "" },
           { cmd: null, html: "h1" },
-          { cmd: "cat role.txt", out: "Senior IT Administrator · Network Architect · Linux · Salesforce / Apex · C++ Game Dev" },
+          { cmd: "cat role.txt", out: "IT Administrator · Network Architect · Linux · Salesforce / Apex · C++ Game Dev" },
           { cmd: "ls ~/open-source | wc -l", out: "free & open source projects, published on GitHub" },
           { cmd: "./status.sh", out: "[ OK ] all systems nominal" },
         ];
