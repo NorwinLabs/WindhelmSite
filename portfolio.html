@@ -364,169 +364,30 @@
       }
 
       /* Stat strip */
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-        margin-bottom: 1rem;
-      }
-      .stat {
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-left: 3px solid var(--cyan);
-        padding: 0.9rem 1.1rem;
-        border-radius: 6px;
-      }
-      .stat .v {
-        font-size: 1.7rem;
-        color: #fff;
-        font-weight: 700;
-        line-height: 1.1;
-      }
-      .stat .k {
-        color: var(--muted);
-        font-size: 0.72rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-      }
 
       /* Filters */
-      .filters {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 1.2rem;
-      }
-      .filters button {
-        font-family: var(--mono);
-        font-size: 0.78rem;
-        background: transparent;
-        color: var(--muted);
-        border: 1px solid var(--line);
-        padding: 0.35rem 0.8rem;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all 0.15s;
-      }
-      .filters button:hover {
-        color: var(--text);
-        border-color: var(--line-strong);
-      }
-      .filters button[aria-pressed="true"] {
-        color: #001018;
-        background: var(--cyan);
-        border-color: var(--cyan);
-        font-weight: 700;
-      }
 
       /* Project cards */
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 1.1rem;
-      }
-      .card {
+      
+      /* Open-source teaser */
+      .teaser {
         background: linear-gradient(180deg, var(--panel-2), var(--panel));
         border: 1px solid var(--line);
+        border-left: 3px solid var(--green);
         border-radius: 8px;
-        padding: 1.2rem 1.25rem 1.1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.7rem;
-        position: relative;
-        overflow: hidden;
-        transition:
-          border-color 0.2s,
-          transform 0.2s,
-          box-shadow 0.2s;
-      }
-      .card::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 2px;
-        width: 100%;
-        background: linear-gradient(90deg, var(--cyan), transparent);
-        opacity: 0.7;
-      }
-      .card:hover {
-        border-color: var(--line-strong);
-        transform: translateY(-3px);
-        box-shadow: 0 8px 30px rgba(34, 211, 238, 0.1);
-      }
-      .card-top {
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-      }
-      .led {
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: var(--green);
-        box-shadow: 0 0 8px var(--green);
-        flex: none;
-        animation: led 2.4s ease-in-out infinite;
-      }
-      @keyframes led {
-        50% {
-          opacity: 0.45;
-        }
-      }
-      .card h3 {
-        font-size: 1.02rem;
-        color: #fff;
-        word-break: break-word;
-      }
-      .card h3 a {
-        color: inherit;
-      }
-      .tag {
-        margin-left: auto;
-        font-size: 0.66rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        padding: 0.12rem 0.5rem;
-        border: 1px solid var(--line-strong);
-        color: var(--cyan);
-        border-radius: 3px;
-        white-space: nowrap;
-      }
-      .tag.fork {
-        color: var(--amber);
-        border-color: rgba(251, 191, 36, 0.4);
-      }
-      .card p {
-        color: var(--text);
-        font-size: 0.86rem;
-        flex: 1;
-      }
-      .meta {
+        padding: 1.4rem 1.5rem;
         display: flex;
         flex-wrap: wrap;
-        gap: 0.4rem 1rem;
-        font-size: 0.74rem;
-        color: var(--muted);
-        border-top: 1px dashed var(--line);
-        padding-top: 0.7rem;
+        align-items: center;
+        gap: 1rem 2rem;
+        justify-content: space-between;
       }
-      .meta b {
-        color: var(--text);
-        font-weight: 600;
+      .teaser p {
+        max-width: 620px;
+        font-size: 0.9rem;
       }
-      .lang-dot {
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        margin-right: 0.35rem;
-        background: var(--cyan);
-      }
-      .card .go {
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
+      .teaser .links {
+        flex: none;
       }
 
       /* Skills */
@@ -597,29 +458,17 @@
         font-size: 0.78rem;
       }
 
-      .empty {
-        color: var(--muted);
-        padding: 1rem 0;
-      }
 
       @media (max-width: 860px) {
         .hero {
           grid-template-columns: 1fr;
           padding-top: 2.5rem;
         }
-        .stats {
-          grid-template-columns: repeat(2, 1fr);
-        }
         .nav {
           padding: 0 1rem;
         }
         .nav-title {
           display: none;
-        }
-      }
-      @media (max-width: 400px) {
-        .grid {
-          grid-template-columns: 1fr;
         }
       }
       @media (prefers-reduced-motion: reduce) {
@@ -722,20 +571,24 @@
       <section id="projects" aria-labelledby="projects-h">
         <div class="sec-head">
           <h2 id="projects-h">open-source --list</h2>
-          <span class="sub"
-            >Free software, built and maintained under
+          <span class="sub">Free software published under NorwinLabs</span>
+        </div>
+        <div class="teaser">
+          <p>
+            Everything I build and release for free lives on the Open Source
+            page, kept in sync with GitHub automatically.
+          </p>
+          <div class="links">
+            <a class="btn" href="opensource.html">&gt; Browse projects</a>
             <a
+              class="btn"
               href="https://github.com/NorwinLabs"
               target="_blank"
               rel="noopener"
-              >github.com/NorwinLabs</a
-            ></span
-          >
+              >&gt; GitHub</a
+            >
+          </div>
         </div>
-
-        <div class="stats" id="stats" aria-live="polite"></div>
-        <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
-        <div class="grid" id="grid"></div>
       </section>
 
       <!-- SKILLS -->
@@ -805,7 +658,6 @@
             >&gt; GitHub</a
           >
           <a class="btn" href="/#contact">&gt; Contact</a>
-          <a class="btn" href="/">&gt; Windhelm</a>
         </div>
       </section>
     </main>
@@ -821,97 +673,6 @@
       (function () {
         "use strict";
 
-        var ORG = "NorwinLabs";
-
-        // Curated list of public, free & open source repos. GitHub's API is
-        // used (best effort) to refresh stars and last-push dates.
-        var PROJECTS = [
-          {
-            name: "NorwinVibe",
-            type: "Desktop & Mobile",
-            desc: "Open source floating media player for Windows and Android.",
-            lang: "JavaScript",
-            license: "—",
-          },
-          {
-            name: "NorwinMouseAssist",
-            type: "Accessibility",
-            desc: "Open-source software that helps people with non-steady hands use a mouse.",
-            lang: "Python",
-            license: "MIT",
-          },
-          {
-            name: "NorwinLabsTools",
-            type: "Mobile",
-            desc: "Android app packed with the useful tools I need every day.",
-            lang: "Kotlin",
-            license: "—",
-          },
-          {
-            name: "AthenaPortfolio",
-            type: "Web",
-            desc: "Free, open-source portfolio site template you can host yourself.",
-            lang: "JavaScript",
-            license: "—",
-          },
-          {
-            name: "WindhelmSite",
-            type: "Web",
-            desc: "The Windhelm website you are on right now, hosted on GitHub Pages.",
-            lang: "HTML",
-            license: "—",
-          },
-          {
-            name: "TestPhonePipeline",
-            type: "DevOps",
-            desc: "React Native app with CodePush and GitHub Actions for over-the-air hot fix deployments.",
-            lang: "Shell",
-            license: "—",
-          },
-          {
-            name: "WorldGuardBatch",
-            type: "Gaming",
-            desc: "Plugin that executes batch commands across WorldGuard regions.",
-            lang: "Java",
-            license: "—",
-          },
-          {
-            name: "mechvibes-2.0",
-            type: "Desktop & Mobile",
-            desc: "Mechvibes clone with a few extra favorite features.",
-            lang: "JavaScript",
-            license: "MIT",
-            fork: true,
-          },
-          {
-            name: "ModrinthApp",
-            type: "Gaming",
-            desc: "Minecraft tooling experiments.",
-            lang: "HTML",
-            license: "—",
-          },
-          {
-            name: "DiscordDupe",
-            type: "Experiments",
-            desc: "Low-level experiment written in Assembly.",
-            lang: "Assembly",
-            license: "—",
-          },
-        ];
-
-        var LANG_COLORS = {
-          JavaScript: "#f1e05a",
-          Python: "#3572a5",
-          Kotlin: "#a97bff",
-          HTML: "#e34c26",
-          Shell: "#89e051",
-          Java: "#b07219",
-          Assembly: "#6e4c13",
-        };
-
-        var state = { filter: "All" };
-        var live = {}; // name -> { stars, pushed }
-
         function el(tag, cls, text) {
           var n = document.createElement(tag);
           if (cls) n.className = cls;
@@ -919,158 +680,12 @@
           return n;
         }
 
-        function fmtDate(iso) {
-          if (!iso) return "—";
-          var d = new Date(iso);
-          if (isNaN(d)) return "—";
-          return d.toLocaleDateString(undefined, {
-            year: "numeric",
-            month: "short",
-          });
-        }
-
-        function renderStats() {
-          var box = document.getElementById("stats");
-          box.textContent = "";
-          var langs = {};
-          var stars = 0;
-          PROJECTS.forEach(function (p) {
-            langs[p.lang] = true;
-            stars += (live[p.name] && live[p.name].stars) || 0;
-          });
-          [
-            [PROJECTS.length, "Public repos"],
-            [Object.keys(langs).length, "Languages"],
-            [stars || "—", "Stars"],
-            ["$0", "Cost to use"],
-          ].forEach(function (s) {
-            var d = el("div", "stat");
-            d.appendChild(el("div", "v", String(s[0])));
-            d.appendChild(el("div", "k", s[1]));
-            box.appendChild(d);
-          });
-        }
-
-        function renderFilters() {
-          var box = document.getElementById("filters");
-          box.textContent = "";
-          var types = ["All"];
-          PROJECTS.forEach(function (p) {
-            if (types.indexOf(p.type) < 0) types.push(p.type);
-          });
-          types.forEach(function (t) {
-            var b = el("button", null, t);
-            b.type = "button";
-            b.setAttribute("aria-pressed", String(state.filter === t));
-            b.addEventListener("click", function () {
-              state.filter = t;
-              renderFilters();
-              renderGrid();
-            });
-            box.appendChild(b);
-          });
-        }
-
-        function renderGrid() {
-          var grid = document.getElementById("grid");
-          grid.textContent = "";
-          var list = PROJECTS.filter(function (p) {
-            return state.filter === "All" || p.type === state.filter;
-          });
-          if (!list.length) {
-            grid.appendChild(el("p", "empty", "No hosts match filter."));
-            return;
-          }
-          list.forEach(function (p) {
-            var url = "https://github.com/" + ORG + "/" + p.name;
-            var c = el("article", "card");
-
-            var top = el("div", "card-top");
-            top.appendChild(el("span", "led"));
-            var h = el("h3");
-            var a = el("a", null, p.name);
-            a.href = url;
-            a.target = "_blank";
-            a.rel = "noopener";
-            h.appendChild(a);
-            top.appendChild(h);
-            top.appendChild(
-              el("span", p.fork ? "tag fork" : "tag", p.fork ? "fork" : p.type),
-            );
-            c.appendChild(top);
-
-            c.appendChild(el("p", null, p.desc));
-
-            var meta = el("div", "meta");
-            var lang = el("span");
-            var dot = el("span", "lang-dot");
-            dot.style.background = LANG_COLORS[p.lang] || "#22d3ee";
-            lang.appendChild(dot);
-            lang.appendChild(document.createTextNode(p.lang));
-            meta.appendChild(lang);
-
-            var lv = live[p.name];
-            var lic = el("span");
-            lic.appendChild(document.createTextNode("license: "));
-            lic.appendChild(el("b", null, (lv && lv.license) || p.license));
-            meta.appendChild(lic);
-            if (lv) {
-              var st = el("span");
-              st.appendChild(document.createTextNode("★ "));
-              st.appendChild(el("b", null, String(lv.stars)));
-              meta.appendChild(st);
-              var up = el("span");
-              up.appendChild(document.createTextNode("pushed: "));
-              up.appendChild(el("b", null, fmtDate(lv.pushed)));
-              meta.appendChild(up);
-            }
-            c.appendChild(meta);
-
-            var go = el("a", "go", "git clone → view repo");
-            go.href = url;
-            go.target = "_blank";
-            go.rel = "noopener";
-            c.appendChild(go);
-
-            grid.appendChild(c);
-          });
-        }
-
-        // Best-effort live refresh (unauthenticated API: 60 req/hr per IP).
-        function refresh() {
-          if (!window.fetch) return;
-          fetch(
-            "https://api.github.com/users/" + ORG + "/repos?per_page=100",
-            { headers: { Accept: "application/vnd.github+json" } },
-          )
-            .then(function (r) {
-              if (!r.ok) throw new Error(r.status);
-              return r.json();
-            })
-            .then(function (repos) {
-              repos.forEach(function (r) {
-                live[r.name] = {
-                  stars: r.stargazers_count || 0,
-                  pushed: r.pushed_at,
-                  license: r.license && r.license.spdx_id !== "NOASSERTION"
-                    ? r.license.spdx_id
-                    : null,
-                };
-              });
-              renderStats();
-              renderGrid();
-            })
-            .catch(function () {
-              /* keep static data */
-            });
-        }
-
         // Typed terminal intro
         var SCRIPT = [
           { cmd: "whoami", out: "" },
           { cmd: null, html: "h1" },
           { cmd: "cat role.txt", out: "Senior IT Administrator · Network Architect · Linux · Salesforce / Apex · C++ Game Dev" },
-          { cmd: "ls ~/open-source | wc -l", out: String(PROJECTS.length) + " public projects, all free" },
+          { cmd: "ls ~/open-source | wc -l", out: "free & open source projects, published on GitHub" },
           { cmd: "./status.sh", out: "[ OK ] all systems nominal" },
         ];
 
@@ -1145,11 +760,7 @@
         }
 
         document.getElementById("yr").textContent = new Date().getFullYear();
-        renderStats();
-        renderFilters();
-        renderGrid();
         runTerminal();
-        refresh();
       })();
     </script>
   </body>
