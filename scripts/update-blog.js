@@ -92,7 +92,7 @@ function renderPost(item) {
   const imgUrl = extractImage(contentStr);
   const thumbHtml = imgUrl
     ? `<img class="blog-thumb" src="${imgUrl}" alt="${escapeHtml(item.title)} thumbnail" loading="lazy">`
-    : `<div class="blog-thumb-placeholder"><img src="${FALLBACK_IMG_URL}" alt="Windhelm logo"></div>`;
+    : `<div class="blog-thumb-placeholder"><img src="${FALLBACK_IMG_URL}" alt="Windhelm" width="460" height="215" loading="lazy" decoding="async"></div>`;
 
   // Steam's `author` field is whatever Steamworks account posted the news
   // item — sometimes a real name, sometimes an integration/bot account

@@ -76,6 +76,16 @@ async function fetchRepos() {
   return res.json();
 }
 
+// Optional screenshot: drop media/projects/<repo-name>.(webp|png|jpg) into the
+// repo and the next sync shows it at the top of that project's card.
+function findScreenshot(name) {
+  for (const ext of ["webp", "png", "jpg"]) {
+    const rel = `media/projects/${name}.${ext}`;
+    if (fs.existsSync(path.join(__dirname, "..", rel))) return rel;
+  }
+  return null;
+}
+
 function renderCard(repo, index) {
   const desc =
     repo.description || DESCRIPTION_FALLBACK[repo.name] || "No description yet.";
@@ -97,7 +107,23 @@ function renderCard(repo, index) {
         )}" target="_blank" rel="noopener">website</a>`
       : "";
 
-  return `          <article class="repo-card">
+  const shot = findScreenshot(repo.name);
+  const shotHtml = shot
+    ? `
+            <img class="repo-shot" src="${shot}" alt="Screenshot of ${escapeHtml(
+        repo.name
+      )}" loading="lazy" decoding="async" />`
+    : "";
+  const topics =
+    repo.topics && repo.topics.length
+      ? `
+            <div class="repo-topics">${repo.topics
+          .slice(0, 5)
+          .map((t) => `<span>${escapeHtml(t)}</span>`)
+          .join("")}</div>`
+      : "";
+
+  return `          <article class="repo-card">${shotHtml}
             <header class="repo-head">
               <span class="node-id">NODE-${node}</span>
               <span class="status"><i></i>online</span>
@@ -105,7 +131,7 @@ function renderCard(repo, index) {
             <h3><a href="${escapeHtml(repo.html_url)}" target="_blank" rel="noopener">${escapeHtml(
     repo.name
   )}</a> ${fork}</h3>
-            <p>${escapeHtml(desc)}</p>
+            <p>${escapeHtml(desc)}</p>${topics}
             <footer class="repo-meta">
               ${lang}${license}${stars}
               <span class="meta-item">pushed ${formatDate(repo.pushed_at)}</span>

@@ -1,0 +1,42 @@
+name: Build Minified Assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "scripts/build.js"
+      - "package.json"
+      - "package-lock.json"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Minify src/ into script.min.js and styles.min.css
+        run: npm run build
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add script.min.js styles.min.css index.html sw.js
+          git commit -m "chore: rebuild minified assets [skip ci]" || echo "No changes to commit"
+          git pull --rebase
+          git push

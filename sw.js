@@ -7,12 +7,12 @@ const CACHE_NAME = "windhelm-v2.2";
 // Core assets to cache on install
 const PRECACHE_ASSETS = [
   "/",
-  "/styles.min.css?v=1.4",
-  "/script.min.js?v=1.9",
+  "/styles.min.css?v=f3814a54",
+  "/script.min.js?v=0d519209",
   "/media/Logo.webp",
   "/media/favicon.png",
   "/media/islandbg.webp",
-  "/media/BGVideo-poster.jpg",
+  "/media/BGVideo-poster.webp",
 ];
 
 self.addEventListener("install", (event) => {

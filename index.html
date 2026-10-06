@@ -20,7 +20,7 @@
     <!-- Content Security Policy for improved security -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://scripts.clarity.ms; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https: data:; connect-src 'self' https://api.steampowered.com https://gamalytic.com https://www.clarity.ms https://*.clarity.ms https://api.codetabs.com https://windhelm-steam-news.windhelmthegame.workers.dev https://windhelmthegame.cloudflareaccess.com https://discord.com https://buttondown.com; worker-src 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://scripts.clarity.ms https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https: data:; connect-src 'self' https://cloudflareinsights.com https://api.steampowered.com https://gamalytic.com https://www.clarity.ms https://*.clarity.ms https://api.codetabs.com https://windhelm-steam-news.windhelmthegame.workers.dev https://windhelmthegame.cloudflareaccess.com https://discord.com https://buttondown.com; worker-src 'self';"
     />
 
     <meta
@@ -228,6 +228,13 @@
     <link rel="icon" href="media/favicon.png" />
 
     <!-- Preload critical resources for optimal performance -->
+    <link
+      rel="preload"
+      href="media/BGVideo-poster.webp"
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
+    />
     <link rel="preload" href="media/Logo.webp" as="image" type="image/webp" />
     <link
       rel="preload"
@@ -238,6 +245,7 @@
 
     <!-- Performance hints -->
     <link rel="dns-prefetch" href="//gamalytic.com" />
+    <link rel="preconnect" href="https://scripts.clarity.ms" />
 
     <!-- Critical CSS - Minimal inline for fastest first paint -->
     <style>
@@ -821,14 +829,9 @@
       }
     </style>
 
-    <!-- Load full stylesheet asynchronously -->
-    <link
-      rel="stylesheet"
-      href="styles.min.css?v=1.4"
-      media="print"
-      onload="this.media = 'all'"
-    />
-    <noscript><link rel="stylesheet" href="styles.min.css?v=1.4" /></noscript>
+    <!-- Full stylesheet is render-blocking on purpose: loading it async made the
+         unstyled page jump when it arrived (CLS ~1.6). -->
+    <link rel="stylesheet" href="styles.min.css?v=f3814a54" />
 
     <!-- Click tracking (sent to Microsoft Clarity as custom events) -->
     <script>
@@ -1079,7 +1082,7 @@
             loop
             playsinline
             preload="none"
-            poster="media/BGVideo-poster.jpg"
+            poster="media/BGVideo-poster.webp"
             class="hero-bg-video"
             webkit-playsinline
           ></video>
@@ -1092,6 +1095,8 @@
               <img
                 src="media/Logo.webp"
                 alt="Windhelm"
+                width="800"
+                height="364"
                 class="hero-logo"
                 fetchpriority="high"
                 draggable="false"
@@ -1139,7 +1144,6 @@
               class="cta-button primary"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Download the free Windhelm demo on Steam"
               >Download the Free Demo on Steam!</a
             >
             <a href="#features" class="cta-button secondary"
@@ -1280,7 +1284,7 @@
                       </defs>
                     </svg>
                   </div>
-                  <h4>Custom Procedural Terrain System</h4>
+                  <h3>Custom Procedural Terrain System</h3>
                 </div>
                 <!-- Add your gif/video here -->
                 <div class="feature-visual">
@@ -1334,7 +1338,7 @@
                       </defs>
                     </svg>
                   </div>
-                  <h4>Deep Character Development</h4>
+                  <h3>Deep Character Development</h3>
                 </div>
                 <!-- Add your gif/video here -->
                 <div class="feature-visual">
@@ -1383,7 +1387,7 @@
                       </defs>
                     </svg>
                   </div>
-                  <h4>Strategic Combat System</h4>
+                  <h3>Strategic Combat System</h3>
                 </div>
                 <!-- Add your gif/video here -->
                 <div class="feature-visual">
@@ -1432,7 +1436,7 @@
                       </defs>
                     </svg>
                   </div>
-                  <h4>Story-Driven Experience</h4>
+                  <h3>Story-Driven Experience</h3>
                 </div>
                 <!-- Add your gif/video here -->
                 <div class="feature-visual">
@@ -1487,7 +1491,7 @@
                       </defs>
                     </svg>
                   </div>
-                  <h4>Indie Development Team</h4>
+                  <h3>Indie Development Team</h3>
                 </div>
                 <!-- Add your gif/video here -->
                 <div class="feature-visual">
@@ -1543,7 +1547,7 @@
                       </defs>
                     </svg>
                   </div>
-                  <h4>Community Connection</h4>
+                  <h3>Community Connection</h3>
                 </div>
                 <!-- Add your gif/video here -->
                 <div class="feature-visual">
@@ -1741,7 +1745,7 @@
           <div class="blog-list" id="updates-list">
             <!-- BLOG-POSTS:START -->
             <div class="blog-post">
-              <div class="blog-thumb-placeholder"><img src="https://cdn.akamai.steamstatic.com/steam/apps/2171040/header.jpg" alt="Windhelm logo"></div>
+              <div class="blog-thumb-placeholder"><img src="https://cdn.akamai.steamstatic.com/steam/apps/2171040/header.jpg" alt="Windhelm" width="460" height="215" loading="lazy" decoding="async"></div>
               <div class="blog-body">
                 <a class="blog-title" href="https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1845383656378638" target="_blank" rel="noopener noreferrer">Q3-26 The Wilds Update</a>
                 <p class="blog-excerpt">Windhelm — Q3 Update Changelog New Features &amp; Gameplay Mechanics Fishing: Introduced new fishing mechanics to the game world. Bow Mechanics: Completed initial bow mechanics and combat behavior. Target Lock-On: Implemented a target lock-on feature for improved combat targeting.…</p>
@@ -1752,7 +1756,7 @@
               </div>
             </div>
             <div class="blog-post">
-              <div class="blog-thumb-placeholder"><img src="https://cdn.akamai.steamstatic.com/steam/apps/2171040/header.jpg" alt="Windhelm logo"></div>
+              <div class="blog-thumb-placeholder"><img src="https://cdn.akamai.steamstatic.com/steam/apps/2171040/header.jpg" alt="Windhelm" width="460" height="215" loading="lazy" decoding="async"></div>
               <div class="blog-body">
                 <a class="blog-title" href="https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1834602721200951" target="_blank" rel="noopener noreferrer">Q2-26 Controller Support &amp; Convention Update</a>
                 <p class="blog-excerpt">Windhelm — Q2-26 Minor Update Patch Notes New Features and Quality of Life Additions Gameplay and Mechanics Directional Dodge Rolling: Introduced a new directional dodge roll and combat roll mechanic to give players more fluid positioning choices during fights. Auto-Equip: Wea…</p>
@@ -1763,7 +1767,7 @@
               </div>
             </div>
             <div class="blog-post">
-              <div class="blog-thumb-placeholder"><img src="https://cdn.akamai.steamstatic.com/steam/apps/2171040/header.jpg" alt="Windhelm logo"></div>
+              <div class="blog-thumb-placeholder"><img src="https://cdn.akamai.steamstatic.com/steam/apps/2171040/header.jpg" alt="Windhelm" width="460" height="215" loading="lazy" decoding="async"></div>
               <div class="blog-body">
                 <a class="blog-title" href="https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1829528821317024" target="_blank" rel="noopener noreferrer">Hot Fix Update (Q126HF3)</a>
                 <p class="blog-excerpt">Hot Fix Update (Q126HF3) Bug Fixes Upon playtesting after the Spring update (Q126), I found and fixed a few bugs: Enemy AI Navigation: (FIXED) I finally figured out why the enemy AI could not move on the procedural terrain and I have put in a fix to allow them to be able to mo…</p>
@@ -2560,7 +2564,7 @@
 
     <!-- Discord Member Count Fetcher -->
     <!-- Scripts -->
-    <script src="script.min.js?v=1.9" defer></script>
+    <script src="script.min.js?v=0d519209" defer></script>
 
     <!-- Gamalytic Wishlist Counter -->
     <!-- Animated Statistics Counter -->
