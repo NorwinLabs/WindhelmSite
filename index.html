@@ -25,7 +25,7 @@
 
     <meta
       name="description"
-      content="Windhelm® - Epic procedurally generated story-driven RPG with dynamic quests, an unexpected hero, and FREE lifetime updates. Infinite replayability where every playthrough tells a unique story. Wishlist now on Steam!"
+      content="Windhelm is a procedurally generated, story-driven fantasy RPG with dynamic quests and free lifetime updates. Wishlist it and try the free demo on Steam."
     />
     <meta
       name="keywords"
@@ -85,52 +85,90 @@
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
       {
-        "@context": "https://schema.org",
-        "@type": "VideoGame",
-        "name": "Windhelm",
-        "alternateName": "Windhelm (video game)",
-        "description": "Epic procedurally generated story-driven RPG with dynamic quests, an unexpected hero, and FREE lifetime updates. Infinite replayability where every playthrough tells a unique story.",
-        "disambiguatingDescription": "An original indie RPG title developed by NorwinLabs, unrelated to the fictional city of Windhelm in Bethesda's The Elder Scrolls V: Skyrim.",
-        "url": "https://windhelm.dev/",
-        "image": "https://windhelm.dev/media/1920x622CenteredLogo.jpg",
-        "genre": ["Role-playing game", "Adventure", "Fantasy"],
-        "gamePlatform": ["PC", "PlayStation 5", "Xbox Series X/S", "Nintendo Switch 2"],
-        "applicationCategory": "Game",
-        "operatingSystem": [
-          "Windows",
-          "PlayStation 5",
-          "Xbox Series X/S",
-          "Nintendo Switch 2"
-        ],
-        "publisher": {
-          "@type": "Organization",
-          "name": "NorwinLabs LLC",
+          "@context": "https://schema.org",
+          "@type": "VideoGame",
+          "name": "Windhelm",
+          "alternateName": "Windhelm (video game)",
+          "description": "Epic procedurally generated story-driven RPG with dynamic quests, an unexpected hero, and FREE lifetime updates. Infinite replayability where every playthrough tells a unique story.",
+          "disambiguatingDescription": "An original indie RPG title developed by NorwinLabs, unrelated to the fictional city of Windhelm in Bethesda's The Elder Scrolls V: Skyrim.",
           "url": "https://windhelm.dev/",
-          "logo": "https://windhelm.dev/media/Logo.webp"
-        },
-        "author": [
-          {
-            "@type": "Person",
-            "name": "Gavin Norwood",
-            "jobTitle": "Creator & Developer"
+          "image": "https://windhelm.dev/media/og-image.jpg",
+          "genre": [
+                "Role-playing game",
+                "Adventure",
+                "Fantasy"
+          ],
+          "gamePlatform": [
+                "PC",
+                "PlayStation 5",
+                "Xbox Series X/S",
+                "Nintendo Switch 2"
+          ],
+          "applicationCategory": "Game",
+          "operatingSystem": [
+                "Windows",
+                "PlayStation 5",
+                "Xbox Series X/S",
+                "Nintendo Switch 2"
+          ],
+          "publisher": {
+                "@type": "Organization",
+                "name": "NorwinLabs LLC",
+                "url": "https://windhelm.dev/",
+                "logo": "https://windhelm.dev/media/Logo.webp"
           },
-          {
-            "@type": "Person",
-            "name": "Kirsten Norwood",
-            "jobTitle": "Level Designer & Writer"
-          }
-        ],
-        "offers": {
-          "@type": "Offer",
-          "availability": "https://schema.org/PreOrder",
-          "url": "https://store.steampowered.com/app/2171040/Windhelm/"
-        },
-        "sameAs": [
-          "https://store.steampowered.com/app/2171040/Windhelm/",
-          "https://www.youtube.com/@NorwinLabs",
-          "https://discord.gg/PgGA8Zsj4g"
-        ]
-      }
+          "author": [
+                {
+                      "@type": "Person",
+                      "name": "Gavin Norwood",
+                      "jobTitle": "Creator & Developer"
+                },
+                {
+                      "@type": "Person",
+                      "name": "Kirsten Norwood",
+                      "jobTitle": "Level Designer & Writer"
+                }
+          ],
+          "offers": {
+                "@type": "Offer",
+                "availability": "https://schema.org/PreOrder",
+                "url": "https://store.steampowered.com/app/2171040/Windhelm/"
+          },
+          "sameAs": [
+                "https://store.steampowered.com/app/2171040/Windhelm/",
+                "https://www.youtube.com/@NorwinLabs",
+                "https://discord.gg/PgGA8Zsj4g"
+          ],
+          "@id": "https://windhelm.dev/#game",
+          "inLanguage": "en",
+          "screenshot": [
+                {
+                      "@type": "ImageObject",
+                      "contentUrl": "https://windhelm.dev/media/2.webp",
+                      "caption": "Deep Character Development"
+                },
+                {
+                      "@type": "ImageObject",
+                      "contentUrl": "https://windhelm.dev/media/3.webp",
+                      "caption": "Strategic Combat System"
+                },
+                {
+                      "@type": "ImageObject",
+                      "contentUrl": "https://windhelm.dev/media/4.webp",
+                      "caption": "Story-Driven Experience"
+                },
+                {
+                      "@type": "ImageObject",
+                      "contentUrl": "https://windhelm.dev/media/5.webp",
+                      "caption": "Indie Development Team"
+                },
+                {
+                      "@type": "ImageObject",
+                      "contentUrl": "https://windhelm.dev/media/Grasslandoverlook1.webp",
+                      "caption": "Custom C++ Procedural Terrain System"
+                }
+          ]
+    }
     </script>
 
     <!-- FAQ Schema -->
@@ -862,21 +900,9 @@
       });
     </script>
 
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-      (function (c, l, a, r, i, t, y) {
-        c[a] =
-          c[a] ||
-          function () {
-            (c[a].q = c[a].q || []).push(arguments);
-          };
-        t = l.createElement(r);
-        t.async = 1;
-        t.src = "https://www.clarity.ms/tag/" + i;
-        y = l.getElementsByTagName(r)[0];
-        y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "r99n3cjmzk");
-    </script>
+      <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="media/apple-touch-icon.png" />
+    <script src="consent.min.js?v=dc068e92" defer></script>
   </head>
   <body class="glass-theme">
     <!-- Loading Preloader -->
@@ -1044,7 +1070,7 @@
               </svg>
             </a>
             <a
-              href="https://store.steampowered.com/app/2171040/Windhelm/"
+              href="https://store.steampowered.com/app/2171040/Windhelm/?utm_source=windhelm.dev&amp;utm_medium=website&amp;utm_campaign=nav"
               target="_blank"
               rel="noopener"
               aria-label="Steam"
@@ -1140,7 +1166,7 @@
           </div>
           <div class="hero-cta">
             <a
-              href="https://store.steampowered.com/app/2171040/Windhelm/"
+              href="https://store.steampowered.com/app/2171040/Windhelm/?utm_source=windhelm.dev&amp;utm_medium=website&amp;utm_campaign=home"
               class="cta-button primary"
               target="_blank"
               rel="noopener noreferrer"
@@ -1606,7 +1632,7 @@
               among the first to experience the next generation of RPG gaming.
             </p>
             <a
-              href="https://store.steampowered.com/app/2171040/Windhelm/"
+              href="https://store.steampowered.com/app/2171040/Windhelm/?utm_source=windhelm.dev&amp;utm_medium=website&amp;utm_campaign=features"
               target="_blank"
               rel="noopener noreferrer"
               class="cta-button primary"
@@ -1790,7 +1816,7 @@
                 Want the latest updates?
               </p>
               <a
-                href="https://store.steampowered.com/app/2171040/Windhelm/"
+                href="https://store.steampowered.com/app/2171040/Windhelm/?utm_source=windhelm.dev&amp;utm_medium=website&amp;utm_campaign=updates"
                 target="_blank"
                 rel="noopener noreferrer"
                 style="
@@ -1952,7 +1978,7 @@
                   We're working hard to deliver the best possible experience.
                   Follow our
                   <a
-                    href="https://store.steampowered.com/app/2171040/Windhelm/"
+                    href="https://store.steampowered.com/app/2171040/Windhelm/?utm_source=windhelm.dev&amp;utm_medium=website&amp;utm_campaign=faq"
                     target="_blank"
                     rel="noopener noreferrer"
                     >Steam page</a
@@ -2026,7 +2052,7 @@
                 <p>
                   The best way to support us is to
                   <a
-                    href="https://store.steampowered.com/app/2171040/Windhelm/"
+                    href="https://store.steampowered.com/app/2171040/Windhelm/?utm_source=windhelm.dev&amp;utm_medium=website&amp;utm_campaign=faq"
                     target="_blank"
                     rel="noopener noreferrer"
                     >wishlist the game on Steam</a
@@ -2189,7 +2215,7 @@
 
             <!-- Steam Card -->
             <a
-              href="https://store.steampowered.com/app/2171040/Windhelm/"
+              href="https://store.steampowered.com/app/2171040/Windhelm/?utm_source=windhelm.dev&amp;utm_medium=website&amp;utm_campaign=contact"
               target="_blank"
               rel="noopener noreferrer"
               style="text-decoration: none"
@@ -2374,7 +2400,7 @@
               </button>
             </form>
             <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 1rem">
-              We respect your privacy. Unsubscribe at any time.
+              We respect your privacy. Unsubscribe at any time. <a href="privacy.html" style="color: #94a3b8; text-decoration: underline">Privacy policy</a>
             </p>
             <div
               id="newsletter-message"
@@ -2525,6 +2551,36 @@
               >Press Kit</a
             >
             <a
+              href="privacy.html"
+              style="
+                color: #94a3b8;
+                text-decoration: none;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                font-weight: 600;
+                transition: color 0.2s;
+              "
+              onmouseover="this.style.color = '#e2e8f0'"
+              onmouseout="this.style.color = '#94a3b8'"
+              >Privacy</a
+            >
+            <a
+              href="#" data-cookie-settings
+              style="
+                color: #94a3b8;
+                text-decoration: none;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                font-weight: 600;
+                transition: color 0.2s;
+              "
+              onmouseover="this.style.color = '#e2e8f0'"
+              onmouseout="this.style.color = '#94a3b8'"
+              >Cookie settings</a
+            >
+            <a
               href="opensource.html"
               style="
                 color: #94a3b8;
@@ -2588,7 +2644,7 @@
     <!-- Sticky Wishlist Button -->
     <a
       id="sticky-wishlist"
-      href="https://store.steampowered.com/app/2171040/Windhelm/"
+      href="https://store.steampowered.com/app/2171040/Windhelm/?utm_source=windhelm.dev&amp;utm_medium=website&amp;utm_campaign=sticky"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Wishlist on Steam"

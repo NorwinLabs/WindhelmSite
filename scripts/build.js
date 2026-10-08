@@ -4,9 +4,10 @@
  *
  *   src/script.js  -> script.min.js
  *   src/styles.css -> styles.min.css
+ *   src/consent.js -> consent.min.js
  *
- * It then rewrites the ?v=<hash> cache-busting query on those two files in
- * index.html and sw.js, so returning visitors only re-download an asset when
+ * It then rewrites the ?v=<hash> cache-busting query on those files in
+ * every page and sw.js, so returning visitors only re-download an asset when
  * its contents actually changed.
  *
  * Edit the files in src/, never the .min outputs. Run locally with
@@ -23,8 +24,17 @@ const ROOT = path.join(__dirname, "..");
 const ASSETS = [
   { src: "src/script.js", out: "script.min.js", loader: "js" },
   { src: "src/styles.css", out: "styles.min.css", loader: "css" },
+  { src: "src/consent.js", out: "consent.min.js", loader: "js" },
 ];
-const REFERENCES = ["index.html", "sw.js"];
+const REFERENCES = [
+  "index.html",
+  "portfolio.html",
+  "opensource.html",
+  "presskit.html",
+  "privacy.html",
+  "404.html",
+  "sw.js",
+];
 
 const versions = {};
 
