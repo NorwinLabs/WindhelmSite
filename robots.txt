@@ -1,15 +1,5 @@
 User-agent: *
 Allow: /
-
-# Sitemaps
-Sitemap: https://windhelm.dev/sitemap.xml
-
-# Crawl-delay for politeness
-Crawl-delay: 1
-
-# Disallow backend/admin paths if any exist in future
 Disallow: /admin/
-Disallow: /*.json$
 
-# Allow media
-Allow: /media/
+Sitemap: https://windhelm.dev/sitemap.xml

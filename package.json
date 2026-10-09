@@ -3,7 +3,9 @@
   "private": true,
   "description": "Static site for windhelm.dev. Sources live in src/; `npm run build` minifies them into script.min.js and styles.min.css.",
   "scripts": {
-    "build": "node scripts/build.js"
+    "build": "node scripts/build.js",
+    "validate": "node scripts/validate.js",
+    "check": "npm run build && npm run validate"
   },
   "devDependencies": {
     "esbuild": "0.24.2"
