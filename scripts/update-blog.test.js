@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert");
-const { extractImages } = require("./update-blog.js");
+const { extractImages, parseEventImages, normalizeTitle } = require("./update-blog.js");
 
 const CLAN = "https://clan.fastly.steamstatic.com/images";
 
@@ -37,4 +37,35 @@ test("html img, protocol-relative, ordered and deduplicated", () => {
 test("no images yields empty list; non-https rejected", () => {
   assert.deepStrictEqual(extractImages("just text"), []);
   assert.deepStrictEqual(extractImages("[img]http://a.com/a.png[/img]"), []);
+});
+
+test("partner events map gid to capsule/title image URLs", () => {
+  const map = parseEventImages({
+    events: [
+      {
+        gid: "999",
+        announcement_body: { gid: "111", clanid: 42, headline: "Q3-26: The Wilds Update!" },
+        jsondata: JSON.stringify({
+          localized_capsule_image: ["cap.jpg", null],
+          localized_title_image: ["title.png", "cap.jpg"],
+        }),
+      },
+      { gid: "222", announcement_body: { clanid: 42 }, jsondata: "{bad" },
+    ],
+  });
+  assert.deepStrictEqual(map.get("111"), [`${CLAN}/42/cap.jpg`, `${CLAN}/42/title.png`]);
+  assert.strictEqual(map.has("222"), false);
+});
+
+test("events are also indexed by normalized headline", () => {
+  const map = parseEventImages({
+    events: [
+      {
+        gid: "999",
+        announcement_body: { gid: "111", clanid: 42, headline: "Q3-26: The Wilds Update!" },
+        jsondata: JSON.stringify({ localized_capsule_image: ["cap.jpg"] }),
+      },
+    ],
+  });
+  assert.deepStrictEqual(map.get("title:" + normalizeTitle("Q3-26 The Wilds Update")), [`${CLAN}/42/cap.jpg`]);
 });
