@@ -43,8 +43,8 @@ test("partner events map gid to capsule/title image URLs", () => {
   const map = parseEventImages({
     events: [
       {
-        gid: "111",
-        announcement_body: { clanid: 42 },
+        gid: "999",
+        announcement_body: { gid: "111", clanid: 42 },
         jsondata: JSON.stringify({
           localized_capsule_image: ["cap.jpg", null],
           localized_title_image: ["title.png", "cap.jpg"],

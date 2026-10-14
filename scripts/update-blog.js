@@ -104,8 +104,10 @@ function parseEventImages(data) {
   const byGid = new Map();
   for (const ev of data?.events || []) {
     const body = ev.announcement_body || {};
-    const gid = String(ev.gid || body.gid || "");
-    if (!gid) continue;
+    // The event's own id differs from the news item id; the announcement
+    // body carries the gid that ISteamNews reports.
+    const gids = [body.gid, ev.gid].filter(Boolean).map(String);
+    if (!gids.length) continue;
     let json = {};
     try {
       json = JSON.parse(ev.jsondata || "{}");
@@ -120,7 +122,7 @@ function parseEventImages(data) {
     const urls = [...new Set(files)].map((f) =>
       /^https?:/i.test(f) ? f : `${CLAN_IMG}/${clan}/${f}`,
     );
-    if (urls.length) byGid.set(gid, urls);
+    if (urls.length) for (const gid of gids) byGid.set(gid, urls);
   }
   return byGid;
 }
