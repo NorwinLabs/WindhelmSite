@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert");
-const { extractImages } = require("./update-blog.js");
+const { extractImages, parseEventImages } = require("./update-blog.js");
 
 const CLAN = "https://clan.fastly.steamstatic.com/images";
 
@@ -37,4 +37,22 @@ test("html img, protocol-relative, ordered and deduplicated", () => {
 test("no images yields empty list; non-https rejected", () => {
   assert.deepStrictEqual(extractImages("just text"), []);
   assert.deepStrictEqual(extractImages("[img]http://a.com/a.png[/img]"), []);
+});
+
+test("partner events map gid to capsule/title image URLs", () => {
+  const map = parseEventImages({
+    events: [
+      {
+        gid: "111",
+        announcement_body: { clanid: 42 },
+        jsondata: JSON.stringify({
+          localized_capsule_image: ["cap.jpg", null],
+          localized_title_image: ["title.png", "cap.jpg"],
+        }),
+      },
+      { gid: "222", announcement_body: { clanid: 42 }, jsondata: "{bad" },
+    ],
+  });
+  assert.deepStrictEqual(map.get("111"), [`${CLAN}/42/cap.jpg`, `${CLAN}/42/title.png`]);
+  assert.strictEqual(map.has("222"), false);
 });

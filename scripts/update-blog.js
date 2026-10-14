@@ -96,6 +96,56 @@ function extractImages(contentStr) {
   return found;
 }
 
+// Steam's news API returns post text only; the artwork shown on each
+// announcement lives in the store's partner-events data as capsule/title
+// images (filenames relative to the clan's image folder). Returns a map of
+// announcement gid -> candidate image URLs, best first.
+function parseEventImages(data) {
+  const byGid = new Map();
+  for (const ev of data?.events || []) {
+    const body = ev.announcement_body || {};
+    const gid = String(ev.gid || body.gid || "");
+    if (!gid) continue;
+    let json = {};
+    try {
+      json = JSON.parse(ev.jsondata || "{}");
+    } catch {
+      /* malformed jsondata: no images for this event */
+    }
+    const clan = body.clanid || ev.clan_steamid_accountid;
+    const files = [
+      ...(json.localized_capsule_image || []),
+      ...(json.localized_title_image || []),
+    ].filter(Boolean);
+    const urls = [...new Set(files)].map((f) =>
+      /^https?:/i.test(f) ? f : `${CLAN_IMG}/${clan}/${f}`,
+    );
+    if (urls.length) byGid.set(gid, urls);
+  }
+  return byGid;
+}
+
+async function fetchEventImages() {
+  const url = `https://store.steampowered.com/events/ajaxgetadjacentpartnerevents/?appid=${STEAM_APP_ID}&count_before=0&count_after=${POST_COUNT * 3}`;
+  try {
+    const resp = await fetch(url, {
+      headers: { "User-Agent": "WindhelmSite-BlogUpdater/1.0" },
+      signal: AbortSignal.timeout(15000),
+    });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+    const map = parseEventImages(data);
+    if (!map.size) console.log(`  events sample: ${JSON.stringify(data).slice(0, 600)}`);
+    console.log(
+      `  events API: ${data?.events?.length ?? 0} events, ${map.size} with images`,
+    );
+    return map;
+  } catch (err) {
+    console.warn(`  events API unavailable: ${err.message}`);
+    return new Map();
+  }
+}
+
 // Prefer the first candidate that actually resolves to an image, so a
 // dead or non-image URL never leaves a broken thumbnail on the homepage.
 async function pickImage(candidates) {
@@ -216,8 +266,14 @@ async function main() {
     process.exit(1);
   }
 
+  const eventImages = await fetchEventImages();
   const images = await Promise.all(
-    items.map((item) => pickImage(extractImages(item.contents || ""))),
+    items.map((item) =>
+      pickImage([
+        ...(eventImages.get(String(item.gid)) || []),
+        ...extractImages(item.contents || ""),
+      ]),
+    ),
   );
   items.forEach((item, i) => {
     console.log(`  image for "${item.title}": ${images[i] || "(fallback)"}`);
@@ -257,5 +313,5 @@ async function main() {
 if (require.main === module) {
   main();
 } else {
-  module.exports = { extractImages, extractExcerpt, resolveImageUrl };
+  module.exports = { parseEventImages, extractImages, extractExcerpt, resolveImageUrl };
 }
