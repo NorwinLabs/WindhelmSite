@@ -49,23 +49,69 @@ function formatDate(isoString) {
   });
 }
 
-// Extract the first image from a Steam news item's HTML/BBCode content.
-function extractImage(contentStr) {
-  const bbSrcMatch = contentStr.match(
-    /\[img\s+src=["']?\{STEAM_CLAN_IMAGE\}([^"'\]]+)["']?\]/i,
-  );
-  if (bbSrcMatch) return CLAN_IMG + bbSrcMatch[1].trim();
+// Steam substitutes these placeholders client-side; we resolve them here.
+const CLAN_PLACEHOLDERS = /\{STEAM_CLAN_(?:LOC_)?IMAGE\}/g;
+const IMAGE_EXT = /\.(?:jpe?g|png|webp|gif)(?:\?[^\s"'\]\[<>]*)?$/i;
 
-  const bbPlainMatch = contentStr.match(/\[img\]([^\[]+?)\[\/img\]/i);
-  if (bbPlainMatch)
-    return bbPlainMatch[1].trim().replace("{STEAM_CLAN_IMAGE}", CLAN_IMG);
+function resolveImageUrl(raw) {
+  if (!raw) return null;
+  let url = raw.trim().replace(CLAN_PLACEHOLDERS, CLAN_IMG);
+  if (url.startsWith("//")) url = "https:" + url;
+  if (!/^https:\/\//i.test(url)) return null;
+  return url.replace(/&amp;/g, "&");
+}
 
-  const htmlImgMatch = contentStr.match(/<img[^>]+src=["']([^"']+)["'][^>]*>/i);
-  if (htmlImgMatch) {
-    const url = htmlImgMatch[1];
-    return url.startsWith("//") ? "https:" + url : url;
+// Collect every candidate image in a Steam news item's BBCode/HTML content,
+// in document order, deduplicated. Steam posts use several shapes:
+//   [img]{STEAM_CLAN_IMAGE}/123/abc.png[/img]
+//   [img src="{STEAM_CLAN_IMAGE}/123/abc.png" width=... ][/img]
+//   [previewyoutube=VIDEOID;full][/previewyoutube]  (thumbnail from YouTube)
+//   <img src="..."> and bare image URLs in externally-sourced posts
+function extractImages(contentStr) {
+  const found = [];
+  const add = (raw) => {
+    const url = resolveImageUrl(raw);
+    if (url && !found.includes(url)) found.push(url);
+  };
+  const patterns = [
+    [/\[img\b[^\]]*?\bsrc=["']?([^"'\s\]]+)["']?[^\]]*\]/gi, add],
+    [/\[img\]\s*([^\[\s]+?)\s*\[\/img\]/gi, add],
+    [/<img[^>]+src=["']([^"']+)["'][^>]*>/gi, add],
+    [
+      /\[previewyoutube=([\w-]{6,})[^\]]*\]/gi,
+      (id) => add(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`),
+    ],
+    [/(?:https?:)?\/\/[^\s"'\]\[<>]+/gi, (u) => IMAGE_EXT.test(u) && add(u)],
+  ];
+  // Walk by position so "first image" means first in the post, not first
+  // in whichever pattern happens to run first.
+  const hits = [];
+  for (const [re, handler] of patterns) {
+    for (const m of contentStr.matchAll(re)) {
+      hits.push({ index: m.index, value: m[1] ?? m[0], handler });
+    }
   }
+  hits.sort((x, y) => x.index - y.index);
+  for (const h of hits) h.handler(h.value);
+  return found;
+}
 
+// Prefer the first candidate that actually resolves to an image, so a
+// dead or non-image URL never leaves a broken thumbnail on the homepage.
+async function pickImage(candidates) {
+  for (const url of candidates.slice(0, 5)) {
+    try {
+      const resp = await fetch(url, {
+        method: "HEAD",
+        headers: { "User-Agent": "WindhelmSite-BlogUpdater/1.0" },
+        signal: AbortSignal.timeout(8000),
+      });
+      const type = resp.headers.get("content-type") || "";
+      if (resp.ok && type.startsWith("image/")) return url;
+    } catch {
+      /* try next candidate */
+    }
+  }
   return null;
 }
 
@@ -87,11 +133,10 @@ function extractExcerpt(contentStr) {
     : plainContent;
 }
 
-function renderPost(item) {
+function renderPost(item, imgUrl) {
   const contentStr = item.contents || "";
-  const imgUrl = extractImage(contentStr);
   const thumbHtml = imgUrl
-    ? `<img class="blog-thumb" src="${imgUrl}" alt="${escapeHtml(item.title)} thumbnail" loading="lazy">`
+    ? `<img class="blog-thumb" src="${escapeHtml(imgUrl)}" alt="${escapeHtml(item.title)} thumbnail" loading="lazy" decoding="async">`
     : `<div class="blog-thumb-placeholder"><img src="${FALLBACK_IMG_URL}" alt="Windhelm" width="460" height="215" loading="lazy" decoding="async"></div>`;
 
   // Steam's `author` field is whatever Steamworks account posted the news
@@ -157,7 +202,13 @@ async function main() {
     process.exit(1);
   }
 
-  const newBlock = items.map(renderPost).join("\n");
+  const images = await Promise.all(
+    items.map((item) => pickImage(extractImages(item.contents || ""))),
+  );
+  items.forEach((item, i) =>
+    console.log(`  image for "${item.title}": ${images[i] || "(fallback)"}`),
+  );
+  const newBlock = items.map((item, i) => renderPost(item, images[i])).join("\n");
   const updatedHtml =
     html.slice(0, startIdx + START_MARKER.length) +
     "\n" +
@@ -188,4 +239,8 @@ async function main() {
   }
 }
 
-main();
+if (require.main === module) {
+  main();
+} else {
+  module.exports = { extractImages, extractExcerpt, resolveImageUrl };
+}
