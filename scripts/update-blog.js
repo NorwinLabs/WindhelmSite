@@ -158,8 +158,9 @@ async function pickImage(candidates) {
       });
       const type = resp.headers.get("content-type") || "";
       if (resp.ok && type.startsWith("image/")) return url;
-    } catch {
-      /* try next candidate */
+      console.log(`    rejected ${url}: HTTP ${resp.status} ${type}`);
+    } catch (err) {
+      console.log(`    rejected ${url}: ${err.message}`);
     }
   }
   return null;
@@ -267,6 +268,8 @@ async function main() {
   }
 
   const eventImages = await fetchEventImages();
+  console.log(`  news gids: ${items.map((i) => i.gid).join(", ")}`);
+  console.log(`  event gids: ${[...eventImages.keys()].join(", ")}`);
   const images = await Promise.all(
     items.map((item) =>
       pickImage([
