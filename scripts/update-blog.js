@@ -185,6 +185,20 @@ async function fetchSteamNews() {
     .slice(0, POST_COUNT);
 }
 
+// Logged only when no usable image was found, so CI output shows what the
+// post actually contains (feed, content length, and any media-like markup).
+function describeMedia(item) {
+  const contents = item.contents || "";
+  const media = [
+    ...contents.matchAll(/(?:\[[^\]]*(?:img|image|youtube|video|carousel|url)[^\]]*\]|<[^>]*(?:img|source|video)[^>]*>|https?:\/\/\S+)/gi),
+  ]
+    .map((m) => m[0].slice(0, 160))
+    .slice(0, 8);
+  console.log(
+    `    feed=${item.feedname} length=${contents.length} media=${JSON.stringify(media)}`,
+  );
+}
+
 async function main() {
   let items;
   try {
@@ -205,9 +219,10 @@ async function main() {
   const images = await Promise.all(
     items.map((item) => pickImage(extractImages(item.contents || ""))),
   );
-  items.forEach((item, i) =>
-    console.log(`  image for "${item.title}": ${images[i] || "(fallback)"}`),
-  );
+  items.forEach((item, i) => {
+    console.log(`  image for "${item.title}": ${images[i] || "(fallback)"}`);
+    if (!images[i]) describeMedia(item);
+  });
   const newBlock = items.map((item, i) => renderPost(item, images[i])).join("\n");
   const updatedHtml =
     html.slice(0, startIdx + START_MARKER.length) +
