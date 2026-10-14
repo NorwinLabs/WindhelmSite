@@ -100,6 +100,13 @@ function extractImages(contentStr) {
 // announcement lives in the store's partner-events data as capsule/title
 // images (filenames relative to the clan's image folder). Returns a map of
 // announcement gid -> candidate image URLs, best first.
+function normalizeTitle(s) {
+  return String(s || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
 function parseEventImages(data) {
   const byGid = new Map();
   for (const ev of data?.events || []) {
@@ -122,7 +129,12 @@ function parseEventImages(data) {
     const urls = [...new Set(files)].map((f) =>
       /^https?:/i.test(f) ? f : `${CLAN_IMG}/${clan}/${f}`,
     );
-    if (urls.length) for (const gid of gids) byGid.set(gid, urls);
+    if (!urls.length) continue;
+    for (const gid of gids) byGid.set(gid, urls);
+    // Ids can live in different spaces between the news and events APIs,
+    // so also index by normalized headline.
+    const title = normalizeTitle(body.headline || ev.event_name);
+    if (title) byGid.set(`title:${title}`, urls);
   }
   return byGid;
 }
@@ -138,6 +150,12 @@ async function fetchEventImages() {
     const data = await resp.json();
     const map = parseEventImages(data);
     if (!map.size) console.log(`  events sample: ${JSON.stringify(data).slice(0, 600)}`);
+    for (const ev of data?.events || []) {
+      const b = ev.announcement_body || {};
+      console.log(
+        `  event: "${b.headline || ev.event_name}" posttime=${b.posttime} gid=${b.gid}`,
+      );
+    }
     console.log(
       `  events API: ${data?.events?.length ?? 0} events, ${map.size} with images`,
     );
@@ -275,7 +293,9 @@ async function main() {
   const images = await Promise.all(
     items.map((item) =>
       pickImage([
-        ...(eventImages.get(String(item.gid)) || []),
+        ...(eventImages.get(String(item.gid)) ||
+          eventImages.get(`title:${normalizeTitle(item.title)}`) ||
+          []),
         ...extractImages(item.contents || ""),
       ]),
     ),
@@ -318,5 +338,5 @@ async function main() {
 if (require.main === module) {
   main();
 } else {
-  module.exports = { parseEventImages, extractImages, extractExcerpt, resolveImageUrl };
+  module.exports = { normalizeTitle, parseEventImages, extractImages, extractExcerpt, resolveImageUrl };
 }
