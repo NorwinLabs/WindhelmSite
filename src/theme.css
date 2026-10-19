@@ -1,0 +1,335 @@
+/*
+ * Design refresh layer. Loaded after styles.css (see scripts/build.js, which
+ * concatenates both into styles.min.css). styles.css holds layout and
+ * component structure; this file owns the look: palette, type, surfaces,
+ * buttons. Change tokens here first; override a component only if a token
+ * can't express it.
+ */
+
+:root {
+  /* Surfaces: calm ink, one hairline border, soft shadow */
+  --ink-900: #0b1020;
+  --ink-800: #111833;
+  --surface: rgba(15, 21, 42, 0.72);
+  --surface-raised: rgba(22, 30, 58, 0.78);
+  --hairline: rgba(255, 255, 255, 0.09);
+  --hairline-strong: rgba(255, 255, 255, 0.18);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 12px 32px -12px rgba(2, 6, 23, 0.7);
+  --shadow-lift: 0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 20px 40px -14px rgba(2, 6, 23, 0.8);
+
+  /* Text */
+  --text-strong: #f4f6ff;
+  --text-body: #c3cae3;
+  --text-muted: #8f98ba;
+
+  /* Accents: indigo for actions, brand gold for emphasis */
+  --accent: #7c8cff;
+  --accent-strong: #5b6cff;
+  --gold: #f5b942;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* Re-point the legacy tokens used throughout styles.css */
+  --primary-color: var(--accent-strong);
+  --primary-dark: #4a59e6;
+  --glass-blur: 14px;
+  --glass-shadow: var(--shadow-card);
+}
+
+body {
+  letter-spacing: -0.003em;
+  color: var(--text-body);
+}
+
+/* Focus: one clear ring, only for keyboard users */
+a:focus,
+button:focus,
+.cta-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+.cta-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+/* ---------- Header ---------- */
+.glass-theme .header {
+  background: rgba(11, 16, 32, 0.72);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border-bottom: 1px solid var(--hairline);
+  box-shadow: none;
+}
+.nav-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-body);
+  transition: color 0.2s var(--ease);
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-strong);
+}
+.glass-theme .social-link:hover {
+  color: var(--text-strong);
+  background-color: rgba(124, 140, 255, 0.18);
+}
+
+/* ---------- Hero ---------- */
+.hero-description {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  text-shadow: 0 1px 12px rgba(2, 6, 23, 0.55);
+}
+.hero-subheader #hero-subheader-text {
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Buttons ---------- */
+.cta-button {
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  transition:
+    transform 0.2s var(--ease),
+    background 0.2s var(--ease),
+    box-shadow 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+}
+.cta-button.primary {
+  background: linear-gradient(180deg, #6f7fff, var(--accent-strong));
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.25) inset,
+    0 10px 24px -8px rgba(91, 108, 255, 0.7);
+}
+.cta-button.primary:hover {
+  background: linear-gradient(180deg, #8391ff, #6272ff);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.3) inset,
+    0 14px 30px -8px rgba(91, 108, 255, 0.8);
+}
+.cta-button.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--hairline-strong);
+  backdrop-filter: blur(8px);
+}
+.cta-button.secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--text-strong);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* ---------- Section headings ---------- */
+.section-header {
+  margin-bottom: 3.5rem;
+}
+.section-title,
+.blog-header h2 {
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--text-strong);
+  text-shadow: none;
+  margin-bottom: 1rem;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 3px;
+  margin: 1rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), #ff8a5b);
+}
+.section-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  font-weight: 400;
+  color: var(--text-body);
+  text-shadow: none;
+}
+
+/* ---------- Cards / surfaces ---------- */
+.glass-theme .feature-card-modern,
+.glass-theme .feature-card,
+.glass-theme .feature-card-overlay,
+.glass-theme .contact-card,
+.glass-theme .contact-form-container,
+.glass-theme .team-member,
+.requirements-card,
+.faq-item,
+.glass-theme .updates-container {
+  background: var(--surface);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+.feature-card-modern,
+.contact-card,
+.team-member,
+.requirements-card {
+  transition:
+    transform 0.25s var(--ease),
+    border-color 0.25s var(--ease),
+    box-shadow 0.25s var(--ease);
+}
+.feature-card-modern:hover,
+.contact-card:hover,
+.team-member:hover,
+.requirements-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--hairline-strong);
+  box-shadow: var(--shadow-lift);
+}
+.feature-card-modern p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+.feature-card-modern h3 {
+  color: var(--text-strong);
+  letter-spacing: -0.01em;
+}
+.feature-card-modern p,
+.contact-card-text {
+  color: var(--text-body);
+}
+.feature-icon {
+  border-radius: 12px;
+  background: rgba(124, 140, 255, 0.12);
+  border: 1px solid rgba(124, 140, 255, 0.25);
+}
+.feature-visual,
+.feature-visual img,
+.feature-visual video {
+  border-radius: var(--radius-md);
+}
+.requirements-card.optimal {
+  border-color: rgba(245, 185, 66, 0.45);
+}
+
+/* ---------- Blog ---------- */
+.blog-header {
+  text-align: center;
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 2.5rem;
+}
+.blog-header h2::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 3px;
+  margin: 1rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), #ff8a5b);
+}
+.blog-header h2 {
+  color: var(--text-strong);
+}
+.blog-list {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 0.5rem 1.75rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.blog-post {
+  border-bottom: 1px solid var(--hairline);
+}
+.blog-thumb,
+.blog-thumb-placeholder {
+  border-radius: var(--radius-md);
+  background: var(--ink-800);
+}
+.blog-title {
+  color: var(--text-strong);
+  font-size: 1.2rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  transition: color 0.2s var(--ease);
+}
+.blog-title:hover {
+  color: var(--accent);
+}
+.blog-excerpt {
+  color: var(--text-body);
+}
+.blog-meta {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- Team ---------- */
+.team-member,
+.team-member h3,
+.team-member p,
+.team-member * {
+  text-shadow: none;
+}
+.team-member {
+  background: var(--surface) !important; /* styles.css forces transparent */
+  backdrop-filter: blur(14px);
+}
+
+/* ---------- FAQ ---------- */
+.faq-item {
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+.faq-item[open] {
+  border-color: var(--hairline-strong);
+}
+.faq-item summary {
+  color: var(--text-strong);
+  font-weight: 600;
+}
+.faq-answer {
+  color: var(--text-body);
+}
+
+/* ---------- Footer & floating actions ---------- */
+.glass-theme .footer {
+  background: rgba(11, 16, 32, 0.78);
+  border-top: 1px solid var(--hairline);
+}
+
+/* ---------- Motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .feature-card-modern,
+  .contact-card,
+  .team-member,
+  .requirements-card,
+  .cta-button {
+    transition: none;
+  }
+  .feature-card-modern:hover,
+  .contact-card:hover,
+  .team-member:hover,
+  .requirements-card:hover,
+  .cta-button:hover {
+    transform: none;
+  }
+}

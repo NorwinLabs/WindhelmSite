@@ -320,3 +320,17 @@ body {
     width: 110px;
   }
 }
+
+/* Design refresh: sentence-case headings, readable links */
+.pk-hero h1,
+.pk-section-title {
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+.pk-section a:not([class]) {
+  color: #9aa8ff;
+  text-underline-offset: 3px;
+}
+.pk-section a:not([class]):hover {
+  color: #c4ccff;
+}

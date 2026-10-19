@@ -30,7 +30,8 @@ const ROOT = path.join(__dirname, "..");
 //   src/js/<page>.js   -> <page>.min.js
 const ASSETS = [
   { src: "src/script.js", out: "script.min.js", loader: "js" },
-  { src: "src/styles.css", out: "styles.min.css", loader: "css" },
+  // styles.css (structure) then theme.css (look) are one bundle.
+  { src: ["src/styles.css", "src/theme.css"], out: "styles.min.css", loader: "css" },
   { src: "src/consent.js", out: "consent.min.js", loader: "js" },
 ];
 for (const [dir, ext, loader] of [
@@ -58,7 +59,10 @@ const REFERENCES = fs
 const versions = {};
 
 for (const asset of ASSETS) {
-  const source = fs.readFileSync(path.join(ROOT, asset.src), "utf8");
+  const sources = [].concat(asset.src);
+  const source = sources
+    .map((s) => fs.readFileSync(path.join(ROOT, s), "utf8"))
+    .join("\n");
   const { code } = esbuild.transformSync(source, {
     loader: asset.loader,
     minify: true,
@@ -72,7 +76,7 @@ for (const asset of ASSETS) {
     .digest("hex")
     .slice(0, 8);
   console.log(
-    `${asset.src}: ${source.length} -> ${code.length} bytes (v=${versions[asset.out]})`,
+    `${sources.join(" + ")}: ${source.length} -> ${code.length} bytes (v=${versions[asset.out]})`,
   );
 }
 
