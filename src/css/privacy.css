@@ -12,13 +12,13 @@
 }
 body {
   font-family: var(--font-primary);
-  background: #0c1020;
-  color: #e2e8f0;
+  background: #0b1020;
+  color: #c3cae3;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 a {
-  color: #93c5fd;
+  color: #9aa8ff;
 }
 .nav {
   position: sticky;
@@ -55,8 +55,9 @@ main {
   padding: 3rem 1.5rem 4rem;
 }
 h1 {
-  font-size: 2.2rem;
-  color: #f59e0b;
+  font-size: 2.4rem;
+  color: #f4f6ff;
+  letter-spacing: -0.02em;
   margin-bottom: 0.4rem;
 }
 .updated {

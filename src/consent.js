@@ -72,14 +72,14 @@
     s.id = "wh-consent-style";
     s.textContent =
       ".wh-consent{position:fixed;left:1rem;bottom:1rem;z-index:2147483000;max-width:26rem;" +
-      "background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.35);border-radius:10px;" +
+      "background:#0f152a;color:#c3cae3;border:1px solid rgba(255,255,255,.12);border-radius:14px;" +
       "padding:1rem 1.1rem;box-shadow:0 10px 40px rgba(0,0,0,.5);font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}" +
-      ".wh-consent p{margin:0 0 .8rem}.wh-consent a{color:#7dd3fc;text-decoration:underline}" +
+      ".wh-consent p{margin:0 0 .8rem;font:inherit;color:inherit;max-width:none}.wh-consent a{color:#9aa8ff;text-decoration:underline}" +
       ".wh-consent-actions{display:flex;gap:.6rem;flex-wrap:wrap}" +
-      ".wh-consent button{font:inherit;font-weight:600;border-radius:6px;padding:.5rem 1rem;cursor:pointer;" +
-      "border:1px solid #38bdf8;background:#38bdf8;color:#04121f}" +
-      ".wh-consent button.wh-secondary{background:transparent;color:#e2e8f0;border-color:rgba(148,163,184,.6)}" +
-      ".wh-consent button:focus-visible{outline:3px solid #fbbf24;outline-offset:2px}" +
+      ".wh-consent button{font:inherit;font-weight:600;border-radius:10px;padding:.5rem 1rem;cursor:pointer;" +
+      "border:1px solid #6f7fff;background:#6f7fff;color:#fff}" +
+      ".wh-consent button.wh-secondary{background:transparent;color:#c3cae3;border-color:rgba(255,255,255,.25)}" +
+      ".wh-consent button:focus-visible{outline:2px solid #9aa8ff;outline-offset:2px}" +
       "@media(max-width:520px){.wh-consent{left:.5rem;right:.5rem;bottom:.5rem;max-width:none}}";
     document.head.appendChild(s);
   }
