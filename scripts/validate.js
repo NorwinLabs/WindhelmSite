@@ -21,7 +21,10 @@ const errors = [];
 
 for (const page of pages) {
   const html = fs.readFileSync(path.join(ROOT, page), "utf8");
-  const noindex = /<meta[^>]+name="robots"[^>]+noindex/i.test(html);
+  // Redirect stubs (meta refresh) are noindex and stay out of the sitemap.
+  const noindex =
+    /<meta[^>]+name="robots"[^>]+noindex/i.test(html) ||
+    /<meta[^>]+http-equiv="refresh"/i.test(html);
   const fail = (msg) => errors.push(`${page}: ${msg}`);
 
   if (!/<title>[^<]+<\/title>/.test(html)) fail("missing <title>");
