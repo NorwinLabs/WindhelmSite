@@ -154,7 +154,7 @@ body {
 }
 
 .fact-table td:first-child {
-  color: #64748b;
+  color: #94a3b8;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 0.78rem;
@@ -206,7 +206,7 @@ body {
 }
 
 .pk-card p {
-  color: #64748b;
+  color: #94a3b8;
   font-size: 0.9rem;
   line-height: 1.6;
   margin-bottom: 1.25rem;
@@ -269,7 +269,7 @@ body {
 }
 
 .pk-contact p {
-  color: #64748b;
+  color: #94a3b8;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
 }
@@ -298,18 +298,18 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding: 2rem;
   text-align: center;
-  color: #334155;
+  color: #94a3b8;
   font-size: 0.82rem;
 }
 
 .pk-footer a {
-  color: #475569;
+  color: #b3bed0;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .pk-footer a:hover {
-  color: #94a3b8;
+  color: #fff;
 }
 
 @media (max-width: 640px) {
@@ -327,10 +327,33 @@ body {
   text-transform: none;
   letter-spacing: -0.02em;
 }
-.pk-section a:not([class]) {
+.pk-section a:not([class]):not([rel~="noreferrer"]) {
   color: #9aa8ff;
   text-underline-offset: 3px;
 }
-.pk-section a:not([class]):hover {
+.pk-section a:not([class]):not([rel~="noreferrer"]):hover {
   color: #c4ccff;
+}
+
+/* Phones: stack the fact sheet so long values never force sideways scrolling */
+@media (max-width: 640px) {
+  .fact-table,
+  .fact-table tbody,
+  .fact-table tr,
+  .fact-table td {
+    display: block;
+    width: 100%;
+  }
+  .fact-table tr {
+    padding: 0.7rem 0;
+  }
+  .fact-table td:first-child {
+    width: 100%;
+    padding-bottom: 0.15rem;
+  }
+  .fact-table td {
+    padding-left: 0;
+    padding-right: 0;
+    overflow-wrap: anywhere;
+  }
 }

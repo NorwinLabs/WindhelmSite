@@ -869,7 +869,7 @@
 
     <!-- Full stylesheet is render-blocking on purpose: loading it async made the
          unstyled page jump when it arrived (CLS ~1.6). -->
-    <link rel="stylesheet" href="styles.min.css?v=60d12953" />
+    <link rel="stylesheet" href="styles.min.css?v=dbd3a66a" />
 
     <!-- Click tracking (sent to Microsoft Clarity as custom events) -->
     <script>
@@ -902,113 +902,9 @@
 
       <link rel="manifest" href="manifest.webmanifest" />
     <link rel="apple-touch-icon" href="media/apple-touch-icon.png" />
-    <script src="consent.min.js?v=fd7aa7a7" defer></script>
+    <script src="consent.min.js?v=23e4bc5b" defer></script>
   </head>
   <body class="glass-theme">
-    <!-- Loading Preloader -->
-    <div
-      id="page-loader"
-      style="
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #1e1b4b, #312e81);
-        z-index: 10000;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: opacity 0.5s ease;
-      "
-    >
-      <img
-        src="media/Logo.webp"
-        alt="Windhelm"
-        style="
-          width: 200px;
-          height: auto;
-          margin-bottom: 2rem;
-          animation: pulse 2s ease-in-out infinite;
-        "
-      />
-      <div
-        style="
-          width: 200px;
-          height: 4px;
-          background: rgba(255, 255, 255, 0.1);
-          border-radius: 2px;
-          overflow: hidden;
-        "
-      >
-        <div
-          style="
-            height: 100%;
-            background: linear-gradient(90deg, #8b5cf6, #ec4899);
-            animation: loading 1.5s ease-in-out infinite;
-          "
-        ></div>
-      </div>
-      <p
-        style="
-          color: rgba(255, 255, 255, 0.7);
-          margin-top: 1rem;
-          font-size: 0.9rem;
-        "
-      >
-        Loading your adventure...
-      </p>
-    </div>
-    <script>
-      // Hide loader immediately when page is ready
-      window.addEventListener("DOMContentLoaded", function () {
-        const loader = document.getElementById("page-loader");
-        const heroVideo = document.getElementById("hero-video");
-
-        if (loader) {
-          // Wait a moment for content to render
-          setTimeout(function () {
-            loader.style.opacity = "0";
-            setTimeout(function () {
-              loader.style.display = "none";
-              // Try to play video once loader is hidden
-              if (heroVideo && heroVideo.src) {
-                heroVideo.play().catch(function () {});
-              }
-            }, 500);
-          }, 800);
-        }
-      });
-    </script>
-    <style>
-      @keyframes loading {
-        0% {
-          width: 0;
-          transform: translateX(0);
-        }
-        50% {
-          width: 100%;
-          transform: translateX(0);
-        }
-        100% {
-          width: 100%;
-          transform: translateX(200px);
-        }
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 0.8;
-          transform: scale(1.05);
-        }
-      }
-    </style>
-
     <!-- Skip to main content for keyboard users -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -1032,7 +928,7 @@
             <a href="#updates" class="nav-link">Updates</a>
             <a href="#faq" class="nav-link">FAQ</a>
             <a href="#contact" class="nav-link">Contact</a>
-            <a href="opensource.html" class="nav-link">Open Source</a>
+            <a href="https://norwinlabs.com/software.html#opensource" class="nav-link">Open Source</a>
             <a href="https://norwinlabs.com/portfolio.html" class="nav-link">Portfolio</a>
           </div>
           <div
@@ -1184,7 +1080,7 @@
               letter-spacing: 0.01em;
             "
           >
-            Join over 1,000 players who have already wishlisted Windhelm!
+            Join 1,600+ players who have already wishlisted Windhelm!
           </p>
 
           <!-- Platform Availability -->
@@ -1266,6 +1162,30 @@
       </section>
 
       <!-- Game Features Section -->
+      <!-- Gameplay video: gives first-time visitors a clear "watch it" action -->
+      <section id="gameplay" class="gameplay section-animate" aria-labelledby="gameplay-title">
+        <div class="container">
+          <header class="section-header">
+            <h2 id="gameplay-title" class="section-title">See Windhelm in action</h2>
+            <p class="section-subtitle">
+              A look at the procedurally generated world, straight from the game.
+            </p>
+          </header>
+          <div class="gameplay-frame">
+            <video
+              controls
+              playsinline
+              preload="none"
+              poster="media/BGVideo-poster.webp"
+              aria-label="Windhelm gameplay footage"
+            >
+              <source src="media/HeroVideoWorld.mp4" type="video/mp4" />
+              Your browser does not support embedded video.
+            </video>
+          </div>
+        </div>
+      </section>
+
       <section id="features" class="features section-animate">
         <div class="container">
           <header class="section-header">
@@ -2582,7 +2502,7 @@
               >Cookie settings</a
             >
             <a
-              href="opensource.html"
+              href="https://norwinlabs.com/software.html#opensource"
               style="
                 color: #94a3b8;
                 text-decoration: none;
@@ -2642,6 +2562,7 @@
       </svg>
     </button>
 
+    <aside aria-label="Wishlist shortcut">
     <!-- Sticky Wishlist Button -->
     <a
       id="sticky-wishlist"
@@ -2664,5 +2585,6 @@
       </svg>
       <span>Wishlist</span>
     </a>
+    </aside>
   </body>
 </html>

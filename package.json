@@ -6,7 +6,8 @@
     "build": "node scripts/build.js",
     "validate": "node scripts/validate.js",
     "check": "npm run build && npm run validate",
-    "test": "node --test scripts/update-blog.test.js"
+    "test": "node --test scripts/update-blog.test.js",
+    "links": "node scripts/check-links.js"
   },
   "devDependencies": {
     "esbuild": "0.24.2"

@@ -27,14 +27,6 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Open Source / Portfolio -->
-  <url>
-    <loc>https://windhelm.dev/opensource.html</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
   <!-- Privacy Policy -->
   <url>
     <loc>https://windhelm.dev/privacy.html</loc>

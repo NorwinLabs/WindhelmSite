@@ -36,7 +36,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add -A -- "*.min.js" "*.min.css" "*.html" sw.js
+          git add -A -- "*.min.js" "*.min.css" "*.html" sw.js version.json
           git commit -m "chore: rebuild minified assets [skip ci]" || echo "No changes to commit"
           git pull --rebase
           git push
