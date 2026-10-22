@@ -6,7 +6,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://windhelm.dev/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -25,14 +25,6 @@
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-
-  <!-- Open Source / Portfolio -->
-  <url>
-    <loc>https://windhelm.dev/opensource.html</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <!-- Privacy Policy -->

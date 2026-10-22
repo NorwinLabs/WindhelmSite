@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert");
-const { extractImages, parseEventImages, normalizeTitle } = require("./update-blog.js");
+const { extractImages, parseEventImages, normalizeTitle, summarizePost } = require("./update-blog.js");
 
 const CLAN = "https://clan.fastly.steamstatic.com/images";
 
@@ -68,4 +68,26 @@ test("events are also indexed by normalized headline", () => {
     ],
   });
   assert.deepStrictEqual(map.get("title:" + normalizeTitle("Q3-26 The Wilds Update")), [`${CLAN}/42/cap.jpg`]);
+});
+
+test("changelog bullets become a short teaser", () => {
+  const body =
+    "[p]Windhelm — Q3 Update Changelog[/p][h2]New Features[/h2][list]" +
+    "[*]Windhelm — Q3 Update Changelog[/*]" +
+    "[*]Fishing: Introduced new fishing mechanics to the game world.[/*]" +
+    "[*]Bow Mechanics: Completed initial bow mechanics.[/*]" +
+    "[*]Target Lock-On: Implemented a lock-on feature.[/*]" +
+    "[*]Quiver: Added arrows.[/*][/list]";
+  assert.strictEqual(
+    summarizePost(body, "Q3-26 The Wilds Update"),
+    "Includes Fishing, Bow Mechanics, Target Lock-On, and more.",
+  );
+});
+
+test("prose posts use opening sentences without repeating the title", () => {
+  const body =
+    "[p]Hot Fix Update (Q126HF3)[/p][p]I found and fixed a few bugs after the Spring update. Enemy AI can now navigate procedural terrain. More soon.[/p]";
+  const out = summarizePost(body, "Hot Fix Update (Q126HF3)");
+  assert.ok(out.startsWith("I found and fixed"), out);
+  assert.ok(!out.includes("[") && out.length <= 181, out);
 });

@@ -204,6 +204,70 @@ function extractExcerpt(contentStr) {
     : plainContent;
 }
 
+// Strip BBCode/HTML down to readable text.
+function plainText(s) {
+  return String(s)
+    .replace(/<img[^>]*>/gi, "")
+    .replace(/\[img[^\]]*\][\s\S]*?\[\/img\]/gi, "")
+    .replace(/\[url=[^\]]*\]([\s\S]*?)\[\/url\]/gi, "$1")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\[[^\]]*\]/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function trimToWord(text, max) {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max - 1);
+  return cut.slice(0, cut.lastIndexOf(" ") > 40 ? cut.lastIndexOf(" ") : cut.length).replace(/[\s,;:.-]+$/, "") + "…";
+}
+
+// A short, readable teaser. Changelogs are mostly bullet lists, so list
+// the lead phrase of the first few items ("Fishing, Bow Mechanics, …");
+// otherwise fall back to the opening sentences of the post.
+function summarizePost(contents, title) {
+  // Changelog entries look like "Fishing: Introduced ..."; a bullet without
+  // a short "Lead:" is usually a heading or title line, so skip those.
+  const items = [];
+  for (const m of String(contents).matchAll(
+    /\[\*\]([\s\S]*?)(?=\[\*\]|\[\/list\]|\[\/\*\])/gi,
+  )) {
+    const text = plainText(m[1]);
+    const colon = text.indexOf(":");
+    if (colon < 3 || colon > 40) continue;
+    const lead = text.slice(0, colon).replace(/[\s,;:.]+$/, "");
+    if (/[—–]/.test(lead) || /changelog|patch notes|update/i.test(lead)) continue;
+    items.push(lead);
+  }
+  const unique = [...new Set(items)];
+  if (unique.length >= 2) {
+    const shown = unique.slice(0, 3);
+    const more = unique.length > shown.length;
+    if (more) return `Includes ${shown.join(", ")}, and more.`;
+    const list =
+      shown.length === 2
+        ? shown.join(" and ")
+        : shown.slice(0, -1).join(", ") + ", and " + shown[shown.length - 1];
+    return `Includes ${list}.`;
+  }
+
+  let text = plainText(contents);
+  // Drop a leading repeat of the post title ("Windhelm — Q3 Update ...").
+  const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const words = text.split(" ");
+  for (let n = 1; n <= Math.min(words.length, 14); n++) {
+    const head = words.slice(0, n).join(" ");
+    if (norm(head).includes(norm(title)) && norm(title).length > 3) {
+      text = words.slice(n).join(" ");
+      break;
+    }
+  }
+  const sentences = text.match(/[^.!?]+[.!?]+(\s|$)/g) || [];
+  const first = sentences.slice(0, 2).join("").trim();
+  return trimToWord(first.length >= 40 ? first : text, 180);
+}
+
 function renderPost(item, imgUrl) {
   const contentStr = item.contents || "";
   const thumbHtml = imgUrl
@@ -224,7 +288,7 @@ function renderPost(item, imgUrl) {
               ${thumbHtml}
               <div class="blog-body">
                 <a class="blog-title" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a>
-                <p class="blog-excerpt">${escapeHtml(extractExcerpt(contentStr))}</p>
+                <p class="blog-excerpt">${escapeHtml(summarizePost(contentStr, item.title))}</p>
                 <div class="blog-meta">
                   <span>${formatDate(isoDate)}</span>
                   <span>${author}</span>
@@ -338,5 +402,5 @@ async function main() {
 if (require.main === module) {
   main();
 } else {
-  module.exports = { normalizeTitle, parseEventImages, extractImages, extractExcerpt, resolveImageUrl };
+  module.exports = { summarizePost, normalizeTitle, parseEventImages, extractImages, extractExcerpt, resolveImageUrl };
 }

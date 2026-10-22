@@ -2,12 +2,12 @@
 // HTML: network-first (so updates ship immediately)
 // Static same-origin assets: cache-first (they carry ?v= cache busters)
 
-const CACHE_NAME = "windhelm-4d23576b";
+const CACHE_NAME = "windhelm-ac87b9b7";
 
 // Core assets to cache on install
 const PRECACHE_ASSETS = [
   "/",
-  "/styles.min.css?v=60d12953",
+  "/styles.min.css?v=dbd3a66a",
   "/script.min.js?v=0d519209",
   "/media/Logo.webp",
   "/media/favicon.png",

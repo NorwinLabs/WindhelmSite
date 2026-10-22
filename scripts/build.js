@@ -111,3 +111,21 @@ if (swNext !== swText) {
   fs.writeFileSync(swPath, swNext);
   console.log(`Updated service worker cache name (windhelm-${buildId})`);
 }
+
+// Bump version.json once per real asset change, in CI only, so the version
+// shown in the footer moves with the build and rides in the same commit as
+// the rebuilt assets (no separate "auto-update version" commit per push).
+if (process.env.CI) {
+  const versionPath = path.join(ROOT, "version.json");
+  const info = JSON.parse(fs.readFileSync(versionPath, "utf8"));
+  if (info.assets !== buildId) {
+    const parts = info.version.split(".");
+    parts[2] = String(parseInt(parts[2], 10) + 1);
+    info.version = parts.join(".");
+    info.build += 1;
+    info.assets = buildId;
+    info.lastUpdated = new Date().toISOString();
+    fs.writeFileSync(versionPath, JSON.stringify(info, null, 2) + "\n");
+    console.log(`Version bumped to ${info.version} (build ${info.build})`);
+  }
+}
