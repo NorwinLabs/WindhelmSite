@@ -80,7 +80,7 @@ test("changelog bullets become a short teaser", () => {
     "[*]Quiver: Added arrows.[/*][/list]";
   assert.strictEqual(
     summarizePost(body, "Q3-26 The Wilds Update"),
-    "Includes Fishing, Bow Mechanics, and Target Lock-On, and more.",
+    "Includes Fishing, Bow Mechanics, Target Lock-On, and more.",
   );
 });
 

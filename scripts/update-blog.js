@@ -244,11 +244,12 @@ function summarizePost(contents, title) {
   if (unique.length >= 2) {
     const shown = unique.slice(0, 3);
     const more = unique.length > shown.length;
+    if (more) return `Includes ${shown.join(", ")}, and more.`;
     const list =
       shown.length === 2
         ? shown.join(" and ")
         : shown.slice(0, -1).join(", ") + ", and " + shown[shown.length - 1];
-    return more ? `Includes ${list}, and more.` : `Includes ${list}.`;
+    return `Includes ${list}.`;
   }
 
   let text = plainText(contents);
