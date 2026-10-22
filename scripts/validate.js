@@ -28,7 +28,8 @@ for (const page of pages) {
   const fail = (msg) => errors.push(`${page}: ${msg}`);
 
   if (!/<title>[^<]+<\/title>/.test(html)) fail("missing <title>");
-  if (!/rel="icon"/.test(html)) fail("missing favicon link");
+  const redirect = /<meta[^>]+http-equiv="refresh"/i.test(html);
+  if (!redirect && !/rel="icon"/.test(html)) fail("missing favicon link");
 
   const inSitemap = sitemap.includes(
     page === "index.html"

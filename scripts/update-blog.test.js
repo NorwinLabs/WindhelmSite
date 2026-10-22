@@ -73,13 +73,14 @@ test("events are also indexed by normalized headline", () => {
 test("changelog bullets become a short teaser", () => {
   const body =
     "[p]Windhelm — Q3 Update Changelog[/p][h2]New Features[/h2][list]" +
+    "[*]Windhelm — Q3 Update Changelog[/*]" +
     "[*]Fishing: Introduced new fishing mechanics to the game world.[/*]" +
     "[*]Bow Mechanics: Completed initial bow mechanics.[/*]" +
     "[*]Target Lock-On: Implemented a lock-on feature.[/*]" +
     "[*]Quiver: Added arrows.[/*][/list]";
   assert.strictEqual(
     summarizePost(body, "Q3-26 The Wilds Update"),
-    "Includes Fishing, Bow Mechanics, and Target Lock-On, plus 1 more.",
+    "Includes Fishing, Bow Mechanics, and Target Lock-On, and more.",
   );
 });
 

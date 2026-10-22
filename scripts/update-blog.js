@@ -227,30 +227,28 @@ function trimToWord(text, max) {
 // the lead phrase of the first few items ("Fishing, Bow Mechanics, …");
 // otherwise fall back to the opening sentences of the post.
 function summarizePost(contents, title) {
+  // Changelog entries look like "Fishing: Introduced ..."; a bullet without
+  // a short "Lead:" is usually a heading or title line, so skip those.
   const items = [];
   for (const m of String(contents).matchAll(
     /\[\*\]([\s\S]*?)(?=\[\*\]|\[\/list\]|\[\/\*\])/gi,
   )) {
     const text = plainText(m[1]);
-    if (!text) continue;
     const colon = text.indexOf(":");
-    const lead =
-      colon > 2 && colon <= 40
-        ? text.slice(0, colon)
-        : text.split(" ").slice(0, 5).join(" ");
-    items.push(lead.replace(/[\s,;:.]+$/, ""));
+    if (colon < 3 || colon > 40) continue;
+    const lead = text.slice(0, colon).replace(/[\s,;:.]+$/, "");
+    if (/[—–]/.test(lead) || /changelog|patch notes|update/i.test(lead)) continue;
+    items.push(lead);
   }
   const unique = [...new Set(items)];
   if (unique.length >= 2) {
     const shown = unique.slice(0, 3);
-    const more = unique.length - shown.length;
+    const more = unique.length > shown.length;
     const list =
-      shown.length === 1
-        ? shown[0]
-        : shown.length === 2
-          ? shown.join(" and ")
-          : shown.slice(0, -1).join(", ") + ", and " + shown[shown.length - 1];
-    return more > 0 ? `Includes ${list}, plus ${more} more.` : `Includes ${list}.`;
+      shown.length === 2
+        ? shown.join(" and ")
+        : shown.slice(0, -1).join(", ") + ", and " + shown[shown.length - 1];
+    return more ? `Includes ${list}, and more.` : `Includes ${list}.`;
   }
 
   let text = plainText(contents);
